@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import '../App.css';
+import '../devicons/devicon.min.css';
 
 const HomePage = () => {
   const tools = [
@@ -48,7 +49,7 @@ const HomePage = () => {
                 transition={{ type: 'spring', stiffness: 300 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
                 aria-label={`Herramienta: ${tool.name}`}
               >
                 <i className={tool.icon}></i>{tool.name}
@@ -56,6 +57,8 @@ const HomePage = () => {
             ))}
           </ul>
         </motion.section>
+
+
 
         <motion.section
           className="contact"
