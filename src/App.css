@@ -1,54 +1,25 @@
-.App {
-  text-align: center;
+:root {
+  --primary-color: #99e499;
+  --background-color: #1b1b1b;
+  --text-color: #fff;
+  --overlay-color: rgba(0, 0, 0, 0.6);
+  --font-family-base: 'Montserrat', sans-serif;
+  --font-family-headline: 'Raleway', arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
-
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
-  background-color: #1b1b1b;
+  font-family: var(--font-family-base);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden; 
 }
 
 .homepage {
@@ -57,8 +28,8 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
   position: relative;
+  transition: all 0.3s ease-in-out;
 }
 
 .background {
@@ -72,7 +43,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: var(--text-color);
   text-align: center;
   padding: 16px;
 }
@@ -83,18 +54,28 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--overlay-color);
   z-index: 0;
 }
 
 .headline {
-  font-family: 'Raleway', arial, sans-serif; 
-  font-weight: 800; 
-  font-size: 48px; 
-  color: #fff; 
-  text-align: center; 
+  font-family: var(--font-family-headline);
+  font-weight: 800;
+  font-size: 48px;
+  color: var(--text-color);
+  text-align: center;
   margin: 0;
   z-index: 1;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .tools {
@@ -105,7 +86,7 @@ body {
 .tools h2 {
   font-size: 28.8px;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-color);
   margin-bottom: 16px;
 }
 
@@ -126,7 +107,7 @@ body {
 
 .tools li i {
   font-size: 42px;
-  color: #99e499;
+  color: var(--primary-color);
   margin-right: 8px;
 }
 
@@ -137,23 +118,70 @@ body {
 
 .contact h3 {
   font-size: 24px;
-  color: #fff;
+  color: var(--text-color);
   margin-bottom: 16px;
 }
 
 .contact a {
-  color: #99e499;
+  color: var(--primary-color);
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
   margin: 8px;
   padding: 8px 16px;
-  border: 2px solid #99e499;
+  border: 2px solid var(--primary-color);
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .contact a:hover {
-  background-color: #99e499;
-  color: #1b1b1b;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: 36px;
+  }
+
+  .tools h2 {
+    font-size: 22px;
+  }
+
+  .tools li {
+    font-size: 16px;
+  }
+
+  .contact h3 {
+    font-size: 20px;
+  }
+
+  .contact a {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline {
+    font-size: 28px;
+  }
+
+  .tools h2 {
+    font-size: 18px;
+  }
+
+  .tools li {
+    font-size: 14px;
+  }
+
+  .contact h3 {
+    font-size: 18px;
+  }
+
+  .contact a {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
 }
