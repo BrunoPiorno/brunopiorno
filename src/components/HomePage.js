@@ -16,29 +16,27 @@ const HomePage = () => {
     { name: 'GitHub', icon: 'devicon-github-original' },
   ];
 
-  const animationConfig = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { duration: 1 },
-  };
-
   return (
     <div className="homepage">
       <div className="background">
         <div className="overlay"></div>
 
+        {/* Headline */}
         <motion.h1
           className="headline"
-          {...animationConfig}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0 }}
         >
           ¿Estás listo para llevar tu sitio web a otro nivel?
         </motion.h1>
 
+        {/* Tools Section */}
         <motion.section
           className="tools"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 1, delay: 0.3 }} 
         >
           <h2>Herramientas Utilizadas</h2>
           <ul>
@@ -58,13 +56,30 @@ const HomePage = () => {
           </ul>
         </motion.section>
 
+        {/* About Me Section */}
+        <motion.section
+          className="identity"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
+          <h3>Sobre mí</h3>
+          <p>
+            Soy Bruno Piorno Polucci, desarrollador web especializado en WordPress y WooCommerce.
+            Me apasiona transformar ideas en sitios web funcionales, atractivos y efectivos.
+          </p>
+          <p>
+            Mi misión es ayudarte a destacar en el mundo digital con soluciones a medida que
+            se adapten a tus necesidades y objetivos.
+          </p>
+        </motion.section>
 
-
+        {/* Contact Section */}
         <motion.section
           className="contact"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
+          transition={{ duration: 1, delay: 1.2 }} 
         >
           <h3>Contáctame</h3>
           <motion.a
@@ -74,7 +89,6 @@ const HomePage = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             aria-label="Contáctame por WhatsApp"
-            {...animationConfig}
           >
             WhatsApp
           </motion.a>
@@ -83,7 +97,6 @@ const HomePage = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             aria-label="Envía un email a Brunopiornop"
-            {...animationConfig}
           >
             Email
           </motion.a>

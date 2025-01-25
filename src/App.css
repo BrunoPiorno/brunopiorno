@@ -113,7 +113,6 @@ body {
 
 .contact {
   z-index: 2;
-  margin-top: 42px;
 }
 
 .contact h3 {
@@ -137,6 +136,25 @@ body {
 .contact a:hover {
   background-color: var(--primary-color);
   color: var(--background-color);
+}
+
+.identity {
+  text-align: center;
+  margin-top: 2rem;
+  color: #fff;
+  z-index: 2;
+}
+
+.identity h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  z-index: 2;
+}
+
+.identity p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
 }
 
 
