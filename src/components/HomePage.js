@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet'; // Importa Helmet
 import '../App.css';
 import '../devicons/devicon.min.css';
 
@@ -18,9 +19,33 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
+      <Helmet>
+        {/* SEO Meta Tags */}
+        <title>Bruno Piorno | Desarrollador Web especializado en WordPress y WooCommerce</title>
+        <meta name="description" content="Soy Bruno Piorno, desarrollador web experto en WordPress, WooCommerce y tecnologías como PHP, MySQL, y más. Contáctame para mejorar tu presencia digital." />
+        <meta name="keywords" content="desarrollador web, WordPress, WooCommerce, PHP, MySQL, HTML, SCSS, jQuery, GitHub, VS Code" />
+        <meta name="author" content="Bruno Piorno" />
+        <meta property="og:title" content="Bruno Piorno | Desarrollador Web especializado en WordPress y WooCommerce" />
+        <meta property="og:description" content="Transformo ideas en sitios web funcionales, atractivos y efectivos. Especializado en WordPress y WooCommerce." />
+        <meta property="og:image" content="/logo-white.svg" />
+        <meta property="og:url" content="https://brunopiorno.com.ar" />
+      </Helmet>
+
       <div className="background">
         <div className="overlay"></div>
 
+        <header className="header">
+          <motion.img
+            src="/logo-white.svg" 
+            alt="Logo"
+            className="logo"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          />
+        </header>
+
+        <div className="content-container" style={{ marginTop: '100px', zIndex: 2}}>
         {/* Headline */}
         <motion.h1
           className="headline"
@@ -101,6 +126,8 @@ const HomePage = () => {
             Email
           </motion.a>
         </motion.section>
+
+        </div>
       </div>
     </div>
   );
