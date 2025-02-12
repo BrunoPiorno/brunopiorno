@@ -113,20 +113,32 @@ const HomePage = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            aria-label="Contáctame por WhatsApp"
-          >
+            aria-label="Contáctame por WhatsApp" >
             WhatsApp
           </motion.a>
+          
           <motion.a
             href="mailto:brunopiornop@gmail.com"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            aria-label="Envía un email a Brunopiornop"
-          >
+            aria-label="Envía un email a Brunopiornop">
             Email
           </motion.a>
+
+          <motion.a
+            href="https://www.linkedin.com/in/bruno-piorno-polucci"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            aria-label="LinkedIn"
+            style={{ marginLeft: '10px' }}>
+            LinkedIn
+          </motion.a>
+
         </motion.section>
 
+        
         </div>
       </div>
     </div>
