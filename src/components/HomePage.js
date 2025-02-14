@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet'; // Importa Helmet
 import '../App.css';
-import LiveVisitorCount from './LiveVisitorCount';
 import '../devicons/devicon.min.css';
 
 const HomePage = () => {
