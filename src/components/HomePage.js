@@ -112,7 +112,7 @@ const HomePage = () => {
                 aria-label="Ver Últimos Proyectos"
                 className="view-projects-button" // Clase para aplicar estilos
             >
-                Ver Mis Últimos Proyectos
+                Últimos Proyectos
             </motion.button>
         </motion.section>
 
