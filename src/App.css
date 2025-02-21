@@ -47,7 +47,7 @@ header {
   position: relative; /* Cambiado de absolute a relative */
   text-align: center;
   width: 100%;
-  z-index: 5; /* Reducido z-index para evitar que tape otros elementos */
+  z-index: 2; 
 }
 
 /* Main navigation (fixed) */
@@ -438,6 +438,34 @@ nav.main-nav {
   margin: 0;
 }
 
+.latest-projects {
+  text-align: center;
+  margin: 20px 0 40px 
+}
+
+.latest-projects h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.view-projects-button {
+  background-color: #b2e0b2; 
+  color: #333;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.view-projects-button:hover {
+  background-color: #9ed99e;
+  transform: translateY(-2px);
+}
+
 
 @media (min-width: 768px) {
   .grid {
@@ -450,7 +478,7 @@ nav.main-nav {
     font-size: 36px;
   }
 
-  .tools h2 {
+  .tools h2, .identity h3 {
     font-size: 22px;
   }
 
@@ -473,17 +501,10 @@ nav.main-nav {
     font-size: 28px;
   }
 
-  .tools h2 {
-    font-size: 18px;
-  }
-
   .tools li {
     font-size: 14px;
   }
 
-  .contact h3 {
-    font-size: 18px;
-  }
 
   .contact a {
     font-size: 12px;

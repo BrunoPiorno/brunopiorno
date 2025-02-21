@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react'; 
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet'; // Importa Helmet
+import { Helmet } from 'react-helmet';
 import '../App.css';
 import '../devicons/devicon.min.css';
+import Modal from './Modal';
 
 const HomePage = () => {
+  const [isModalOpen, setModalOpen] = useState(false); 
   const tools = [
     { name: 'PHP', icon: 'devicon-php-plain' },
     { name: 'MySQL', icon: 'devicon-mysql-plain' },
@@ -45,7 +47,7 @@ const HomePage = () => {
           />
         </header>
 
-        <div className="content-container" style={{ marginTop: '100px', zIndex: 2}}>
+        <div className="content-container" style={{ marginTop: '30px', zIndex: 2}}>
         {/* Headline */}
         <motion.h1
           className="headline"
@@ -98,6 +100,25 @@ const HomePage = () => {
             se adapten a tus necesidades y objetivos.
           </p>
         </motion.section>
+
+        <motion.section className="latest-projects"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.2 }} >
+            <motion.button
+                onClick={() => setModalOpen(true)}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                aria-label="Ver Últimos Proyectos"
+                className="view-projects-button" // Clase para aplicar estilos
+            >
+                Ver Mis Últimos Proyectos
+            </motion.button>
+        </motion.section>
+
+
+        {/* Componente Modal */}
+        <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
 
         {/* Contact Section */}
         <motion.section
