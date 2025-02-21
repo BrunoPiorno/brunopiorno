@@ -48,7 +48,6 @@ header {
   text-align: center;
   width: 100%;
   z-index: 5; /* Reducido z-index para evitar que tape otros elementos */
-  margin-top: 100px; /* Para evitar que el header se solape con el logo */
 }
 
 /* Main navigation (fixed) */
