@@ -32,7 +32,7 @@ const Modal = ({ isOpen, onClose }) => {
                         <img src={tenisDeMesaImageRank} alt="Tenis de Mesa Trenque" />
                         <h3>Ranking Tenis de Mesa Trenque</h3>
                         <p>Sistema de Ranking PHP,MYSQL.</p>
-                        <a className="btn" href="https://https://trenquetdmranking.com.ar" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
+                        <a className="btn" href="https://trenquetdmranking.com.ar" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
                     </div>
                 </div>
             </div>
