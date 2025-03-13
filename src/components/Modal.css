@@ -41,21 +41,23 @@
 }
 
 .modal-body {
-    display: flex; /* Mantener en fila */
-    flex-direction: row; /* Mantener en fila */
-    gap: 20px; /* Espacio entre los proyectos */
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en varias líneas */
+    justify-content: center; /* Centrar los elementos */
+    gap: 20px;
     margin: 15px 0;
-}
-@media (max-width: 768px) {
-    .modal-body {
-        flex-direction: column;
-    }
 }
 .proyecto {
     display: flex; /* Usar flexbox para alinear contenido dentro de cada proyecto */
     flex-direction: column; /* Apilar imagen, título y descripción */
     align-items: center; /* Centrar elementos horizontalmente */
-    flex: 1; /* Permitir que los proyectos ocupen espacio igual */
+    flex: 1 1 calc(50% - 20px);
+}
+
+.proyecto:nth-child(3) {
+    flex-basis: 100%; /* Ocupa el ancho completo */
+    display: flex;
+    justify-content: center;
 }
 
 .proyecto img {
@@ -64,6 +66,9 @@
     border-radius: 4px;
 }
 
+.proyecto:nth-child(3) img {
+    width: 50%;
+}
 .proyecto h3 {
     margin-top: 10px;
     font-size: 1.1em;
@@ -112,4 +117,32 @@
 
 .modal-body > * {
     flex: 1; /* Permitir que los proyectos ocupen espacio igual */
+}
+
+@media (max-width: 768px) {
+
+    .modal {
+        align-items: flex-start; /* Centrar más hacia arriba */
+        height: auto; /* Que no ocupe toda la pantalla */
+        min-height: 100vh; /* Mantener altura mínima */
+        padding: 40px 20px; /* Margen interno */
+    }
+
+    .modal-content {
+        max-width: 90%; /* Limitar el ancho del modal */
+        max-height: 80vh; /* Que no ocupe toda la altura */
+        overflow-y: auto; /* Scroll interno si es necesario */
+        border-radius: 10px; /* Bordes redondeados */
+    }
+    .modal-body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .proyecto {
+        flex-basis: 100%;
+    }
+    .proyecto:nth-child(3) img {
+        width: 100%;
+    }
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import './Modal.css'; // Asegúrate de crear un archivo CSS para estilos del modal
 import tenisDeMesaImage from '../images/tenisdemesatrenque.com.ar_.png';
 import grupoTerraImage from '../images/grupoterralauquen.com.ar_.png';
+import tenisDeMesaImageRank from '../images/tenisDeMesaImageRank.png';
+
 
 const Modal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
@@ -25,6 +27,12 @@ const Modal = ({ isOpen, onClose }) => {
                         <h3>Grupo Terra Lauquen</h3>
                         <p>Desarrollado en WordPress.</p>
                         <a className="btn" href="https://grupoterralauquen.com.ar/" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
+                    </div>
+                    <div className="proyecto">
+                        <img src={tenisDeMesaImageRank} alt="Tenis de Mesa Trenque" />
+                        <h3>Ranking Tenis de Mesa Trenque</h3>
+                        <p>Sistema de Ranking PHP,MYSQL.</p>
+                        <a className="btn" href="https://https://trenquetdmranking.com.ar" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
                     </div>
                 </div>
             </div>

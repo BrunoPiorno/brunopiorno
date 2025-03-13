@@ -110,7 +110,7 @@ const HomePage = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 aria-label="Ver Últimos Proyectos"
-                className="view-projects-button" // Clase para aplicar estilos
+                className="view-projects-button" 
             >
                 Últimos Proyectos
             </motion.button>
