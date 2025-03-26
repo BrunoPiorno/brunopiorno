@@ -37,7 +37,7 @@ const Modal = ({ isOpen, onClose }) => {
                     </div>
                     <div className="proyecto">
                         <img src={megaMayoristaImage} alt="MegaMayorista" />
-                        <h3>MegaMayorista</h3>
+                        <h3>MegaMayorista </h3>
                         <p>Tienda en WooCommerce desarrollada con Elementor.</p>
                         <a className="btn" href="https://megamayorista.com" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
                     </div>
