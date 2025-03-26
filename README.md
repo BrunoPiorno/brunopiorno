@@ -16,10 +16,6 @@ Soy desarrollador web y experto en **WordPress** y **JavaScript**. Trabajo con t
 - [Mi página web](https://www.brunopiorno.com.ar)
 - [LinkedIn](https://www.linkedin.com/in/brunopiorno)
 
-## 📈 Estadísticas
-
-![Bruno's GitHub Stats](https://github-readme-stats.vercel.app/api?username=BrunoPiorno&show_icons=true&hide_title=true&count_private=true&theme=radical)
-
 ---
 
 ¡Gracias por visitar mi perfil! 😄
