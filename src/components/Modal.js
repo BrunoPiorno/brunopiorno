@@ -4,43 +4,62 @@ import tenisDeMesaImage from '../images/tenisdemesatrenque.com.ar_.png';
 import grupoTerraImage from '../images/grupoterralauquen.com.ar_.png';
 import tenisDeMesaImageRank from '../images/tenisDeMesaImageRank.png';
 import megaMayoristaImage from '../images/megamayorista.png';
+import mimikidsImage from '../images/mimikids.png';
 
+const proyectos = [
+    {
+        img: tenisDeMesaImage,
+        title: "Tenis de Mesa Trenque",
+        desc: "Desarrollado en React.",
+        link: "https://tenisdemesatrenque.com.ar/"
+    },
+    {
+        img: grupoTerraImage,
+        title: "Grupo Terra Lauquen",
+        desc: "Desarrollado en WordPress.",
+        link: "https://grupoterralauquen.com.ar/"
+    },
+    {
+        img: tenisDeMesaImageRank,
+        title: "Ranking TDM Trenque",
+        desc: "Sistema de Ranking PHP, MySQL.",
+        link: "https://trenquetdmranking.com.ar"
+    },
+    {
+        img: megaMayoristaImage,
+        title: "MegaMayorista",
+        desc: "Tienda en WooCommerce desarrollada con Elementor.",
+        link: "https://megamayorista.com"
+    },
+    {
+        img: mimikidsImage,
+        title: "MimiKids",
+        desc: "Tienda WooCommerce.",
+        link: "https://mimikids.com.ar"
+    }
+];
 
 const Modal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="modal">
+        <div className="modal" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-header">
                     <h2>Últimos Proyectos</h2>
                     <span className="close" onClick={onClose}>&times;</span>
                 </div>
                 <div className="modal-body">
-                    <div className="proyecto">
-                        <img src={tenisDeMesaImage} alt="Tenis de Mesa Trenque" />
-                        <h3>Tenis de Mesa Trenque</h3>
-                        <p>Desarrollado en React.</p>
-                        <a className="btn" href="https://tenisdemesatrenque.com.ar/" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
-                    </div>
-                    <div className="proyecto">
-                        <img src={grupoTerraImage} alt="Grupo Terra Lauquen" />
-                        <h3>Grupo Terra Lauquen</h3>
-                        <p>Desarrollado en WordPress.</p>
-                        <a className="btn" href="https://grupoterralauquen.com.ar/" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
-                    </div>
-                    <div className="proyecto">
-                        <img src={tenisDeMesaImageRank} alt="Tenis de Mesa Trenque" />
-                        <h3>Ranking Tenis de Mesa Trenque</h3>
-                        <p>Sistema de Ranking PHP,MYSQL.</p>
-                        <a className="btn" href="https://trenquetdmranking.com.ar" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
-                    </div>
-                    <div className="proyecto">
-                        <img src={megaMayoristaImage} alt="MegaMayorista" />
-                        <h3>MegaMayorista </h3>
-                        <p>Tienda en WooCommerce desarrollada con Elementor.</p>
-                        <a className="btn" href="https://megamayorista.com" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
-                    </div>
+                    {proyectos.map((proyecto, index) => (
+                        <div className="proyecto" key={index}>
+                            <img src={proyecto.img} alt={proyecto.title} loading="lazy" />
+                            <h3>{proyecto.title}</h3>
+                            <p>{proyecto.desc}</p>
+                            <a className="btn" href={proyecto.link} target="_blank" rel="noopener noreferrer">
+                                Ver Proyecto
+                            </a>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
