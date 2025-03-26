@@ -1,8 +1,9 @@
 import React from 'react';
-import './Modal.css'; // Asegúrate de crear un archivo CSS para estilos del modal
+import './Modal.css'; 
 import tenisDeMesaImage from '../images/tenisdemesatrenque.com.ar_.png';
 import grupoTerraImage from '../images/grupoterralauquen.com.ar_.png';
 import tenisDeMesaImageRank from '../images/tenisDeMesaImageRank.png';
+import megaMayoristaImage from '../images/megamayorista.png';
 
 
 const Modal = ({ isOpen, onClose }) => {
@@ -33,6 +34,12 @@ const Modal = ({ isOpen, onClose }) => {
                         <h3>Ranking Tenis de Mesa Trenque</h3>
                         <p>Sistema de Ranking PHP,MYSQL.</p>
                         <a className="btn" href="https://trenquetdmranking.com.ar" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
+                    </div>
+                    <div className="proyecto">
+                        <img src={megaMayoristaImage} alt="MegaMayorista" />
+                        <h3>MegaMayorista</h3>
+                        <p>Tienda en WooCommerce desarrollada con Elementor.</p>
+                        <a className="btn" href="https://megamayorista.com" target="_blank" rel="noopener noreferrer">Ver Proyecto</a>
                     </div>
                 </div>
             </div>
