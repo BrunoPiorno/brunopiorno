@@ -5,6 +5,7 @@ import grupoTerraImage from '../images/grupoterralauquen.com.ar_.png';
 import tenisDeMesaImageRank from '../images/tenisDeMesaImageRank.png';
 import megaMayoristaImage from '../images/megamayorista.png';
 import mimikidsImage from '../images/mimikids.png';
+import chichicImage from '../images/chichicImage.png';
 
 const proyectos = [
     {
@@ -36,6 +37,12 @@ const proyectos = [
         title: "MimiKids",
         desc: "Tienda WooCommerce.",
         link: "https://mimikids.com.ar"
+    },
+    {
+        img: chichicImage,
+        title: "Chichic",
+        desc: "Sitio Informativo Wordpress.",
+        link: "https://chichicwinerelax.com"
     }
 ];
 
