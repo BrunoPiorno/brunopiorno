@@ -1,28 +1,181 @@
 import React, { useState } from 'react'; 
-import { motion } from 'framer-motion';
+import { motion, useInView, animate, useMotionValue } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+
+const AnimatedCounter = ({ value, suffix = '' }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const count = useMotionValue(0);
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(count, value, {
+        duration: 2,
+        onUpdate: (latest) => {
+          if (ref.current) {
+            ref.current.textContent = Math.round(latest) + suffix;
+          }
+        }
+      });
+
+      return controls.stop;
+    }
+  }, [isInView, value, suffix]);
+
+  return <motion.h3 ref={ref}>{0 + suffix}</motion.h3>;
+};
 import { Helmet } from 'react-helmet';
 import '../App.css';
 import '../devicons/devicon.min.css';
 import Modal from './Modal';
+// Import images
+import entradafanLogo from '../images/entradafan.svg';
+import clarikaLogo from '../images/clarika-logo.svg'; 
 
 const HomePage = () => {
-  const [isModalOpen, setModalOpen] = useState(false); 
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const clients = [
+    {
+      name: 'EntradaFan',
+      logo: entradafanLogo,
+      url: 'https://www.entradafan.com.ar'
+    },
+    {
+      name: 'Paramedic',
+      logo: require('../images/paramedic.jpg'),
+      url: 'https://www.paramedic.com.ar'
+    },
+    {
+      name: 'Brillonor',
+      logo: require('../images/brillonor.png'),
+      url: 'https://brillonor.com.ar'
+    },
+    {
+      name: 'ConsultoraOn',
+      logo: require('../images/consultoraon.png'),
+      url: 'https://consultoraon.net'
+    },
+    {
+      name: 'Reino Ceramicos',
+      logo: require('../images/reinoceramicos.png'),
+      url: 'https://reinoceramicos.com'
+    },
+    {
+      name: 'Clarika',
+      logo: clarikaLogo,
+      url: 'https://clarika.com.ar'
+    },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const offset = 80; // Altura del header
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const services = [
+    {
+      title: 'Desarrollo WordPress',
+      description: 'Sitios web profesionales y personalizados con el CMS más popular del mundo',
+      icon: 'devicon-wordpress-plain'
+    },
+    {
+      title: 'E-commerce',
+      description: 'Tiendas online potentes y escalables con WooCommerce',
+      icon: 'devicon-woocommerce-plain'
+    },
+    {
+      title: 'Desarrollo Web',
+      description: 'Soluciones web a medida con las últimas tecnologías',
+      icon: 'devicon-html5-plain'
+    }
+  ];
+
   const tools = [
-    { name: 'PHP', icon: 'devicon-php-plain' },
-    { name: 'MySQL', icon: 'devicon-mysql-plain' },
-    { name: 'HTML', icon: 'devicon-html5-plain' },
-    { name: 'SCSS', icon: 'devicon-sass-original' },
-    { name: 'jQuery', icon: 'devicon-jquery-plain' },
-    { name: 'WordPress', icon: 'devicon-wordpress-plain' },
-    { name: 'WooCommerce', icon: 'devicon-woocommerce-plain' },
-    { name: 'VS Code', icon: 'devicon-visualstudio-plain' },
-    { name: 'GitHub', icon: 'devicon-github-original' },
+      { name: 'PHP', icon: 'devicon-php-plain' },
+      { name: 'MySQL', icon: 'devicon-mysql-plain' },
+      { name: 'HTML', icon: 'devicon-html5-plain' },
+      { name: 'SCSS', icon: 'devicon-sass-original' },
+      { name: 'jQuery', icon: 'devicon-jquery-plain' },
+      { name: 'WordPress', icon: 'devicon-wordpress-plain' },
+      { name: 'WooCommerce', icon: 'devicon-woocommerce-plain' },
+      { name: 'VS Code', icon: 'devicon-visualstudio-plain' },
+      { name: 'GitHub', icon: 'devicon-github-original' },
+      { name: 'JavaScript', icon: 'devicon-javascript-plain' },
+      { name: 'React', icon: 'devicon-react-original' },
+      { name: 'Composer', icon: 'devicon-composer-line' },
+      { name: 'Git', icon: 'devicon-git-plain' },
+      { name: 'Figma', icon: 'devicon-figma-plain' },
+      { name: 'ACF', icon: 'devicon-wordpress-plain' }  
+  ];
+
+  const projects = [
+    {
+      title: 'Grupo Terra Lauquen',
+      description: 'Sitio web corporativo desarrollado con WordPress para empresa de servicios agrícolas.',
+      image: require('../images/grupoterralauquen.com.ar_.png'),
+      url: 'https://grupoterralauquen.com.ar'
+    },
+    {
+      title: 'Mega Mayorista',
+      description: 'E-commerce desarrollado con WooCommerce para venta mayorista de productos.',
+      image: require('../images/megamayorista.png'),
+      url: 'https://megamayorista.com.ar'
+    },
+    {
+      title: 'Mimi Kids',
+      description: 'Tienda online de ropa infantil implementada con WooCommerce y diseño personalizado.',
+      image: require('../images/mimikids.png'),
+      url: 'https://mimikids.com.ar'
+    },
+    {
+      title: 'Tenis de Mesa Trenque',
+      description: 'Portal deportivo con sistema de ranking y gestión de torneos desarrollado en WordPress.',
+      image: require('../images/tenisdemesatrenque.com.ar_.png'),
+      url: 'https://tenisdemesatrenque.com.ar'
+    },
+    {
+      title: 'Chichic',
+      description: 'Tienda online de productos personalizados con sistema de pedidos y catálogo digital.',
+      image: require('../images/chichicImage.png'),
+      url: 'https://chichic.com.ar'
+    },
+    {
+      title: 'Ranking Tenis de Mesa',
+      description: 'Sistema de ranking y estadísticas para torneos de tenis de mesa.',
+      image: require('../images/tenisDeMesaImageRank.png'),
+      url: 'https://ranking.tenisdemesatrenque.com.ar'
+    }
   ];
 
   return (
     <div className="homepage">
       <Helmet>
-        {/* SEO Meta Tags */}
         <title>Bruno Piorno | Desarrollador Web especializado en WordPress y WooCommerce</title>
         <meta name="description" content="Soy Bruno Piorno, desarrollador web experto en WordPress, WooCommerce y tecnologías como PHP, MySQL, y más. Contáctame para mejorar tu presencia digital." />
         <meta name="keywords" content="desarrollador web, WordPress, WooCommerce, PHP, MySQL, HTML, SCSS, jQuery, GitHub, VS Code" />
@@ -33,135 +186,416 @@ const HomePage = () => {
         <meta property="og:url" content="https://brunopiorno.com.ar" />
       </Helmet>
 
-      <div className="background">
-        <div className="overlay"></div>
-
-        <header className="header">
-          <motion.img
-            src="/logo-white.svg" 
-            alt="Logo"
-            className="logo"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          />
-        </header>
-
-        <div className="content-container" style={{ marginTop: '30px', zIndex: 2}}>
-        {/* Headline */}
-        <motion.h1
-          className="headline"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0 }}
-        >
-          ¿Estás listo para llevar tu sitio web a otro nivel?
-        </motion.h1>
-
-        {/* Tools Section */}
-        <motion.section
-          className="tools"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }} 
-        >
-          <h2>Herramientas Utilizadas</h2>
-          <ul>
-            {tools.map((tool, index) => (
-              <motion.li
-                key={index}
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                aria-label={`Herramienta: ${tool.name}`}
-              >
-                <i className={tool.icon}></i>{tool.name}
-              </motion.li>
-            ))}
-          </ul>
-        </motion.section>
-
-        {/* About Me Section */}
-        <motion.section
-          className="identity"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          <h3>Sobre mí</h3>
-          <p>
-            Soy Bruno Piorno Polucci, desarrollador web especializado en WordPress y WooCommerce.
-            Me apasiona transformar ideas en sitios web funcionales, atractivos y efectivos.
-          </p>
-          <p>
-            Mi misión es ayudarte a destacar en el mundo digital con soluciones a medida que
-            se adapten a tus necesidades y objetivos.
-          </p>
-        </motion.section>
-
-        <motion.section className="latest-projects"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }} >
-            <motion.button
-                onClick={() => setModalOpen(true)}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                aria-label="Ver Últimos Proyectos"
-                className="view-projects-button" 
+      {/* Header */}
+      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+          <div className={`nav-content ${isMobileMenuOpen ? 'menu-open' : ''}`}>
+            <motion.a 
+              href="#"
+              className="logo-container"
+              onClick={(e) => scrollToSection(e, 'hero')}
             >
-                Últimos Proyectos
-            </motion.button>
-        </motion.section>
+              <motion.img
+                src="/logo-white.svg" 
+                alt="Bruno Piorno"
+                className="logo"
+                transition={{ duration: 0.2 }}
+              />
+            </motion.a>
 
+            <button 
+              className="mobile-menu-button" 
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
 
-        {/* Componente Modal */}
-        <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+            <motion.div 
+              className="nav-links"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <a href="#servicios" onClick={(e) => scrollToSection(e, 'servicios')}>Servicios</a>
+              <a href="#proyectos" onClick={(e) => scrollToSection(e, 'proyectos')}>Proyectos</a>
+              <a href="#clientes" onClick={(e) => scrollToSection(e, 'clientes')}>Clientes</a>
+              <a href="#metodologia" onClick={(e) => scrollToSection(e, 'metodologia')}>Metodología</a>
+              <a href="#tecnologias" onClick={(e) => scrollToSection(e, 'tecnologias')}>Tecnologías</a>
+              <a href="#contacto" onClick={(e) => scrollToSection(e, 'contacto')} className="contact-btn">Contacto</a>
+            </motion.div>
+          </div>
+      </header>
 
-        {/* Contact Section */}
-        <motion.section
-          className="contact"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }} 
-        >
-          <h3>Contáctame</h3>
-          <motion.a
-            href="https://wa.me/+542392460230"
-            target="_blank"
-            rel="noopener noreferrer"
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Desarrollo de Sistemas & Web
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Transformo ideas en sitios web exitosos. Especializado en crear experiencias digitales únicas con WordPress y tiendas online con WooCommerce.
+          </motion.p>
+          <motion.button
+            className="cta-button"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            aria-label="Contáctame por WhatsApp" >
-            WhatsApp
-          </motion.a>
-          
-          <motion.a
-            href="mailto:brunopiornop@gmail.com"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            aria-label="Envía un email a Brunopiornop">
-            Email
-          </motion.a>
-
-          <motion.a
-            href="https://www.linkedin.com/in/bruno-piorno-polucci"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            aria-label="LinkedIn"
-            style={{ marginLeft: '10px' }}>
-            LinkedIn
-          </motion.a>
-
-        </motion.section>
-
-        
+            whileTap={{ scale: 0.95 }}
+            onClick={() => document.getElementById('proyectos').scrollIntoView({ behavior: 'smooth' })}
+          >
+            Ver Proyectos
+          </motion.button>
         </div>
-      </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="stats-section">
+        <div className="section-title">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Resultados que Hablan
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Números que respaldan mi compromiso con la excelencia y la satisfacción del cliente
+          </motion.p>
+        </div>
+        <div className="hero-stats">
+          <motion.div 
+            className="stat-item"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <AnimatedCounter value={80} suffix="+" />
+            <p>Desafíos técnicos superados</p>
+          </motion.div>
+          <motion.div 
+            className="stat-item"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <AnimatedCounter value={6} suffix="+" />
+            <p>Años de experiencia</p>
+          </motion.div>
+          <motion.div 
+            className="stat-item"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+          >
+            <AnimatedCounter value={100} suffix="%" />
+            <p>Clientes Satisfechos</p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="servicios" className="services-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>Servicios</h2>
+          <p>Soluciones digitales adaptadas a tus necesidades</p>
+        </motion.div>
+
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="service-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              whileHover={{ y: -10 }}
+            >
+              <i className={service.icon}></i>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="proyectos" className="projects-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>Proyectos Destacados</h2>
+          <p>Algunos de mis trabajos más recientes</p>
+        </motion.div>
+
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className="project-card"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              whileHover={{ y: -10 }}
+            >
+              <div className="project-image">
+                <img src={project.image} alt={project.title} />
+              </div>
+              <div className="project-info">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <motion.a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Ver Sitio
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </motion.a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Clients Section */}
+      <section id="clientes" className="clients-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>Clientes</h2>
+          <p>Empresas que confían en nuestras soluciones de desarrollo</p>
+        </motion.div>
+
+        <div className="clients-grid">
+          {clients.map((client, index) => (
+            <motion.a
+              key={client.name}
+              href={client.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="client-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+            >
+              <div className="client-logo">
+                {typeof client.logo === 'string' ? (
+                  <img 
+                    src={client.logo} 
+                    alt={client.name}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = require('../images/default-logo.png');
+                    }}
+                  />
+                ) : (
+                  client.logo
+                )}
+              </div>
+              <h3>{client.name}</h3>
+              <p>{client.description}</p>
+              <span className="visit-site">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                Visitar sitio
+              </span>
+            </motion.a>
+          ))}
+        </div>
+      </section>
+
+      {/* Workflow Section */}
+      <section id="metodologia" className="workflow-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>Metodología de Trabajo</h2>
+          <p>Organización y transparencia en cada proyecto</p>
+        </motion.div>
+
+        <div className="workflow-content">
+          <motion.div 
+            className="workflow-image"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <img src={require('../images/asana-screenshot.jpg')} alt="Asana Project Management" />
+          </motion.div>
+
+          <motion.div 
+            className="workflow-info"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3>Gestión Profesional con Asana</h3>
+            <ul>
+              <li>
+                <span className="icon">✓</span>
+                <div>
+                  <strong>Planificación Detallada</strong>
+                  <p>Cada proyecto se divide en tareas específicas con plazos claros</p>
+                </div>
+              </li>
+              <li>
+                <span className="icon">✓</span>
+                <div>
+                  <strong>Seguimiento en Tiempo Real</strong>
+                  <p>Acceso al progreso del proyecto y horas dedicadas a cada tarea</p>
+                </div>
+              </li>
+              <li>
+                <span className="icon">✓</span>
+                <div>
+                  <strong>Comunicación Efectiva</strong>
+                  <p>Feedback y actualizaciones constantes sobre el avance del proyecto</p>
+                </div>
+              </li>
+              <li>
+                <span className="icon">✓</span>
+                <div>
+                  <strong>Transparencia Total</strong>
+                  <p>Visualización clara de objetivos, tiempos y costos del proyecto</p>
+                </div>
+              </li>
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Tools Section */}
+      <section id="tecnologias" className="tools-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>Tecnologías</h2>
+          <p>Herramientas que uso para crear soluciones increíbles</p>
+        </motion.div>
+
+        <div className="tools-grid">
+          {tools.map((tool, index) => (
+            <motion.div
+              key={index}
+              className="tool-card"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -5, scale: 1.05 }}
+            >
+              <i className={tool.icon}></i>
+              <span>{tool.name}</span>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contacto" className="contact-section">
+        <motion.div 
+          className="contact-content"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>¿Listo para empezar?</h2>
+          <p>Conversemos sobre tu próximo proyecto</p>
+          
+          <div className="contact-buttons">
+            <motion.a
+              href="https://wa.me/+542392460230"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-button whatsapp"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <i className="fab fa-whatsapp"></i>
+              WhatsApp
+            </motion.a>
+            
+            <motion.a
+              href="mailto:brunopiornop@gmail.com"
+              className="contact-button email"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <i className="fas fa-envelope"></i>
+              Email
+            </motion.a>
+
+            <motion.a
+              href="https://www.linkedin.com/in/bruno-piorno-polucci"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-button linkedin"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <i className="fab fa-linkedin"></i>
+              LinkedIn
+            </motion.a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Modal for project details */}
+      <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 };
