@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useMemo, useCallback } from 'react'; 
 import { motion, useInView, animate, useMotionValue } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
@@ -28,6 +28,9 @@ import { Helmet } from 'react-helmet';
 import '../App.css';
 import '../devicons/devicon.min.css';
 import Modal from './Modal';
+import ServiceCard from './ServiceCard';
+import ProjectCard from './ProjectCard';
+import ClientCard from './ClientCard';
 // Import images
 import entradafanLogo from '../images/entradafan.svg';
 import clarikaLogo from '../images/clarika-logo.svg'; 
@@ -323,19 +326,7 @@ const HomePage = () => {
 
         <div className="services-grid">
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="service-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-            >
-              <i className={service.icon}></i>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </motion.div>
+            <ServiceCard key={index} service={service} index={index} />
           ))}
         </div>
       </section>
@@ -355,38 +346,7 @@ const HomePage = () => {
 
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="project-card"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-            >
-              <div className="project-image">
-                <img src={project.image} alt={project.title} />
-              </div>
-              <div className="project-info">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <motion.a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Ver Sitio
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
-                  </svg>
-                </motion.a>
-              </div>
-            </motion.div>
+            <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
       </section>
@@ -406,43 +366,7 @@ const HomePage = () => {
 
         <div className="clients-grid">
           {clients.map((client, index) => (
-            <motion.a
-              key={client.name}
-              href={client.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="client-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-            >
-              <div className="client-logo">
-                {typeof client.logo === 'string' ? (
-                  <img 
-                    src={client.logo} 
-                    alt={client.name}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = require('../images/default-logo.png');
-                    }}
-                  />
-                ) : (
-                  client.logo
-                )}
-              </div>
-              <h3>{client.name}</h3>
-              <p>{client.description}</p>
-              <span className="visit-site">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  <polyline points="15 3 21 3 21 9" />
-                  <line x1="10" y1="14" x2="21" y2="3" />
-                </svg>
-                Visitar sitio
-              </span>
-            </motion.a>
+            <ClientCard key={client.name} client={client} index={index} />
           ))}
         </div>
       </section>
