@@ -74,7 +74,6 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px;
   z-index: 1001;
 }
 
@@ -209,12 +208,9 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: var(--section-padding);
   background: linear-gradient(135deg, rgba(27,27,27,0.8) 0%, rgba(27,27,27,0.6) 100%),
               url('../src/images/image.jpg') center/cover;
   position: relative;
-  margin-top: -80px; /* Compensar la altura del nav */
-  padding-top: 80px; /* Agregar padding superior para el contenido */
 }
 
 .hero-section h1 {
@@ -1146,5 +1142,8 @@ body {
     font-size: 12px;
     padding: 4px 8px;
   }
-
+  .logo {
+    max-width: 200px;
+    margin-top: 15px;
+  }
 }
