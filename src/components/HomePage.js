@@ -47,6 +47,10 @@ const HomePage = () => {
       url: 'https://www.entradafan.com.ar'
     },
     {
+      name: 'Sony Music',
+      logo: require('../images/sony.png'),
+    },
+    {
       name: 'Paramedic',
       logo: require('../images/paramedic.jpg'),
       url: 'https://www.paramedic.com.ar'
@@ -70,6 +74,11 @@ const HomePage = () => {
       name: 'Clarika',
       logo: clarikaLogo,
       url: 'https://clarika.com.ar'
+    },
+    {
+      name: 'InfoEcos',
+      logo: require('../images/infoecos.png'),
+      url: 'https://infoecos.com.ar'
     },
   ];
 
