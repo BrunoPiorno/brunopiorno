@@ -80,6 +80,11 @@ const HomePage = () => {
       logo: require('../images/infoecos.png'),
       url: 'https://infoecos.com.ar'
     },
+    {
+      name: 'MegaMayorista',
+      logo: require('../images/logo-megamayorista-nobg.png'),
+      url: 'https://megamayorista.com.ar'
+    },
   ];
 
   useEffect(() => {
