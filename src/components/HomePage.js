@@ -51,6 +51,11 @@ const HomePage = () => {
       logo: require('../images/sony.png'),
     },
     {
+      name: 'Clarika',
+      logo: clarikaLogo,
+      url: 'https://clarika.com.ar'
+    },
+    {
       name: 'Paramedic',
       logo: require('../images/paramedic.jpg'),
       url: 'https://www.paramedic.com.ar'
@@ -61,20 +66,15 @@ const HomePage = () => {
       url: 'https://brillonor.com.ar'
     },
     {
-      name: 'ConsultoraOn',
-      logo: require('../images/consultoraon.png'),
-      url: 'https://consultoraon.net'
-    },
-    {
       name: 'Reino Ceramicos',
       logo: require('../images/reinoceramicos.png'),
       url: 'https://reinoceramicos.com'
     },
     {
-      name: 'Clarika',
-      logo: clarikaLogo,
-      url: 'https://clarika.com.ar'
-    },
+      name: 'ConsultoraOn',
+      logo: require('../images/consultoraon.png'),
+      url: 'https://consultoraon.net'
+    }, 
     {
       name: 'InfoEcos',
       logo: require('../images/infoecos.png'),
