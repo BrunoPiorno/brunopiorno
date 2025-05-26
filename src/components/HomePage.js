@@ -1,6 +1,18 @@
 import React, { useState, useMemo, useCallback } from 'react'; 
 import { motion, useInView, animate, useMotionValue } from 'framer-motion';
 import { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageToggle from './LanguageToggle';
+import '../App.css';
+import '../devicons/devicon.min.css';
+import Modal from './Modal';
+import ServiceCard from './ServiceCard';
+import ProjectCard from './ProjectCard';
+import ClientCard from './ClientCard';
+// Import images
+import entradafanLogo from '../images/entradafan.svg';
+import clarikaLogo from '../images/clarika-logo.svg'; 
 
 const AnimatedCounter = ({ value, suffix = '' }) => {
   const ref = useRef(null);
@@ -24,21 +36,20 @@ const AnimatedCounter = ({ value, suffix = '' }) => {
 
   return <motion.h3 ref={ref}>{0 + suffix}</motion.h3>;
 };
-import { Helmet } from 'react-helmet';
-import '../App.css';
-import '../devicons/devicon.min.css';
-import Modal from './Modal';
-import ServiceCard from './ServiceCard';
-import ProjectCard from './ProjectCard';
-import ClientCard from './ClientCard';
-// Import images
-import entradafanLogo from '../images/entradafan.svg';
-import clarikaLogo from '../images/clarika-logo.svg'; 
 
 const HomePage = () => {
+  const { t, locale } = useLanguage();
   const [isModalOpen, setModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const projects = useMemo(() => {
+    const featuredProjects = t('projects.featured');
+    return featuredProjects.map(project => ({
+      ...project,
+      image: project.title === 'EntradaFan' ? entradafanLogo : clarikaLogo
+    }));
+  }, [t]);
 
   const clients = [
     {
@@ -117,18 +128,18 @@ const HomePage = () => {
 
   const services = [
     {
-      title: 'Desarrollo WordPress',
-      description: 'Sitios web profesionales y personalizados con el CMS más popular del mundo',
+      title: t('services.wordpress.title'),
+      description: t('services.wordpress.desc'),
       icon: 'devicon-wordpress-plain'
     },
     {
-      title: 'E-commerce',
-      description: 'Tiendas online potentes y escalables con WooCommerce',
+      title: t('services.ecommerce.title'),
+      description: t('services.ecommerce.desc'),
       icon: 'devicon-woocommerce-plain'
     },
     {
-      title: 'Desarrollo Web',
-      description: 'Soluciones web a medida con las últimas tecnologías',
+      title: t('services.webdev.title'),
+      description: t('services.webdev.desc'),
       icon: 'devicon-html5-plain'
     }
   ];
@@ -151,22 +162,22 @@ const HomePage = () => {
       { name: 'ACF', icon: 'devicon-wordpress-plain' }  
   ];
 
-  const projects = [
+  const allProjects = [
     {
-      title: 'Grupo Terra Lauquen',
-      description: 'Sitio web corporativo desarrollado con WordPress para empresa de servicios agrícolas.',
+      title: t('projects.terralauquen.title'),
+      description: t('projects.terralauquen.desc'),
       image: require('../images/grupoterralauquen.com.ar_.png'),
       url: 'https://grupoterralauquen.com.ar'
     },
     {
-      title: 'Mega Mayorista',
-      description: 'E-commerce desarrollado con WooCommerce para venta mayorista de productos.',
+      title: t('projects.megamayorista.title'),
+      description: t('projects.megamayorista.desc'),
       image: require('../images/megamayorista.png'),
       url: 'https://megamayorista.com.ar'
     },
     {
-      title: 'Mimi Kids',
-      description: 'Tienda online de ropa infantil implementada con WooCommerce y diseño personalizado.',
+      title: t('projects.mimikids.title'),
+      description: t('projects.mimikids.desc'),
       image: require('../images/mimikids.png'),
       url: 'https://mimikids.com.ar'
     },
@@ -228,12 +239,15 @@ const HomePage = () => {
             }
           })}
         </script>
-        <title>Bruno Piorno | Desarrollador Web especializado en WordPress y WooCommerce</title>
-        <meta name="description" content="Soy Bruno Piorno, desarrollador web experto en WordPress, WooCommerce y tecnologías como PHP, MySQL, y más. Contáctame para mejorar tu presencia digital." />
+        <title>{t('meta.title')}</title>
+        <meta
+          name="description"
+          content={t('meta.description')}
+        />
         <meta name="keywords" content="desarrollador web, WordPress, WooCommerce, PHP, MySQL, HTML, SCSS, jQuery, GitHub, VS Code" />
         <meta name="author" content="Bruno Piorno" />
-        <meta property="og:title" content="Bruno Piorno | Desarrollador Web especializado en WordPress y WooCommerce" />
-        <meta property="og:description" content="Transformo ideas en sitios web funcionales, atractivos y efectivos. Especializado en WordPress y WooCommerce." />
+        <meta property="og:title" content={t('meta.title')} />
+        <meta property="og:description" content={t('meta.description')} />
         <meta property="og:image" content="/logo-white.svg" />
         <meta property="og:url" content="https://brunopiorno.com.ar" />
       </Helmet>
@@ -254,15 +268,18 @@ const HomePage = () => {
               />
             </motion.a>
 
-            <button 
-              className="mobile-menu-button" 
-              onClick={toggleMobileMenu}
-              aria-label="Toggle menu"
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+            <div className="mobile-controls">
+              <LanguageToggle />
+              <button 
+                className="mobile-menu-button" 
+                onClick={toggleMobileMenu}
+                aria-label="Toggle menu"
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
 
             <motion.div 
               className="nav-links"
@@ -270,16 +287,16 @@ const HomePage = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <a href="#servicios" onClick={(e) => scrollToSection(e, 'servicios')}>Servicios</a>
-              <a href="#proyectos" onClick={(e) => scrollToSection(e, 'proyectos')}>Proyectos</a>
-              <a href="#clientes" onClick={(e) => scrollToSection(e, 'clientes')}>Clientes</a>
-              <a href="#metodologia" onClick={(e) => scrollToSection(e, 'metodologia')}>Metodología</a>
-              <a href="#tecnologias" onClick={(e) => scrollToSection(e, 'tecnologias')}>Tecnologías</a>
-              <a href="#contacto" onClick={(e) => scrollToSection(e, 'contacto')} className="contact-btn">Contacto</a>
+              <a href="#servicios" onClick={(e) => scrollToSection(e, 'servicios')}>{t('header.services')}</a>
+              <a href="#proyectos" onClick={(e) => scrollToSection(e, 'proyectos')}>{t('header.projects')}</a>
+              <a href="#clientes" onClick={(e) => scrollToSection(e, 'clientes')}>{t('header.clients')}</a>
+              <a href="#metodologia" onClick={(e) => scrollToSection(e, 'metodologia')}>{t('header.methodology')}</a>
+              <a href="#tecnologias" onClick={(e) => scrollToSection(e, 'tecnologias')}>{t('header.technologies')}</a>
+
+              <a href="#contacto" onClick={(e) => scrollToSection(e, 'contacto')} className="contact-btn">{t('header.contact')}</a>
             </motion.div>
           </div>
       </header>
-
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
@@ -288,26 +305,24 @@ const HomePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Desarrollo de Sistemas & Web
+            {t('hero.title')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Transformo ideas en sitios web exitosos. Especializado en crear experiencias digitales únicas con WordPress y tiendas online con WooCommerce.
+            {t('hero.subtitle')}
           </motion.p>
-          <motion.button
-            className="cta-button"
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('proyectos').scrollIntoView({ behavior: 'smooth' })}
           >
-            Ver Proyectos
-          </motion.button>
+            <a href="#proyectos" className="cta-button" onClick={(e) => scrollToSection(e, 'proyectos')}>
+              {t('hero.cta')}
+            </a>
+          </motion.div>
         </div>
       </section>
 
@@ -319,14 +334,14 @@ const HomePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Resultados que Hablan
+            {t('stats.title')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Números que respaldan mi compromiso con la excelencia y la satisfacción del cliente
+            {t('stats.subtitle')}
           </motion.p>
         </div>
         <div className="hero-stats">
@@ -337,7 +352,7 @@ const HomePage = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <AnimatedCounter value={80} suffix="+" />
-            <p>Desafíos técnicos superados</p>
+            <p>{t('stats.item1')}</p>
           </motion.div>
           <motion.div 
             className="stat-item"
@@ -346,7 +361,7 @@ const HomePage = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <AnimatedCounter value={6} suffix="+" />
-            <p>Años de experiencia</p>
+            <p>{t('stats.item2')}</p>
           </motion.div>
           <motion.div 
             className="stat-item"
@@ -355,7 +370,7 @@ const HomePage = () => {
             transition={{ duration: 0.8, delay: 1 }}
           >
             <AnimatedCounter value={100} suffix="%" />
-            <p>Clientes Satisfechos</p>
+            <p>{t('stats.item3')}</p>
           </motion.div>
         </div>
       </section>
@@ -369,8 +384,8 @@ const HomePage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>Servicios</h2>
-          <p>Soluciones digitales adaptadas a tus necesidades</p>
+          <h2>{t('services.title')}</h2>
+          <p>{t('services.subtitle')}</p>
         </motion.div>
 
         <div className="services-grid">
@@ -389,12 +404,12 @@ const HomePage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>Proyectos Destacados</h2>
-          <p>Algunos de mis trabajos más recientes</p>
+          <h2>{t('projects.title')}</h2>
+          <p>{t('projects.subtitle')}</p>
         </motion.div>
 
         <div className="projects-grid">
-          {projects.map((project, index) => (
+          {allProjects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
@@ -409,8 +424,8 @@ const HomePage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>Clientes</h2>
-          <p>Empresas que confían en nuestras soluciones de desarrollo</p>
+          <h2>{t('clients.title')}</h2>
+          <p>{t('clients.subtitle')}</p>
         </motion.div>
 
         <div className="clients-grid">
@@ -429,8 +444,8 @@ const HomePage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>¿Querés que trabajemos juntos?</h2>
-          <p>Contactame ahora para convertir tus ideas en realidad</p>
+          <h2>{t('cta.title')}</h2>
+          <p>{t('cta.subtitle')}</p>
           <div className="cta-buttons">
             <a 
               href="https://wa.me/+5492392460230" 
@@ -438,7 +453,7 @@ const HomePage = () => {
               rel="noopener noreferrer"
               className="whatsapp-button"
             >
-              <i className="fab fa-whatsapp"></i> WhatsApp
+              <i className="fab fa-whatsapp"></i> {t('cta.whatsapp')}
             </a>
           </div>
         </motion.div>
@@ -453,8 +468,8 @@ const HomePage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>Metodología de Trabajo</h2>
-          <p>Organización y transparencia en cada proyecto</p>
+          <h2>{t('methodology.title')}</h2>
+          <p>{t('methodology.subtitle')}</p>
         </motion.div>
 
         <div className="workflow-content">
@@ -475,34 +490,34 @@ const HomePage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3>Gestión Profesional con Asana</h3>
+            <h3>{t('methodology.title')}</h3>
             <ul>
               <li>
                 <span className="icon">✓</span>
                 <div>
-                  <strong>Planificación Detallada</strong>
-                  <p>Cada proyecto se divide en tareas específicas con plazos claros</p>
+                  <strong>{t('methodology.planning')}</strong>
+                  <p>{t('methodology.planning.desc')}</p>
                 </div>
               </li>
               <li>
                 <span className="icon">✓</span>
                 <div>
-                  <strong>Seguimiento en Tiempo Real</strong>
-                  <p>Acceso al progreso del proyecto y horas dedicadas a cada tarea</p>
+                  <strong>{t('methodology.tracking')}</strong>
+                  <p>{t('methodology.tracking.desc')}</p>
                 </div>
               </li>
               <li>
                 <span className="icon">✓</span>
                 <div>
-                  <strong>Comunicación Efectiva</strong>
-                  <p>Feedback y actualizaciones constantes sobre el avance del proyecto</p>
+                  <strong>{t('methodology.communication')}</strong>
+                  <p>{t('methodology.communication.desc')}</p>
                 </div>
               </li>
               <li>
                 <span className="icon">✓</span>
                 <div>
-                  <strong>Transparencia Total</strong>
-                  <p>Visualización clara de objetivos, tiempos y costos del proyecto</p>
+                  <strong>{t('methodology.transparency')}</strong>
+                  <p>{t('methodology.transparency.desc')}</p>
                 </div>
               </li>
             </ul>
@@ -519,8 +534,8 @@ const HomePage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>Tecnologías</h2>
-          <p>Herramientas que uso para crear soluciones increíbles</p>
+          <h2>{t('tech.title')}</h2>
+          <p>{t('tech.subtitle')}</p>
         </motion.div>
 
         <div className="tools-grid">
@@ -550,8 +565,8 @@ const HomePage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>¿Listo para empezar?</h2>
-          <p>Conversemos sobre tu próximo proyecto</p>
+          <h2>{t('contact.title')}</h2>
+          <p>{t('contact.subtitle')}</p>
           
           <div className="contact-buttons">
             <motion.a
