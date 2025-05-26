@@ -191,7 +191,7 @@ const HomePage = () => {
       title: 'Chichic',
       description: 'Tienda online de productos personalizados con sistema de pedidos y catálogo digital.',
       image: require('../images/chichicImage.png'),
-      url: 'https://chichic.com.ar'
+      url: 'https://chichicwinerelax.com.ar'
     },
     {
       title: 'Ranking Tenis de Mesa',
