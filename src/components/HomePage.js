@@ -193,6 +193,41 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Bruno Piorno - Desarrollo Web",
+            "image": "https://brunopiorno.com.ar/logo-white.svg",
+            "description": "Desarrollo de sitios web y sistemas. Especializado en WordPress y WooCommerce.",
+            "url": "https://brunopiorno.com.ar",
+            "telephone": "+5492392460230",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Trenque Lauquen",
+              "addressRegion": "Buenos Aires",
+              "addressCountry": "AR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -37.3289152,
+              "longitude": -59.1334421
+            },
+            "priceRange": "$$",
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "opens": "09:00",
+              "closes": "18:00"
+            }
+          })}
+        </script>
         <title>Bruno Piorno | Desarrollador Web especializado en WordPress y WooCommerce</title>
         <meta name="description" content="Soy Bruno Piorno, desarrollador web experto en WordPress, WooCommerce y tecnologías como PHP, MySQL, y más. Contáctame para mejorar tu presencia digital." />
         <meta name="keywords" content="desarrollador web, WordPress, WooCommerce, PHP, MySQL, HTML, SCSS, jQuery, GitHub, VS Code" />
@@ -383,6 +418,30 @@ const HomePage = () => {
             <ClientCard key={client.name} client={client} index={index} />
           ))}
         </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <motion.div 
+          className="cta-content"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>¿Querés que trabajemos juntos?</h2>
+          <p>Contactame ahora para convertir tus ideas en realidad</p>
+          <div className="cta-buttons">
+            <a 
+              href="https://wa.me/+5492392460230" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="whatsapp-button"
+            >
+              <i className="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+        </motion.div>
       </section>
 
       {/* Workflow Section */}
