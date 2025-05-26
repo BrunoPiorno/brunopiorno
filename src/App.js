@@ -2,13 +2,15 @@ import React from 'react';
 import './App.css';
 import HomePage from './components/HomePage';
 import './devicons/devicon.min.css';
-
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <LanguageProvider>
+      <div className="App">
+        <HomePage />
+      </div>
+    </LanguageProvider>
   );
 }
 

@@ -1,0 +1,118 @@
+export const es = {
+  // Header
+  'header.home': 'Inicio',
+  'header.services': 'Servicios',
+  'header.projects': 'Proyectos',
+  'header.clients': 'Clientes',
+  'header.contact': 'Contacto',
+  'header.methodology': 'Metodología',
+  'header.technologies': 'Tecnologías',
+
+  // Featured Projects
+  'projects.entradafan.title': 'EntradaFan',
+  'projects.entradafan.desc': 'Plataforma de venta de entradas online para eventos y espectáculos',
+  'projects.clarika.title': 'Clarika',
+  'projects.clarika.desc': 'Soluciones digitales para empresas y startups',
+  'projects.featured': [
+    {
+      title: 'EntradaFan',
+      description: 'Plataforma de venta de entradas online para eventos y espectáculos',
+      image: '/images/entradafan.svg',
+      url: 'https://entradafan.com.ar'
+    },
+    {
+      title: 'Clarika',
+      description: 'Soluciones digitales para empresas y startups',
+      image: '/images/clarika-logo.svg',
+      url: 'https://clarika.com.ar'
+    }
+  ],
+
+  // Stats items
+  'stats.item1': 'Desafíos técnicos superados',
+  'stats.item2': 'Años de experiencia',
+  'stats.item3': 'Clientes Satisfechos',
+
+  // Services
+  'services.wordpress.title': 'Desarrollo WordPress',
+  'services.wordpress.desc': 'Sitios web profesionales y personalizados con el CMS más popular del mundo',
+  'services.ecommerce.title': 'E-commerce',
+  'services.ecommerce.desc': 'Tiendas online potentes y escalables con WooCommerce',
+  'services.webdev.title': 'Desarrollo Web',
+  'services.webdev.desc': 'Soluciones web a medida con las últimas tecnologías',
+
+  // Projects
+  'projects.viewSite': 'Ver Sitio',
+  'projects.terralauquen.title': 'Grupo Terra Lauquen',
+  'projects.terralauquen.desc': 'Sitio web corporativo desarrollado con WordPress para empresa de servicios agrícolas.',
+  'projects.megamayorista.title': 'Mega Mayorista',
+  'projects.megamayorista.desc': 'E-commerce desarrollado con WooCommerce para venta mayorista de productos.',
+  'projects.mimikids.title': 'Mimi Kids',
+  'projects.mimikids.desc': 'Tienda online de ropa infantil implementada con WooCommerce y diseño personalizado.',
+
+  // Meta data
+  'meta.title': 'Bruno Piorno | Desarrollador Web especializado en WordPress y WooCommerce',
+  'meta.description': 'Soy Bruno Piorno, desarrollador web experto en WordPress, WooCommerce y tecnologías como PHP, MySQL, y más. Contáctame para mejorar tu presencia digital.',
+  
+  // Navigation
+  'nav.services': 'Servicios',
+  'nav.projects': 'Proyectos',
+  'nav.clients': 'Clientes',
+  'nav.methodology': 'Metodología',
+  'nav.technologies': 'Tecnologías',
+  'nav.contact': 'Contacto',
+
+  // Hero Section
+  'hero.title': 'Desarrollo de Sistemas & Web',
+  'hero.subtitle': 'Transformo ideas en sitios web exitosos. Especializado en crear experiencias digitales únicas con WordPress y tiendas online con WooCommerce.',
+  'hero.cta': 'Ver Proyectos',
+
+  // Stats Section
+  'stats.title': 'Resultados que Hablan',
+  'stats.subtitle': 'Números que respaldan mi compromiso con la excelencia y la satisfacción del cliente',
+  'stats.challenges': 'Desafíos técnicos superados',
+  'stats.experience': 'Años de experiencia',
+  'stats.satisfaction': 'Clientes Satisfechos',
+
+  // Services Section
+  'services.title': 'Servicios',
+  'services.subtitle': 'Soluciones digitales adaptadas a tus necesidades',
+
+  // Projects Section
+  'projects.title': 'Proyectos Destacados',
+  'projects.subtitle': 'Algunos de mis trabajos más recientes',
+
+  // Clients Section
+  'clients.title': 'Clientes',
+  'clients.subtitle': 'Empresas que confían en nuestras soluciones de desarrollo',
+
+  // CTA Section
+  'cta.title': '¿Querés que trabajemos juntos?',
+  'cta.subtitle': 'Contactame ahora para convertir tus ideas en realidad',
+  'cta.whatsapp': 'WhatsApp',
+  'cta.contact': 'Formulario de Contacto',
+
+  // Methodology Section
+  'methodology.title': 'Metodología de Trabajo',
+  'methodology.subtitle': 'Organización y transparencia en cada proyecto',
+  'methodology.asana.title': 'Gestión Profesional con Asana',
+  'methodology.planning': 'Planificación Detallada',
+  'methodology.planning.desc': 'Cada proyecto se divide en tareas específicas con plazos claros',
+  'methodology.tracking': 'Seguimiento en Tiempo Real',
+  'methodology.tracking.desc': 'Acceso al progreso del proyecto y horas dedicadas a cada tarea',
+  'methodology.communication': 'Comunicación Efectiva',
+  'methodology.communication.desc': 'Feedback y actualizaciones constantes sobre el avance del proyecto',
+  'methodology.transparency': 'Transparencia Total',
+  'methodology.transparency.desc': 'Visualización clara de objetivos, tiempos y costos del proyecto',
+
+  // Technologies Section
+  'tech.title': 'Tecnologías',
+  'tech.subtitle': 'Herramientas que uso para crear soluciones increíbles',
+
+  // Contact Section
+  'contact.title': '¿Listo para empezar?',
+  'contact.subtitle': 'Conversemos sobre tu próximo proyecto',
+  'contact.whatsapp': 'WhatsApp',
+  'contact.email': 'Email',
+  'contact.linkedin': 'LinkedIn'
+};
