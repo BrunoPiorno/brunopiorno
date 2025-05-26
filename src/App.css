@@ -988,6 +988,7 @@ body {
   .mobile-controls .language-toggle {
     padding: 6px 12px;
     font-size: 0.8rem;
+    margin-right: 0.5rem;
   }
 
   .mobile-controls .mobile-menu-button {
@@ -1008,6 +1009,7 @@ body {
   font-size: 0.9rem;
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 1rem;
 }
 
 .language-toggle:hover {
