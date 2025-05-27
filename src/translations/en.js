@@ -49,6 +49,12 @@ export const en = {
   'projects.megamayorista.desc': 'E-commerce platform developed with WooCommerce for wholesale product sales.',
   'projects.mimikids.title': 'Mimi Kids',
   'projects.mimikids.desc': 'Online children\'s clothing store implemented with WooCommerce and custom design.',
+  'projects.tenis.title': 'Tenis de Mesa Trenque',
+  'projects.tenis.desc': 'Sports portal with ranking system and tournament management, developed with WordPress.',
+  'projects.cichic.title': 'Cichic',
+  'projects.cichic.desc': 'Online store featuring a digital catalog and custom order management system.',
+  'projects.ranking.title': 'Ranking Tenis de Mesa',
+  'projects.ranking.desc': 'Ranking and statistics system for table tennis tournaments.',
 
   // Meta data
   'meta.title': 'Bruno Piorno | Web Developer specialized in WordPress and WooCommerce',
@@ -63,16 +69,17 @@ export const en = {
   'nav.contact': 'Contact',
 
   // Hero Section
-  'hero.title': 'Web & Systems Development',
+  'hero.title': 'Systems & Web Development',
   'hero.subtitle': 'Transforming ideas into successful websites. Specialized in creating unique digital experiences with WordPress and online stores with WooCommerce.',
   'hero.cta': 'View Projects',
 
   // Stats Section
-  'stats.title': 'Results That Speak',
-  'stats.subtitle': 'Numbers that back up my commitment to excellence and client satisfaction',
+  'stats.title': 'Results That Speak for Themselves',
+  'stats.subtitle': 'Metrics that demonstrate our dedication to quality and client success.',
   'stats.challenges': 'Technical challenges overcome',
   'stats.experience': 'Years of experience',
   'stats.satisfaction': 'Satisfied Clients',
+  'stats.clients': 'Clients',
 
   // Services Section
   'services.title': 'Services',
@@ -83,7 +90,7 @@ export const en = {
   'projects.subtitle': 'Some of my most recent work',
 
   // Clients Section
-  'clients.title': 'Clients',
+  'clients.title': 'Our Clients',
   'clients.subtitle': 'Companies that trust our development solutions',
 
   // CTA Section
@@ -110,7 +117,7 @@ export const en = {
   'tech.subtitle': 'Tools I use to create amazing solutions',
 
   // Contact Section
-  'contact.title': 'Ready to start?',
+  'contact.title': 'Ready to get started?',
   'contact.subtitle': 'Let\'s talk about your next project',
   'contact.whatsapp': 'WhatsApp',
   'contact.email': 'Email',

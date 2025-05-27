@@ -182,20 +182,20 @@ const HomePage = () => {
       url: 'https://mimikids.com.ar'
     },
     {
-      title: 'Tenis de Mesa Trenque',
-      description: 'Portal deportivo con sistema de ranking y gestión de torneos desarrollado en WordPress.',
+      title: t('projects.tenis.title'),
+      description: t('projects.tenis.desc'),
       image: require('../images/tenisdemesatrenque.com.ar_.png'),
       url: 'https://tenisdemesatrenque.com.ar'
     },
     {
-      title: 'Chichic',
-      description: 'Tienda online de productos personalizados con sistema de pedidos y catálogo digital.',
+      title: t('projects.cichic.title'),
+      description: t('projects.cichic.desc'),
       image: require('../images/chichicImage.png'),
       url: 'https://chichicwinerelax.com.ar'
     },
     {
-      title: 'Ranking Tenis de Mesa',
-      description: 'Sistema de ranking y estadísticas para torneos de tenis de mesa.',
+      title: t('projects.ranking.title'),
+      description: t('projects.ranking.desc'),
       image: require('../images/tenisDeMesaImageRank.png'),
       url: 'https://ranking.tenisdemesatrenque.com.ar'
     }
