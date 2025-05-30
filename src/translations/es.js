@@ -48,7 +48,13 @@ export const es = {
   'projects.megamayorista.title': 'Mega Mayorista',
   'projects.megamayorista.desc': 'E-commerce desarrollado con WooCommerce para venta mayorista de productos.',
   'projects.mimikids.title': 'Mimi Kids',
-  'projects.mimikids.desc': 'Tienda online de ropa infantil implementada con WooCommerce y diseño personalizado.',
+  'projects.mimikids.desc': 'Tienda online de ropa infantil.',
+  'projects.ranking.title': 'Ranking Profesional',
+  'projects.ranking.desc': 'Sistema de ranking profesional con gestión de perfiles y estadísticas.',
+  'projects.cichic.title': 'Cichic',
+  'projects.cichic.desc': 'Sitio web corporativo desarrollado con WordPress',
+  'projects.tenis.title': 'Tenis De Mesa Trenque',
+  'projects.tenis.desc': 'Pagina web informativa realizada en React.',
 
   // Meta data
   'meta.title': 'Bruno Piorno | Desarrollador Web especializado en WordPress y WooCommerce',
