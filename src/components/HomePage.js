@@ -82,9 +82,9 @@ const HomePage = () => {
       url: 'https://reinoceramicos.com'
     },
     {
-      name: 'ConsultoraOn',
-      logo: require('../images/consultoraon.png'),
-      url: 'https://consultoraon.net'
+      name: 'Starley',
+      logo: require('../images/starley.png'),
+      url: 'https://starley.com.ar'
     }, 
     {
       name: 'InfoEcos',
