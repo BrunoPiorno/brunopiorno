@@ -176,6 +176,12 @@ const HomePage = () => {
       url: 'https://megamayorista.com.ar'
     },
     {
+      title: t('projects.cichic.title'),
+      description: t('projects.cichic.desc'),
+      image: require('../images/chichicImage.png'),
+      url: 'https://chichicwinerelax.com.ar'
+    },
+    {
       title: t('projects.mimikids.title'),
       description: t('projects.mimikids.desc'),
       image: require('../images/mimikids.png'),
@@ -186,12 +192,6 @@ const HomePage = () => {
       description: t('projects.tenis.desc'),
       image: require('../images/tenisdemesatrenque.com.ar_.png'),
       url: 'https://tenisdemesatrenque.com.ar'
-    },
-    {
-      title: t('projects.cichic.title'),
-      description: t('projects.cichic.desc'),
-      image: require('../images/chichicImage.png'),
-      url: 'https://chichicwinerelax.com.ar'
     },
     {
       title: t('projects.ranking.title'),
