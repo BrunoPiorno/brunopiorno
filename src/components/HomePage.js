@@ -202,7 +202,7 @@ const HomePage = () => {
             "@type": "ProfessionalService",
             "name": "Bruno Piorno - Desarrollo Web",
             "image": "https://brunopiorno.com.ar/logo-white.svg",
-            "description": "Desarrollo de sitios web y sistemas. Especializado en WordPress y WooCommerce.",
+            "description": "Desarrollo de sitios web a medida para profesionales y empresas, con diseño moderno, rendimiento optimizado y enfoque en conversiones.",
             "url": "https://brunopiorno.com.ar",
             "telephone": "+5492392460230",
             "address": {
