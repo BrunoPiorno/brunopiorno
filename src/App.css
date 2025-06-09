@@ -655,7 +655,7 @@ body {
   align-items: center;
   justify-content: center;
   background: transparent;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto;
 }
 
 .client-logo img {
