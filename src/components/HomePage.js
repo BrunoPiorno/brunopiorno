@@ -248,7 +248,7 @@ const HomePage = () => {
         <meta name="author" content="Bruno Piorno" />
         <meta property="og:title" content={t('meta.title')} />
         <meta property="og:description" content={t('meta.description')} />
-        <meta property="og:image" content="/logo-white.svg" />
+        <meta property="og:image" content="/logo-white.png" />
         <meta property="og:url" content="https://brunopiorno.com.ar" />
       </Helmet>
 
@@ -261,7 +261,7 @@ const HomePage = () => {
               onClick={(e) => scrollToSection(e, 'hero')}
             >
               <motion.img
-                src="/logo-white.svg" 
+                src="/logo-white.png" 
                 alt="Bruno Piorno"
                 className="logo"
                 transition={{ duration: 0.2 }}
