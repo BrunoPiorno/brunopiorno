@@ -53,46 +53,38 @@ const HomePage = () => {
 
   const clients = [
     {
-      name: 'EntradaFan',
       logo: entradafanLogo,
       url: 'https://www.entradafan.com.ar'
     },
     {
-      name: 'Sony Music',
       logo: require('../images/sony.png'),
     },
     {
-      name: 'Clarika',
       logo: clarikaLogo,
       url: 'https://clarika.com.ar'
     },
     {
-      name: 'Paramedic',
       logo: require('../images/paramedic.jpg'),
       url: 'https://www.paramedic.com.ar'
     },
     {
-      name: 'Brillonor',
       logo: require('../images/brillonor.png'),
       url: 'https://brillonor.com.ar'
     },
     {
-      name: 'Reino Ceramicos',
       logo: require('../images/reinoceramicos.png'),
       url: 'https://reinoceramicos.com'
     },
     {
-      name: 'Starley',
       logo: require('../images/starley.png'),
       url: 'https://starley.com.ar'
     }, 
     {
-      name: 'InfoEcos',
       logo: require('../images/infoecos.png'),
       url: 'https://infoecos.com.ar'
     },
     {
-      name: 'MegaMayorista',
+      logo: require('../images/logo-megamayorista-nobg.png'),
       logo: require('../images/logo-megamayorista-nobg.png'),
       url: 'https://megamayorista.com.ar'
     },
@@ -250,6 +242,10 @@ const HomePage = () => {
         <meta property="og:description" content={t('meta.description')} />
         <meta property="og:image" content="/logo-white.png" />
         <meta property="og:url" content="https://brunopiorno.com.ar" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t('meta.title')} />
+        <meta name="twitter:description" content={t('meta.description')} />
+        <meta name="twitter:image" content="https://brunopiorno.com.ar/logo-white.png" />
       </Helmet>
 
       {/* Header */}
