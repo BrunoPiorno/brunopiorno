@@ -86,7 +86,7 @@ const HomePage = () => {
     {
       logo: require('../images/logo-megamayorista-nobg.png'),
       logo: require('../images/logo-megamayorista-nobg.png'),
-      url: 'https://megamayorista.com.ar'
+      url: 'https://megamayorista.com'
     },
   ];
 
@@ -165,7 +165,7 @@ const HomePage = () => {
       title: t('projects.megamayorista.title'),
       description: t('projects.megamayorista.desc'),
       image: require('../images/megamayorista.png'),
-      url: 'https://megamayorista.com.ar'
+      url: 'https://megamayorista.com'
     },
     {
       title: t('projects.cichic.title'),
