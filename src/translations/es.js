@@ -1,4 +1,18 @@
 export const es = {
+  // Blog
+  'blog.headline': 'Blog: Tecnología & Código',
+  'blog.intro': 'Tendencias, tutoriales y recursos para devs. Todo lo que impacta en el mundo del código y la innovación digital.',
+  'blog.metaTitle': 'Blog de Tecnología y Código | brunopiorno.com.ar',
+  'blog.metaDescription': 'Descubre artículos de tecnología, programación, tendencias y recursos para desarrolladores. Todo sobre código y el mundo tech.',
+  'blog.metaTitleEn': 'Technology & Code Blog | brunopiorno.com.ar',
+  'blog.metaDescriptionEn': 'Discover articles on technology, programming, trends, and resources for developers. Everything about code and the tech world.',
+  'blog.notFound': 'Post no encontrado',
+  'blog.backToBlog': '← Volver al blog',
+  'blog.share': 'Compartir:',
+  'blog.shareLinkedin': 'Compartir en LinkedIn',
+  'blog.shareTwitter': 'Compartir en Twitter',
+  'blog.shareFacebook': 'Compartir en Facebook',
+
   // Header
   'header.home': 'Inicio',
   'header.services': 'Servicios',
@@ -7,6 +21,7 @@ export const es = {
   'header.contact': 'Contacto',
   'header.methodology': 'Metodología',
   'header.technologies': 'Tecnologías',
+  'header.blog': 'Blog',
 
   // Featured Projects
   'projects.entradafan.title': 'EntradaFan',
@@ -55,6 +70,15 @@ export const es = {
   'projects.cichic.desc': 'Sitio web corporativo desarrollado con WordPress',
   'projects.tenis.title': 'Tenis De Mesa Trenque',
   'projects.tenis.desc': 'Pagina web informativa realizada en React.',
+
+  // Últimas noticias
+  'latestPosts': {
+    'title': 'Últimas Noticias',
+    'subtitle': 'Artículos recientes de nuestro blog',
+    'readMore': 'Leer más',
+    'viewAll': 'Ver todas las noticias',
+    'date': 'Publicado el',
+  },
 
   // Meta data
   'meta.title': 'Bruno Piorno | Desarrollador Web especializado en WordPress y WooCommerce',

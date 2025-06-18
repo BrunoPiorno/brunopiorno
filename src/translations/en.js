@@ -1,4 +1,18 @@
 export const en = {
+  // Blog
+  'blog.headline': 'Blog: Technology & Code',
+  'blog.intro': 'Trends, tutorials and resources for devs. Everything that impacts the world of code and digital innovation.',
+  'blog.metaTitle': 'Technology & Code Blog | brunopiorno.com.ar',
+  'blog.metaDescription': 'Discover articles on technology, programming, trends, and resources for developers. Everything about code and the tech world.',
+  'blog.metaTitleEn': 'Technology & Code Blog | brunopiorno.com.ar',
+  'blog.metaDescriptionEn': 'Discover articles on technology, programming, trends, and resources for developers. Everything about code and the tech world.',
+  'blog.notFound': 'Post not found',
+  'blog.backToBlog': '← Back to blog',
+  'blog.share': 'Share:',
+  'blog.shareLinkedin': 'Share on LinkedIn',
+  'blog.shareTwitter': 'Share on Twitter',
+  'blog.shareFacebook': 'Share on Facebook',
+
   // Header
   'header.home': 'Home',
   'header.services': 'Services',
@@ -7,6 +21,7 @@ export const en = {
   'header.contact': 'Contact',
   'header.methodology': 'Methodology',
   'header.technologies': 'Technologies',
+  'header.blog': 'Blog',
 
   // Featured Projects
   'projects.entradafan.title': 'EntradaFan',
@@ -55,6 +70,15 @@ export const en = {
   'projects.cichic.desc': 'Corporate website developed with WordPress.',
   'projects.ranking.title': 'Ranking Tenis de Mesa',
   'projects.ranking.desc': 'Ranking and statistics system for table tennis tournaments.',
+
+  // Latest news section in home
+  'latestPosts': {
+    'title': 'Latest News',
+    'subtitle': 'Recent articles from our blog',
+    'readMore': 'Read more',
+    'viewAll': 'View all news',
+    'date': 'Published on',
+  },
 
   // Meta data
   'meta.title': 'Bruno Piorno | Web Developer specialized in WordPress and WooCommerce',
