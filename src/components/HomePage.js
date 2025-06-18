@@ -10,6 +10,7 @@ import Modal from './Modal';
 import ServiceCard from './ServiceCard';
 import ProjectCard from './ProjectCard';
 import ClientCard from './ClientCard';
+import LatestPosts from './LatestPosts';
 // Import images
 import entradafanLogo from '../images/entradafan.svg';
 import clarikaLogo from '../images/clarika-logo.svg'; 
@@ -288,6 +289,7 @@ const HomePage = () => {
               <a href="#clientes" onClick={(e) => scrollToSection(e, 'clientes')}>{t('header.clients')}</a>
               <a href="#metodologia" onClick={(e) => scrollToSection(e, 'metodologia')}>{t('header.methodology')}</a>
               <a href="#tecnologias" onClick={(e) => scrollToSection(e, 'tecnologias')}>{t('header.technologies')}</a>
+              <a href="/blog">{t('header.blog')}</a>
               <LanguageToggle />
               <a href="#contacto" onClick={(e) => scrollToSection(e, 'contacto')} className="contact-btn">{t('header.contact')}</a>
             </motion.div>
@@ -551,6 +553,9 @@ const HomePage = () => {
           ))}
         </div>
       </section>
+
+      {/* Latest Posts Section */}
+      <LatestPosts />
 
       {/* Contact Section */}
       <section id="contacto" className="contact-section">
