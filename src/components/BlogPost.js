@@ -115,18 +115,28 @@ const BlogPost = () => {
           <div className="blog-share">
             <span className="share-label">{t('blog.share')}</span>
             <a
-              href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullPostUrl)}&title=${encodeURIComponent(post.title)}&summary=${encodeURIComponent(post.description)}&source=brunopiorno.com.ar`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               aria-label={t('blog.shareLinkedin')}
               className="share-btn linkedin"
               onClick={(e) => {
                 e.preventDefault();
+                // Crear un input temporal con la URL para copiar al portapapeles
+                const tempInput = document.createElement('input');
+                tempInput.value = fullPostUrl;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                
+                // Abrir LinkedIn en una nueva ventana
                 window.open(
-                  `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullPostUrl)}&title=${encodeURIComponent(post.title)}&summary=${encodeURIComponent(post.description)}&source=brunopiorno.com.ar`,
+                  'https://www.linkedin.com/sharing/share-offsite/',
                   'linkedinshare',
-                  'width=600,height=450'
+                  'width=600,height=600'
                 );
+                
+                // Mostrar un mensaje al usuario
+                alert('URL copiada al portapapeles. Pégala en la ventana de LinkedIn que se abrió.');
                 return false;
               }}
             >
