@@ -1,21 +1,6 @@
 // Example posts for the blog in English. Add more objects for more articles.
 const posts = [
   {
-    slug: 'why-learn-javascript-in-2025',
-    translationSlug: 'por-que-aprender-javascript-en-2025',
-    title: 'Why Learn JavaScript in 2025?',
-    description: 'Discover why JavaScript remains the most in-demand language and how it can boost your career.',
-    date: '2025-06-17',
-    cover: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
-    content: [
-      { type: 'text', value: 'JavaScript continues to lead web and mobile development. Its ecosystem is growing and so are job opportunities.' },
-      { type: 'subtitle', value: 'Advantages of JavaScript' },
-      { type: 'text', value: '1. Huge community and resources.\n2. Versatility: frontend, backend, mobile, IoT.\n3. Modern tools and top frameworks.' },
-      { type: 'code', value: 'console.log("JavaScript is the future!");' },
-      { type: 'text', value: 'Ready to learn JS? Explore our tutorials and resources.' }
-    ]
-  },
-  {
     slug: 'seo-trends-for-developers',
     translationSlug: 'tendencias-seo-para-desarrolladores',
     title: 'SEO Trends for Developers',

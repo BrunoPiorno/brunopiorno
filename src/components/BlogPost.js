@@ -75,7 +75,9 @@ const BlogPost = () => {
   );
 
   // Generar la URL completa del post para compartir y meta tags
+  // Aseguramos que la URL no tenga barras duplicadas y esté bien formada
   const fullPostUrl = `https://brunopiorno.com.ar${locale === 'en' ? '/en/blog/' : '/blog/'}${post.slug}`;
+  console.log('Sharing URL:', fullPostUrl);
 
   return (
     <>
@@ -84,11 +86,26 @@ const BlogPost = () => {
         <Helmet>
           <title>{post.title} | {t('blog.metaTitle')}</title>
           <meta name="description" content={post.description} />
+          
+          {/* Open Graph / Facebook */}
           <meta property="og:title" content={`${post.title} | ${t('blog.metaTitle')}`} />
           <meta property="og:description" content={post.description} />
           <meta property="og:image" content={post.cover} />
           <meta property="og:type" content="article" />
           <meta property="og:url" content={fullPostUrl} />
+          <meta property="og:site_name" content="Bruno Piorno" />
+          
+          {/* Twitter Card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={`${post.title} | ${t('blog.metaTitle')}`} />
+          <meta name="twitter:description" content={post.description} />
+          <meta name="twitter:image" content={post.cover} />
+          
+          {/* LinkedIn */}
+          <meta name="linkedin:title" content={`${post.title} | ${t('blog.metaTitle')}`} />
+          <meta name="linkedin:description" content={post.description} />
+          <meta name="linkedin:image" content={post.cover} />
+          <link rel="canonical" href={fullPostUrl} />
         </Helmet>
       <article className="blog-post">
         <header className="blog-post-header">
@@ -98,11 +115,20 @@ const BlogPost = () => {
           <div className="blog-share">
             <span className="share-label">{t('blog.share')}</span>
             <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullPostUrl)}`}
+              href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullPostUrl)}&title=${encodeURIComponent(post.title)}&summary=${encodeURIComponent(post.description)}&source=brunopiorno.com.ar`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t('blog.shareLinkedin')}
               className="share-btn linkedin"
+              onClick={(e) => {
+                e.preventDefault();
+                window.open(
+                  `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(fullPostUrl)}&title=${encodeURIComponent(post.title)}&summary=${encodeURIComponent(post.description)}&source=brunopiorno.com.ar`,
+                  'linkedinshare',
+                  'width=600,height=450'
+                );
+                return false;
+              }}
             >
               <i className="fab fa-linkedin"></i>
             </a>
@@ -112,6 +138,15 @@ const BlogPost = () => {
               rel="noopener noreferrer"
               aria-label={t('blog.shareTwitter')}
               className="share-btn twitter"
+              onClick={(e) => {
+                e.preventDefault();
+                window.open(
+                  `https://twitter.com/intent/tweet?url=${encodeURIComponent(fullPostUrl)}&text=${encodeURIComponent(post.title)}`,
+                  'twittershare',
+                  'width=600,height=450'
+                );
+                return false;
+              }}
             >
               <i className="fab fa-twitter"></i>
             </a>
@@ -121,6 +156,15 @@ const BlogPost = () => {
               rel="noopener noreferrer"
               aria-label={t('blog.shareFacebook')}
               className="share-btn facebook"
+              onClick={(e) => {
+                e.preventDefault();
+                window.open(
+                  `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullPostUrl)}`,
+                  'facebookshare',
+                  'width=600,height=450'
+                );
+                return false;
+              }}
             >
               <i className="fab fa-facebook"></i>
             </a>
