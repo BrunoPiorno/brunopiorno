@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import posts from '../data/blogPosts';
 import posts_en from '../data/blogPosts_en';
 import { useLanguage } from '../context/LanguageContext';
@@ -83,29 +83,36 @@ const BlogPost = () => {
     <>
       <SiteHeader />
       <main className="blog-post-page">
-        <Helmet>
+        <Helmet prioritizeSeoTags={true}>
+          {/* Básicos */}
           <title>{post.title} | {t('blog.metaTitle')}</title>
           <meta name="description" content={post.description} />
+          <link rel="canonical" href={fullPostUrl} />
           
           {/* Open Graph / Facebook */}
           <meta property="og:title" content={`${post.title} | ${t('blog.metaTitle')}`} />
           <meta property="og:description" content={post.description} />
           <meta property="og:image" content={post.cover} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
           <meta property="og:type" content="article" />
           <meta property="og:url" content={fullPostUrl} />
           <meta property="og:site_name" content="Bruno Piorno" />
+          <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'es_ES'} />
           
           {/* Twitter Card */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={`${post.title} | ${t('blog.metaTitle')}`} />
           <meta name="twitter:description" content={post.description} />
           <meta name="twitter:image" content={post.cover} />
+          <meta name="twitter:url" content={fullPostUrl} />
           
           {/* LinkedIn */}
-          <meta name="linkedin:title" content={`${post.title} | ${t('blog.metaTitle')}`} />
-          <meta name="linkedin:description" content={post.description} />
-          <meta name="linkedin:image" content={post.cover} />
-          <link rel="canonical" href={fullPostUrl} />
+          <meta property="linkedin:title" content={`${post.title} | ${t('blog.metaTitle')}`} />
+          <meta property="linkedin:description" content={post.description} />
+          <meta property="linkedin:image" content={post.cover} />
+          <meta property="article:published_time" content={post.date} />
+          <meta property="article:author" content="Bruno Piorno" />
         </Helmet>
       <article className="blog-post">
         <header className="blog-post-header">
