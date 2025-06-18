@@ -120,23 +120,11 @@ const BlogPost = () => {
               className="share-btn linkedin"
               onClick={(e) => {
                 e.preventDefault();
-                // Crear un input temporal con la URL para copiar al portapapeles
-                const tempInput = document.createElement('input');
-                tempInput.value = fullPostUrl;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-                
-                // Abrir LinkedIn en una nueva ventana
                 window.open(
-                  'https://www.linkedin.com/sharing/share-offsite/',
+                  `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullPostUrl)}`,
                   'linkedinshare',
                   'width=600,height=600'
                 );
-                
-                // Mostrar un mensaje al usuario
-                alert('URL copiada al portapapeles. Pégala en la ventana de LinkedIn que se abrió.');
                 return false;
               }}
             >
