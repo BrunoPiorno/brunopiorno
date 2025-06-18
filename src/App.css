@@ -829,7 +829,7 @@ body {
 /* BLOG STYLES */
 
 .blog-list-page {
-  padding-top: 90px;
+  padding-top: 110px;
   min-height: 100vh;
   background: linear-gradient(135deg, var(--background-color) 0%, var(--surface-color) 100%);
 }

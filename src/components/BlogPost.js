@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import posts from '../data/blogPosts';
@@ -12,6 +12,11 @@ import ContactSection from './ContactSection';
 const BlogPost = () => {
   const { slug } = useParams();
   const { locale, t } = useLanguage();
+  
+  // Hacer scroll al inicio de la página cuando se carga el componente
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
   
   // Determinamos si estamos en la ruta en inglés o español
   const isEnglishPath = window.location.pathname.startsWith('/en/');
@@ -69,6 +74,9 @@ const BlogPost = () => {
     </main>
   );
 
+  // Generar la URL completa del post para compartir y meta tags
+  const fullPostUrl = `https://brunopiorno.com.ar${locale === 'en' ? '/en/blog/' : '/blog/'}${post.slug}`;
+
   return (
     <>
       <SiteHeader />
@@ -80,7 +88,7 @@ const BlogPost = () => {
           <meta property="og:description" content={post.description} />
           <meta property="og:image" content={post.cover} />
           <meta property="og:type" content="article" />
-          <meta property="og:url" content={`https://brunopiorno.com.ar${locale === 'en' ? '/en/blog/' : '/blog/'}${post.slug}`} />
+          <meta property="og:url" content={fullPostUrl} />
         </Helmet>
       <article className="blog-post">
         <header className="blog-post-header">
@@ -90,7 +98,7 @@ const BlogPost = () => {
           <div className="blog-share">
             <span className="share-label">{t('blog.share')}</span>
             <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://brunopiorno.com.ar${locale === 'en' ? '/en/blog/' : '/blog/'}${post.slug}`)}`}
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullPostUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t('blog.shareLinkedin')}
@@ -99,7 +107,7 @@ const BlogPost = () => {
               <i className="fab fa-linkedin"></i>
             </a>
             <a
-              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://brunopiorno.com.ar${locale === 'en' ? '/en/blog/' : '/blog/'}${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
+              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(fullPostUrl)}&text=${encodeURIComponent(post.title)}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t('blog.shareTwitter')}
@@ -108,7 +116,7 @@ const BlogPost = () => {
               <i className="fab fa-twitter"></i>
             </a>
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://brunopiorno.com.ar${locale === 'en' ? '/en/blog/' : '/blog/'}${post.slug}`)}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullPostUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t('blog.shareFacebook')}
