@@ -89,6 +89,11 @@ const HomePage = () => {
       logo: require('../images/logo-megamayorista-nobg.png'),
       url: 'https://megamayorista.com'
     },
+    {
+      logo: require('../images/mimikidslogo.png'),
+      logo: require('../images/mimikidslogo.png'),
+      url: 'https://mimikids.com.ar'
+    },
   ];
 
   useEffect(() => {
@@ -163,6 +168,12 @@ const HomePage = () => {
       url: 'https://grupoterralauquen.com.ar'
     },
     {
+      title: t('projects.protorneo.title'),
+      description: t('projects.protorneo.desc'),
+      image: require('../images/protorneo.png'),
+      url: 'https://www.protorneos.com'
+    },
+    {
       title: t('projects.megamayorista.title'),
       description: t('projects.megamayorista.desc'),
       image: require('../images/megamayorista.png'),
@@ -173,12 +184,6 @@ const HomePage = () => {
       description: t('projects.cichic.desc'),
       image: require('../images/chichicImage.png'),
       url: 'https://chichicwinerelax.com.ar'
-    },
-    {
-      title: t('projects.mimikids.title'),
-      description: t('projects.mimikids.desc'),
-      image: require('../images/mimikids.png'),
-      url: 'https://mimikids.com.ar'
     },
     {
       title: t('projects.tenis.title'),

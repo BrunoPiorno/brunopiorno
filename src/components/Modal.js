@@ -4,8 +4,8 @@ import tenisDeMesaImage from '../images/tenisdemesatrenque.com.ar_.png';
 import grupoTerraImage from '../images/grupoterralauquen.com.ar_.png';
 import tenisDeMesaImageRank from '../images/tenisDeMesaImageRank.png';
 import megaMayoristaImage from '../images/megamayorista.png';
-import mimikidsImage from '../images/mimikids.png';
 import chichicImage from '../images/chichicImage.png';
+import protorneoImage from '../images/protorneo.png';
 
 const proyectos = [
     {
@@ -33,16 +33,16 @@ const proyectos = [
         link: "https://megamayorista.com"
     },
     {
-        img: mimikidsImage,
-        title: "MimiKids",
-        desc: "Tienda WooCommerce.",
-        link: "https://mimikids.com.ar"
-    },
-    {
         img: chichicImage,
         title: "Chichic",
         desc: "Sitio Informativo Wordpress.",
         link: "https://chichicwinerelax.com"
+    },
+    {
+        img: protorneoImage,
+        title: "Protorneo",
+        desc: "Desarrollado en HTML, CSS, JS.",
+        link: "https://protorneo.com"
     }
 ];
 
