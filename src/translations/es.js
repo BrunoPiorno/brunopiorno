@@ -62,14 +62,15 @@ export const es = {
   'projects.terralauquen.desc': 'Sitio web corporativo desarrollado con WordPress para empresa de servicios agrícolas.',
   'projects.megamayorista.title': 'Mega Mayorista',
   'projects.megamayorista.desc': 'E-commerce desarrollado con WooCommerce para venta mayorista de productos.',
-  'projects.mimikids.title': 'Mimi Kids',
-  'projects.mimikids.desc': 'Tienda online de ropa infantil.',
   'projects.ranking.title': 'Ranking Profesional',
   'projects.ranking.desc': 'Sistema de ranking profesional con gestión de perfiles y estadísticas.',
   'projects.cichic.title': 'Cichic',
   'projects.cichic.desc': 'Sitio web corporativo desarrollado con WordPress',
   'projects.tenis.title': 'Tenis De Mesa Trenque',
   'projects.tenis.desc': 'Pagina web informativa realizada en React.',
+  'projects.protorneo.title': 'Protorneos',
+  'projects.protorneo.desc': 'Gestión de Torneos Simple y Eficiente, Desarrollado en HTML, CSS, JS.',
+
 
   // Últimas noticias
   'latestPosts': {

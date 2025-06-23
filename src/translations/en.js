@@ -62,14 +62,14 @@ export const en = {
   'projects.terralauquen.desc': 'Corporate website developed with WordPress for an agricultural services company.',
   'projects.megamayorista.title': 'Mega Mayorista',
   'projects.megamayorista.desc': 'E-commerce platform developed with WooCommerce for wholesale product sales.',
-  'projects.mimikids.title': 'Mimi Kids',
-  'projects.mimikids.desc': 'Online store for children\'s clothing.',
   'projects.tenis.title': 'Tenis de Mesa Trenque',
   'projects.tenis.desc': 'Informative website made in React.',
   'projects.cichic.title': 'Cichic',
   'projects.cichic.desc': 'Corporate website developed with WordPress.',
   'projects.ranking.title': 'Ranking Tenis de Mesa',
   'projects.ranking.desc': 'Ranking and statistics system for table tennis tournaments.',
+  'projects.protorneo.title': 'Protorneos',
+  'projects.protorneo.desc': 'Simple and efficient tournament management, developed in HTML, CSS, JS.',
 
   // Latest news section in home
   'latestPosts': {
