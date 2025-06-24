@@ -183,7 +183,7 @@ const HomePage = () => {
       title: t('projects.cichic.title'),
       description: t('projects.cichic.desc'),
       image: require('../images/chichicImage.png'),
-      url: 'https://chichicwinerelax.com.ar'
+      url: 'https://chichicwinerelax.com/'
     },
     {
       title: t('projects.tenis.title'),
@@ -195,7 +195,7 @@ const HomePage = () => {
       title: t('projects.ranking.title'),
       description: t('projects.ranking.desc'),
       image: require('../images/tenisDeMesaImageRank.png'),
-      url: 'https://ranking.tenisdemesatrenque.com.ar'
+      url: 'https://trenquetdmranking.com.ar/'
     }
   ];
 
