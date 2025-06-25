@@ -322,7 +322,12 @@ const HomePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <a href="#proyectos" className="cta-button" onClick={(e) => scrollToSection(e, 'proyectos')}>
+            <a 
+              href={locale === 'en' ? "https://wa.me/+5491159786999" : "https://wa.me/+5492392460230"} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="cta-button"
+            >
               {t('hero.cta')}
             </a>
           </motion.div>

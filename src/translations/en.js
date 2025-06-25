@@ -95,7 +95,7 @@ export const en = {
   // Hero Section
   'hero.title': 'Systems & Web Development',
   'hero.subtitle': 'Transforming ideas into successful websites. Specialized in creating unique digital experiences with WordPress and online stores with WooCommerce.',
-  'hero.cta': 'View Projects',
+  'hero.cta': 'Let’s talk – free quote',
 
   // Stats Section
   'stats.title': 'Results That Speak for Themselves',
