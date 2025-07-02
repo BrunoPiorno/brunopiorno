@@ -95,7 +95,7 @@ export const es = {
 
   // Hero Section
   'hero.title': 'Desarrollo de Sistemas & Web',
-  'hero.subtitle': 'Transformo ideas en sitios web exitosos. Especializado en crear experiencias digitales únicas con WordPress y tiendas online con WooCommerce.',
+  'hero.subtitle': 'Transformamos ideas en sitios web exitosos. Especializados en crear experiencias digitales únicas con WordPress y tiendas online con WooCommerce.',
   'hero.cta': 'Obtener presupuesto',
 
   // Stats Section
