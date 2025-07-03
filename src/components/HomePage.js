@@ -166,6 +166,12 @@ const HomePage = () => {
       description: t('projects.terralauquen.desc'),
       image: require('../images/grupoterralauquen.com.ar_.png'),
       url: 'https://grupoterralauquen.com.ar'
+    },  
+    {
+      title: t('projects.josejose.title'),
+      description: t('projects.josejose.desc'),
+      image: require('../images/josejose.png'),
+      url: 'https://www.josejoseoficial.com.mx/'
     },
     {
       title: t('projects.protorneo.title'),

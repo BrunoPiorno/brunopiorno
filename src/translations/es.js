@@ -59,9 +59,11 @@ export const es = {
   // Projects
   'projects.viewSite': 'Ver Sitio',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',
-  'projects.terralauquen.desc': 'Sitio web corporativo desarrollado con WordPress para empresa de servicios agrícolas.',
+  'projects.terralauquen.desc': 'Sitio web institucional y catálogo digital desarrollado 100% a medida con WordPress como framework base. Programación personalizada en PHP, MySQL, HTML5, SCSS y JS. Incluye sistema de gestión de productos con opción de descarga de fichas técnicas en PDF,  responsive y optimización para carga rápida y SEO.',
   'projects.megamayorista.title': 'Mega Mayorista',
-  'projects.megamayorista.desc': 'E-commerce desarrollado con WooCommerce para venta mayorista de productos.',
+  'projects.megamayorista.desc': 'Desarrollada con WordPress y WooCommerce, utilizando un tema premium comercial personalizado. Integración de pasarela de pagos, catálogo de productos dinámico, filtros avanzados y funcionalidades de eCommerce listas para escalar.',
+  'projects.josejose.title': 'José José',
+  'projects.josejose.desc': 'Desarrollado a medida con WordPress como CMS, utilizando PHP, MySQL, HTML5, SCSS y JavaScript. Tema completamente personalizado sin uso de plantillas preexistentes, optimizado para rendimiento, SEO y móvil.',
   'projects.ranking.title': 'Ranking Profesional',
   'projects.ranking.desc': 'Sistema de ranking profesional con gestión de perfiles y estadísticas.',
   'projects.cichic.title': 'Cichic',
@@ -69,7 +71,7 @@ export const es = {
   'projects.tenis.title': 'Tenis De Mesa Trenque',
   'projects.tenis.desc': 'Pagina web informativa realizada en React.',
   'projects.protorneo.title': 'Protorneos',
-  'projects.protorneo.desc': 'Gestión de Torneos Simple y Eficiente, Desarrollado en HTML, CSS, JS.',
+  'projects.protorneo.desc': 'Sitio web liviano y estático desarrollado con HTML5, CSS3 y JavaScript puro. Diseño responsive, estructura optimizada para velocidad de carga y fácil mantenimiento, ideal para mostrar información institucional y deportiva sin depender de CMS.',
 
 
   // Últimas noticias
