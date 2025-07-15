@@ -1,6 +1,33 @@
 // Example posts for the blog in English. Add more objects for more articles.
 const posts = [
   {
+    slug: 'wordpress-6-8-2-maintenance-release',
+    translationSlug: 'wordpress-6-8-2-version-mantenimiento',
+    title: 'WordPress 6.8.2: New Maintenance and Security Release',
+    description: 'Discover the new features and fixes in the latest WordPress 6.8.2 maintenance release and why you should update.',
+    date: '2025-07-15',
+    cover: 'https://images.unsplash.com/photo-1559854036-2409f22a918a?auto=format&fit=crop&w=800&q=80',
+    content: [
+      { type: 'text', value: 'WordPress has just released version 6.8.2, a maintenance update that includes important bug fixes and security improvements. If you manage a WordPress site, staying up-to-date with these updates is essential to ensure your website\'s performance and security.' },
+      { type: 'subtitle', value: 'What\'s included in WordPress 6.8.2?' },
+      { type: 'text', value: 'This minor version includes fixes for 20 Core tickets and 15 Block Editor issues. Among the improvements are:' },
+      { type: 'text', value: '- Security patches for detected vulnerabilities\n- Performance improvements in the Gutenberg editor\n- Fixes for REST API bugs\n- Solutions for PHP 8.2 compatibility issues' },
+      { type: 'subtitle', value: 'Automatic Update' },
+      { type: 'text', value: 'If your site has automatic background updates enabled, the update process will begin automatically. Otherwise, you can download WordPress 6.8.2 from WordPress.org or visit your WordPress Dashboard, click "Updates", and then click "Update Now".' },
+      { type: 'subtitle', value: 'End of Security Updates for Older Versions' },
+      { type: 'text', value: 'Along with this release, WordPress has announced that branches 4.1 to 4.6 have received their final update. These versions will no longer receive any security updates in the future, making it even more important to keep your WordPress updated to a recent version.' },
+      { type: 'code', value: '// Check your current WordPress version\necho get_bloginfo("version");' },
+      { type: 'subtitle', value: 'Why You Should Update' },
+      { type: 'text', value: 'Keeping WordPress updated is crucial for several reasons:' },
+      { type: 'text', value: '1. Security: Maintenance updates often include patches for security vulnerabilities.\n2. Performance: Each version usually includes performance improvements and optimizations.\n3. Compatibility: Updates ensure your site remains compatible with the latest plugins and themes.\n4. Support: Older versions eventually stop receiving support and security updates.' },
+      { type: 'subtitle', value: 'WordPress 6.8.2 Contributors' },
+      { type: 'text', value: 'This version was led by Jb Audras, Estela Rueda, and Zunaid Amin, with the help of over 90 contributors from the WordPress community. Their asynchronous coordination to deliver maintenance fixes in a stable release is a testament to the power and capability of the WordPress community.' },
+      { type: 'subtitle', value: 'Update Recommendations' },
+      { type: 'text', value: '- Make a complete backup before updating\n- Check the compatibility of your plugins and themes\n- Update in a test environment first if possible\n- Review your site after the update to detect any potential issues' },
+      { type: 'text', value: 'Have you already updated to WordPress 6.8.2? Share your experience in the comments and help other users keep their sites secure and up-to-date.' }
+    ]
+  },
+  {
     slug: 'seo-trends-for-developers',
     translationSlug: 'tendencias-seo-para-desarrolladores',
     title: 'SEO Trends for Developers',
