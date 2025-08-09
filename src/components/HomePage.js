@@ -14,6 +14,7 @@ import LatestPosts from './LatestPosts';
 // Import images
 import entradafanLogo from '../images/entradafan.svg';
 import clarikaLogo from '../images/clarika-logo.svg'; 
+import gangafanlogo from '../images/gangafan-logo.svg';
 
 const AnimatedCounter = ({ value, suffix = '' }) => {
   const ref = useRef(null);
@@ -53,6 +54,10 @@ const HomePage = () => {
   }, [t]);
 
   const clients = [
+    {
+      logo: gangafanlogo,
+      url: 'https://www.gangafan.com'
+    },
     {
       logo: entradafanLogo,
       url: 'https://www.entradafan.com.ar'
@@ -161,6 +166,12 @@ const HomePage = () => {
   ];
 
   const allProjects = [
+    {
+      title: t('projects.gangafan.title'),
+      description: t('projects.gangafan.desc'),
+      image: require('../images/gangafan-page.png'),
+      url: 'https://gangafan.com'
+    },
     {
       title: t('projects.terralauquen.title'),
       description: t('projects.terralauquen.desc'),
