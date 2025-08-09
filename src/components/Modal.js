@@ -6,8 +6,15 @@ import tenisDeMesaImageRank from '../images/tenisDeMesaImageRank.png';
 import megaMayoristaImage from '../images/megamayorista.png';
 import chichicImage from '../images/chichicImage.png';
 import protorneoImage from '../images/protorneo.png';
+import gangafanpage from '../images/gangafan-page.png';
 
 const proyectos = [
+    {
+        img: gangafanpage,
+        title: "Gangafan",
+        desc: "Desarrollado en Wordpress.",
+        link: "https://gangafan.com"
+    },
     {
         img: tenisDeMesaImage,
         title: "Tenis de Mesa Trenque",

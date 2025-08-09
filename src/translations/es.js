@@ -58,6 +58,8 @@ export const es = {
 
   // Projects
   'projects.viewSite': 'Ver Sitio',
+  'projects.gangafan.title': 'Gangafan',
+  'projects.gangafan.desc': 'Tienda online desarrollada con WordPress y WooCommerce, optimizada y personalizada para alto rendimiento. Incluye integraciones con APIs externas y uso de la REST API de WooCommerce para sincronizar productos, pedidos y stock en tiempo real. Diseño responsive, mejoras en la experiencia de compra y optimización SEO para mayor visibilidad.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',
   'projects.terralauquen.desc': 'Sitio web institucional y catálogo digital desarrollado 100% a medida con WordPress como framework base. Programación personalizada en PHP, MySQL, HTML5, SCSS y JS. Incluye sistema de gestión de productos con opción de descarga de fichas técnicas en PDF,  responsive y optimización para carga rápida y SEO.',
   'projects.megamayorista.title': 'Mega Mayorista',

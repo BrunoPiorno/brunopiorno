@@ -30,6 +30,24 @@ export const en = {
   'projects.clarika.desc': 'Digital solutions for companies and startups',
   'projects.featured': [
     {
+      title: 'Gangafan',
+      description: 'Online store built with WordPress and WooCommerce, optimized for high performance',
+      image: '/images/gangafan-logo.svg',
+      url: 'https://www.gangafan.com.ar'
+    },
+    {
+      title: 'Grupo Terra Lauquen',
+      description: 'Custom-developed corporate website and digital catalog',
+      image: '/images/terralauquen-logo.png',
+      url: '#'
+    },
+    {
+      title: 'Mega Mayorista',
+      description: 'Online store with dynamic catalog and payment gateway',
+      image: '/images/logo-megamayorista-nobg.png',
+      url: 'https://megamayorista.com'
+    },
+    {
       title: 'EntradaFan',
       description: 'Online ticket sales platform for events and shows',
       image: '/images/entradafan.svg',
@@ -37,7 +55,7 @@ export const en = {
     },
     {
       title: 'Clarika',
-      description: 'Digital solutions for companies and startups',
+      description: 'Digital solutions for businesses and startups',
       image: '/images/clarika-logo.svg',
       url: 'https://clarika.com.ar'
     }
@@ -57,7 +75,10 @@ export const en = {
   'services.webdev.desc': 'Custom web solutions with the latest technologies',
 
   // Projects
+
 'projects.viewSite': 'View Site',
+'projects.gangafan.title': 'Gangafan',
+'projects.gangafan.desc': 'Online store built with WordPress and WooCommerce, optimized and customized for high performance. Includes integrations with external APIs and the WooCommerce REST API to synchronize products, orders, and inventory in real time. Responsive design, enhanced shopping experience, and SEO optimization for greater visibility.',
 'projects.terralauquen.title': 'Grupo Terra Lauquen',
 'projects.terralauquen.desc': 'Custom-developed corporate website and digital catalog using WordPress as the base framework. Fully personalized with PHP, MySQL, HTML5, CSS3, and JavaScript. Includes a product management system with PDF downloads, responsive design, and optimized performance and SEO.',
 'projects.megamayorista.title': 'Mega Mayorista',
