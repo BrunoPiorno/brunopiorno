@@ -100,9 +100,10 @@ export const es = {
   'nav.contact': 'Contacto',
 
   // Hero Section
-  'hero.title': 'Desarrollo de Sistemas & Web',
-  'hero.subtitle': 'Transformamos ideas en sitios web exitosos. Especializados en crear experiencias digitales únicas con WordPress y tiendas online con WooCommerce.',
-  'hero.cta': 'Obtener presupuesto',
+  'hero.title': 'Creamos sistemas y webs que hacen crecer tu negocio',
+  'hero.subtitle': 'Desde e-commerce hasta plataformas a medida, ayudamos a empresas como la tuya a vender mas.',
+  'hero.cta': 'Hablar con un experto',
+  'hero.cta2': 'Ver proyectos',
 
   // Stats Section
   'stats.title': 'Resultados que Hablan',

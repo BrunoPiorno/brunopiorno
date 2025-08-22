@@ -11,10 +11,12 @@ import ServiceCard from './ServiceCard';
 import ProjectCard from './ProjectCard';
 import ClientCard from './ClientCard';
 import LatestPosts from './LatestPosts';
+import FloatingIcons from './FloatingIcons';
 // Import images
 import entradafanLogo from '../images/entradafan.svg';
 import clarikaLogo from '../images/clarika-logo.svg'; 
 import gangafanlogo from '../images/gangafan-logo.svg';
+import heroImage from '../images/herocua.png';
 
 const AnimatedCounter = ({ value, suffix = '' }) => {
   const ref = useRef(null);
@@ -324,35 +326,54 @@ const HomePage = () => {
           </div>
       </header>
       {/* Hero Section */}
-      <section className="hero-section">
+            <section className="hero-section" id="hero">
+        <FloatingIcons />
         <div className="hero-content">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {t('hero.title')}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {t('hero.subtitle')}
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <a 
-              href={locale === 'en' ? "https://wa.me/+5491159786999" : "https://wa.me/+5492392460230"} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="cta-button"
+          <div className="hero-text">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              {t('hero.cta')}
-            </a>
+              {t('hero.title')}
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              {t('hero.subtitle')}
+            </motion.p>
+            <motion.div
+              className="hero-buttons"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <a 
+                href={locale === 'en' ? "https://wa.me/+5491159786999" : "https://wa.me/+5492392460230"} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="cta-button"
+              >
+                {t('hero.cta')}
+              </a>
+              <a 
+                href="#proyectos" 
+                onClick={(e) => scrollToSection(e, 'proyectos')}
+                className="cta-button secondary"
+              >
+                {t('hero.cta2')}
+              </a>
+            </motion.div>
+          </div>
+          <motion.div 
+            className="hero-image"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <img src={heroImage} alt="Hero" />
           </motion.div>
         </div>
       </section>
