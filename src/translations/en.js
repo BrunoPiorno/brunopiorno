@@ -118,9 +118,10 @@ export const en = {
   'nav.contact': 'Contact',
 
   // Hero Section
-  'hero.title': 'Systems & Web Development',
-  'hero.subtitle': 'Transforming ideas into successful websites. Specialized in creating unique digital experiences with WordPress and online stores with WooCommerce.',
-  'hero.cta': 'Let’s talk – free quote',
+  'hero.title': 'We create systems and websites that grow your business',
+  'hero.subtitle': 'From e-commerce to custom platforms, we help companies like yours sell more.',
+  'hero.cta': 'Talk to an expert',
+  'hero.cta2': 'View projects',
 
   // Stats Section
   'stats.title': 'Results That Speak for Themselves',
