@@ -203,6 +203,12 @@ const HomePage = () => {
       url: 'https://chichicwinerelax.com/'
     },
     {
+      title: t('projects.fapcdms.title'),
+      description: t('projects.fapcdms.desc'),
+      image: require('../images/fapcdms-logo.png'),
+      url: 'https://fapcdms.com/'
+    },
+    {
       title: t('projects.tenis.title'),
       description: t('projects.tenis.desc'),
       image: require('../images/tenisdemesatrenque.com.ar_.png'),
