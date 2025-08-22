@@ -89,6 +89,8 @@ export const en = {
 'projects.ranking.desc': 'Professional ranking system with profile and statistics management.',
 'projects.cichic.title': 'Cichic',
 'projects.cichic.desc': 'Corporate website developed with WordPress.',
+'projects.fapcdms.title': 'Federacion de automovilismo de la Prov. de santa fe',
+'projects.fapcdms.desc': 'We developed an innovative QR code digital credential system for motorsports drivers at FAPCDMS. Each driver has a unique QR code that allows them to display their credential when competing, ensuring secure and rapid access.',
 'projects.tenis.title': 'Tenis de Mesa Trenque',
 'projects.tenis.desc': 'Informative website developed in React.',
 'projects.protorneo.title': 'Protorneos',

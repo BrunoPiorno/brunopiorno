@@ -7,6 +7,7 @@ import megaMayoristaImage from '../images/megamayorista.png';
 import chichicImage from '../images/chichicImage.png';
 import protorneoImage from '../images/protorneo.png';
 import gangafanpage from '../images/gangafan-page.png';
+import fapcdmsImage from '../images/fapcdms-logo.png';
 
 const proyectos = [
     {
@@ -50,6 +51,12 @@ const proyectos = [
         title: "Protorneo",
         desc: "Desarrollado en HTML, CSS, JS.",
         link: "https://protorneo.com"
+    },
+    {
+        img: fapcdmsImage,
+        title: "FAP CDMS",
+        desc: "Sistema de credenciales digitales con QR para pilotos del automovilismo",
+        link: "https://fapcdms.com"
     }
 ];
 
