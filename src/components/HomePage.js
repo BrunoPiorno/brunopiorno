@@ -403,7 +403,7 @@ const HomePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <AnimatedCounter value={80} suffix="+" />
+            <AnimatedCounter value={120} suffix="+" />
             <p>{t('stats.item1')}</p>
           </motion.div>
           <motion.div 
@@ -412,7 +412,7 @@ const HomePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <AnimatedCounter value={6} suffix="+" />
+            <AnimatedCounter value={7} suffix="+" />
             <p>{t('stats.item2')}</p>
           </motion.div>
           <motion.div 
