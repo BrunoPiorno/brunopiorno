@@ -55,6 +55,16 @@ export const es = {
   'services.ecommerce.desc': 'Tiendas online potentes y escalables con WooCommerce',
   'services.webdev.title': 'Desarrollo Web',
   'services.webdev.desc': 'Soluciones web a medida con las últimas tecnologías',
+  'services.custom.title': 'Soluciones a Medida',
+  'services.custom.desc': 'Desarrollo de funcionalidades específicas para resolver necesidades únicas.',
+  'services.consulting.title': 'Consultoría Tecnológica',
+  'services.consulting.desc': 'Asesoramiento estratégico para optimizar tu presencia digital y tecnológica.',
+  'services.maintenance.title': 'Mantenimiento y Soporte',
+  'services.maintenance.desc': 'Planes de mantenimiento para garantizar que tu sitio web funcione siempre de manera óptima.',
+  'services.seo.title': 'Sistemas a Medida',
+  'services.seo.desc': 'Desarrollo de sistemas y aplicaciones complejas para automatizar procesos y escalar operaciones.',
+  'services.performance.title': 'Optimización de Rendimiento',
+  'services.performance.desc': 'Aseguramos que tu sitio web sea rápido y eficiente para la mejor experiencia de usuario.',
 
   // Projects
   'projects.viewSite': 'Ver Sitio',

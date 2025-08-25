@@ -145,6 +145,31 @@ const HomePage = () => {
       title: t('services.webdev.title'),
       description: t('services.webdev.desc'),
       icon: 'devicon-html5-plain'
+    },
+    {
+      title: t('services.custom.title'),
+      description: t('services.custom.desc'),
+      icon: 'devicon-react-original'
+    },
+    {
+      title: t('services.consulting.title'),
+      description: t('services.consulting.desc'),
+      icon: 'devicon-git-plain'
+    },
+    {
+      title: t('services.maintenance.title'),
+      description: t('services.maintenance.desc'),
+      icon: 'devicon-github-original'
+    },
+    {
+      title: t('services.seo.title'),
+      description: t('services.seo.desc'),
+      icon: 'devicon-docker-plain'
+    },
+    {
+      title: t('services.performance.title'),
+      description: t('services.performance.desc'),
+      icon: 'devicon-redis-plain'
     }
   ];
 
@@ -158,6 +183,7 @@ const HomePage = () => {
       { name: 'WooCommerce', icon: 'devicon-woocommerce-plain' },
       { name: 'VS Code', icon: 'devicon-visualstudio-plain' },
       { name: 'GitHub', icon: 'devicon-github-original' },
+      { name: 'Redis', icon: 'devicon-redis-plain' },
       { name: 'JavaScript', icon: 'devicon-javascript-plain' },
       { name: 'React', icon: 'devicon-react-original' },
       { name: 'Composer', icon: 'devicon-composer-line' },
