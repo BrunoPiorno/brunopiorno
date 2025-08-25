@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaCloud, FaJs, FaPhp, FaGit } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaCloud, FaJs, FaPhp, FaGit, FaWordpress } from 'react-icons/fa';
 import { DiJavascript1 } from 'react-icons/di';
 
 const iconVariants = {
@@ -25,7 +25,8 @@ const FloatingIcons = () => {
     { icon: <FaCloud />, size: '3rem', top: '10%', left: '40%', delay: 1.2 },
     { icon: <FaJs />, size: '2rem', top: '60%', left: '10%', delay: 0.5 },
     { icon: <FaPhp />, size: '3rem', top: '90%', left: '80%', delay: 0.2 },
-    { icon: <FaGit />, size: '2rem', top: '90%', left: '30%', delay: 0.5 }
+    { icon: <FaGit />, size: '2rem', top: '90%', left: '30%', delay: 0.5 },
+    { icon: <FaWordpress />, size: '2rem', top: '90%', left: '10%', delay: 0.5 },
   ];
 
   return (

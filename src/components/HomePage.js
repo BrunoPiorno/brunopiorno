@@ -12,7 +12,6 @@ import ProjectCard from './ProjectCard';
 import ClientCard from './ClientCard';
 import LatestPosts from './LatestPosts';
 import FloatingIcons from './FloatingIcons';
-// Import images
 import entradafanLogo from '../images/entradafan.svg';
 import clarikaLogo from '../images/clarika-logo.svg'; 
 import gangafanlogo from '../images/gangafan-logo.svg';
