@@ -12,19 +12,31 @@ const ProjectCard = memo(({ project, index }) => {
     initial={{ opacity: 0, scale: 0.9 }}
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.6, delay: index * 0.2 }}
-    whileHover={{ y: -10 }}
   >
-    <div className="project-image">
-      <img 
-        src={project.image} 
-        alt={project.title}
-        loading="lazy"
-        width="600"
-        height="400"
-      />
+    <div className="project-image-container">
+      <div className="monitor-frame">
+        <div className="monitor-header">
+          <span className="monitor-dot red"></span>
+          <span className="monitor-dot yellow"></span>
+          <span className="monitor-dot green"></span>
+        </div>
+        <div className="monitor-screen">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            loading="lazy"
+            width="600"
+            height="400"
+          />
+        </div>
+      </div>
     </div>
     <div className="project-info">
+      {project.contribution && (
+        <span className={`project-contribution-badge ${project.contribution.split('.')[1]}`}>
+          {t(project.contribution)}
+        </span>
+      )}
       <h3>{project.title}</h3>
       <p>{project.description}</p>
       <motion.a
