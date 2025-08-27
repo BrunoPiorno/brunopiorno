@@ -68,6 +68,8 @@ export const es = {
 
   // Projects
   'projects.viewSite': 'Ver Sitio',
+  'contribution.full': 'Desarrollo Completo',
+  'contribution.improvements': 'Mejoras y nuevo desarrollo',
   'projects.gangafan.title': 'Gangafan',
   'projects.gangafan.desc': 'Tienda online desarrollada con WordPress y WooCommerce, optimizada y personalizada para alto rendimiento. Incluye integraciones con APIs externas y uso de la REST API de WooCommerce para sincronizar productos, pedidos y stock en tiempo real. Diseño responsive, mejoras en la experiencia de compra y optimización SEO para mayor visibilidad.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',
@@ -83,7 +85,7 @@ export const es = {
   'projects.fapcdms.title': 'Federacion de automovilismo de la Prov. de santa fe',
   'projects.fapcdms.desc': 'Desarrollamos un sistema innovador de credenciales digitales mediante QR para pilotos de automovilismo en FAPCDMS. Cada piloto cuenta con un QR único que permite mostrar su credencial al presentarse en competencias, garantizando acceso seguro y rápido.',
   'projects.tenis.title': 'Tenis De Mesa Trenque',
-  'projects.tenis.desc': 'Pagina web informativa realizada en React.',
+  'projects.tenis.desc': 'Desarrollamos un sitio web informativo moderno y dinámico para el club de Tenis de Mesa en Trenque Lauquen. El proyecto fue realizado en React, lo que garantiza una experiencia rápida, fluida y adaptable en cualquier dispositivo.',
   'projects.protorneo.title': 'Protorneos',
   'projects.protorneo.desc': 'Sitio web liviano y estático desarrollado con HTML5, CSS3 y JavaScript puro. Diseño responsive, estructura optimizada para velocidad de carga y fácil mantenimiento, ideal para mostrar información institucional y deportiva sin depender de CMS.',
 
@@ -128,7 +130,7 @@ export const es = {
 
   // Projects Section
   'projects.title': 'Proyectos Destacados',
-  'projects.subtitle': 'Algunos de mis trabajos más recientes',
+  'projects.subtitle': 'Algunos de nuestros trabajos más recientes',
 
   // Clients Section
   'clients.title': 'Clientes',

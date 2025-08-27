@@ -197,55 +197,64 @@ const HomePage = () => {
       title: t('projects.gangafan.title'),
       description: t('projects.gangafan.desc'),
       image: require('../images/gangafan-page.png'),
-      url: 'https://gangafan.com'
+      url: 'https://gangafan.com',
+      contribution: 'contribution.full'
     },
     {
       title: t('projects.terralauquen.title'),
       description: t('projects.terralauquen.desc'),
       image: require('../images/grupoterralauquen.com.ar_.png'),
-      url: 'https://grupoterralauquen.com.ar'
+      url: 'https://grupoterralauquen.com.ar',
+      contribution: 'contribution.full'
     },  
     {
       title: t('projects.josejose.title'),
       description: t('projects.josejose.desc'),
       image: require('../images/josejose.png'),
-      url: 'https://www.josejoseoficial.com.mx/'
+      url: 'https://www.josejoseoficial.com.mx/',
+      contribution: 'contribution.full'
     },
     {
       title: t('projects.protorneo.title'),
       description: t('projects.protorneo.desc'),
       image: require('../images/protorneo.png'),
-      url: 'https://www.protorneos.com'
+      url: 'https://www.protorneos.com',
+      contribution: 'contribution.full'
     },
     {
       title: t('projects.megamayorista.title'),
       description: t('projects.megamayorista.desc'),
       image: require('../images/megamayorista.png'),
-      url: 'https://megamayorista.com'
+      url: 'https://megamayorista.com',
+      contribution: 'contribution.full'
     },
     {
       title: t('projects.cichic.title'),
       description: t('projects.cichic.desc'),
       image: require('../images/chichicImage.png'),
-      url: 'https://chichicwinerelax.com/'
+      url: 'https://chichicwinerelax.com/',
+      contribution: 'contribution.full'
     },
     {
       title: t('projects.fapcdms.title'),
       description: t('projects.fapcdms.desc'),
       image: require('../images/fapcdms-logo.png'),
-      url: 'https://fapcdms.com/'
+      url: 'https://fapcdms.com/',
+      contribution: 'contribution.improvements'
     },
     {
       title: t('projects.tenis.title'),
       description: t('projects.tenis.desc'),
       image: require('../images/tenisdemesatrenque.com.ar_.png'),
-      url: 'https://tenisdemesatrenque.com.ar'
+      url: 'https://tenisdemesatrenque.com.ar',
+      contribution: 'contribution.full'
     },
     {
       title: t('projects.ranking.title'),
       description: t('projects.ranking.desc'),
       image: require('../images/tenisDeMesaImageRank.png'),
-      url: 'https://trenquetdmranking.com.ar/'
+      url: 'https://trenquetdmranking.com.ar/',
+      contribution: 'contribution.full'
     }
   ];
 

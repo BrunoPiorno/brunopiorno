@@ -87,6 +87,8 @@ export const en = {
   // Projects
 
   'projects.viewSite': 'View Site',
+  'contribution.full': 'Full Development',
+  'contribution.improvements': 'Improvements & New Development',
   'projects.gangafan.title': 'Gangafan',
   'projects.gangafan.desc': 'Online store built with WordPress and WooCommerce, optimized and customized for high performance. Includes integrations with external APIs and the WooCommerce REST API to synchronize products, orders, and inventory in real time. Responsive design, enhanced shopping experience, and SEO optimization for greater visibility.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',
