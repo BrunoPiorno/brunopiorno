@@ -15,7 +15,7 @@ import FloatingIcons from './FloatingIcons';
 import entradafanLogo from '../images/entradafan.svg';
 import clarikaLogo from '../images/clarika-logo.svg'; 
 import gangafanlogo from '../images/gangafan-logo.svg';
-import heroImage from '../images/herocua.png';
+import heroImage from '../images/hero-tw.png';
 
 const AnimatedCounter = ({ value, suffix = '' }) => {
   const ref = useRef(null);
