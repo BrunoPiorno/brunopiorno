@@ -28,6 +28,9 @@ const PrivacyPolicy = () => {
         <h2>{t('privacy.contact.title')}</h2>
         <p>{t('privacy.contact.content')}</p>
 
+        <h2>{t('privacy.gdpr.title')}</h2>
+        <p>{t('privacy.gdpr.content')}</p>
+
         <div className="blog-post-footer">
             <Link to="/" className="cta-button">{t('privacy.goBack')}</Link>
         </div>

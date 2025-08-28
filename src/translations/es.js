@@ -22,6 +22,10 @@ export const es = {
   'header.methodology': 'Metodología',
   'header.technologies': 'Tecnologías',
   'header.blog': 'Blog',
+  'home.contact.title': 'Contacto',
+  'home.gdpr.title': 'Tu Privacidad es Nuestra Prioridad',
+  'home.gdpr.content.beforeLink': 'Nos comprometemos a proteger tus datos de acuerdo con el Reglamento General de Protección de Datos (GDPR). Tratamos tu información con el máximo cuidado y transparencia. Puedes conocer más en nuestra',
+  'home.gdpr.content.linkText': 'Política de Privacidad',
 
   // Featured Projects
   'projects.entradafan.title': 'EntradaFan',
@@ -127,6 +131,7 @@ export const es = {
   // Services Section
   'services.title': 'Servicios',
   'services.subtitle': 'Soluciones digitales adaptadas a tus necesidades',
+  'services.gdprCompliance': 'Todos nuestros desarrollos cumplen con las normativas GDPR para garantizar la privacidad y seguridad de los datos.',
 
   // Projects Section
   'projects.title': 'Proyectos Destacados',
@@ -203,6 +208,8 @@ export const es = {
   'privacy.rights.content': 'Tienes derecho a acceder, corregir o eliminar tus datos personales. También puedes oponerte o restringir el procesamiento de tus datos. Para ejercer estos derechos, por favor contáctanos.',
   'privacy.contact.title': 'Cómo Contactarnos',
   'privacy.contact.content': 'Si tienes alguna pregunta sobre esta política de privacidad, contáctanos a través del formulario disponible en este sitio.',
+  'privacy.gdpr.title': 'Compromiso con el GDPR',
+  'privacy.gdpr.content': 'Nos comprometemos a cumplir con el Reglamento General de Protección de Datos (GDPR) para todos nuestros usuarios. Tratamos sus datos con la máxima seriedad y garantizamos sus derechos de acceso, rectificación y supresión.',
   'privacy.goBack': 'Volver',
 
   'cookies.banner.text': 'Utilizamos cookies para mejorar tu experiencia. Al usar nuestro sitio, aceptas nuestra',
