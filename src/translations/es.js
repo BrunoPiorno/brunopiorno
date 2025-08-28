@@ -177,6 +177,28 @@ export const es = {
   'privacy.dataUse.content': 'Usamos los datos que recopilamos para comunicarnos contigo, por ejemplo, para responder a una consulta. No compartimos tus datos personales con terceros.',
   'privacy.cookies.title': 'Cookies',
   'privacy.cookies.content': 'Usamos cookies para almacenar tus preferencias y configuraciones, y con fines analíticos. Puedes controlar las cookies a través de la configuración de tu navegador.',
+
+  // Aviso Legal
+  'legalNotice.title': 'Aviso Legal',
+  'legalNotice.meta_description': 'Aviso legal del sitio web brunopiorno.com.ar',
+  'legalNotice.content.p1': 'En cumplimiento del deber de información, a continuación se reflejan los siguientes datos:',
+  'legalNotice.section1.title': 'Datos identificativos del titular',
+  'legalNotice.section1.content': 'Titular: Bruno Piorno. Correo electrónico de contacto: brunopiornop@gmail.com. Sitio web: brunopiorno.com.ar.',
+  'legalNotice.section2.title': 'Propiedad Intelectual',
+  'legalNotice.section2.content': 'Todos los derechos de propiedad intelectual del contenido de este sitio web y su diseño gráfico son propiedad exclusiva de Bruno Piorno.',
+
+  // Política de Cookies
+  'cookiesPolicy.title': 'Política de Cookies',
+  'cookiesPolicy.meta_description': 'Información sobre el uso de cookies en brunopiorno.com.ar',
+  'cookiesPolicy.content.p1': 'Este sitio web utiliza cookies propias y de terceros para ofrecerle una mejor experiencia y servicio. Al navegar o utilizar nuestros servicios, usted acepta el uso que hacemos de las cookies.',
+  'cookiesPolicy.section1.title': '¿Qué es una cookie?',
+  'cookiesPolicy.section1.content': 'Una cookie es un pequeño fragmento de texto que los sitios web envían al navegador y que se almacenan en el terminal del usuario, el cual puede ser un ordenador personal, un teléfono móvil, una tableta, etc.',
+  'cookiesPolicy.section2.title': '¿Cómo administrar cookies en el navegador?',
+  'cookiesPolicy.section2.content': 'El usuario puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su terminal.',
+
+  // Footer
+  'footer.legal': 'Aviso Legal',
+  'footer.cookies': 'Política de Cookies',
   'privacy.rights.title': 'Tus Derechos',
   'privacy.rights.content': 'Tienes derecho a acceder, corregir o eliminar tus datos personales. También puedes oponerte o restringir el procesamiento de tus datos. Para ejercer estos derechos, por favor contáctanos.',
   'privacy.contact.title': 'Cómo Contactarnos',
@@ -186,6 +208,7 @@ export const es = {
   'cookies.banner.text': 'Utilizamos cookies para mejorar tu experiencia. Al usar nuestro sitio, aceptas nuestra',
   'cookies.banner.link': 'Política de Privacidad',
   'cookies.banner.accept': 'Aceptar',
+  'cookies.banner.reject': 'Rechazar',
 
   'footer.rights': 'Todos los derechos reservados.',
   'footer.privacy': 'Política de Privacidad',
