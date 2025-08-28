@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import posts from '../data/blogPosts';
 import posts_en from '../data/blogPosts_en';
 import { useLanguage } from '../context/LanguageContext';
