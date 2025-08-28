@@ -212,6 +212,24 @@ export const en = {
   'privacy.dataUse.content': 'We use the data we collect to communicate with you, for example, to respond to an inquiry. We do not share your personal data with third parties.',
   'privacy.cookies.title': 'Cookies',
   'privacy.cookies.content': 'We use cookies to store your preferences and settings, and for analytical purposes. You can control cookies through your browser settings.',
+
+  // Legal Notice
+  'legalNotice.title': 'Legal Notice',
+  'legalNotice.meta_description': 'Legal notice of the website brunopiorno.com.ar',
+  'legalNotice.content.p1': 'In compliance with the duty of information, the following data is reflected below:',
+  'legalNotice.section1.title': 'Identifying data of the owner',
+  'legalNotice.section1.content': 'Owner: Bruno Piorno. Contact email: brunopiornop@gmail.com. Website: brunopiorno.com.ar.',
+  'legalNotice.section2.title': 'Intellectual Property',
+  'legalNotice.section2.content': 'All intellectual property rights of the content of this website and its graphic design are the exclusive property of Bruno Piorno.',
+
+  // Cookies Policy
+  'cookiesPolicy.title': 'Cookies Policy',
+  'cookiesPolicy.meta_description': 'Information about the use of cookies on brunopiorno.com.ar',
+  'cookiesPolicy.content.p1': 'This website uses its own and third-party cookies to offer you a better experience and service. By browsing or using our services, you accept our use of cookies.',
+  'cookiesPolicy.section1.title': 'What is a cookie?',
+  'cookiesPolicy.section1.content': 'A cookie is a small piece of text that websites send to the browser and that are stored on the user\'s terminal, which can be a personal computer, a mobile phone, a tablet, etc.',
+  'cookiesPolicy.section2.title': 'How to manage cookies in your browser?',
+  'cookiesPolicy.section2.content': 'The user can allow, block or delete the cookies installed on their equipment by configuring the browser options installed on their terminal.',
   'privacy.rights.title': 'Your Rights',
   'privacy.rights.content': 'You have the right to access, correct, or delete your personal data. You can also object to or restrict the processing of your data. To exercise these rights, please contact us.',
   'privacy.contact.title': 'How to Contact Us',
@@ -221,6 +239,11 @@ export const en = {
   'cookies.banner.text': 'We use cookies to improve your experience. By using our site, you agree to our',
   'cookies.banner.link': 'Privacy Policy',
   'cookies.banner.accept': 'Accept',
+  'cookies.banner.reject': 'Reject',
+
+  // Footer
+  'footer.legal': 'Legal Notice',
+  'footer.cookies': 'Cookies Policy',
 
   'footer.rights': 'All rights reserved.',
   'footer.privacy': 'Privacy Policy',

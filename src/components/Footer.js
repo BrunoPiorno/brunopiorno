@@ -11,7 +11,9 @@ const Footer = () => {
       <div className="footer-content">
         <p>&copy; {currentYear} Bruno Piorno. {t('footer.rights')}</p>
         <div className="footer-links">
+          <Link to="/legal-notice">{t('footer.legal')}</Link>
           <Link to="/privacy-policy">{t('footer.privacy')}</Link>
+          <Link to="/cookies-policy">{t('footer.cookies')}</Link>
         </div>
       </div>
     </footer>

@@ -18,6 +18,11 @@ const CookieBanner = () => {
     setIsVisible(false);
   };
 
+  const handleReject = () => {
+    localStorage.setItem('cookie_consent', 'false');
+    setIsVisible(false);
+  };
+
   if (!isVisible) return null;
 
   return (
@@ -26,7 +31,10 @@ const CookieBanner = () => {
         {t('cookies.banner.text')} 
         <Link to="/privacy-policy">{t('cookies.banner.link')}</Link>.
       </p>
-      <button onClick={handleAccept} className="cta-button">{t('cookies.banner.accept')}</button>
+      <div className="cookie-banner-buttons">
+        <button onClick={handleAccept} className="cta-button">{t('cookies.banner.accept')}</button>
+        <button onClick={handleReject} className="cta-button secondary">{t('cookies.banner.reject')}</button>
+      </div>
     </div>
   );
 };
