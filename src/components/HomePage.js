@@ -1,7 +1,8 @@
 import React, { useState, useMemo, useCallback } from 'react'; 
 import { motion, useInView, animate, useMotionValue } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import '../App.css';
@@ -479,6 +480,16 @@ const HomePage = () => {
             <ServiceCard key={index} service={service} index={index} />
           ))}
         </div>
+
+        <motion.div 
+          className="gdpr-compliance-block"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          <p>{t('services.gdprCompliance')}</p>
+        </motion.div>
       </section>
 
       {/* Projects Section */}
@@ -543,6 +554,14 @@ const HomePage = () => {
             </a>
           </div>
         </motion.div>
+      </section>
+
+      <section className="home-section">
+        <h2>{t('home.gdpr.title')}</h2>
+        <p>
+          {t('home.gdpr.content.beforeLink')}
+          <Link to='/privacy-policy' className='privacy-policy-link'>{t('home.gdpr.content.linkText')}</Link>.
+        </p>
       </section>
 
       {/* Workflow Section */}

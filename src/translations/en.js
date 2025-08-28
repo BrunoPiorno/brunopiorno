@@ -18,7 +18,10 @@ export const en = {
   'header.services': 'Services',
   'header.projects': 'Projects',
   'header.clients': 'Clients',
-  'header.contact': 'Contact',
+  'home.contact.title': 'Contact',
+  'home.gdpr.title': 'Your Privacy is Our Priority',
+  'home.gdpr.content.beforeLink': 'We are committed to protecting your data in accordance with the General Data Protection Regulation (GDPR). We handle your information with the utmost care and transparency. You can learn more in our',
+  'home.gdpr.content.linkText': 'Privacy Policy',
   'header.methodology': 'Methodology',
   'header.technologies': 'Technologies',
   'header.blog': 'Blog',
@@ -162,6 +165,7 @@ export const en = {
   // Services Section
   'services.title': 'Services',
   'services.subtitle': 'Digital solutions tailored to your needs',
+  'services.gdprCompliance': 'All our developments comply with GDPR regulations to ensure data privacy and security.',
 
   // Projects Section
   'projects.title': 'Featured Projects',
@@ -234,6 +238,8 @@ export const en = {
   'privacy.rights.content': 'You have the right to access, correct, or delete your personal data. You can also object to or restrict the processing of your data. To exercise these rights, please contact us.',
   'privacy.contact.title': 'How to Contact Us',
   'privacy.contact.content': 'If you have any questions about this privacy policy, please contact us through the form available on this site.',
+  'privacy.gdpr.title': 'Commitment to GDPR',
+  'privacy.gdpr.content': 'We are committed to complying with the General Data Protection Regulation (GDPR) for all our users. We treat your data with the utmost seriousness and guarantee your rights of access, rectification, and erasure.',
   'privacy.goBack': 'Go Back',
 
   'cookies.banner.text': 'We use cookies to improve your experience. By using our site, you agree to our',
