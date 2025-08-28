@@ -3,6 +3,9 @@ import './App.css';
 import HomePage from './components/HomePage';
 import BlogList from './components/BlogList';
 import BlogPost from './components/BlogPost';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Footer from './components/Footer';
+import CookieBanner from './components/CookieBanner';
 import './devicons/devicon.min.css';
 import { LanguageProvider } from './context/LanguageContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -24,8 +27,11 @@ function App() {
               <Route path="/en" element={<HomePage />} />
               <Route path="/en/blog" element={<BlogList />} />
               <Route path="/en/blog/:slug" element={<BlogPost />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             </Routes>
           </div>
+          <Footer />
+          <CookieBanner />
         </Router>
       </LanguageProvider>
     </HelmetProvider>
