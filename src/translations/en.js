@@ -17,7 +17,7 @@ export const en = {
   'header.home': 'Home',
   'header.services': 'Services',
   'header.projects': 'Projects',
-  'header.clients': 'Clients',
+  'header.contact': 'Contact',
   'home.contact.title': 'Contact',
   'home.gdpr.title': 'Your Privacy is Our Priority',
   'home.gdpr.content.beforeLink': 'We are committed to protecting your data in accordance with the General Data Protection Regulation (GDPR). We handle your information with the utmost care and transparency. You can learn more in our',
