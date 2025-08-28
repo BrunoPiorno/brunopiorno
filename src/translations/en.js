@@ -199,5 +199,29 @@ export const en = {
   'contact.subtitle': 'Let\'s talk about your next project',
   'contact.whatsapp': 'WhatsApp',
   'contact.email': 'Email',
-  'contact.linkedin': 'LinkedIn'
+  'contact.linkedin': 'Connect on LinkedIn',
+  'contact.privacy.text': 'I have read and agree to the',
+  'contact.privacy.link': 'Privacy Policy',
+
+  // GDPR & Legal
+  'privacy.title': 'Privacy Policy',
+  'privacy.intro': 'Your privacy is important to us. This privacy policy explains what personal data we collect from you and how we use it. This policy applies to brunopiorno.com.ar.',
+  'privacy.dataCollection.title': 'Data We Collect',
+  'privacy.dataCollection.content': 'We collect data to operate effectively and provide you with the best experiences. You provide some of this data directly, such as when you fill out the contact form. We do not obtain data from third parties.',
+  'privacy.dataUse.title': 'How We Use Your Data',
+  'privacy.dataUse.content': 'We use the data we collect to communicate with you, for example, to respond to an inquiry. We do not share your personal data with third parties.',
+  'privacy.cookies.title': 'Cookies',
+  'privacy.cookies.content': 'We use cookies to store your preferences and settings, and for analytical purposes. You can control cookies through your browser settings.',
+  'privacy.rights.title': 'Your Rights',
+  'privacy.rights.content': 'You have the right to access, correct, or delete your personal data. You can also object to or restrict the processing of your data. To exercise these rights, please contact us.',
+  'privacy.contact.title': 'How to Contact Us',
+  'privacy.contact.content': 'If you have any questions about this privacy policy, please contact us through the form available on this site.',
+  'privacy.goBack': 'Go Back',
+
+  'cookies.banner.text': 'We use cookies to improve your experience. By using our site, you agree to our',
+  'cookies.banner.link': 'Privacy Policy',
+  'cookies.banner.accept': 'Accept',
+
+  'footer.rights': 'All rights reserved.',
+  'footer.privacy': 'Privacy Policy',
 };

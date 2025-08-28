@@ -1744,7 +1744,67 @@ body {
   }
 }
 
-/* Latest Posts Section (Homepage) */
+/* Agrega aquí tus estilos personalizados */
+
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+  border-top: 1px solid var(--border-color);
+}
+
+.cookie-banner p {
+  margin: 0;
+  margin-right: 1.5rem;
+}
+
+.cookie-banner a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer-section {
+  background-color: var(--surface-color);
+  color: var(--text-secondary);
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.footer-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+}
+
 .latest-posts-section {
   padding: var(--section-padding);
   background-color: var(--background-color);
@@ -1860,6 +1920,40 @@ body {
 .view-all-button:hover {
   background-color: var(--primary-dark);
   transform: translateY(-2px);
+}
+
+.contact-form button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--primary-dark);
+}
+
+.privacy-consent {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.privacy-consent input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+}
+
+.privacy-consent a {
+  color: var(--primary-color);
+  text-decoration: underline;
 }
 
 @media (max-width: 1200px) {

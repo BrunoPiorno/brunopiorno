@@ -164,5 +164,29 @@ export const es = {
   'contact.subtitle': 'Conversemos sobre tu próximo proyecto',
   'contact.whatsapp': 'WhatsApp',
   'contact.email': 'Email',
-  'contact.linkedin': 'LinkedIn'
+  'contact.linkedin': 'Conectar en LinkedIn',
+  'contact.privacy.text': 'He leído y acepto la',
+  'contact.privacy.link': 'Política de Privacidad',
+
+  // GDPR & Legal
+  'privacy.title': 'Política de Privacidad',
+  'privacy.intro': 'Tu privacidad es importante para nosotros. Esta política de privacidad explica qué datos personales recopilamos y cómo los usamos. Esta política se aplica a brunopiorno.com.ar.',
+  'privacy.dataCollection.title': 'Datos que Recopilamos',
+  'privacy.dataCollection.content': 'Recopilamos datos para operar de manera efectiva y brindarte las mejores experiencias. Proporcionas algunos de estos datos directamente, como cuando completas el formulario de contacto. No obtenemos datos de terceros.',
+  'privacy.dataUse.title': 'Cómo Usamos Tus Datos',
+  'privacy.dataUse.content': 'Usamos los datos que recopilamos para comunicarnos contigo, por ejemplo, para responder a una consulta. No compartimos tus datos personales con terceros.',
+  'privacy.cookies.title': 'Cookies',
+  'privacy.cookies.content': 'Usamos cookies para almacenar tus preferencias y configuraciones, y con fines analíticos. Puedes controlar las cookies a través de la configuración de tu navegador.',
+  'privacy.rights.title': 'Tus Derechos',
+  'privacy.rights.content': 'Tienes derecho a acceder, corregir o eliminar tus datos personales. También puedes oponerte o restringir el procesamiento de tus datos. Para ejercer estos derechos, por favor contáctanos.',
+  'privacy.contact.title': 'Cómo Contactarnos',
+  'privacy.contact.content': 'Si tienes alguna pregunta sobre esta política de privacidad, contáctanos a través del formulario disponible en este sitio.',
+  'privacy.goBack': 'Volver',
+
+  'cookies.banner.text': 'Utilizamos cookies para mejorar tu experiencia. Al usar nuestro sitio, aceptas nuestra',
+  'cookies.banner.link': 'Política de Privacidad',
+  'cookies.banner.accept': 'Aceptar',
+
+  'footer.rights': 'Todos los derechos reservados.',
+  'footer.privacy': 'Política de Privacidad',
 };
