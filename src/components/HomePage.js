@@ -556,14 +556,6 @@ const HomePage = () => {
         </motion.div>
       </section>
 
-      <section className="home-section">
-        <h2>{t('home.gdpr.title')}</h2>
-        <p>
-          {t('home.gdpr.content.beforeLink')}
-          <Link to='/privacy-policy' className='privacy-policy-link'>{t('home.gdpr.content.linkText')}</Link>.
-        </p>
-      </section>
-
       {/* Workflow Section */}
       <section id="metodologia" className="workflow-section">
         <motion.div 
