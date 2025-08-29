@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="footer-section">
       <div className="footer-content">
-        <p>&copy; {currentYear} Bruno Piorno Polucci. {t('footer.rights')}</p>
+        <p>&copy; {currentYear} Alora. {t('footer.rights')}</p>
         <div className="footer-links">
           <Link to="/legal-notice">{t('footer.legal')}</Link>
           <Link to="/privacy-policy">{t('footer.privacy')}</Link>

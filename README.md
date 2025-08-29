@@ -1,4 +1,4 @@
-# 👋 Hola, soy Bruno Piorno
+# 👋 Hola, soy Alora
 
 Soy desarrollador web y experto en **WordPress** y **JavaScript**. Trabajo con tecnologías como **PHP**, **JavaScript**, **React**, **Next.js**, **HTML**, **CSS**, **SCSS**. Me apasiona construir soluciones digitales eficientes y creativas que ayuden a mis clientes a alcanzar sus objetivos en línea.
 
@@ -13,7 +13,7 @@ Soy desarrollador web y experto en **WordPress** y **JavaScript**. Trabajo con t
 
 ## 🌐 Enlaces
 
-- [Mi página web](https://www.brunopiorno.com.ar)
+- [Mi página web](https://www.globalalora.com)
 - [LinkedIn](https://www.linkedin.com/in/brunopiorno)
 
 ---

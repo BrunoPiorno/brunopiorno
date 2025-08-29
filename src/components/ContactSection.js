@@ -38,7 +38,7 @@ const ContactSection = () => {
             Email
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/bruno-piorno-polucci"
+            href="https://www.linkedin.com/company/aloraglobal"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-button linkedin"

@@ -9,7 +9,7 @@ const CookiesPolicy = () => {
   return (
     <div className="blog-post" style={{ marginTop: '120px', marginBottom: '4rem' }}>
         <Helmet>
-            <title>{`${t('cookiesPolicy.title')} - Bruno Piorno`}</title>
+            <title>{`${t('cookiesPolicy.title')} - Alora`}</title>
             <meta name="description" content={t('cookiesPolicy.meta_description')} />
         </Helmet>
         <div className="blog-post-header">

@@ -76,7 +76,7 @@ const BlogPost = () => {
 
   // Generar la URL completa del post para compartir y meta tags
   // Aseguramos que la URL no tenga barras duplicadas y esté bien formada
-  const fullPostUrl = `https://brunopiorno.com.ar${locale === 'en' ? '/en/blog/' : '/blog/'}${post.slug}`;
+  const fullPostUrl = `https://globalalora.com${locale === 'en' ? '/en/blog/' : '/blog/'}${post.slug}`;
   console.log('Sharing URL:', fullPostUrl);
 
   return (
@@ -97,7 +97,7 @@ const BlogPost = () => {
           <meta property="og:image:height" content="630" />
           <meta property="og:type" content="article" />
           <meta property="og:url" content={fullPostUrl} />
-          <meta property="og:site_name" content="Bruno Piorno" />
+          <meta property="og:site_name" content="Alora" />
           <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'es_ES'} />
           
           {/* Twitter Card */}
@@ -112,7 +112,7 @@ const BlogPost = () => {
           <meta property="linkedin:description" content={post.description} />
           <meta property="linkedin:image" content={post.cover} />
           <meta property="article:published_time" content={post.date} />
-          <meta property="article:author" content="Bruno Piorno" />
+          <meta property="article:author" content="Alora" />
         </Helmet>
       <article className="blog-post">
         <header className="blog-post-header">

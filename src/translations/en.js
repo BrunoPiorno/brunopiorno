@@ -2,9 +2,9 @@ export const en = {
   // Blog
   'blog.headline': 'Blog: Technology & Code',
   'blog.intro': 'Trends, tutorials and resources for devs. Everything that impacts the world of code and digital innovation.',
-  'blog.metaTitle': 'Technology & Code Blog | brunopiorno.com.ar',
+  'blog.metaTitle': 'Technology & Code Blog | globalalora.com',
   'blog.metaDescription': 'Discover articles on technology, programming, trends, and resources for developers. Everything about code and the tech world.',
-  'blog.metaTitleEn': 'Technology & Code Blog | brunopiorno.com.ar',
+  'blog.metaTitleEn': 'Technology & Code Blog | globalalora.com',
   'blog.metaDescriptionEn': 'Discover articles on technology, programming, trends, and resources for developers. Everything about code and the tech world.',
   'blog.notFound': 'Post not found',
   'blog.backToBlog': '← Back to blog',
@@ -137,8 +137,8 @@ export const en = {
   },
 
   // Meta data
-  'meta.title': 'Bruno Piorno | Web Developer specialized in WordPress and WooCommerce',
-  'meta.description': 'I\'m Bruno Piorno, a web developer expert in WordPress, WooCommerce, and technologies like PHP, MySQL, and more. Contact me to enhance your digital presence.',
+  'meta.title': 'Alora | Web Development and Global Digital Solutions',
+  'meta.description': 'We are Alora, web developers experts in WordPress, WooCommerce, and technologies like PHP, MySQL, and more. Contact us to enhance your digital presence.',
   
   // Navigation
   'nav.services': 'Services',
@@ -209,7 +209,7 @@ export const en = {
 
   // GDPR & Legal
   'privacy.title': 'Privacy Policy',
-  'privacy.intro': 'Your privacy is important to us. This privacy policy explains what personal data we collect from you and how we use it. This policy applies to brunopiorno.com.ar.',
+  'privacy.intro': 'Your privacy is important to us. This privacy policy explains what personal data we collect from you and how we use it. This policy applies to globalalora.com.',
   'privacy.dataCollection.title': 'Data We Collect',
   'privacy.dataCollection.content': 'We collect data to operate effectively and provide you with the best experiences. You provide some of this data directly, such as when you fill out the contact form. We do not obtain data from third parties.',
   'privacy.dataUse.title': 'How We Use Your Data',
@@ -219,16 +219,16 @@ export const en = {
 
   // Legal Notice
   'legalNotice.title': 'Legal Notice',
-  'legalNotice.meta_description': 'Legal notice of the website brunopiorno.com.ar',
+  'legalNotice.meta_description': 'Legal notice of the website globalalora.com',
   'legalNotice.content.p1': 'In compliance with the duty of information, the following data is reflected below:',
   'legalNotice.section1.title': 'Identifying data of the owner',
-  'legalNotice.section1.content': 'Owner: Bruno Piorno. Contact email: brunopiornop@gmail.com. Website: brunopiorno.com.ar.',
+  'legalNotice.section1.content': 'Owner: Alora. Contact email: brunopiornop@gmail.com. Website: globalalora.com.',
   'legalNotice.section2.title': 'Intellectual Property',
-  'legalNotice.section2.content': 'All intellectual property rights of the content of this website and its graphic design are the exclusive property of Bruno Piorno.',
+  'legalNotice.section2.content': 'All intellectual property rights of the content of this website and its graphic design are the exclusive property of Alora.',
 
   // Cookies Policy
   'cookiesPolicy.title': 'Cookies Policy',
-  'cookiesPolicy.meta_description': 'Information about the use of cookies on brunopiorno.com.ar',
+  'cookiesPolicy.meta_description': 'Information about the use of cookies on globalalora.com',
   'cookiesPolicy.content.p1': 'This website uses its own and third-party cookies to offer you a better experience and service. By browsing or using our services, you accept our use of cookies.',
   'cookiesPolicy.section1.title': 'What is a cookie?',
   'cookiesPolicy.section1.content': 'A cookie is a small piece of text that websites send to the browser and that are stored on the user\'s terminal, which can be a personal computer, a mobile phone, a tablet, etc.',
@@ -253,4 +253,10 @@ export const en = {
 
   'footer.rights': 'All rights reserved.',
   'footer.privacy': 'Privacy Policy',
+
+  // Alora Transition
+  'alora.previously': 'Previously',
+  'alora.now': 'Now',
+  'alora.title': 'A new identity, the same essence',
+  'alora.subtitle': 'My personal brand has evolved. Now, as Alora, I continue to offer the same dedication and experience, but with a renewed focus and a broader vision.',
 };

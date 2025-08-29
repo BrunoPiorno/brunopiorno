@@ -1,0 +1,74 @@
+.alora-transition-section {
+  padding: var(--section-padding);
+  background-color: var(--surface-color);
+  text-align: center;
+  overflow: hidden;
+}
+
+.alora-transition-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.transition-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.transition-logo {
+  height: 80px;
+  object-fit: contain;
+}
+
+.old-logo {
+  filter: grayscale(100%) brightness(1.5);
+}
+
+.transition-column p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin: 0;
+}
+
+.arrows-wrapper {
+  display: flex;
+  gap: 1rem;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  opacity: 0.6;
+}
+
+.alora-message h2 {
+  font-size: 2.5rem;
+  font-family: var(--font-family-headline);
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.alora-message p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .alora-transition-content {
+    flex-direction: column;
+  }
+  .arrows-wrapper {
+    transform: rotate(90deg);
+  }
+  .transition-logo {
+    height: 60px;
+  }
+  .alora-message h2 {
+    font-size: 2rem;
+  }
+}
