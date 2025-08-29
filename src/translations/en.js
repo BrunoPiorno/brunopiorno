@@ -17,6 +17,7 @@ export const en = {
   'header.home': 'Home',
   'header.services': 'Services',
   'header.projects': 'Projects',
+  'header.clients': 'Clients',
   'header.contact': 'Contact',
   'home.contact.title': 'Contact',
   'home.gdpr.title': 'Your Privacy is Our Priority',
