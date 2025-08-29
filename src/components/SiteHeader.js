@@ -39,8 +39,8 @@ const SiteHeader = () => {
           className="logo-container"
         >
           <motion.img
-            src="/logo-white.png"
-            alt="Bruno Piorno"
+            src="/logo-web.png"
+            alt="Alora"
             className="logo"
             transition={{ duration: 0.2 }}
           />

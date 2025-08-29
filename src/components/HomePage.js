@@ -13,6 +13,7 @@ import ProjectCard from './ProjectCard';
 import ClientCard from './ClientCard';
 import LatestPosts from './LatestPosts';
 import FloatingIcons from './FloatingIcons';
+import AloraTransition from './AloraTransition';
 import entradafanLogo from '../images/entradafan.svg';
 import clarikaLogo from '../images/clarika-logo.svg'; 
 import gangafanlogo from '../images/gangafan-logo.svg';
@@ -93,11 +94,9 @@ const HomePage = () => {
     },
     {
       logo: require('../images/logo-megamayorista-nobg.png'),
-      logo: require('../images/logo-megamayorista-nobg.png'),
       url: 'https://megamayorista.com'
     },
     {
-      logo: require('../images/mimikidslogo.png'),
       logo: require('../images/mimikidslogo.png'),
       url: 'https://mimikids.com.ar'
     },
@@ -266,10 +265,10 @@ const HomePage = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
-            "name": "Bruno Piorno - Desarrollo Web",
-            "image": "https://brunopiorno.com.ar/logo-white.svg",
+            "name": "Alora - Desarrollo Web",
+            "image": "https://globalalora.com/logo-white.svg",
             "description": "Desarrollo de sitios web a medida para profesionales y empresas, con diseño moderno, rendimiento optimizado y enfoque en conversiones.",
-            "url": "https://brunopiorno.com.ar",
+            "url": "https://globalalora.com",
             "telephone": "+5492392460230",
             "address": {
               "@type": "PostalAddress",
@@ -302,64 +301,18 @@ const HomePage = () => {
           name="description"
           content={t('meta.description')}
         />
-        <meta name="keywords" content="desarrollador web, WordPress, WooCommerce, PHP, MySQL, HTML, SCSS, jQuery, GitHub, VS Code" />
-        <meta name="author" content="Bruno Piorno" />
+        <meta name="keywords" content="Alora, desarrollo web, diseño web, WordPress, WooCommerce, eCommerce, PHP, MySQL, React, optimización web, soluciones digitales globales" />
+        <meta name="author" content="Alora" />
         <meta property="og:title" content={t('meta.title')} />
         <meta property="og:description" content={t('meta.description')} />
         <meta property="og:image" content="/logo-white.png" />
-        <meta property="og:url" content="https://brunopiorno.com.ar" />
+        <meta property="og:url" content="https://globalalora.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t('meta.title')} />
         <meta name="twitter:description" content={t('meta.description')} />
-        <meta name="twitter:image" content="https://brunopiorno.com.ar/logo-white.png" />
+        <meta name="twitter:image" content="https://globalalora.com/logo-white.png" />
       </Helmet>
 
-      {/* Header */}
-      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-          <div className={`nav-content ${isMobileMenuOpen ? 'menu-open' : ''}`}>
-            <motion.a 
-              href="#"
-              className="logo-container"
-              onClick={(e) => scrollToSection(e, 'hero')}
-            >
-              <motion.img
-                src="/logo-white.png" 
-                alt="Bruno Piorno"
-                className="logo"
-                transition={{ duration: 0.2 }}
-              />
-            </motion.a>
-
-            <div className="mobile-controls">
-              <LanguageToggle />
-              <button 
-                className="mobile-menu-button" 
-                onClick={toggleMobileMenu}
-                aria-label="Toggle menu"
-              >
-                <span></span>
-                <span></span>
-                <span></span>
-              </button>
-            </div>
-
-            <motion.div 
-              className="nav-links"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <a href="#servicios" onClick={(e) => scrollToSection(e, 'servicios')}>{t('header.services')}</a>
-              <a href="#proyectos" onClick={(e) => scrollToSection(e, 'proyectos')}>{t('header.projects')}</a>
-              <a href="#clientes" onClick={(e) => scrollToSection(e, 'clientes')}>{t('header.clients')}</a>
-              <a href="#metodologia" onClick={(e) => scrollToSection(e, 'metodologia')}>{t('header.methodology')}</a>
-              <a href="#tecnologias" onClick={(e) => scrollToSection(e, 'tecnologias')}>{t('header.technologies')}</a>
-              <a href="/blog">{t('header.blog')}</a>
-              <LanguageToggle />
-              <a href="#contacto" onClick={(e) => scrollToSection(e, 'contacto')} className="contact-btn">{t('header.contact')}</a>
-            </motion.div>
-          </div>
-      </header>
       {/* Hero Section */}
             <section className="hero-section" id="hero">
         <FloatingIcons />
@@ -462,6 +415,9 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Alora Transition Section */}
+      <AloraTransition />
+
       {/* Services Section */}
       <section id="servicios" className="services-section">
         <motion.div 
@@ -527,7 +483,7 @@ const HomePage = () => {
 
         <div className="clients-grid">
           {clients.map((client, index) => (
-            <ClientCard key={client.name} client={client} index={index} />
+            <ClientCard key={index} client={client} index={index} />
           ))}
         </div>
       </section>
@@ -589,34 +545,15 @@ const HomePage = () => {
           >
             <h3>{t('methodology.title')}</h3>
             <ul>
-              <li>
-                <span className="icon">✓</span>
-                <div>
-                  <strong>{t('methodology.planning')}</strong>
-                  <p>{t('methodology.planning.desc')}</p>
-                </div>
-              </li>
-              <li>
-                <span className="icon">✓</span>
-                <div>
-                  <strong>{t('methodology.tracking')}</strong>
-                  <p>{t('methodology.tracking.desc')}</p>
-                </div>
-              </li>
-              <li>
-                <span className="icon">✓</span>
-                <div>
-                  <strong>{t('methodology.communication')}</strong>
-                  <p>{t('methodology.communication.desc')}</p>
-                </div>
-              </li>
-              <li>
-                <span className="icon">✓</span>
-                <div>
-                  <strong>{t('methodology.transparency')}</strong>
-                  <p>{t('methodology.transparency.desc')}</p>
-                </div>
-              </li>
+              {[ 'planning', 'tracking', 'communication', 'transparency' ].map(item => (
+                <li key={item}>
+                  <span className="icon">✓</span>
+                  <div>
+                    <strong>{t(`methodology.${item}`)}</strong>
+                    <p>{t(`methodology.${item}.desc`)}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
           </motion.div>
         </div>
@@ -692,7 +629,7 @@ const HomePage = () => {
             </motion.a>
 
             <motion.a
-              href="https://www.linkedin.com/in/bruno-piorno-polucci"
+              href="https://www.linkedin.com/company/aloraglobal"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-button linkedin"

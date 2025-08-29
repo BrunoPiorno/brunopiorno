@@ -2,9 +2,9 @@ export const es = {
   // Blog
   'blog.headline': 'Blog: Tecnología & Código',
   'blog.intro': 'Tendencias, tutoriales y recursos para devs. Todo lo que impacta en el mundo del código y la innovación digital.',
-  'blog.metaTitle': 'Blog de Tecnología y Código | brunopiorno.com.ar',
+  'blog.metaTitle': 'Blog de Tecnología y Código | globalalora.com',
   'blog.metaDescription': 'Descubre artículos de tecnología, programación, tendencias y recursos para desarrolladores. Todo sobre código y el mundo tech.',
-  'blog.metaTitleEn': 'Technology & Code Blog | brunopiorno.com.ar',
+  'blog.metaTitleEn': 'Technology & Code Blog | globalalora.com',
   'blog.metaDescriptionEn': 'Discover articles on technology, programming, trends, and resources for developers. Everything about code and the tech world.',
   'blog.notFound': 'Post no encontrado',
   'blog.backToBlog': '← Volver al blog',
@@ -104,8 +104,8 @@ export const es = {
   },
 
   // Meta data
-  'meta.title': 'Bruno Piorno | Desarrollador Web especializado en WordPress y WooCommerce',
-  'meta.description': 'Soy Bruno Piorno, desarrollador web experto en WordPress, WooCommerce y tecnologías como PHP, MySQL, y más. Contáctame para mejorar tu presencia digital.',
+  'meta.title': 'Alora | Desarrollo Web y Soluciones Digitales Globales',
+  'meta.description': 'Somos Alora, desarrolladores web expertos en WordPress, WooCommerce y tecnologías como PHP, MySQL, y más. Contáctame para mejorar tu presencia digital.',
   
   // Navigation
   'nav.services': 'Servicios',
@@ -175,7 +175,7 @@ export const es = {
 
   // GDPR & Legal
   'privacy.title': 'Política de Privacidad',
-  'privacy.intro': 'Tu privacidad es importante para nosotros. Esta política de privacidad explica qué datos personales recopilamos y cómo los usamos. Esta política se aplica a brunopiorno.com.ar.',
+  'privacy.intro': 'Tu privacidad es importante para nosotros. Esta política de privacidad explica qué datos personales recopilamos y cómo los usamos. Esta política se aplica a globalalora.com.',
   'privacy.dataCollection.title': 'Datos que Recopilamos',
   'privacy.dataCollection.content': 'Recopilamos datos para operar de manera efectiva y brindarte las mejores experiencias. Proporcionas algunos de estos datos directamente, como cuando completas el formulario de contacto. No obtenemos datos de terceros.',
   'privacy.dataUse.title': 'Cómo Usamos Tus Datos',
@@ -185,16 +185,16 @@ export const es = {
 
   // Aviso Legal
   'legalNotice.title': 'Aviso Legal',
-  'legalNotice.meta_description': 'Aviso legal del sitio web brunopiorno.com.ar',
+  'legalNotice.meta_description': 'Aviso legal del sitio web globalalora.com',
   'legalNotice.content.p1': 'En cumplimiento del deber de información, a continuación se reflejan los siguientes datos:',
   'legalNotice.section1.title': 'Datos identificativos del titular',
-  'legalNotice.section1.content': 'Titular: Bruno Piorno. Correo electrónico de contacto: brunopiornop@gmail.com. Sitio web: brunopiorno.com.ar.',
+  'legalNotice.section1.content': 'Titular: Alora. Correo electrónico de contacto: brunopiornop@gmail.com. Sitio web: globalalora.com.',
   'legalNotice.section2.title': 'Propiedad Intelectual',
-  'legalNotice.section2.content': 'Todos los derechos de propiedad intelectual del contenido de este sitio web y su diseño gráfico son propiedad exclusiva de Bruno Piorno.',
+  'legalNotice.section2.content': 'Todos los derechos de propiedad intelectual del contenido de este sitio web y su diseño gráfico son propiedad exclusiva de Alora.',
 
   // Política de Cookies
   'cookiesPolicy.title': 'Política de Cookies',
-  'cookiesPolicy.meta_description': 'Información sobre el uso de cookies en brunopiorno.com.ar',
+  'cookiesPolicy.meta_description': 'Información sobre el uso de cookies en globalalora.com',
   'cookiesPolicy.content.p1': 'Este sitio web utiliza cookies propias y de terceros para ofrecerle una mejor experiencia y servicio. Al navegar o utilizar nuestros servicios, usted acepta el uso que hacemos de las cookies.',
   'cookiesPolicy.section1.title': '¿Qué es una cookie?',
   'cookiesPolicy.section1.content': 'Una cookie es un pequeño fragmento de texto que los sitios web envían al navegador y que se almacenan en el terminal del usuario, el cual puede ser un ordenador personal, un teléfono móvil, una tableta, etc.',
@@ -219,4 +219,10 @@ export const es = {
 
   'footer.rights': 'Todos los derechos reservados.',
   'footer.privacy': 'Política de Privacidad',
+
+  // Alora Transition
+  'alora.previously': 'Antes',
+  'alora.now': 'Ahora',
+  'alora.title': 'Una nueva identidad, la misma esencia',
+  'alora.subtitle': 'Mi marca personal ha evolucionado. Ahora, como Alora, sigo ofreciendo la misma dedicación y experiencia, pero con un enfoque renovado y una visión más amplia.',
 };

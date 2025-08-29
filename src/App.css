@@ -4,8 +4,8 @@
 
 :root {
   /* Color variables */
-  --primary-color: #99e499;
-  --primary-dark: #7ac77a;
+  --primary-color: #63D6B7;
+  --primary-dark: #42A7B5;
   --background-color: #1b1b1b;
   --surface-color: #2a2a2a;
   --text-color: #fff;
@@ -142,7 +142,7 @@ body {
 }
 
 .logo {
-  max-width: 230px;
+  max-width: 180px;
   height: auto;
 }
 
@@ -1530,8 +1530,7 @@ body {
 }
 
 .floating-icon {
-  color: rgba(153, 228, 153, 0.2);
-  text-shadow: 0 0 10px rgba(153, 228, 153, 0.5);
+  color: var(--primary-color);
 }
 
 .read-time {
@@ -1755,12 +1754,7 @@ body {
     font-size: 12px;
     padding: 4px 8px;
   }
-  .logo {
-    max-width: 200px;
-  }
 }
-
-/* Agrega aquí tus estilos personalizados */
 
 /* Cookie Banner */
 .cookie-banner {
@@ -2007,5 +2001,11 @@ body {
 @media (max-width: 768px) {
   .latest-posts-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cookie-banner {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
   }
 }

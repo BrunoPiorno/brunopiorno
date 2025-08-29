@@ -24,7 +24,7 @@ const BlogList = () => {
           <meta property="og:title" content={locale === 'en' ? t('blog.metaTitleEn') : t('blog.metaTitle')} />
           <meta property="og:description" content={locale === 'en' ? t('blog.metaDescriptionEn') : t('blog.metaDescription')} />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content={`https://brunopiorno.com.ar${blogPath}`} />
+          <meta property="og:url" content={`https://globalalora.com${blogPath}`} />
         </Helmet>
         <section className="blog-hero">
           <h1 className="headline">{t('blog.headline')}</h1>

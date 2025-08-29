@@ -9,7 +9,7 @@ const LegalNotice = () => {
   return (
     <div className="blog-post" style={{ marginTop: '120px', marginBottom: '4rem' }}>
       <Helmet>
-        <title>{`${t('legalNotice.title')} - Bruno Piorno`}</title>
+        <title>{`${t('legalNotice.title')} - Alora`}</title>
         <meta name="description" content={t('legalNotice.meta_description')} />
       </Helmet>
       <div className="blog-post-header">

@@ -83,7 +83,7 @@ const baseHtml = fs.readFileSync(indexPath, 'utf8');
 
 // Función para generar HTML con meta tags para un post específico
 function generatePostHtml(post, locale) {
-  const domain = 'https://brunopiorno.com.ar';
+  const domain = 'https://globalalora.com';
   const postUrl = locale === 'en' 
     ? `${domain}/en/blog/${post.slug}` 
     : `${domain}/blog/${post.slug}`;
@@ -94,7 +94,7 @@ function generatePostHtml(post, locale) {
   // Reemplazar título
   postHtml = postHtml.replace(
     /<title>.*?<\/title>/,
-    `<title>${post.title} | Bruno Piorno</title>`
+    `<title>${post.title} | Alora</title>`
   );
   
   // Buscar la sección de meta tags
@@ -111,11 +111,11 @@ function generatePostHtml(post, locale) {
       <meta name="theme-color" content="#000000" />
       <meta name="description" content="${post.description}" />
       <meta name="keywords" content="desarrollo web, diseño web, SEO, ${post.tags ? post.tags.join(', ') : ''}" />
-      <meta name="author" content="Bruno Piorno Polucci" />
+      <meta name="author" content="Alora" />
       
       <!-- Open Graph / Facebook -->
       <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="Bruno Piorno" />
+      <meta property="og:site_name" content="Alora" />
       <meta property="og:title" content="${post.title}" />
       <meta property="og:description" content="${post.description}" />
       <meta property="og:image" content="${post.cover}" />
