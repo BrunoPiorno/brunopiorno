@@ -2,6 +2,17 @@
     "redirects": [
       {
         "source": "/(.*)",
+        "has": [
+          { "type": "host", "value": "brunopiorno.com.ar" }
+        ],
+        "destination": "https://globalalora.com/$1",
+        "permanent": true
+      },
+      {
+        "source": "/(.*)",
+        "has": [
+          { "type": "host", "value": "www.brunopiorno.com.ar" }
+        ],
         "destination": "https://globalalora.com/$1",
         "permanent": true
       }
