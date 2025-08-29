@@ -9,6 +9,7 @@ import CookiesPolicy from './components/CookiesPolicy';
 import SiteHeader from './components/SiteHeader';
 import Footer from './components/Footer';
 import CookieBanner from './components/CookieBanner';
+import NotFoundPage from './components/NotFoundPage';
 
 const AppContent = () => {
   return (
@@ -30,6 +31,9 @@ const AppContent = () => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/legal-notice" element={<LegalNotice />} />
           <Route path="/cookies-policy" element={<CookiesPolicy />} />
+
+          {/* 404 Not Found Route */}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
       <Footer />

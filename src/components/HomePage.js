@@ -368,53 +368,71 @@ const HomePage = () => {
 
       {/* Stats Section */}
       <section className="stats-section">
-        <div className="section-title">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {t('stats.title')}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {t('stats.subtitle')}
-          </motion.p>
-        </div>
-        <div className="hero-stats">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>{t('stats.title')}</h2>
+          <p>{t('stats.subtitle')}</p>
+        </motion.div>
+        <div className="stats-grid">
           <motion.div 
             className="stat-item"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <AnimatedCounter value={120} suffix="+" />
+            <i className="fas fa-rocket"></i>
+            <AnimatedCounter value={50} suffix="+" />
             <p>{t('stats.item1')}</p>
           </motion.div>
           <motion.div 
             className="stat-item"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <AnimatedCounter value={7} suffix="+" />
+            <i className="fas fa-lightbulb"></i>
+            <AnimatedCounter value={200} suffix="+" />
             <p>{t('stats.item2')}</p>
           </motion.div>
           <motion.div 
             className="stat-item"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <AnimatedCounter value={100} suffix="%" />
+            <i className="fas fa-coffee"></i>
+            <AnimatedCounter value={1500} suffix="+" />
             <p>{t('stats.item3')}</p>
           </motion.div>
         </div>
       </section>
+{/* Projects Section */}
+<section id="proyectos" className="projects-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>{t('projects.title')}</h2>
+          <p>{t('projects.subtitle')}</p>
+        </motion.div>
 
+        <div className="projects-grid">
+          {allProjects.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} />
+          ))}
+        </div>
+      </section>
       {/* Alora Transition Section */}
       <AloraTransition />
 
@@ -448,25 +466,7 @@ const HomePage = () => {
         </motion.div>
       </section>
 
-      {/* Projects Section */}
-      <section id="proyectos" className="projects-section">
-        <motion.div 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2>{t('projects.title')}</h2>
-          <p>{t('projects.subtitle')}</p>
-        </motion.div>
-
-        <div className="projects-grid">
-          {allProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
-        </div>
-      </section>
+      
 
       {/* Clients Section */}
       <section id="clientes" className="clients-section">

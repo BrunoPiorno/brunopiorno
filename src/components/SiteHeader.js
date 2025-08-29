@@ -21,6 +21,10 @@ const SiteHeader = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   // En blog y otras páginas, los anchors no hacen scroll, así que los links van a /#seccion
   const navLinks = [
     { href: '/#servicios', label: t('header.services') },
@@ -66,10 +70,10 @@ const SiteHeader = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           {navLinks.map(link => (
-            <a key={link.href} href={link.href}>{link.label}</a>
+            <a key={link.href} href={link.href} onClick={closeMobileMenu}>{link.label}</a>
           ))}
           <LanguageToggle />
-          <a href="/#contacto" className="contact-btn">{t('header.contact')}</a>
+          <a href="/#contacto" className="contact-btn" onClick={closeMobileMenu}>{t('header.contact')}</a>
         </motion.div>
       </div>
     </header>

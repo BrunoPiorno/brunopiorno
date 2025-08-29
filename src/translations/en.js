@@ -66,9 +66,9 @@ export const en = {
   ],
 
   // Stats items
-  'stats.item1': 'Technical challenges overcome',
-  'stats.item2': 'Years of experience',
-  'stats.item3': 'Satisfied Clients',
+  'stats.item1': 'Boosted Brands',
+  'stats.item2': 'Successful Strategies',
+  'stats.item3': 'Cups of Coffee',
 
   // Services
   'services.wordpress.title': 'WordPress Development',
@@ -138,7 +138,7 @@ export const en = {
   },
 
   // Meta data
-  'meta.title': 'Alora | Web Development and Global Digital Solutions',
+  'meta.title': 'Alora | Web Services',
   'meta.description': 'We are Alora, web developers experts in WordPress, WooCommerce, and technologies like PHP, MySQL, and more. Contact us to enhance your digital presence.',
   
   // Navigation
@@ -156,8 +156,8 @@ export const en = {
   'hero.cta2': 'View projects',
 
   // Stats Section
-  'stats.title': 'Results That Speak for Themselves',
-  'stats.subtitle': 'Metrics that demonstrate our dedication to quality and client success.',
+  'stats.title': 'Our Impact in Numbers',
+  'stats.subtitle': 'We combine experience and creativity to deliver results that matter.',
   'stats.challenges': 'Technical challenges overcome',
   'stats.experience': 'Years of experience',
   'stats.satisfaction': 'Satisfied Clients',
@@ -260,4 +260,9 @@ export const en = {
   'alora.now': 'Now',
   'alora.title': 'A new identity, the same essence',
   'alora.subtitle': 'My personal brand has evolved. Now, as Alora, I continue to offer the same dedication and experience, but with a renewed focus and a broader vision.',
+
+  // Not Found Page
+  'notFound.title': 'Oops! You\'re lost in cyberspace',
+  'notFound.subtitle': 'It seems this page took a vacation. Why not go back to the start and try again?',
+  'notFound.button': 'Back to reality',
 };
