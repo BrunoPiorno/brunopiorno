@@ -68,6 +68,15 @@ const ContactForm = () => {
       </div>
 
       <div className="form-group">
+        <label htmlFor="phone">{t('contact.form.phone')}</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          {...register('phone')}
+        />
+      </div>
+
+      <div className="form-group">
         <label htmlFor="message">{t('contact.form.message')}</label>
         <textarea 
           id="message" 
