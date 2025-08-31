@@ -173,6 +173,17 @@ export const es = {
   'contact.privacy.text': 'He leído y acepto la',
   'contact.privacy.link': 'Política de Privacidad',
 
+  'contact.form.name': 'Nombre',
+  'contact.form.email': 'Email',
+  'contact.form.message': 'Mensaje',
+  'contact.form.submit': 'Enviar Mensaje',
+  'contact.form.sending': 'Enviando...',
+  'contact.form.success': '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.',
+  'contact.form.error': 'Ocurrió un error. Por favor, inténtalo de nuevo más tarde.',
+  'contact.form.validation.required': 'Este campo es obligatorio',
+  'contact.form.validation.invalidEmail': 'Por favor, introduce un email válido',
+  'contact.alternatives': 'O si lo prefieres, contáctanos directamente:',
+
   // GDPR & Legal
   'privacy.title': 'Política de Privacidad',
   'privacy.intro': 'Tu privacidad es importante para nosotros. Esta política de privacidad explica qué datos personales recopilamos y cómo los usamos. Esta política se aplica a globalalora.com.',
