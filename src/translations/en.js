@@ -210,6 +210,7 @@ export const en = {
 
   'contact.form.name': 'Name',
   'contact.form.email': 'Email',
+  'contact.form.phone': 'Phone (Optional)',
   'contact.form.message': 'Message',
   'contact.form.submit': 'Send Message',
   'contact.form.sending': 'Sending...',

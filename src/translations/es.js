@@ -175,6 +175,7 @@ export const es = {
 
   'contact.form.name': 'Nombre',
   'contact.form.email': 'Email',
+  'contact.form.phone': 'Teléfono (Opcional)',
   'contact.form.message': 'Mensaje',
   'contact.form.submit': 'Enviar Mensaje',
   'contact.form.sending': 'Enviando...',
