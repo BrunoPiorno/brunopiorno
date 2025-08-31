@@ -14,6 +14,7 @@ import ClientCard from './ClientCard';
 import LatestPosts from './LatestPosts';
 import FloatingIcons from './FloatingIcons';
 import AloraTransition from './AloraTransition';
+import ContactForm from './ContactForm';
 import entradafanLogo from '../images/entradafan.svg';
 import clarikaLogo from '../images/clarika-logo.svg'; 
 import gangafanlogo from '../images/gangafan-logo.svg';
@@ -604,6 +605,13 @@ const HomePage = () => {
         >
           <h2>{t('contact.title')}</h2>
           <p>{t('contact.subtitle')}</p>
+
+          <ContactForm />
+
+          <div className="alternative-contact">
+            <div className="separator">o</div>
+            <p>{t('contact.alternatives')}</p>
+          </div>
           
           <div className="contact-buttons">
             <motion.a
@@ -619,7 +627,7 @@ const HomePage = () => {
             </motion.a>
             
             <motion.a
-              href="mailto:brunopiornop@gmail.com"
+              href="mailto:bruno@globalalora.com"
               className="contact-button email"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
