@@ -59,45 +59,56 @@ const HomePage = () => {
 
   const clients = [
     {
+      name: 'GangaFan',
       logo: gangafanlogo,
       url: 'https://www.gangafan.com'
     },
     {
+      name: 'EntradaFan',
       logo: entradafanLogo,
       url: 'https://www.entradafan.com.ar'
     },
     {
+      name: 'Sony Music',
       logo: require('../images/sony.png'),
     },
     {
+      name: 'Clarika',
       logo: clarikaLogo,
       url: 'https://clarika.com.ar'
     },
     {
+      name: 'Paramedic',
       logo: require('../images/paramedic.jpg'),
       url: 'https://www.paramedic.com.ar'
     },
     {
+      name: 'Brillonor',
       logo: require('../images/brillonor.png'),
       url: 'https://brillonor.com.ar'
     },
     {
+      name: 'Reino Cerámicos',
       logo: require('../images/reinoceramicos.png'),
       url: 'https://reinoceramicos.com'
     },
     {
+      name: 'Starley',
       logo: require('../images/starley.png'),
       url: 'https://starley.com.ar'
     }, 
     {
+      name: 'Infoecos',
       logo: require('../images/infoecos.png'),
       url: 'https://infoecos.com.ar'
     },
     {
+      name: 'Megamayorista',
       logo: require('../images/logo-megamayorista-nobg.png'),
       url: 'https://megamayorista.com'
     },
     {
+      name: 'Mimikids',
       logo: require('../images/mimikidslogo.png'),
       url: 'https://mimikids.com.ar'
     },
