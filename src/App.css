@@ -535,6 +535,7 @@ body {
 /* Workflow Section */
 .workflow-section {
   padding: 6rem 2rem;
+  overflow-x: hidden; /* Prevent horizontal scroll from animations */
   background-color: var(--background-color);
 }
 
