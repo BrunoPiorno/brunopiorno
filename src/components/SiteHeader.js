@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import '../App.css';
 
 const SiteHeader = () => {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -25,22 +26,22 @@ const SiteHeader = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // En blog y otras páginas, los anchors no hacen scroll, así que los links van a /#seccion
   const navLinks = [
-    { href: '/#servicios', label: t('header.services') },
-    { href: '/#proyectos', label: t('header.projects') },
-    { href: '/#clientes', label: t('header.clients') },
-    { href: '/#metodologia', label: t('header.methodology') },
-    { href: '/#tecnologias', label: t('header.technologies') },
-    { href: '/blog', label: t('header.blog') },
+    { href: `/${locale}/#servicios`, label: t('header.services'), isRouterLink: false },
+    { href: `/${locale}/#proyectos`, label: t('header.projects'), isRouterLink: false },
+    { href: `/${locale}/#clientes`, label: t('header.clients'), isRouterLink: false },
+    { href: `/${locale}/#metodologia`, label: t('header.methodology'), isRouterLink: false },
+    { href: `/${locale}/#tecnologias`, label: t('header.technologies'), isRouterLink: false },
+    { href: `/${locale}/blog`, label: t('header.blog'), isRouterLink: true },
   ];
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className={`nav-content ${isMobileMenuOpen ? 'menu-open' : ''}`}>
-        <motion.a 
-          href="/"
+        <Link 
+          to={`/${locale}`}
           className="logo-container"
+          onClick={closeMobileMenu}
         >
           <motion.img
             src="/logo-web.png"
@@ -48,7 +49,7 @@ const SiteHeader = () => {
             className="logo"
             transition={{ duration: 0.2 }}
           />
-        </motion.a>
+        </Link>
 
         <div className="mobile-controls">
           <LanguageToggle />
@@ -70,10 +71,14 @@ const SiteHeader = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           {navLinks.map(link => (
-            <a key={link.href} href={link.href} onClick={closeMobileMenu}>{link.label}</a>
+            link.isRouterLink ? (
+              <Link key={link.href} to={link.href} onClick={closeMobileMenu}>{link.label}</Link>
+            ) : (
+              <a key={link.href} href={link.href} onClick={closeMobileMenu}>{link.label}</a>
+            )
           ))}
           <LanguageToggle />
-          <a href="/#contacto" className="contact-btn" onClick={closeMobileMenu}>{t('header.contact')}</a>
+          <a href={`/${locale}/#contacto`} className="contact-btn" onClick={closeMobileMenu}>{t('header.contact')}</a>
         </motion.div>
       </div>
     </header>
