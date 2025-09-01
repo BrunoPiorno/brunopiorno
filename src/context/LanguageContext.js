@@ -1,17 +1,31 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useContext } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { translations, defaultLocale } from '../translations';
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [locale, setLocale] = useState(defaultLocale);
+  const params = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Derivamos el idioma de la URL, con 'es' como fallback
+  const locale = params.lang && ['en', 'es'].includes(params.lang) ? params.lang : defaultLocale;
 
   const t = (key) => {
-    return translations[locale][key] || key;
+    return (translations[locale] && translations[locale][key]) || translations[defaultLocale][key] || key;
   };
 
   const toggleLanguage = () => {
-    setLocale(locale === 'en' ? 'es' : 'en');
+    const newLocale = locale === 'en' ? 'es' : 'en';
+    const currentPath = location.pathname;
+    
+    // Reemplazamos el prefijo de idioma actual por el nuevo
+    const newPath = currentPath.startsWith(`/${locale}`) 
+      ? currentPath.replace(`/${locale}`, `/${newLocale}`) 
+      : `/${newLocale}${currentPath}`;
+
+    navigate(newPath);
   };
 
   return (
