@@ -1,21 +1,37 @@
-# 👋 Hola, soy Alora
+# 👋 Hola, soy Bruno — Fundador de Alora
 
-Soy desarrollador web y experto en **WordPress** y **JavaScript**. Trabajo con tecnologías como **PHP**, **JavaScript**, **React**, **Next.js**, **HTML**, **CSS**, **SCSS**. Me apasiona construir soluciones digitales eficientes y creativas que ayuden a mis clientes a alcanzar sus objetivos en línea.
-
-## 🚀 Mis habilidades
-
-- **Desarrollo Web**: WordPress, PHP, JavaScript, HTML, CSS, SCSS
-- **Frameworks**: React, Next.js, Elementor.
-- **Bases de Datos**: MySQL, MariaDB, PostgreSQL
-- **Herramientas**: Git, Composer, WP CLI
-- **Plugins de WordPress**: WooCommerce, ACF, WPForms, Elementor Pro, y más
-- **SEO y Optimización**: SEO on-page, velocidad de carga, rendimiento web
-
-## 🌐 Enlaces
-
-- [Mi página web](https://www.globalalora.com)
-- [LinkedIn](https://www.linkedin.com/in/brunopiorno)
+Soy **Desarrollador Web Senior** y fundador de **Alora**, un estudio digital que transforma ideas en experiencias online de alto impacto.  
+Me especializo en **WordPress**, **JavaScript** y entornos modernos como **React** y **Next.js**, creando soluciones digitales rápidas, escalables y con diseño a medida.
 
 ---
 
-¡Gracias por visitar mi perfil! 😄
+## 🚀 Habilidades principales
+
+- **Desarrollo Web**: WordPress, PHP, JavaScript, HTML, CSS, SCSS  
+- **Frameworks & Librerías**: React, Next.js, Elementor  
+- **Bases de Datos**: MySQL, MariaDB, PostgreSQL  
+- **Herramientas**: Git, Composer, WP CLI  
+- **Ecosistema WordPress**: WooCommerce, ACF, WPForms, Elementor Pro, etc.  
+- **Optimización**: SEO on-page, performance, Core Web Vitals  
+
+---
+
+## 🌍 Qué hacemos en Alora
+En **Alora** trabajamos con equipos globales de devs, QA, PM y especialistas digitales para ofrecer soluciones **personalizadas**, con foco en:  
+
+- 🌐 **Presencia digital global**  
+- ⚡ **Rendimiento optimizado**  
+- 🎨 **Diseño moderno y funcional**  
+- 🛒 **eCommerce escalables con WooCommerce**  
+
+---
+
+## 🔗 Conectemos
+
+- 🌎 [Sitio Web](https://www.globalalora.com)  
+- 💼 [LinkedIn](https://www.linkedin.com/in/brunopiorno)  
+- 🐙 [GitHub Projects](https://github.com/tuusuario)  
+
+---
+
+✨ _Construyamos juntos algo increíble._  
