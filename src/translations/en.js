@@ -18,11 +18,24 @@ export const en = {
   'header.services': 'Services',
   'header.projects': 'Projects',
   'header.clients': 'Clients',
+  'header.about': 'About Us',
   'header.contact': 'Contact',
   'home.contact.title': 'Contact',
   'home.gdpr.title': 'Your Privacy is Our Priority',
   'home.gdpr.content.beforeLink': 'We are committed to protecting your data in accordance with the General Data Protection Regulation (GDPR). We handle your information with the utmost care and transparency. You can learn more in our',
   'home.gdpr.content.linkText': 'Privacy Policy',
+
+  // About
+  'about.title': 'About Us',
+  'about.desc': 'We are a team of developers and designers passionate about technology and creating innovative digital solutions. Our goal is to help our clients achieve their goals through custom websites and applications, combining design, functionality, and performance.',
+
+  // Roles
+  'roles.developer': 'Developers',
+  'roles.designer': 'Designers',
+  'roles.seller': 'Sellers',
+  'roles.qa': 'QA Testers',
+  'roles.pm': 'Project Managers',
+
   'header.methodology': 'Methodology',
   'header.technologies': 'Technologies',
   'header.blog': 'Blog',

@@ -9,11 +9,11 @@ import '../App.css';
 import '../devicons/devicon.min.css';
 import Modal from './Modal';
 import ServiceCard from './ServiceCard';
+import AboutSection from './AboutSection';
 import ProjectCard from './ProjectCard';
 import ClientCard from './ClientCard';
 import LatestPosts from './LatestPosts';
 import FloatingIcons from './FloatingIcons';
-import AloraTransition from './AloraTransition';
 import ContactForm from './ContactForm';
 import entradafanLogo from '../images/entradafan.svg';
 import clarikaLogo from '../images/clarika-logo.svg'; 
@@ -426,8 +426,8 @@ const HomePage = () => {
           </motion.div>
         </div>
       </section>
-{/* Projects Section */}
-<section id="proyectos" className="projects-section">
+      <AboutSection />
+      <section id="proyectos" className="projects-section">
         <motion.div 
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
@@ -445,8 +445,6 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-      {/* Alora Transition Section */}
-      <AloraTransition />
 
       {/* Services Section */}
       <section id="servicios" className="services-section">

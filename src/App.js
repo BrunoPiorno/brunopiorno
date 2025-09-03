@@ -4,12 +4,15 @@ import './App.css';
 import './devicons/devicon.min.css';
 import { HelmetProvider } from 'react-helmet-async';
 import AppContent from './AppContent';
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   return (
     <HelmetProvider>
       <Router>
-        <AppContent />
+        <LanguageProvider>
+          <AppContent />
+        </LanguageProvider>
       </Router>
     </HelmetProvider>
   );

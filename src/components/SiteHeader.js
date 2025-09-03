@@ -27,10 +27,11 @@ const SiteHeader = () => {
   };
 
   const navLinks = [
-    { href: `/${locale}/#servicios`, label: t('header.services'), isRouterLink: false },
+    { href: `/${locale}/#about`, label: t('header.about'), isRouterLink: false },
+    // { href: `/${locale}/#servicios`, label: t('header.services'), isRouterLink: false },
     { href: `/${locale}/#proyectos`, label: t('header.projects'), isRouterLink: false },
     { href: `/${locale}/#clientes`, label: t('header.clients'), isRouterLink: false },
-    { href: `/${locale}/#metodologia`, label: t('header.methodology'), isRouterLink: false },
+    // { href: `/${locale}/#metodologia`, label: t('header.methodology'), isRouterLink: false },
     { href: `/${locale}/#tecnologias`, label: t('header.technologies'), isRouterLink: false },
     { href: `/${locale}/blog`, label: t('header.blog'), isRouterLink: true },
   ];
