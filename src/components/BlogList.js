@@ -12,7 +12,7 @@ import ContactSection from './ContactSection';
 const BlogList = () => {
   const { locale, t } = useLanguage();
   const selectedPosts = locale === 'en' ? posts_en : posts;
-  const blogPath = locale === 'en' ? '/en/blog' : '/blog';
+  const blogPath = `/${locale}/blog`;
 
   return (
     <>
