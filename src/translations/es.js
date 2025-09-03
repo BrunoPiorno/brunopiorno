@@ -18,6 +18,7 @@ export const es = {
   'header.services': 'Servicios',
   'header.projects': 'Proyectos',
   'header.clients': 'Clientes',
+  'header.about': 'Quiénes Somos',
   'header.contact': 'Contacto',
   'header.methodology': 'Metodología',
   'header.technologies': 'Tecnologías',
@@ -26,6 +27,17 @@ export const es = {
   'home.gdpr.title': 'Tu Privacidad es Nuestra Prioridad',
   'home.gdpr.content.beforeLink': 'Nos comprometemos a proteger tus datos de acuerdo con el Reglamento General de Protección de Datos (GDPR). Tratamos tu información con el máximo cuidado y transparencia. Puedes conocer más en nuestra',
   'home.gdpr.content.linkText': 'Política de Privacidad',
+
+  // About
+  'about.title': 'Quiénes Somos',
+  'about.desc': 'Somos un equipo de desarrolladores y diseñadores apasionados por la tecnología y la creación de soluciones digitales innovadoras. Nuestro objetivo es ayudar a nuestros clientes a alcanzar sus metas a través de sitios web y aplicaciones a medida, combinando diseño, funcionalidad y rendimiento.',
+
+  // Roles
+  'roles.developer': 'Desarrolladores',
+  'roles.designer': 'Diseñadores',
+  'roles.seller': 'Vendedores',
+  'roles.qa': 'QA Testers',
+  'roles.pm': 'Project Managers',
 
   // Featured Projects
   'projects.entradafan.title': 'EntradaFan',

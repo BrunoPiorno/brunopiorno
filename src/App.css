@@ -1367,7 +1367,68 @@ body {
   padding: 1.5rem;
 }
 
-/* Stats Section */
+/***** About Section *****/
+
+.about-section {
+  padding: var(--section-padding);
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text .section-title {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.role-card {
+  background-color: var(--surface-color);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.role-card:hover {
+  transform: translateX(10px);
+  background-color: #2a2a2a; /* Slightly lighter surface color */
+}
+
+.role-card i {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  width: 40px; /* Fixed width for alignment */
+  text-align: center;
+}
+
+.role-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/***** Stats Section *****/
 .stats-section {
   background-color: var(--surface-color);
   padding: var(--section-padding);
@@ -2158,6 +2219,10 @@ body {
   }
   .hero-section {
     padding: 8rem 2rem 0rem 2rem;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
   }
 }
 
