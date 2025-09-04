@@ -36,7 +36,7 @@ const LatestPosts = () => {
                 <h3 className="latest-post-title">{post.title}</h3>
                 <p className="latest-post-excerpt">{post.description}</p>
                 <Link 
-                  to={`/${locale}/blog/${post.slug}`} 
+                  to={`${locale === 'en' ? '/en' : ''}/blog/${post.slug}`} 
                   className="read-more-link"
                 >
                   {t('latestPosts').readMore} <span>&rarr;</span>
