@@ -61,7 +61,10 @@ const ContactForm = () => {
           id="email" 
           {...register('email', { 
             required: t('contact.form.validation.required'), 
-            pattern: { value: /^\S+@\S+$/i, message: t('contact.form.validation.invalidEmail') } 
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              message: t('contact.form.validation.invalidEmail')
+            }
           })}
         />
         {errors.email && <span className="error-message">{errors.email.message}</span>}
@@ -80,7 +83,7 @@ const ContactForm = () => {
         <label htmlFor="message">{t('contact.form.message')}</label>
         <textarea 
           id="message" 
-          rows="5" 
+          rows="4" 
           {...register('message', { required: t('contact.form.validation.required') })}
         ></textarea>
         {errors.message && <span className="error-message">{errors.message.message}</span>}

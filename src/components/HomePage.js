@@ -15,6 +15,7 @@ import ClientCard from './ClientCard';
 import LatestPosts from './LatestPosts';
 import FloatingIcons from './FloatingIcons';
 import ContactForm from './ContactForm';
+import ContactSection from './ContactSection';
 import entradafanLogo from '../images/entradafan.svg';
 import clarikaLogo from '../images/clarika-logo.svg'; 
 import gangafanlogo from '../images/gangafan-logo.svg';
