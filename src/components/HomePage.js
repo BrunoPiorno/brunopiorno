@@ -74,6 +74,16 @@ const HomePage = () => {
       logo: require('../images/sony.png'),
     },
     {
+      name: 'Yampop',
+      logo: require('../images/yampop.png'),
+      url: 'https://yampop.com'
+    },
+    {
+      name: 'Studio 510',
+      logo: require('../images/logostudio.png'),
+      url: 'https://studio510.com.ar'
+    },
+    {
       name: 'Paramedic',
       logo: require('../images/paramedic.png'),
       url: 'https://www.paramedic.com.ar'
@@ -103,11 +113,7 @@ const HomePage = () => {
       logo: require('../images/logo-megamayorista-nobg.png'),
       url: 'https://megamayorista.com'
     },
-    {
-      name: 'Yampop',
-      logo: require('../images/yampop.png'),
-      url: 'https://yampop.com'
-    },
+
     {
       name: 'Mimikids',
       logo: require('../images/mimikidslogo.png'),
