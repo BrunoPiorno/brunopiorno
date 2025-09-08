@@ -42,8 +42,6 @@ export const es = {
   // Featured Projects
   'projects.entradafan.title': 'EntradaFan',
   'projects.entradafan.desc': 'Plataforma de venta de entradas online para eventos y espectáculos',
-  'projects.clarika.title': 'Clarika',
-  'projects.clarika.desc': 'Soluciones digitales para empresas y startups',
   'projects.featured': [
     {
       title: 'EntradaFan',
@@ -51,12 +49,6 @@ export const es = {
       image: '/images/entradafan.svg',
       url: 'https://entradafan.com.ar'
     },
-    {
-      title: 'Clarika',
-      description: 'Soluciones digitales para empresas y startups',
-      image: '/images/clarika-logo.svg',
-      url: 'https://clarika.com.ar'
-    }
   ],
 
   // Stats items

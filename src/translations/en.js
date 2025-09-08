@@ -43,8 +43,6 @@ export const en = {
   // Featured Projects
   'projects.entradafan.title': 'EntradaFan',
   'projects.entradafan.desc': 'Online ticket sales platform for events and shows',
-  'projects.clarika.title': 'Clarika',
-  'projects.clarika.desc': 'Digital solutions for companies and startups',
   'projects.featured': [
     {
       title: 'Gangafan',
@@ -69,12 +67,6 @@ export const en = {
       description: 'Online ticket sales platform for events and shows',
       image: '/images/entradafan.svg',
       url: 'https://entradafan.com.ar'
-    },
-    {
-      title: 'Clarika',
-      description: 'Digital solutions for businesses and startups',
-      image: '/images/clarika-logo.svg',
-      url: 'https://clarika.com.ar'
     }
   ],
 

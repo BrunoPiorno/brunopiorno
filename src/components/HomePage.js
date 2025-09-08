@@ -17,8 +17,8 @@ import FloatingIcons from './FloatingIcons';
 import ContactForm from './ContactForm';
 import ContactSection from './ContactSection';
 import entradafanLogo from '../images/entradafan.svg';
-import clarikaLogo from '../images/clarika-logo.svg'; 
 import gangafanlogo from '../images/gangafan-logo.svg';
+import yampop from '../images/yampop.png';
 import heroImage from '../images/hero-tw.png';
 
 const AnimatedCounter = ({ value, suffix = '' }) => {
@@ -54,7 +54,7 @@ const HomePage = () => {
     const featuredProjects = t('projects.featured');
     return featuredProjects.map(project => ({
       ...project,
-      image: project.title === 'EntradaFan' ? entradafanLogo : clarikaLogo
+      image: project.title === 'EntradaFan' ? entradafanLogo : gangafanlogo
     }));
   }, [t]);
 
@@ -74,13 +74,8 @@ const HomePage = () => {
       logo: require('../images/sony.png'),
     },
     {
-      name: 'Clarika',
-      logo: clarikaLogo,
-      url: 'https://clarika.com.ar'
-    },
-    {
       name: 'Paramedic',
-      logo: require('../images/paramedic.jpg'),
+      logo: require('../images/paramedic.png'),
       url: 'https://www.paramedic.com.ar'
     },
     {
@@ -107,6 +102,11 @@ const HomePage = () => {
       name: 'Megamayorista',
       logo: require('../images/logo-megamayorista-nobg.png'),
       url: 'https://megamayorista.com'
+    },
+    {
+      name: 'Yampop',
+      logo: require('../images/yampop.png'),
+      url: 'https://yampop.com'
     },
     {
       name: 'Mimikids',
