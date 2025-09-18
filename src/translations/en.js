@@ -278,6 +278,13 @@ export const en = {
   'alora.title': 'A new identity, the same essence',
   'alora.subtitle': 'My personal brand has evolved. Now, as Alora, I continue to offer the same dedication and experience, but with a renewed focus and a broader vision.',
 
+  // Recognition Section
+  'recognition.title': 'Recognition & Partnerships',
+  'recognition.subtitle': 'Proud to be recognized for our excellence in web development',
+  'recognition.designrush.title': 'Featured on DesignRush',
+  'recognition.designrush.desc': 'Alora has been recognized among the top web development companies by DesignRush, highlighting our innovative solutions in AI debugging tools and web development trends.',
+  'recognition.designrush.link': 'DesignRush featured web development trends',
+
   // Not Found Page
   'notFound.title': 'Oops! You\'re lost in cyberspace',
   'notFound.subtitle': 'It seems this page took a vacation. Why not go back to the start and try again?',

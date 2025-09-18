@@ -505,6 +505,44 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Recognition Section */}
+      <section id="reconocimientos" className="recognition-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>{t('recognition.title')}</h2>
+          <p>{t('recognition.subtitle')}</p>
+        </motion.div>
+
+        <div className="recognition-content">
+          <motion.div 
+            className="recognition-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="recognition-icon">
+              <i className="fas fa-award"></i>
+            </div>
+            <h3>{t('recognition.designrush.title')}</h3>
+            <p>{t('recognition.designrush.desc')}</p>
+            <a 
+              href="https://www.designrush.com/agency/web-development-companies/trends/ai-debugging-tools"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="recognition-link"
+            >
+              {t('recognition.designrush.link')} <i className="fas fa-external-link-alt"></i>
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="cta-section">
         <motion.div 

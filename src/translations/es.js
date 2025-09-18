@@ -242,6 +242,13 @@ export const es = {
   'alora.title': 'Una nueva identidad, la misma esencia',
   'alora.subtitle': 'Mi marca personal ha evolucionado. Ahora, como Alora, sigo ofreciendo la misma dedicación y experiencia, pero con un enfoque renovado y una visión más amplia.',
 
+  // Recognition Section
+  'recognition.title': 'Reconocimientos y Partnerships',
+  'recognition.subtitle': 'Orgullosos de ser reconocidos por nuestra excelencia en desarrollo web',
+  'recognition.designrush.title': 'Destacados en DesignRush',
+  'recognition.designrush.desc': 'Alora ha sido reconocida entre las principales empresas de desarrollo web por DesignRush, destacando nuestras innovadoras soluciones en herramientas de debugging con IA y tendencias de desarrollo web.',
+  'recognition.designrush.link': 'Ver tendencias destacadas de desarrollo web',
+
   // Not Found Page
   'notFound.title': '¡Oops! Te has perdido en el ciberespacio',
   'notFound.subtitle': 'Parece que esta página se tomó unas vacaciones. ¿Por qué no volvés al inicio y lo intentamos de nuevo?',
