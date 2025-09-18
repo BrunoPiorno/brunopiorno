@@ -1142,6 +1142,153 @@ body {
 
 /* END BLOG STYLES */
 
+/* Recognition Section */
+.recognition-section {
+  padding: 6rem 2rem;
+  background-color: var(--surface-color);
+}
+
+.recognition-content {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.recognition-card {
+  background: var(--background-color);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+  max-width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.recognition-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(99, 214, 183, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.recognition-card:hover::before {
+  left: 100%;
+}
+
+.recognition-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.recognition-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.recognition-icon i {
+  font-size: 2rem;
+  color: var(--background-color);
+}
+
+.recognition-card h3 {
+  font-family: var(--font-family-headline);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  position: relative;
+  z-index: 1;
+}
+
+.recognition-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.recognition-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  background: transparent;
+}
+
+.recognition-link:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 214, 183, 0.3);
+}
+
+.recognition-link i {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.recognition-link:hover i {
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .recognition-section {
+    padding: 4rem 1rem;
+  }
+  
+  .recognition-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .recognition-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .recognition-card p {
+    font-size: 1rem;
+  }
+  
+  .recognition-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .recognition-icon i {
+    font-size: 1.5rem;
+  }
+}
+
 /* CTA Section */
 .cta-section {
   padding: var(--section-padding);
