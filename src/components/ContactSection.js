@@ -48,6 +48,17 @@ const ContactSection = () => {
             <i className="fab fa-linkedin"></i>
             LinkedIn
           </motion.a>
+          <motion.a
+            href="https://www.instagram.com/globalalora/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-button instagram"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <i className="fab fa-instagram"></i>
+            Instagram
+          </motion.a>
         </div>
       </motion.div>
     </section>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import DesignRushWidget from './DesignRushWidget';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -8,6 +9,7 @@ const Footer = () => {
   return (
     <footer className="footer-section">
       <div className="footer-content">
+        <DesignRushWidget />
         <p>&copy; {currentYear} Alora. {t('footer.rights')}</p>
         <div className="footer-links">
           <a href="/legal">{t('footer.legal')}</a>

@@ -253,4 +253,9 @@ export const es = {
   'notFound.title': '¡Oops! Te has perdido en el ciberespacio',
   'notFound.subtitle': 'Parece que esta página se tomó unas vacaciones. ¿Por qué no volvés al inicio y lo intentamos de nuevo?',
   'notFound.button': 'Volver a la realidad',
+
+  // Reviews Section
+  'reviews.title': '¿Te gustó nuestro trabajo?',
+  'reviews.subtitle': 'Comparte tu experiencia y ayuda a otros a conocer nuestro servicio',
+  'reviews.fallback': 'Déjanos tu reseña en DesignRush',
 };
