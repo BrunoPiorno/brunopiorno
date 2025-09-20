@@ -1,4 +1,4 @@
-# 👋 Hola, soy Bruno — Fundador de Alora
+# 👋 Hola, soy Bruno Piorno Polucci — Fundador de Alora
 
 Soy **Desarrollador Web Senior** y fundador de **Alora**, un estudio digital que transforma ideas en experiencias online de alto impacto.  
 
