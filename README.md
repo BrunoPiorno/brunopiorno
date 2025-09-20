@@ -39,7 +39,6 @@ En **Alora** no solo desarrollamos sitios web: construimos **soluciones tecnoló
 - 🏢 [LinkedIn (Alora)](https://www.linkedin.com/company/aloraglobal)  
 - 📸 [Instagram](https://www.instagram.com/globalalora/)  
 - 🎵 [TikTok](http://tiktok.com/globalalora)  
-- 🐙 [GitHub (Personal)](https://github.com/tuusuario)  
 - 🐙 [GitHub (Alora)](https://github.com/GlobalAlora)  
 
 ---
