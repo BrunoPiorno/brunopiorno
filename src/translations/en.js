@@ -210,6 +210,7 @@ export const en = {
   'contact.whatsapp': 'WhatsApp',
   'contact.email': 'Email',
   'contact.linkedin': 'Connect on LinkedIn',
+  'contact.instagram': 'Instagram',
   'contact.privacy.text': 'I have read and agree to the',
   'contact.privacy.link': 'Privacy Policy',
 

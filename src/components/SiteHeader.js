@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import '../App.css';
 
 const SiteHeader = () => {
   const { t, locale } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -24,6 +26,30 @@ const SiteHeader = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    closeMobileMenu();
+
+    const targetId = href.split('#')[1];
+    const targetElement = document.getElementById(targetId);
+
+    const homePath = `/${locale}`;
+
+    if (location.pathname !== homePath) {
+      navigate(homePath);
+      setTimeout(() => {
+        const newTargetElement = document.getElementById(targetId);
+        if (newTargetElement) {
+          newTargetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100); // Espera a que la navegación se complete
+    } else {
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   const navLinks = [
@@ -75,11 +101,11 @@ const SiteHeader = () => {
             link.isRouterLink ? (
               <Link key={link.href} to={link.href} onClick={closeMobileMenu}>{link.label}</Link>
             ) : (
-              <a key={link.href} href={link.href} onClick={closeMobileMenu}>{link.label}</a>
+              <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.label}</a>
             )
           ))}
           <LanguageToggle />
-          <a href={`/${locale}/#contacto`} className="contact-btn" onClick={closeMobileMenu}>{t('header.contact')}</a>
+          <a href={`/${locale}/#contacto`} className="contact-btn" onClick={(e) => handleNavClick(e, `/${locale}/#contacto`)}>{t('header.contact')}</a>
         </motion.div>
       </div>
     </header>
