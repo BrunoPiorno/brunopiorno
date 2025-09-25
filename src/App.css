@@ -729,6 +729,21 @@ body {
   background-color: var(--surface-color);
 }
 
+.tools-slider-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.tools-swiper {
+  width: 100%;
+  height: 150px;
+}
+
+.tools-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
