@@ -57,7 +57,7 @@ const ContactSection = () => {
             whileTap={{ scale: 0.95 }}
           >
             <i className="fab fa-instagram"></i>
-            Instagram
+            {t('contact.instagram')}
           </motion.a>
         </div>
       </motion.div>

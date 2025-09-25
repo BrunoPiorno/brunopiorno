@@ -174,6 +174,7 @@ export const es = {
   'contact.whatsapp': 'WhatsApp',
   'contact.email': 'Email',
   'contact.linkedin': 'Conectar en LinkedIn',
+  'contact.instagram': 'Instagram',
   'contact.privacy.text': 'He leído y acepto la',
   'contact.privacy.link': 'Política de Privacidad',
 

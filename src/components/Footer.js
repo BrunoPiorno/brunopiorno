@@ -3,7 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import DesignRushWidget from './DesignRushWidget';
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -12,9 +12,9 @@ const Footer = () => {
         <DesignRushWidget />
         <p>&copy; {currentYear} Alora. {t('footer.rights')}</p>
         <div className="footer-links">
-          <a href="/legal">{t('footer.legal')}</a>
-          <a href="/privacidad">{t('footer.privacy')}</a>
-          <a href="/cookies">{t('footer.cookies')}</a>
+          <a href={`/${locale}/legal-notice`}>{t('footer.legal')}</a>
+          <a href={`/${locale}/privacy-policy`}>{t('footer.privacy')}</a>
+          <a href={`/${locale}/cookies-policy`}>{t('footer.cookies')}</a>
         </div>
       </div>
     </footer>
