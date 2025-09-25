@@ -213,10 +213,7 @@ const HomePage = () => {
       { name: 'Git', icon: 'devicon-git-plain' },
       { name: 'Figma', icon: 'devicon-figma-plain' },
       { name: 'ACF', icon: 'devicon-wordpress-plain' },
-      { name: 'Vite', icon: 'devicon-vitejs-plain' },
-      { name: 'TypeScript', icon: 'devicon-typescript-plain' },
-      { name: 'Node.js', icon: 'devicon-nodejs-plain' },
-      { name: 'Docker', icon: 'devicon-docker-plain' }  
+      { name: 'Vite', icon: 'devicon-vitejs-plain' }  
   ];
 
   const allProjects = [

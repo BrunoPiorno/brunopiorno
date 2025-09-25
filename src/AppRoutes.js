@@ -7,6 +7,7 @@ import NotFoundPage from './components/NotFoundPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import LegalNotice from './components/LegalNotice';
 import CookiesPolicy from './components/CookiesPolicy';
+import ThankYouPage from './components/ThankYouPage';
 
 const AppRoutes = () => (
   <Routes>
@@ -16,6 +17,7 @@ const AppRoutes = () => (
     <Route path="/privacy-policy" element={<PrivacyPolicy />} />
     <Route path="/legal-notice" element={<LegalNotice />} />
     <Route path="/cookies-policy" element={<CookiesPolicy />} />
+    <Route path="/thank-you" element={<ThankYouPage />} />
     <Route path="*" element={<NotFoundPage />} />
   </Routes>
 );

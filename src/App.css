@@ -1168,6 +1168,49 @@ body {
 
 /* END BLOG STYLES */
 
+/* Thank You Page */
+.thank-you-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 2rem;
+  background: var(--background-color);
+}
+
+.thank-you-content {
+  background: var(--surface-color);
+  padding: 4rem;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.thank-you-icon {
+  font-size: 5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.thank-you-content h1 {
+  font-family: var(--font-family-headline);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.thank-you-content p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+.thank-you-content .cta-button {
+  text-decoration: none;
+}
+
 /* Recognition Section */
 .recognition-section {
   padding: 6rem 2rem;
