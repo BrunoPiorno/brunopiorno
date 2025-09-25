@@ -36,6 +36,11 @@ export const en = {
   'roles.qa': 'QA Testers',
   'roles.pm': 'Project Managers',
 
+  // Thank You Page
+  'thankyou.title': 'Message Sent!',
+  'thankyou.message': 'Thank you for getting in touch. I have received your message and will get back to you shortly.',
+  'thankyou.backButton': 'Back to Home',
+
   'header.methodology': 'Methodology',
   'header.technologies': 'Technologies',
   'header.blog': 'Blog',

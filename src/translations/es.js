@@ -39,6 +39,11 @@ export const es = {
   'roles.qa': 'QA Testers',
   'roles.pm': 'Project Managers',
 
+  // Thank You Page
+  'thankyou.title': '¡Mensaje Enviado!',
+  'thankyou.message': 'Gracias por ponerte en contacto. He recibido tu mensaje y te responderé a la brevedad.',
+  'thankyou.backButton': 'Volver al Inicio',
+
   // Featured Projects
   'projects.entradafan.title': 'EntradaFan',
   'projects.entradafan.desc': 'Plataforma de venta de entradas online para eventos y espectáculos',

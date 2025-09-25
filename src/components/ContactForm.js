@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { useLanguage } from '../context/LanguageContext';
 
 const ContactForm = () => {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
 
   const onSubmit = (data) => {
@@ -18,7 +19,6 @@ const ContactForm = () => {
     }
 
     setIsSubmitting(true);
-    setIsSuccess(false);
     setIsError(false);
 
     // IMPORTANT: Replace with your EmailJS credentials
@@ -30,8 +30,8 @@ const ContactForm = () => {
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
         setIsSubmitting(false);
-        setIsSuccess(true);
         reset();
+        navigate(`/${locale}/thank-you`);
       }, (err) => {
         console.log('FAILED...', err);
         setIsSubmitting(false);
@@ -93,8 +93,7 @@ const ContactForm = () => {
         {isSubmitting ? t('contact.form.sending') : t('contact.form.submit')}
       </button>
 
-      {isSuccess && <div className="form-success-message">{t('contact.form.success')}</div>}
-      {isError && <div className="form-error-message">{t('contact.form.error')}</div>}
+            {isError && <div className="form-error-message">{t('contact.form.error')}</div>}
     </form>
   );
 };
