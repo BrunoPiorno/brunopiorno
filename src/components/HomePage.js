@@ -20,6 +20,10 @@ import entradafanLogo from '../images/entradafan.svg';
 import gangafanlogo from '../images/gangafan-logo.svg';
 import yampop from '../images/yampop.png';
 import heroImage from '../images/hero-tw.png';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, FreeMode } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/free-mode';
 
 const AnimatedCounter = ({ value, suffix = '' }) => {
   const ref = useRef(null);
@@ -208,7 +212,11 @@ const HomePage = () => {
       { name: 'Composer', icon: 'devicon-composer-line' },
       { name: 'Git', icon: 'devicon-git-plain' },
       { name: 'Figma', icon: 'devicon-figma-plain' },
-      { name: 'ACF', icon: 'devicon-wordpress-plain' }  
+      { name: 'ACF', icon: 'devicon-wordpress-plain' },
+      { name: 'Vite', icon: 'devicon-vitejs-plain' },
+      { name: 'TypeScript', icon: 'devicon-typescript-plain' },
+      { name: 'Node.js', icon: 'devicon-nodejs-plain' },
+      { name: 'Docker', icon: 'devicon-docker-plain' }  
   ];
 
   const allProjects = [
@@ -627,21 +635,34 @@ const HomePage = () => {
           <p>{t('tech.subtitle')}</p>
         </motion.div>
 
-        <div className="tools-grid">
-          {tools.map((tool, index) => (
-            <motion.div
-              key={index}
-              className="tool-card"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5, scale: 1.05 }}
-            >
-              <i className={tool.icon}></i>
-              <span>{tool.name}</span>
-            </motion.div>
-          ))}
+        <div className="tools-slider-container">
+          <Swiper
+            modules={[Autoplay, FreeMode]}
+            loop={true}
+            freeMode={true}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            speed={5000}
+            breakpoints={{
+              320: { slidesPerView: 3, spaceBetween: 20 },
+              480: { slidesPerView: 4, spaceBetween: 30 },
+              640: { slidesPerView: 5, spaceBetween: 40 },
+              1024: { slidesPerView: 7, spaceBetween: 50 },
+            }}
+            className="tools-swiper"
+          >
+            {[...tools, ...tools].map((tool, index) => (
+              <SwiperSlide key={index}>
+                <div className="tool-card">
+                  <i className={tool.icon}></i>
+                  <span>{tool.name}</span>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
 
