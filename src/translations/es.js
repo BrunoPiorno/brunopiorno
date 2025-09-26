@@ -47,6 +47,8 @@ export const es = {
   // Featured Projects
   'projects.entradafan.title': 'EntradaFan',
   'projects.entradafan.desc': 'Plataforma de venta de entradas online para eventos y espectáculos',
+  'projects.terracota.title': 'Terracota Valladolid',
+  'projects.terracota.desc': 'Carta digital con lógica de horarios que muestra secciones del menú (desayunos, para picar, comidas, postres) según la hora. Totalmente programado a medida con PHP y jQuery.',
   'projects.featured': [
     {
       title: 'EntradaFan',
@@ -81,7 +83,9 @@ export const es = {
 
   // Projects
   'projects.viewSite': 'Ver Sitio',
-  'contribution.full': 'Desarrollo Completo',
+  'contribution.full': 'Desarrollo Full-Stack',
+  'contribution.menu_development': 'Desarrollo de la Carta Digital',
+  'contribution.custom_dev': 'Nuevo desarrollo',
   'contribution.improvements': 'Mejoras y nuevo desarrollo',
   'projects.gangafan.title': 'Gangafan',
   'projects.gangafan.desc': 'Tienda online desarrollada con WordPress y WooCommerce, optimizada y personalizada para alto rendimiento. Incluye integraciones con APIs externas y uso de la REST API de WooCommerce para sincronizar productos, pedidos y stock en tiempo real. Diseño responsive, mejoras en la experiencia de compra y optimización SEO para mayor visibilidad.',

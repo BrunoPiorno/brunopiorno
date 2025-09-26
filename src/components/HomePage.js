@@ -218,6 +218,14 @@ const HomePage = () => {
 
   const allProjects = [
     {
+      title: t('projects.terracota.title'),
+      description: t('projects.terracota.desc'),
+      image: require('../images/terracota.png'),
+      url: 'https://terracottavalladolid.com/carta/',
+      contribution: 'contribution.custom_dev',
+      location: '🇪🇸'
+    },
+    {
       title: t('projects.gangafan.title'),
       description: t('projects.gangafan.desc'),
       image: require('../images/gangafan-page.png'),

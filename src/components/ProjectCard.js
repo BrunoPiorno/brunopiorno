@@ -33,11 +33,14 @@ const ProjectCard = memo(({ project, index }) => {
     </div>
     <div className="project-info">
       {project.contribution && (
-        <span className={`project-contribution-badge ${project.contribution.split('.')[1]}`}>
+        <span className={`project-contribution-badge improvements ${project.contribution.split('.')[1]}`}>
           {t(project.contribution)}
         </span>
       )}
-      <h3>{project.title}</h3>
+      <h3>
+        {project.title}
+        {project.location && <span className="project-location">{project.location}</span>}
+      </h3>
       <p>{project.description}</p>
       <motion.a
         href={project.url}
