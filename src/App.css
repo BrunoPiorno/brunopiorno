@@ -453,6 +453,17 @@ body {
 }
 
 .project-info h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-location {
+  font-size: 1rem; /* Adjust size as needed */
+  line-height: 1;
+}
+
+.project-info h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   color: var(--text-color);

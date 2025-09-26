@@ -48,6 +48,8 @@ export const en = {
   // Featured Projects
   'projects.entradafan.title': 'EntradaFan',
   'projects.entradafan.desc': 'Online ticket sales platform for events and shows',
+  'projects.terracota.title': 'Terracota Valladolid',
+  'projects.terracota.desc': 'Digital menu with time-based logic that displays menu sections (breakfast, snacks, lunch, desserts) according to the time of day. Fully custom-coded with PHP and jQuery.',
   'projects.featured': [
     {
       title: 'Gangafan',
@@ -99,10 +101,12 @@ export const en = {
   'services.performance.desc': 'We ensure your website is fast and efficient for the best user experience.',
 
   // Projects
-
   'projects.viewSite': 'View Site',
-  'contribution.full': 'Full Development',
+  'contribution.full': 'Full-Stack Development',
+  'contribution.menu_development': 'Digital Menu Development',
+  'contribution.custom_dev': 'New Development',
   'contribution.improvements': 'Improvements & New Development',
+
   'projects.gangafan.title': 'Gangafan',
   'projects.gangafan.desc': 'Online store built with WordPress and WooCommerce, optimized and customized for high performance. Includes integrations with external APIs and the WooCommerce REST API to synchronize products, orders, and inventory in real time. Responsive design, enhanced shopping experience, and SEO optimization for greater visibility.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',
@@ -121,22 +125,6 @@ export const en = {
   'projects.tenis.desc': 'Informative website developed in React.',
   'projects.protorneo.title': 'Protorneos',
   'projects.protorneo.desc': 'Lightweight and static website built with pure HTML5, CSS3, and JavaScript. Fully responsive, optimized for fast loading and easy maintenance, ideal for showcasing sports or institutional information without a CMS.',
-'projects.terralauquen.title': 'Grupo Terra Lauquen',
-'projects.terralauquen.desc': 'Custom-developed corporate website and digital catalog using WordPress as the base framework. Fully personalized with PHP, MySQL, HTML5, CSS3, and JavaScript. Includes a product management system with PDF downloads, responsive design, and optimized performance and SEO.',
-'projects.megamayorista.title': 'Mega Mayorista',
-'projects.megamayorista.desc': 'Built with WordPress and WooCommerce, using a customized commercial premium theme. Includes payment gateway integration, dynamic product catalog, advanced filters, and scalable eCommerce features.',
-'projects.josejose.title': 'José José',
-'projects.josejose.desc': 'Custom-designed website using WordPress as CMS, developed with PHP, MySQL, HTML5, CSS3, and JavaScript. Fully personalized theme with no prebuilt templates, optimized for performance, SEO, and mobile compatibility.',
-'projects.ranking.title': 'Ranking Profesional',
-'projects.ranking.desc': 'Professional ranking system with profile and statistics management.',
-'projects.cichic.title': 'Cichic',
-'projects.cichic.desc': 'Corporate website developed with WordPress.',
-'projects.fapcdms.title': 'Federacion de automovilismo de la Prov. de santa fe',
-'projects.fapcdms.desc': 'We developed an innovative QR code digital credential system for motorsports drivers at FAPCDMS. Each driver has a unique QR code that allows them to display their credential when competing, ensuring secure and rapid access.',
-'projects.tenis.title': 'Tenis de Mesa Trenque',
-'projects.tenis.desc': 'Informative website developed in React.',
-'projects.protorneo.title': 'Protorneos',
-'projects.protorneo.desc': 'Lightweight and static website built with pure HTML5, CSS3, and JavaScript. Fully responsive, optimized for fast loading and easy maintenance, ideal for showcasing sports or institutional information without a CMS.',
 
   // Latest news section in home
   'latestPosts': {
