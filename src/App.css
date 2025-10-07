@@ -2681,6 +2681,24 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Ajuste para mobile cuando el teclado está visible */
+@media (max-width: 768px) {
+  .chatbot-window {
+    bottom: 20px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-width: none;
+    height: 60vh;
+    max-height: 60vh;
+  }
+  
+  .chatbot-fab {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
 .chatbot-header {
   background-color: var(--background-color);
   padding: 15px 20px;
