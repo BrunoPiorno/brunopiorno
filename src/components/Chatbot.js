@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReactGA from 'react-ga4';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,17 @@ const Chatbot = () => {
   const messagesEndRef = useRef(null);
 
   const toggleChat = () => {
-    setIsOpen(!isOpen);
+    const newState = !isOpen;
+    setIsOpen(newState);
+    
+    // Trackear cuando se abre el chatbot
+    if (newState) {
+      ReactGA.event({
+        category: 'Chatbot',
+        action: 'Chatbot Abierto',
+        label: 'Usuario abrió el chatbot'
+      });
+    }
   };
 
   // Scroll automático al final cuando hay nuevos mensajes
@@ -43,6 +54,14 @@ const Chatbot = () => {
     const userMessage = { from: 'user', text: inputValue };
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
+    
+    // Trackear mensaje enviado
+    ReactGA.event({
+      category: 'Chatbot',
+      action: 'Mensaje Enviado',
+      label: inputValue.substring(0, 100) // Primeros 100 caracteres del mensaje
+    });
+    
     setInputValue('');
     setIsTyping(true);
 
