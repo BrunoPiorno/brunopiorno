@@ -16,6 +16,7 @@ import LatestPosts from './LatestPosts';
 import FloatingIcons from './FloatingIcons';
 import ContactForm from './ContactForm';
 import ContactSection from './ContactSection';
+import Chatbot from './Chatbot';
 import entradafanLogo from '../images/entradafan.svg';
 import gangafanlogo from '../images/gangafan-logo.svg';
 import yampop from '../images/yampop.png';
@@ -745,6 +746,9 @@ const HomePage = () => {
 
       {/* Modal for project details */}
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+
+      {/* Chatbot AI */}
+      <Chatbot />
     </div>
   );
 };
