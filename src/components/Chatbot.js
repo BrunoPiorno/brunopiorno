@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Chatbot = () => {
@@ -8,10 +8,21 @@ const Chatbot = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef(null);
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
   };
+
+  // Scroll automático al final cuando hay nuevos mensajes
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   // Abrir automáticamente después de 3 segundos
   useEffect(() => {
@@ -33,9 +44,7 @@ const Chatbot = () => {
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
     setInputValue('');
-
-    // Añadimos un mensaje de bot vacío que se irá llenando
-    setMessages(prev => [...prev, { from: 'bot', text: '' }]);
+    setIsTyping(true);
 
     try {
       const response = await fetch('/api/chat', {
@@ -54,6 +63,10 @@ const Chatbot = () => {
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
 
+      // Añadimos un mensaje de bot vacío que se irá llenando
+      setMessages(prev => [...prev, { from: 'bot', text: '' }]);
+      setIsTyping(false);
+
       // Leer el stream de datos
       while (true) {
         const { value, done } = await reader.read();
@@ -71,11 +84,8 @@ const Chatbot = () => {
 
     } catch (error) {
       console.error('Error al contactar la API del chat:', error);
-      setMessages(prev => {
-        const lastMessage = prev[prev.length - 1];
-        lastMessage.text = 'Lo siento, no puedo responder en este momento.';
-        return [...prev.slice(0, -1), lastMessage];
-      });
+      setIsTyping(false);
+      setMessages(prev => [...prev, { from: 'bot', text: 'Lo siento, no puedo responder en este momento.' }]);
     }
   };
 
@@ -109,6 +119,14 @@ const Chatbot = () => {
                   {msg.text}
                 </div>
               ))}
+              {isTyping && (
+                <div className="message bot typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
             </div>
             <form className="chatbot-input" onSubmit={handleSendMessage}>
               <input 
