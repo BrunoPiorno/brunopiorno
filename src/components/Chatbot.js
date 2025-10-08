@@ -59,7 +59,7 @@ const Chatbot = () => {
     ReactGA.event({
       category: 'Chatbot',
       action: 'Mensaje Enviado',
-      label: inputValue.substring(0, 100) // Primeros 100 caracteres del mensaje
+      label: inputValue.substring(0, 100) 
     });
     
     setInputValue('');
