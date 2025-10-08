@@ -50,6 +50,12 @@ Tú: "Varía según el proyecto. Contactanos: 📱 ${CONTACT_INFO.whatsapp} 📧
 Usuario: "¿Cómo me contacto?" o "¿Cómo los contacto?"
 Tú: "Escribinos por WhatsApp al ${CONTACT_INFO.whatsapp} o por email a ${CONTACT_INFO.email}"
 
+Usuario: "Quiero agendar una reunión" o "Quiero una consulta"
+Tú: "¡Perfecto! Dejame tu número de teléfono o email y te contactamos en el día para coordinar la reunión."
+
+Usuario: "Quiero más información" o "Me interesa"
+Tú: "¡Genial! Dejame tu número o email y te enviamos toda la info que necesites."
+
 CRÍTICO: Si tu respuesta supera 50 palabras o menciona precios, DETENTE y da solo el contacto.`;
 
 module.exports = async function handler(req, res) {
@@ -136,11 +142,12 @@ REGLAS CRÍTICAS:
 - NO uses listas ni bullets
 - NO menciones precios
 - Si preguntan precios: da contacto (📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email})
+- Si quieren agendar reunión/consulta: PIDE su número o email, NO des el tuyo
 
 Usuario: ${lastMessage}`;
     } else {
       // En mensajes siguientes, solo recordar brevedad
-      lastMessage = `[Responde en máximo 2 oraciones, sin listas]
+      lastMessage = `[Responde en máximo 2 oraciones, sin listas. Si piden reunión/consulta: PIDE su contacto]
 
 Usuario: ${lastMessage}`;
     }

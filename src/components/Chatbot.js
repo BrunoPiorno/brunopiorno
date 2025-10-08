@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactGA from 'react-ga4';
+import emailjs from '@emailjs/browser';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +24,47 @@ const Chatbot = () => {
         action: 'Chatbot Abierto',
         label: 'Usuario abrió el chatbot'
       });
+    }
+  };
+
+  // Detectar y enviar leads por email
+  const detectAndSendLead = (userMessage) => {
+    // Detectar números de teléfono (formato argentino y general)
+    const phoneRegex = /(\+?54\s?9?\s?)?(\d{2,4})[\s-]?(\d{6,8})|(\d{10,})/g;
+    // Detectar emails
+    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
+    
+    const phones = userMessage.match(phoneRegex);
+    const emails = userMessage.match(emailRegex);
+    
+    if (phones || emails) {
+      // Preparar el historial de conversación
+      const conversationHistory = messages
+        .map(msg => `${msg.from === 'user' ? 'Cliente' : 'Bot'}: ${msg.text}`)
+        .join('\n\n');
+      
+      // Enviar email con EmailJS
+      const templateParams = {
+        lead_contact: phones ? phones.join(', ') : emails.join(', '),
+        lead_type: phones ? 'Teléfono' : 'Email',
+        conversation: conversationHistory,
+        user_message: userMessage,
+        date: new Date().toLocaleString('es-AR')
+      };
+      
+      emailjs.send(
+        'service_6r3ee9k',
+        'template_chatbot_lead', // Necesitarás crear este template
+        templateParams,
+        'CwpWaIXVC5Pdb4Kae'
+      ).then(
+        (response) => {
+          console.log('Lead enviado exitosamente', response.status);
+        },
+        (error) => {
+          console.error('Error al enviar lead:', error);
+        }
+      );
     }
   };
 
@@ -49,17 +91,18 @@ const Chatbot = () => {
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
-    if (inputValue.trim() === '') return;
-
     const userMessage = { from: 'user', text: inputValue };
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
+    
+    // Detectar y enviar lead si hay contacto
+    detectAndSendLead(inputValue);
     
     // Trackear mensaje enviado
     ReactGA.event({
       category: 'Chatbot',
       action: 'Mensaje Enviado',
-      label: inputValue.substring(0, 100) 
+      label: inputValue.substring(0, 100) // Primeros 100 caracteres del mensaje
     });
     
     setInputValue('');
