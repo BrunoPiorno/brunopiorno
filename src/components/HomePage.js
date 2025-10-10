@@ -20,6 +20,7 @@ import Chatbot from './Chatbot';
 import entradafanLogo from '../images/entradafan.svg';
 import gangafanlogo from '../images/gangafan-logo.svg';
 import yampop from '../images/yampop.png';
+import boutique from '../images/logo-boutique.png';
 import heroImage from '../images/hero-tw.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
@@ -87,6 +88,11 @@ const HomePage = () => {
       name: 'Studio 510',
       logo: require('../images/logostudio.png'),
       url: 'https://studio510.com.ar'
+    },
+    {
+      name: 'Boutique de luz',
+      logo: boutique,
+      url: 'https://boutiquedeluz.com'
     },
     {
       name: 'Paramedic',
