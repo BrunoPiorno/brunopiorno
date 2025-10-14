@@ -701,10 +701,18 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.client-card .client-logo img.filter {
+  filter: invert(1) brightness(1);
+}
+
 .client-card:hover .client-logo img {
   filter: grayscale(0%) brightness(1);
   opacity: 1;
   transform: scale(1.05);
+}
+
+.client-card:hover .client-logo img.filter {
+  filter: invert(1) brightness(1.2);
 }
 
 .client-card h3 {
