@@ -25,6 +25,7 @@ const ClientCard = memo(({ client, index }) => {
         <img 
           src={client.logo} 
           alt={`${client.name} logo`}
+          className={client.filter ? 'filter' : ''}
           loading="lazy"
         />
       </div>

@@ -83,7 +83,8 @@ const HomePage = () => {
     {
       name: 'Studio 510',
       logo: require('../images/logostudio.png'),
-      url: 'https://studio510.com.ar'
+      url: 'https://studio510.com.ar',
+      filter: true
     },
     {
       name: 'Boutique de luz',
@@ -108,7 +109,8 @@ const HomePage = () => {
     {
       name: 'Starley',
       logo: require('../images/starley.png'),
-      url: 'https://starley.com.ar'
+      url: 'https://starley.com.ar',
+      filter: true
     }, 
     {
       name: 'Infoecos',
