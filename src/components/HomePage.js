@@ -76,10 +76,6 @@ const HomePage = () => {
       url: 'https://www.entradafan.com.ar'
     },
     {
-      name: 'Sony Music',
-      logo: require('../images/sony.png'),
-    },
-    {
       name: 'Yampop',
       logo: require('../images/yampop.png'),
       url: 'https://yampop.com'
