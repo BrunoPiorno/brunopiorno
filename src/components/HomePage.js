@@ -84,7 +84,7 @@ const HomePage = () => {
     {
       name: 'Alaux Neumáticos',
       logo: require('../images/alaux_logo.png'),
-      url: 'https://alauxneumaticos.com.ar'
+      url: 'http://www.alauxneumaticos.com.ar'
     },
     {
       name: 'Studio 510',
