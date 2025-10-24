@@ -620,7 +620,7 @@ body {
 
 /* Clients Section */
 .clients-section {
-  padding: 6rem 2rem;
+  padding: 6rem 0;
   background-color: var(--background-alt);
 }
 
@@ -696,13 +696,17 @@ body {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: grayscale(100%) brightness(0.9);
+  filter: grayscale(100%) brightness(1);
   opacity: 0.7;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-card .client-logo img.filter {
   filter: invert(1) brightness(1);
+}
+
+.clients-swiper .swiper-slide[data-swiper-slide-index="3"] .client-card .client-logo img {
+  filter: grayscale(100%) brightness(3);
 }
 
 .client-card:hover .client-logo img {
@@ -2448,6 +2452,21 @@ body {
   .nav-content.menu-open .mobile-menu-button span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -6px);
   }
+
+.clients-slider-container {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.clients-swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clients-swiper .client-card {
+  width: 100%;
+}
 
   .nav-links {
     position: fixed;

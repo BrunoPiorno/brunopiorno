@@ -19,6 +19,7 @@ import ContactSection from './ContactSection';
 import Chatbot from './Chatbot';
 import entradafanLogo from '../images/entradafan.svg';
 import gangafanlogo from '../images/gangafan-logo.svg';
+import nutriacLogo from '../images/nutriac-logo.svg';
 import yampop from '../images/yampop.png';
 import boutique from '../images/logo-boutique.png';
 import heroImage from '../images/hero-tw.png';
@@ -81,10 +82,20 @@ const HomePage = () => {
       url: 'https://yampop.com'
     },
     {
+      name: 'Alaux Neumáticos',
+      logo: require('../images/alaux_logo.png'),
+      url: 'https://alauxneumaticos.com.ar'
+    },
+    {
       name: 'Studio 510',
       logo: require('../images/logostudio.png'),
       url: 'https://studio510.com.ar',
       filter: true
+    },
+    {
+      name: 'Nutriac',
+      logo: nutriacLogo,
+      url: 'https://nutriac.com.ar'
     },
     {
       name: 'Boutique de luz',
@@ -516,10 +527,31 @@ const HomePage = () => {
           <p>{t('clients.subtitle')}</p>
         </motion.div>
 
-        <div className="clients-grid">
-          {clients.map((client, index) => (
-            <ClientCard key={index} client={client} index={index} />
-          ))}
+        <div className="clients-slider-container">
+          <Swiper
+            modules={[Autoplay, FreeMode]}
+            loop={true}
+            freeMode={true}
+            autoplay={{
+              delay: 1,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            speed={4000}
+            breakpoints={{
+              320: { slidesPerView: 2, spaceBetween: 20 },
+              480: { slidesPerView: 3, spaceBetween: 30 },
+              640: { slidesPerView: 4, spaceBetween: 40 },
+              1024: { slidesPerView: 5, spaceBetween: 50 },
+            }}
+            className="clients-swiper"
+          >
+            {[...clients, ...clients].map((client, index) => (
+              <SwiperSlide key={index}>
+                <ClientCard client={client} index={index} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
 
