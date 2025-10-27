@@ -22,6 +22,7 @@ import gangafanlogo from '../images/gangafan-logo.svg';
 import nutriacLogo from '../images/nutriac-logo.svg';
 import yampop from '../images/yampop.png';
 import boutique from '../images/logo-boutique.png';
+import zerxio from '../images/zerxio-logo.svg';
 import heroImage from '../images/hero-tw.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
@@ -96,6 +97,11 @@ const HomePage = () => {
       name: 'Nutriac',
       logo: nutriacLogo,
       url: 'https://nutriac.com.ar'
+    },
+    {
+      name: 'Zerxio',
+      logo: zerxio,
+      url: 'https://zerxio.com'
     },
     {
       name: 'Boutique de luz',
@@ -314,7 +320,7 @@ const HomePage = () => {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
             "name": "Alora - Desarrollo Web",
-            "image": "https://globalalora.com/logo-white.svg",
+            "image": "https://globalalora.com/logo-web.png",
             "description": "Desarrollo de sitios web a medida para profesionales y empresas, con diseño moderno, rendimiento optimizado y enfoque en conversiones.",
             "url": "https://globalalora.com",
             "telephone": "+5492392460230",
@@ -353,12 +359,12 @@ const HomePage = () => {
         <meta name="author" content="Alora" />
         <meta property="og:title" content={t('meta.title')} />
         <meta property="og:description" content={t('meta.description')} />
-        <meta property="og:image" content="/logo-white.png" />
+        <meta property="og:image" content="/aloralogo.png" />
         <meta property="og:url" content="https://globalalora.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t('meta.title')} />
         <meta name="twitter:description" content={t('meta.description')} />
-        <meta name="twitter:image" content="https://globalalora.com/logo-white.png" />
+        <meta name="twitter:image" content="https://globalalora.com/aloralogo.png" />
       </Helmet>
 
       {/* Hero Section */}
@@ -638,7 +644,7 @@ const HomePage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <img src={require('../images/asana-screenshot.jpg')} alt="Asana Project Management" />
+            <img src={require('../images/asana-screenshot.jpg')} alt="Asana Project Management" loading="lazy" />
           </motion.div>
 
           <motion.div 
