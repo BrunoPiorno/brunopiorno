@@ -87,6 +87,8 @@ export const es = {
   'contribution.menu_development': 'Desarrollo de la Carta Digital',
   'contribution.custom_dev': 'Nuevo desarrollo',
   'contribution.improvements': 'Mejoras y nuevo desarrollo',
+  'projects.alaux.title': 'Alaux Neumáticos',
+  'projects.alaux.desc': 'Sitio desarrollado en WordPress y WooCommerce, con implementación de un buscador personalizado que permite filtrar cubiertas por medida. Incluye gestión completa de productos, proceso de compra simplificado, integración con WhatsApp y optimización para dispositivos móviles.',
   'projects.gangafan.title': 'Gangafan',
   'projects.gangafan.desc': 'Tienda online desarrollada con WordPress y WooCommerce, optimizada y personalizada para alto rendimiento. Incluye integraciones con APIs externas y uso de la REST API de WooCommerce para sincronizar productos, pedidos y stock en tiempo real. Diseño responsive, mejoras en la experiencia de compra y optimización SEO para mayor visibilidad.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',
