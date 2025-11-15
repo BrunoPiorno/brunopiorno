@@ -107,6 +107,9 @@ export const en = {
   'contribution.custom_dev': 'New Development',
   'contribution.improvements': 'Improvements & New Development',
 
+  'projects.alaux.title': 'Alaux Neumáticos',
+  'projects.alaux.desc': 'Website developed using WordPress and WooCommerce, featuring a custom search tool that allows users to filter tires by size. Includes full product management, a streamlined checkout process, WhatsApp integration, and mobile optimization',
+
   'projects.gangafan.title': 'Gangafan',
   'projects.gangafan.desc': 'Online store built with WordPress and WooCommerce, optimized and customized for high performance. Includes integrations with external APIs and the WooCommerce REST API to synchronize products, orders, and inventory in real time. Responsive design, enhanced shopping experience, and SEO optimization for greater visibility.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',

@@ -24,6 +24,7 @@ import yampop from '../images/yampop.png';
 import boutique from '../images/logo-boutique.png';
 import zerxio from '../images/zerxio-logo.svg';
 import heroImage from '../images/hero-tw.png';
+import alauxImage from '../images/alaux.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
 import 'swiper/css';
@@ -239,6 +240,13 @@ const HomePage = () => {
   ];
 
   const allProjects = [
+    {
+      title: t('projects.alaux.title'),
+      description: t('projects.alaux.desc'),
+      image: alauxImage,
+      url: 'https://tiendaalaux.com.ar',
+      contribution: 'contribution.full'
+    },
     {
       title: t('projects.terracota.title'),
       description: t('projects.terracota.desc'),
