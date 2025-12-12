@@ -604,6 +604,29 @@ const HomePage = () => {
               {t('recognition.designrush.link')} <i className="fas fa-external-link-alt"></i>
             </a>
           </motion.div>
+          
+          <motion.div 
+            className="recognition-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="recognition-icon">
+              <i className="fas fa-trophy"></i>
+            </div>
+            <h3>{t('recognition.techbehemoths.title')}</h3>
+            <p>{t('recognition.techbehemoths.desc')}</p>
+            <p>{t('recognition.techbehemoths.desc2')}</p>
+            <a 
+              href="/certificate.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="recognition-link"
+            >
+              {t('recognition.techbehemoths.link')} <i className="fas fa-external-link-alt"></i>
+            </a>
+          </motion.div>
         </div>
       </section>
 

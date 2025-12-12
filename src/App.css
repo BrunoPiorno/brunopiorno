@@ -1254,6 +1254,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 2rem 0;
+  gap: 20px;
 }
 
 .recognition-card {
@@ -2582,6 +2583,10 @@ body {
   }
   .contact-buttons {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .recognition-content {
+    flex-direction: column;
   }
 }
 
