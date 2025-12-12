@@ -281,6 +281,10 @@ export const en = {
   'recognition.designrush.title': 'Featured on DesignRush',
   'recognition.designrush.desc': 'Alora has been recognized among the top web development companies by DesignRush, highlighting our innovative solutions in AI debugging tools and web development trends.',
   'recognition.designrush.link': 'DesignRush featured web development trends',
+  'recognition.techbehemoths.title': 'TechBehemoths Award Winners',
+  'recognition.techbehemoths.desc': 'We are thrilled to announce that we have won the TechBehemoths Award for the second consecutive year! This recognition fills us with pride and reinforces our commitment to excellence in web development.',
+  'recognition.techbehemoths.desc2': 'We have been recognized as leaders in WordPress, React.js, and Web Development in one of the most important industry competitions.',
+  'recognition.techbehemoths.link': 'View certificate',
 
   // Not Found Page
   'notFound.title': 'Oops! You\'re lost in cyberspace',
