@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes de Mantenimiento - Alora</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #1a1a1a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .features-included {
+            background: #252525;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 35px;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .features-included h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: #5DD9C1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: start;
+            gap: 10px;
+            color: #d0d0d0;
+            font-size: 0.95rem;
+        }
+
+        .feature-item::before {
+            content: "✓";
+            color: #5DD9C1;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .plan-card {
+            background: #252525;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #5DD9C1;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            border-color: #5DD9C1;
+            box-shadow: 0 20px 60px rgba(93, 217, 193, 0.15);
+        }
+
+        .plan-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .plan-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(93, 217, 193, 0.15);
+            color: #5DD9C1;
+            border: 1px solid rgba(93, 217, 193, 0.3);
+        }
+
+        .plan-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .plan-description {
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 25px 0;
+            color: #5DD9C1;
+        }
+
+        .plan-price small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #a0a0a0;
+        }
+
+        .plan-features {
+            margin: 30px 0;
+        }
+
+        .plan-features h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .plan-features ul {
+            list-style: none;
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            font-size: 0.9rem;
+            color: #d0d0d0;
+            display: flex;
+            align-items: start;
+            gap: 10px;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features li::before {
+            content: "✓";
+            color: #5DD9C1;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .highlight-box {
+            background: rgba(93, 217, 193, 0.1);
+            border-left: 4px solid #5DD9C1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box strong {
+            color: #5DD9C1;
+            font-size: 1.05rem;
+        }
+
+        .highlight-box p {
+            color: #d0d0d0;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: #5DD9C1;
+            color: #1a1a1a;
+            text-align: center;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 25px;
+            border: 2px solid #5DD9C1;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #5DD9C1;
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(93, 217, 193, 0.3);
+        }
+
+        .ideal-for {
+            background: rgba(93, 217, 193, 0.05);
+            border: 1px solid rgba(93, 217, 193, 0.2);
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .ideal-for strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #5DD9C1;
+        }
+
+        .ideal-for p {
+            color: #d0d0d0;
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            color: #a0a0a0;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #333;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        footer strong {
+            color: #5DD9C1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-price {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 50px 20px;
+            }
+        }
+
+        /* Animación sutil de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .plan-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .plan-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .plan-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .plan-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Planes de Mantenimiento</h1>
+            <p class="subtitle">
+                Servicio modular, escalable y estratégico según el tipo de sitio y la criticidad del negocio. 
+                No se trata solo de "actualizar", sino de mantener, corregir, optimizar y mejorar continuamente 
+                lo que ya está hecho y lo que se vaya construyendo.
+            </p>
+        </header>
+
+        <div class="features-included">
+            <h3>👉 Todos los planes incluyen:</h3>
+            <div class="features-grid">
+                <div class="feature-item">Mantenimiento técnico profesional</div>
+                <div class="feature-item">Monitoreo continuo del sitio</div>
+                <div class="feature-item">Corrección de errores detectados</div>
+                <div class="feature-item">Reportes mensuales profesionales</div>
+                <div class="feature-item">Uptime Monitor con alertas</div>
+                <div class="feature-item">Análisis de seguridad y vulnerabilidades</div>
+            </div>
+        </div>
+
+        <div class="plans-grid">
+            <!-- Plan Básico -->
+            <div class="plan-card plan-basico">
+                <span class="plan-badge">🟢 Plan Básico</span>
+                <h2>Estabilidad y Tranquilidad</h2>
+                <p class="plan-description">
+                    Para sitios institucionales o comerciales con baja o media criticidad, 
+                    donde el objetivo es que el sitio esté siempre online, seguro y funcionando.
+                </p>
+                
+                <div class="plan-price">
+                    $165.000 <small>/ mes</small>
+                </div>
+
+                <div class="plan-features">
+                    <h3>Mantenimiento Técnico Continuo</h3>
+                    <ul>
+                        <li>Actualizaciones de WordPress, plugins y sistema</li>
+                        <li>Pruebas de compatibilidad post-actualización</li>
+                        <li>Corrección de errores técnicos</li>
+                        <li>Monitoreo de seguridad y protección antispam</li>
+                        <li>Backups automáticos (archivos y base de datos)</li>
+                        <li>Restauración ante errores o caídas</li>
+                        <li>Optimización básica de rendimiento</li>
+                    </ul>
+
+                    <h3 style="margin-top: 20px;">Soporte</h3>
+                    <ul>
+                        <li>Soporte técnico por mail</li>
+                        <li>Ajustes correctivos mensuales</li>
+                        <li>Reporte mensual profesional</li>
+                    </ul>
+                </div>
+
+                <div class="ideal-for">
+                    <strong>🔹 Ideal para:</strong>
+                    <p>Sitios institucionales, landing pages, webs informativas donde la prioridad es la estabilidad.</p>
+                </div>
+
+                <a href="#contacto" class="cta-button">Contratar Plan Básico</a>
+            </div>
+
+            <!-- Plan Premium -->
+            <div class="plan-card plan-premium">
+                <span class="plan-badge">🔵 Plan Premium</span>
+                <h2>Mejora Continua</h2>
+                <p class="plan-description">
+                    Para empresas y marcas digitales activas que necesitan mantener el sitio, 
+                    pero también optimizarlo y ajustarlo constantemente.
+                </p>
+                
+                <div class="plan-price">
+                    $225.000 <small>/ mes</small>
+                </div>
+
+                <div class="plan-features">
+                    <h3>Mantenimiento Técnico Avanzado</h3>
+                    <ul>
+                        <li>Todo el mantenimiento técnico del Plan Básico</li>
+                        <li>Optimización avanzada de velocidad</li>
+                        <li>Revisión periódica de UX</li>
+                        <li>Control de rendimiento mobile y desktop</li>
+                        <li>Mejora continua de secciones existentes</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>💎 Bolsa de 5 horas mensuales incluida</strong>
+                        <p style="margin-top: 10px;">
+                            Para ajustes de diseño, cambios de contenido, optimización SEO, 
+                            formularios, banners, landings internas y más.
+                        </p>
+                    </div>
+
+                    <h3>Reporte Mensual Avanzado</h3>
+                    <ul>
+                        <li>Métricas de Google Analytics</li>
+                        <li>Páginas más visitadas</li>
+                        <li>Recomendaciones de mejora</li>
+                    </ul>
+                </div>
+
+                <div class="ideal-for">
+                    <strong>🔹 Ideal para:</strong>
+                    <p>Empresas, marcas o eCommerce chicos/medianos que buscan mejorar mes a mes.</p>
+                </div>
+
+                <a href="#contacto" class="cta-button">Contratar Plan Premium</a>
+            </div>
+
+            <!-- Plan Pro -->
+            <div class="plan-card plan-pro">
+                <span class="plan-badge">🟣 Plan Pro</span>
+                <h2>Crecimiento Estratégico</h2>
+                <p class="plan-description">
+                    Para sitios críticos, eCommerce y plataformas donde el sitio web 
+                    es una pieza central del negocio.
+                </p>
+                
+                <div class="plan-price">
+                    $310.000 <small>/ mes</small>
+                </div>
+
+                <div class="plan-features">
+                    <h3>Mantenimiento Premium y Proactivo</h3>
+                    <ul>
+                        <li>Monitoreo activo 24/7</li>
+                        <li>Seguridad reforzada y prevención proactiva</li>
+                        <li>Backups con puntos de restauración</li>
+                        <li>Optimización continua de performance</li>
+                        <li>Corrección inmediata de incidencias críticas</li>
+                        <li>Mantenimiento evolutivo constante</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>⚡ Bolsa de 10 horas mensuales incluida</strong>
+                        <p style="margin-top: 10px;">
+                            Desarrollo de nuevas secciones, mejoras funcionales, cambios de diseño, 
+                            integraciones externas y ajustes estratégicos.
+                        </p>
+                    </div>
+
+                    <h3>Acompañamiento Digital</h3>
+                    <ul>
+                        <li>Consultoría continua</li>
+                        <li>Apoyo en decisiones técnicas y digitales</li>
+                        <li>Coordinación con marketing y proveedores</li>
+                        <li>Reporte estratégico mensual completo</li>
+                    </ul>
+                </div>
+
+                <div class="ideal-for">
+                    <strong>🔹 Ideal para:</strong>
+                    <p>eCommerce, empresas con alta criticidad digital y foco en crecimiento y escalabilidad.</p>
+                </div>
+
+                <a href="#contacto" class="cta-button">Contratar Plan Pro</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>📊 Los valores se evalúan cada 6 meses con aviso previo, manteniendo transparencia y previsibilidad.</p>
+            <p style="margin-top: 15px;">
+                <strong>Alora</strong> - Soluciones de Desarrollo Web y Diseño
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
