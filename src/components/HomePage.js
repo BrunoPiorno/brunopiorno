@@ -110,11 +110,6 @@ const HomePage = () => {
       url: 'https://boutiquedeluz.com'
     },
     {
-      name: 'Paramedic',
-      logo: require('../images/paramedic.png'),
-      url: 'https://www.paramedic.com.ar'
-    },
-    {
       name: 'Brillonor',
       logo: require('../images/brillonor.png'),
       url: 'https://brillonor.com.ar'
