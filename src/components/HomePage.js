@@ -115,11 +115,6 @@ const HomePage = () => {
       url: 'https://brillonor.com.ar'
     },
     {
-      name: 'Reino Cerámicos',
-      logo: require('../images/reinoceramicos.png'),
-      url: 'https://reinoceramicos.com'
-    },
-    {
       name: 'Starley',
       logo: require('../images/starley.png'),
       url: 'https://starley.com.ar',
