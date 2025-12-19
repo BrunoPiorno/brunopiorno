@@ -2075,16 +2075,7 @@ body {
 .footer-section {
   background-color: var(--surface-color);
   color: var(--text-secondary);
-  padding: 0 0 2rem 0;
-}
-
-/* DesignRush Review Section */
-.designrush-review-section {
-  padding: 2rem 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 12px;
-  margin-bottom: 2rem;
-  border: 1px solid rgba(99, 214, 183, 0.1);
+  padding: 1rem 0 2rem 0;
 }
 
 .review-content {
@@ -2144,18 +2135,8 @@ body {
   box-shadow: 0 4px 12px rgba(99, 214, 183, 0.3);
 }
 
-/* Footer specific styles */
-.footer-section .designrush-review-section {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 1.5rem;
-}
-
 @media (max-width: 768px) {
-  .designrush-review-section {
-    padding: 1.5rem 1rem;
-    margin-bottom: 1.5rem;
-  }
+
   
   .review-header h3 {
     font-size: 1.3rem;
