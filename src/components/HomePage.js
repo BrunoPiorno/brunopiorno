@@ -25,6 +25,7 @@ import boutique from '../images/logo-boutique.png';
 import zerxio from '../images/zerxio-logo.svg';
 import heroImage from '../images/hero-tw.png';
 import alauxImage from '../images/alaux.png';
+import gretaImage from '../images/greta.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
 import 'swiper/css';
@@ -230,6 +231,13 @@ const HomePage = () => {
   ];
 
   const allProjects = [
+    {
+      title: t('projects.greta.title'),
+      description: t('projects.greta.desc'),
+      image: gretaImage,
+      url: 'https://gretakidsatelier.com.ar',
+      contribution: 'contribution.full'
+    },
     {
       title: t('projects.alaux.title'),
       description: t('projects.alaux.desc'),

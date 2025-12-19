@@ -106,6 +106,8 @@ export const en = {
   'contribution.menu_development': 'Digital Menu Development',
   'contribution.custom_dev': 'New Development',
   'contribution.improvements': 'Improvements & New Development',
+  'projects.greta.title': 'Greta Kids Atelier',
+  'projects.greta.desc': 'Custom eCommerce website developed from scratch using WordPress and WooCommerce for a children’s clothing brand. The project focuses on a fully tailored structure, complete product management, optimized checkout flow, secure payment integrations, and a smooth browsing experience across all devices.'
 
   'projects.alaux.title': 'Alaux Neumáticos',
   'projects.alaux.desc': 'Website developed using WordPress and WooCommerce, featuring a custom search tool that allows users to filter tires by size. Includes full product management, a streamlined checkout process, WhatsApp integration, and mobile optimization',
