@@ -87,6 +87,8 @@ export const es = {
   'contribution.menu_development': 'Desarrollo de la Carta Digital',
   'contribution.custom_dev': 'Nuevo desarrollo',
   'contribution.improvements': 'Mejoras y nuevo desarrollo',
+  'projects.greta.title': 'Greta Kids Atelier', 
+  'projects.greta.desc': 'Sitio eCommerce desarrollado desde cero en WordPress y WooCommerce para una marca de indumentaria infantil. Implementa una estructura 100% personalizada, gestión completa de productos, proceso de compra optimizado, integración con medios de pago y una experiencia de navegación pensada para facilitar la conversión en todos los dispositivos.',
   'projects.alaux.title': 'Alaux Neumáticos',
   'projects.alaux.desc': 'Sitio desarrollado en WordPress y WooCommerce, con implementación de un buscador personalizado que permite filtrar cubiertas por medida. Incluye gestión completa de productos, proceso de compra simplificado, integración con WhatsApp y optimización para dispositivos móviles.',
   'projects.gangafan.title': 'Gangafan',
