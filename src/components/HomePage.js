@@ -399,7 +399,7 @@ const HomePage = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <a 
-                href={locale === 'en' ? "https://wa.me/+5491159786999" : "https://wa.me/+5492392460230"} 
+                href={locale === 'en' ? "https://wa.me/+543512112723" : "https://wa.me/+5492392460230"} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="cta-button"
@@ -641,7 +641,7 @@ const HomePage = () => {
           <p>{t('cta.subtitle')}</p>
           <div className="cta-buttons">
             <a 
-              href={locale === 'en' ? "https://wa.me/+5491159786999" : "https://wa.me/+5492392460230"} 
+              href={locale === 'en' ? "https://wa.me/+543512112723" : "https://wa.me/+5492392460230"} 
               target="_blank" 
               rel="noopener noreferrer"
               className="whatsapp-button"
@@ -767,7 +767,7 @@ const HomePage = () => {
           
           <div className="contact-buttons">
             <motion.a
-              href={locale === 'en' ? "https://wa.me/+5491159786999" : "https://wa.me/+542392460230"}
+              href={locale === 'en' ? "https://wa.me/+543512112723" : "https://wa.me/+542392460230"}
               target="_blank"
               rel="noopener noreferrer"
               className="contact-button whatsapp"
