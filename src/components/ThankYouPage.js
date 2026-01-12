@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 const ThankYouPage = () => {
   const { t, locale } = useLanguage();
+
+  useEffect(() => {
+    // Event snippet for EN - FORM SENT conversion page
+    if (window.gtag) {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17870984533/mzbxCJXq4-EbENWqxslC',
+        'value': 1.0,
+        'currency': 'USD'
+      });
+    }
+  }, []);
 
   return (
     <div className="thank-you-page">
