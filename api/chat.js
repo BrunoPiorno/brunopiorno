@@ -5,27 +5,58 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const CONTACT_INFO = {
   whatsapp: '+54 9 2392460230', 
   email: 'bruno@globalalora.com',
-  email2: 'somosglobalalora@gmail.com',
   web: 'https://globalalora.com/'
 };
 
-// Función para detectar si el usuario proporcionó un número de teléfono
-function detectPhone(text) {
-  const phonePattern = /(\+?54\s?9?\s?)?(\d{2,4})[\s-]?\d{3,4}[\s-]?\d{4}/;
-  return phonePattern.test(text);
-}
+const SYSTEM_PROMPT = `Eres Alora, asistente virtual de Alora.
 
-// Función para detectar si el usuario proporcionó un email
-function detectEmail(text) {
-  const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
-  return emailPattern.test(text);
-}
+REGLA #1 - BREVEDAD EXTREMA:
+Responde en MÁXIMO 2-3 ORACIONES. Si tu respuesta tiene más de 50 palabras, ESTÁ MAL.
 
-// Función para detectar si el usuario proporcionó un nombre
-function detectName(text) {
-  const words = text.trim().split(/\s+/);
-  return words.length >= 1 && /[a-zA-ZáéíóúÁÉÍÓÚñÑ]{2,}/.test(text);
-}
+REGLA #2 - PROHIBIDO DAR PRECIOS:
+NUNCA menciones: dólares, pesos, USD, $, rangos de precios, costos, tarifas, números relacionados a dinero.
+Si preguntan por precios → Da contacto inmediatamente.
+
+REGLA #3 - NO LISTAS:
+NO uses bullets (•, *, -), NO enumeres, NO hagas listas largas.
+
+SERVICIOS: Desarrollo web, e-commerce, diseño UI/UX, mantenimiento.
+
+PLATAFORMAS: Somos especialistas en WordPress y WooCommerce. También nos adaptamos a otras plataformas según las necesidades del cliente.
+
+CÓMO DAR CONTACTO:
+"Para un presupuesto personalizado, contactanos:
+📱 WhatsApp: ${CONTACT_INFO.whatsapp}
+📧 Email: ${CONTACT_INFO.email}
+¿Qué tipo de proyecto tenés en mente?"
+
+EJEMPLOS DE RESPUESTAS:
+
+Usuario: "¿Cuánto cuesta un e-commerce?"
+Tú: "Depende de tus necesidades. Contactanos: 📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email}"
+
+Usuario: "¿Hacen tiendas online?"
+Tú: "Sí, somos especialistas en WooCommerce para tiendas online. ¿Qué productos querés vender?"
+
+Usuario: "¿Con qué plataformas trabajan?"
+Tú: "Somos especialistas en WordPress y WooCommerce, pero nos adaptamos a lo que necesites. ¿Qué tipo de proyecto tenés en mente?"
+
+Usuario: "Dame un rango de precios"
+Tú: "Cada proyecto es único. Contactanos: 📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email}"
+
+Usuario: "¿Cuánto cuesta hosting/dominio/plataforma?"
+Tú: "Varía según el proyecto. Contactanos: 📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email}"
+
+Usuario: "¿Cómo me contacto?" o "¿Cómo los contacto?"
+Tú: "Escribinos por WhatsApp al ${CONTACT_INFO.whatsapp} o por email a ${CONTACT_INFO.email}"
+
+Usuario: "Quiero agendar una reunión" o "Quiero una consulta"
+Tú: "¡Perfecto! Dejame tu número de teléfono o email y te contactamos en el día para coordinar la reunión."
+
+Usuario: "Quiero más información" o "Me interesa"
+Tú: "¡Genial! Dejame tu número o email y te enviamos toda la info que necesites."
+
+CRÍTICO: Si tu respuesta supera 50 palabras o menciona precios, DETENTE y da solo el contacto.`;
 
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -41,122 +72,12 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const { messages, userData = {} } = req.body;
+    const { messages } = req.body;
 
     if (!messages || !Array.isArray(messages)) {
       return res.status(400).json({ error: 'Invalid messages format' });
     }
 
-    const conversationMessages = messages.filter(
-      msg => msg.from === 'user' || msg.from === 'bot'
-    );
-    
-    const recentMessages = conversationMessages.slice(-10);
-    const lastUserMessage = recentMessages[recentMessages.length - 1].text;
-
-    // Estado de recolección de datos
-    let currentState = userData.collectionState || 'none';
-    let collectedData = {
-      phone: userData.phone || null,
-      email: userData.email || null,
-      name: userData.name || null
-    };
-
-    // Intentar extraer nombre si el usuario se presenta
-    if (!collectedData.name) {
-      const nameMatch = lastUserMessage.match(/\b(?:soy|me llamo|mi nombre es)\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)/i);
-      if (nameMatch) {
-        collectedData.name = nameMatch[1].charAt(0).toUpperCase() + nameMatch[1].slice(1).toLowerCase();
-      }
-    }
-
-    // Configurar headers para streaming
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.setHeader('Transfer-Encoding', 'chunked');
-    res.setHeader('Cache-Control', 'no-cache');
-    res.setHeader('Connection', 'keep-alive');
-
-    // Detectar si el usuario está pidiendo reunión/consulta/presupuesto de forma EXPLÍCITA
-    const requestsContact = /\b(quiero una reunión|quiero agendar|quiero una consulta|necesito un presupuesto|me interesa contratar|quiero contratar|dame tu contacto|cómo los contacto)\b/i.test(lastUserMessage);
-    const asksAboutPrice = /\b(cuánto cuesta|cuál es el precio|qué precio|dame un precio|cotización|presupuesto)\b/i.test(lastUserMessage);
-
-    // Si pide contacto y no hemos empezado a recolectar datos
-    if ((requestsContact || asksAboutPrice) && currentState === 'none') {
-      currentState = 'awaiting_phone';
-      
-      const greeting = collectedData.name ? `¡Perfecto, ${collectedData.name}!` : '¡Perfecto!';
-      const response = asksAboutPrice 
-        ? `${greeting} Para darte un presupuesto personalizado, necesito algunos datos. ¿Me pasás tu número de teléfono?`
-        : `${greeting} Para coordinar, necesito algunos datos. ¿Me pasás tu número de teléfono?`;
-      
-      res.write(response);
-      res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
-      return res.end();
-    }
-
-    // Si estamos esperando el teléfono
-    if (currentState === 'awaiting_phone') {
-      if (detectPhone(lastUserMessage)) {
-        collectedData.phone = lastUserMessage.trim();
-        currentState = 'awaiting_email';
-        
-        res.write("¡Genial! Ahora, ¿cuál es tu email?");
-        res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
-        return res.end();
-      } else {
-        res.write("Por favor, ingresá un número de teléfono válido (ej: 11 2345 6789 o +54 9 11 2345 6789)");
-        res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
-        return res.end();
-      }
-    }
-
-    // Si estamos esperando el email
-    if (currentState === 'awaiting_email') {
-      if (detectEmail(lastUserMessage)) {
-        collectedData.email = lastUserMessage.trim();
-        
-        // Si ya tenemos nombre, completar. Si no, pedirlo
-        if (collectedData.name) {
-          currentState = 'completed';
-          console.log('Datos recolectados:', collectedData);
-          
-          res.write(`¡Listo, ${collectedData.name}! Te contactamos a la brevedad al ${collectedData.phone} o a ${collectedData.email}. ¿Hay algo más en lo que pueda ayudarte?`);
-          res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
-          res.write(`\n__LEADDATA__${JSON.stringify(collectedData)}`);
-          return res.end();
-        } else {
-          currentState = 'awaiting_name';
-          res.write("Perfecto. Por último, ¿cuál es tu nombre?");
-          res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
-          return res.end();
-        }
-      } else {
-        res.write("Por favor, ingresá un email válido (ej: tunombre@ejemplo.com)");
-        res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
-        return res.end();
-      }
-    }
-
-    // Si estamos esperando el nombre
-    if (currentState === 'awaiting_name') {
-      if (detectName(lastUserMessage)) {
-        collectedData.name = lastUserMessage.trim();
-        currentState = 'completed';
-        
-        console.log('Datos recolectados:', collectedData);
-        
-        res.write(`¡Listo, ${collectedData.name}! Te contactamos a la brevedad al ${collectedData.phone} o a ${collectedData.email}. ¿Hay algo más en lo que pueda ayudarte?`);
-        res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
-        res.write(`\n__LEADDATA__${JSON.stringify(collectedData)}`);
-        return res.end();
-      } else {
-        res.write("Por favor, ingresá tu nombre");
-        res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
-        return res.end();
-      }
-    }
-
-    // Si ya completamos la recolección o es una conversación normal
     const model = genAI.getGenerativeModel({ 
       model: 'gemini-2.5-flash',
       generationConfig: {
@@ -185,6 +106,13 @@ module.exports = async function handler(req, res) {
       ]
     });
 
+    const conversationMessages = messages.filter(
+      msg => msg.from === 'user' || msg.from === 'bot'
+    );
+    
+    // Limitar historial a últimos 10 mensajes para no sobrecargar
+    const recentMessages = conversationMessages.slice(-10);
+    
     let history = [];
     let foundFirstUser = false;
     
@@ -203,44 +131,23 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    let lastMessage = lastUserMessage;
+    let lastMessage = recentMessages[recentMessages.length - 1].text;
 
+    // Agregar contexto solo en el primer mensaje
     if (history.length === 0) {
-      lastMessage = `Eres Alora, asistente virtual de Alora.
+      lastMessage = `Eres Alora, asistente de la agencia Alora. Servicios: desarrollo web, e-commerce, diseño.
 
-REGLA #1 - BREVEDAD EXTREMA:
-Responde en MÁXIMO 2-3 ORACIONES. Si tu respuesta tiene más de 50 palabras, ESTÁ MAL.
-
-REGLA #2 - PROHIBIDO DAR PRECIOS:
-NUNCA menciones: dólares, pesos, USD, $, rangos de precios, costos, tarifas, números relacionados a dinero.
-Si preguntan por precios → Da contacto inmediatamente.
-
-REGLA #3 - NO LISTAS:
-NO uses bullets (•, *, -), NO enumeres, NO hagas listas largas.
-
-SERVICIOS: Desarrollo web, e-commerce, diseño UI/UX, mantenimiento.
-
-PLATAFORMAS: Somos especialistas en WordPress y WooCommerce. También nos adaptamos a otras plataformas según las necesidades del cliente.
-
-EJEMPLOS DE RESPUESTAS:
-
-Usuario: "¿Cuánto cuesta un e-commerce?"
-Tú: "Depende de tus necesidades. Contactanos: 📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email}"
-
-Usuario: "¿Hacen tiendas online?"
-Tú: "Sí, somos especialistas en WooCommerce para tiendas online. ¿Qué productos querés vender?"
-
-Usuario: "¿Con qué plataformas trabajan?"
-Tú: "Somos especialistas en WordPress y WooCommerce, pero nos adaptamos a lo que necesites. ¿Qué tipo de proyecto tenés en mente?"
-
-Usuario: "Dame un rango de precios"
-Tú: "Cada proyecto es único. Contactanos: 📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email}"
-
-CRÍTICO: Si tu respuesta supera 50 palabras o menciona precios, DETENTE y da solo el contacto.
+REGLAS CRÍTICAS:
+- Máximo 2 oraciones
+- NO uses listas ni bullets
+- NO menciones precios
+- Si preguntan precios: da contacto (📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email})
+- Si quieren agendar reunión/consulta: PIDE su número o email, NO des el tuyo
 
 Usuario: ${lastMessage}`;
     } else {
-      lastMessage = `[Responde en máximo 2-3 oraciones (50 palabras máx), sin listas ni bullets. NO menciones precios nunca]
+      // En mensajes siguientes, solo recordar brevedad
+      lastMessage = `[Responde en máximo 2 oraciones, sin listas. Si piden reunión/consulta: PIDE su contacto]
 
 Usuario: ${lastMessage}`;
     }
@@ -251,6 +158,11 @@ Usuario: ${lastMessage}`;
         temperature: 0.5,
       }
     });
+
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Transfer-Encoding', 'chunked');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
 
     const result = await chat.sendMessageStream(lastMessage);
 
@@ -266,8 +178,9 @@ Usuario: ${lastMessage}`;
       }
     }
 
+    // Fallback si no hay respuesta
     if (!hasContent || fullResponse.trim().length < 10) {
-      const fallback = `Para ayudarte mejor, contactanos:\n📱 ${CONTACT_INFO.whatsapp}\n📧 ${CONTACT_INFO.email}`;
+      const fallback = `Para ayudarte mejor, contactanos directamente:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}\n\n¿En qué podemos ayudarte?`;
       res.write(fallback);
     }
 
@@ -275,8 +188,13 @@ Usuario: ${lastMessage}`;
 
   } catch (error) {
     console.error('Error calling Gemini:', error);
+    console.error('Error details:', {
+      message: error.message,
+      status: error?.status,
+      statusText: error?.statusText
+    });
     
-    const fallbackMessage = `Disculpá, tuve un problema técnico. Contactanos:\n📱 ${CONTACT_INFO.whatsapp}\n📧 ${CONTACT_INFO.email}`;
+    const fallbackMessage = `Disculpá, tuve un problema técnico. Contactanos directamente:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}`;
     
     if (res.headersSent) {
       res.write(fallbackMessage);
