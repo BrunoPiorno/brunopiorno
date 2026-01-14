@@ -23,7 +23,6 @@ function detectEmail(text) {
 
 // Función para detectar si el usuario proporcionó un nombre
 function detectName(text) {
-  // Considera que dio nombre si tiene 2+ palabras y no es solo números/símbolos
   const words = text.trim().split(/\s+/);
   return words.length >= 1 && /[a-zA-ZáéíóúÁÉÍÓÚñÑ]{2,}/.test(text);
 }
@@ -56,33 +55,43 @@ module.exports = async function handler(req, res) {
     const lastUserMessage = recentMessages[recentMessages.length - 1].text;
 
     // Estado de recolección de datos
-    let currentState = userData.collectionState || 'none'; // none, awaiting_phone, awaiting_email, awaiting_name, completed
+    let currentState = userData.collectionState || 'none';
     let collectedData = {
       phone: userData.phone || null,
       email: userData.email || null,
       name: userData.name || null
     };
 
-    // Detectar si el usuario está pidiendo reunión/consulta/presupuesto
-    const requestsContact = /\b(reunión|consulta|presupuesto|contacto|agendar|llamar|hablar|info|información|más información|me interesa|quiero)\b/i.test(lastUserMessage);
-    const asksAboutPrice = /\b(cuánto|cuesta|precio|precios|rango|tarifa|valor|cotiza)\b/i.test(lastUserMessage);
+    // Intentar extraer nombre si el usuario se presenta
+    if (!collectedData.name) {
+      const nameMatch = lastUserMessage.match(/\b(?:soy|me llamo|mi nombre es)\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)/i);
+      if (nameMatch) {
+        collectedData.name = nameMatch[1].charAt(0).toUpperCase() + nameMatch[1].slice(1).toLowerCase();
+      }
+    }
+
+    // Configurar headers para streaming
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Transfer-Encoding', 'chunked');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+
+    // Detectar si el usuario está pidiendo reunión/consulta/presupuesto de forma EXPLÍCITA
+    const requestsContact = /\b(quiero una reunión|quiero agendar|quiero una consulta|necesito un presupuesto|me interesa contratar|quiero contratar|dame tu contacto|cómo los contacto)\b/i.test(lastUserMessage);
+    const asksAboutPrice = /\b(cuánto cuesta|cuál es el precio|qué precio|dame un precio|cotización|presupuesto)\b/i.test(lastUserMessage);
 
     // Si pide contacto y no hemos empezado a recolectar datos
     if ((requestsContact || asksAboutPrice) && currentState === 'none') {
       currentState = 'awaiting_phone';
       
+      const greeting = collectedData.name ? `¡Perfecto, ${collectedData.name}!` : '¡Perfecto!';
       const response = asksAboutPrice 
-        ? "Para darte un presupuesto personalizado, necesito algunos datos. ¿Me pasás tu número de teléfono?"
-        : "¡Perfecto! Para coordinar, necesito algunos datos. ¿Me pasás tu número de teléfono?";
+        ? `${greeting} Para darte un presupuesto personalizado, necesito algunos datos. ¿Me pasás tu número de teléfono?`
+        : `${greeting} Para coordinar, necesito algunos datos. ¿Me pasás tu número de teléfono?`;
       
-      res.setHeader('Content-Type', 'application/json');
-      return res.json({ 
-        response,
-        userData: {
-          collectionState: currentState,
-          ...collectedData
-        }
-      });
+      res.write(response);
+      res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
+      return res.end();
     }
 
     // Si estamos esperando el teléfono
@@ -91,23 +100,13 @@ module.exports = async function handler(req, res) {
         collectedData.phone = lastUserMessage.trim();
         currentState = 'awaiting_email';
         
-        res.setHeader('Content-Type', 'application/json');
-        return res.json({ 
-          response: "¡Genial! Ahora, ¿cuál es tu email?",
-          userData: {
-            collectionState: currentState,
-            ...collectedData
-          }
-        });
+        res.write("¡Genial! Ahora, ¿cuál es tu email?");
+        res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
+        return res.end();
       } else {
-        res.setHeader('Content-Type', 'application/json');
-        return res.json({ 
-          response: "Por favor, ingresá un número de teléfono válido (ej: 11 2345 6789 o +54 9 11 2345 6789)",
-          userData: {
-            collectionState: currentState,
-            ...collectedData
-          }
-        });
+        res.write("Por favor, ingresá un número de teléfono válido (ej: 11 2345 6789 o +54 9 11 2345 6789)");
+        res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
+        return res.end();
       }
     }
 
@@ -115,25 +114,26 @@ module.exports = async function handler(req, res) {
     if (currentState === 'awaiting_email') {
       if (detectEmail(lastUserMessage)) {
         collectedData.email = lastUserMessage.trim();
-        currentState = 'awaiting_name';
         
-        res.setHeader('Content-Type', 'application/json');
-        return res.json({ 
-          response: "Perfecto. Por último, ¿cuál es tu nombre?",
-          userData: {
-            collectionState: currentState,
-            ...collectedData
-          }
-        });
+        // Si ya tenemos nombre, completar. Si no, pedirlo
+        if (collectedData.name) {
+          currentState = 'completed';
+          console.log('Datos recolectados:', collectedData);
+          
+          res.write(`¡Listo, ${collectedData.name}! Te contactamos a la brevedad al ${collectedData.phone} o a ${collectedData.email}. ¿Hay algo más en lo que pueda ayudarte?`);
+          res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
+          res.write(`\n__LEADDATA__${JSON.stringify(collectedData)}`);
+          return res.end();
+        } else {
+          currentState = 'awaiting_name';
+          res.write("Perfecto. Por último, ¿cuál es tu nombre?");
+          res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
+          return res.end();
+        }
       } else {
-        res.setHeader('Content-Type', 'application/json');
-        return res.json({ 
-          response: "Por favor, ingresá un email válido (ej: tunombre@ejemplo.com)",
-          userData: {
-            collectionState: currentState,
-            ...collectedData
-          }
-        });
+        res.write("Por favor, ingresá un email válido (ej: tunombre@ejemplo.com)");
+        res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
+        return res.end();
       }
     }
 
@@ -143,27 +143,16 @@ module.exports = async function handler(req, res) {
         collectedData.name = lastUserMessage.trim();
         currentState = 'completed';
         
-        // Aquí podrías guardar los datos en una base de datos o enviar un email
         console.log('Datos recolectados:', collectedData);
         
-        res.setHeader('Content-Type', 'application/json');
-        return res.json({ 
-          response: `¡Listo, ${collectedData.name}! Te contactamos a la brevedad al ${collectedData.phone} o a ${collectedData.email}. ¿Hay algo más en lo que pueda ayudarte?`,
-          userData: {
-            collectionState: currentState,
-            ...collectedData
-          },
-          leadData: collectedData // Esto se puede usar en el frontend para enviar a tu CRM
-        });
+        res.write(`¡Listo, ${collectedData.name}! Te contactamos a la brevedad al ${collectedData.phone} o a ${collectedData.email}. ¿Hay algo más en lo que pueda ayudarte?`);
+        res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
+        res.write(`\n__LEADDATA__${JSON.stringify(collectedData)}`);
+        return res.end();
       } else {
-        res.setHeader('Content-Type', 'application/json');
-        return res.json({ 
-          response: "Por favor, ingresá tu nombre",
-          userData: {
-            collectionState: currentState,
-            ...collectedData
-          }
-        });
+        res.write("Por favor, ingresá tu nombre");
+        res.write(`\n__METADATA__${JSON.stringify({collectionState: currentState, ...collectedData})}`);
+        return res.end();
       }
     }
 
@@ -251,7 +240,7 @@ CRÍTICO: Si tu respuesta supera 50 palabras o menciona precios, DETENTE y da so
 
 Usuario: ${lastMessage}`;
     } else {
-      lastMessage = `[Responde en máximo 2-3 oraciones (50 palabras máx), sin listas ni bullets. NO menciones precios nunca. Si piden reunión/consulta: el sistema ya maneja la recolección de datos]
+      lastMessage = `[Responde en máximo 2-3 oraciones (50 palabras máx), sin listas ni bullets. NO menciones precios nunca]
 
 Usuario: ${lastMessage}`;
     }
@@ -262,11 +251,6 @@ Usuario: ${lastMessage}`;
         temperature: 0.5,
       }
     });
-
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.setHeader('Transfer-Encoding', 'chunked');
-    res.setHeader('Cache-Control', 'no-cache');
-    res.setHeader('Connection', 'keep-alive');
 
     const result = await chat.sendMessageStream(lastMessage);
 
