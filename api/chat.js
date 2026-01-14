@@ -56,12 +56,20 @@ module.exports = async function handler(req, res) {
     const lastUserMessage = recentMessages[recentMessages.length - 1].text;
 
     // Estado de recolección de datos
-    let currentState = userData.collectionState || 'none'; // none, awaiting_phone, awaiting_email, awaiting_name, completed
+    let currentState = userData.collectionState || 'none';
     let collectedData = {
       phone: userData.phone || null,
       email: userData.email || null,
       name: userData.name || null
     };
+
+    // Intentar extraer nombre si el usuario se presenta (ej: "soy Bruno", "me llamo Juan")
+    if (!collectedData.name) {
+      const nameMatch = lastUserMessage.match(/\b(?:soy|me llamo|mi nombre es)\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)/i);
+      if (nameMatch) {
+        collectedData.name = nameMatch[1].charAt(0).toUpperCase() + nameMatch[1].slice(1).toLowerCase();
+      }
+    }
 
     // Detectar si el usuario está pidiendo reunión/consulta/presupuesto
     const requestsContact = /\b(reunión|consulta|presupuesto|contacto|agendar|llamar|hablar|info|información|más información|me interesa|quiero)\b/i.test(lastUserMessage);
@@ -71,9 +79,12 @@ module.exports = async function handler(req, res) {
     if ((requestsContact || asksAboutPrice) && currentState === 'none') {
       currentState = 'awaiting_phone';
       
+      // Si ya tenemos el nombre, usarlo en la respuesta
+      const greeting = collectedData.name ? `¡Perfecto, ${collectedData.name}!` : '¡Perfecto!';
+      
       const response = asksAboutPrice 
-        ? "Para darte un presupuesto personalizado, necesito algunos datos. ¿Me pasás tu número de teléfono?"
-        : "¡Perfecto! Para coordinar, necesito algunos datos. ¿Me pasás tu número de teléfono?";
+        ? `${greeting} Para darte un presupuesto personalizado, necesito algunos datos. ¿Me pasás tu número de teléfono?`
+        : `${greeting} Para coordinar, necesito algunos datos. ¿Me pasás tu número de teléfono?`;
       
       res.setHeader('Content-Type', 'application/json');
       return res.json({ 
@@ -165,6 +176,22 @@ module.exports = async function handler(req, res) {
           }
         });
       }
+    }
+
+    // Si completó pero ya teníamos nombre desde antes, saltear pregunta de nombre
+    if (currentState === 'awaiting_name' && collectedData.name) {
+      currentState = 'completed';
+      console.log('Datos recolectados:', collectedData);
+      
+      res.setHeader('Content-Type', 'application/json');
+      return res.json({ 
+        response: `¡Listo, ${collectedData.name}! Te contactamos a la brevedad al ${collectedData.phone} o a ${collectedData.email}. ¿Hay algo más en lo que pueda ayudarte?`,
+        userData: {
+          collectionState: currentState,
+          ...collectedData
+        },
+        leadData: collectedData
+      });
     }
 
     // Si ya completamos la recolección o es una conversación normal
