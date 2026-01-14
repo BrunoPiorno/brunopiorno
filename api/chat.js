@@ -71,9 +71,9 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    // Detectar si el usuario está pidiendo reunión/consulta/presupuesto
-    const requestsContact = /\b(reunión|consulta|presupuesto|contacto|agendar|llamar|hablar|info|información|más información|me interesa|quiero)\b/i.test(lastUserMessage);
-    const asksAboutPrice = /\b(cuánto|cuesta|precio|precios|rango|tarifa|valor|cotiza)\b/i.test(lastUserMessage);
+    // Detectar si el usuario está pidiendo reunión/consulta/presupuesto de forma EXPLÍCITA
+    const requestsContact = /\b(quiero una reunión|quiero agendar|quiero una consulta|necesito un presupuesto|me interesa contratar|quiero contratar|dame tu contacto|cómo los contacto)\b/i.test(lastUserMessage);
+    const asksAboutPrice = /\b(cuánto cuesta|cuál es el precio|qué precio|dame un precio|cotización|presupuesto)\b/i.test(lastUserMessage);
 
     // Si pide contacto y no hemos empezado a recolectar datos
     if ((requestsContact || asksAboutPrice) && currentState === 'none') {
