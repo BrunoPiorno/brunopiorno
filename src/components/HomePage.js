@@ -812,7 +812,7 @@ const HomePage = () => {
             </motion.a>
             
             <motion.a
-              href="mailto:bruno@globalalora.com"
+              href="mailto:info@globalalora.com"
               className="contact-button email"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
