@@ -12,6 +12,7 @@ import ServiceCard from './ServiceCard';
 import AboutSection from './AboutSection';
 import ProjectCard from './ProjectCard';
 import ClientCard from './ClientCard';
+//import TestimonialCard from './TestimonialCard';
 import LatestPosts from './LatestPosts';
 import FloatingIcons from './FloatingIcons';
 import ContactForm from './ContactForm';
@@ -329,7 +330,7 @@ const HomePage = () => {
             "image": "https://globalalora.com/logo-web.png",
             "description": "Desarrollo de sitios web a medida para profesionales y empresas, con diseño moderno, rendimiento optimizado y enfoque en conversiones.",
             "url": "https://globalalora.com",
-            "telephone": "+5492392460230",
+            "telephone": "+5491124629452",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Trenque Lauquen",
@@ -399,7 +400,7 @@ const HomePage = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <a 
-                href={locale === 'en' ? "https://wa.me/+543512112723" : "https://wa.me/+5492392460230"} 
+                href={locale === 'en' ? "https://wa.me/+541124629452" : "https://wa.me/+5491124629452"} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="cta-button"
@@ -567,6 +568,38 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      {/* <section id="testimonios" className="testimonials-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>{t('testimonials.title')}</h2>
+          <p>{t('testimonials.subtitle')}</p>
+        </motion.div>
+
+        <div className="testimonials-grid">
+          {[
+            {
+              quote: t('testimonials.tenis.quote'),
+              author: 'Alejandro',
+              company: 'Presidente de la Comisión de Tenis de Mesa',
+              image: require('../images/tenisdemesa.png'),
+              metrics: [
+                t('testimonials.tenis.metric1'),
+                t('testimonials.tenis.metric2'),
+                t('testimonials.tenis.metric3')
+              ]
+            }
+          ].map((testimonial, index) => (
+            <TestimonialCard key={index} testimonial={testimonial} index={index} />
+          ))}
+        </div>
+      </section> */}
+
       {/* Recognition Section */}
       <section id="reconocimientos" className="recognition-section">
         <motion.div 
@@ -641,7 +674,7 @@ const HomePage = () => {
           <p>{t('cta.subtitle')}</p>
           <div className="cta-buttons">
             <a 
-              href={locale === 'en' ? "https://wa.me/+543512112723" : "https://wa.me/+5492392460230"} 
+              href={locale === 'en' ? "https://wa.me/+541124629452" : "https://wa.me/+5491124629452"} 
               target="_blank" 
               rel="noopener noreferrer"
               className="whatsapp-button"
@@ -767,7 +800,7 @@ const HomePage = () => {
           
           <div className="contact-buttons">
             <motion.a
-              href={locale === 'en' ? "https://wa.me/+543512112723" : "https://wa.me/+542392460230"}
+              href={locale === 'en' ? "https://wa.me/+541124629452" : "https://wa.me/+541124629452"}
               target="_blank"
               rel="noopener noreferrer"
               className="contact-button whatsapp"

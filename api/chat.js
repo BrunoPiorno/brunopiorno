@@ -3,7 +3,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const CONTACT_INFO = {
-  whatsapp: '+54 9 2392460230', 
+  whatsapp: '+541124629452', 
   email: 'bruno@globalalora.com',
   web: 'https://globalalora.com/'
 };

@@ -18,7 +18,7 @@ const ContactSection = () => {
         <p>{t('contact.subtitle')}</p>
         <div className="contact-buttons">
           <motion.a
-            href={locale === 'en' ? "https://wa.me/+543512112723" : "https://wa.me/+542392460230"}
+            href={locale === 'en' ? "https://wa.me/+541124629452" : "https://wa.me/+541124629452"}
             target="_blank"
             rel="noopener noreferrer"
             className="contact-button whatsapp"
