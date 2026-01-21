@@ -289,7 +289,7 @@ const Chatbot = () => {
             transition={{ duration: 0.3 }}
           >
             <div className="chatbot-header">
-              <h3>Asistente Alora</h3>
+              <h3>{locale === 'en' ? 'Alora Assistant' : 'Asistente Alora'}</h3>
               <button onClick={toggleChat}>&times;</button>
             </div>
             <div className="chatbot-messages">
@@ -310,7 +310,7 @@ const Chatbot = () => {
             <form className="chatbot-input" onSubmit={handleSendMessage}>
               <input 
                 type="text" 
-                placeholder="Escribe tu mensaje..."
+                placeholder={locale === 'en' ? 'Type your message...' : 'Escribe tu mensaje...'}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
               />
