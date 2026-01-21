@@ -179,10 +179,15 @@ const Chatbot = () => {
           });
         }
 
-        // Después de 2-3 mensajes o si detectamos interés, ofrecemos el contacto
-        if (messages.length >= 4 || botResponse.toLowerCase().includes('precio') || 
+        // Si la respuesta del bot pide contacto o detectamos palabras clave, pasamos directamente al formulario
+        if (botResponse.toLowerCase().includes('contacto') || 
+            botResponse.toLowerCase().includes('contact') || 
+            botResponse.toLowerCase().includes('precio') || 
             botResponse.toLowerCase().includes('presupuesto') || 
             botResponse.toLowerCase().includes('costo')) {
+          setStep('name');
+          setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].ask_name }]);
+        } else if (messages.length >= 4) {
           setTimeout(() => {
             setMessages(prev => [...prev, { 
               from: 'bot', 
@@ -224,7 +229,37 @@ const Chatbot = () => {
       setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].ask_phone }]);
       setStep('phone');
     } else if (step === 'phone') {
-      setUserData(prev => ({ ...prev, phone: inputValue }));
+      const updatedUserData = { ...userData, phone: inputValue };
+      setUserData(updatedUserData);
+      
+      // Preparar el historial de conversación
+      const conversationHistory = messages
+        .map(msg => `${msg.from === 'user' ? 'Cliente' : 'Bot'}: ${msg.text}`)
+        .join('\n\n');
+      
+      // Enviar email con EmailJS
+      const templateParams = {
+        lead_contact: `Nombre: ${updatedUserData.name}\nEmail: ${updatedUserData.email}\nTeléfono: ${updatedUserData.phone}`,
+        lead_type: 'Formulario Completo',
+        conversation: conversationHistory,
+        user_message: inputValue,
+        date: new Date().toLocaleString('es-AR')
+      };
+      
+      emailjs.send(
+        'service_6r3ee9k',
+        'template_chatbot_lead',
+        templateParams,
+        'CwpWaIXVC5Pdb4Kae'
+      ).then(
+        (response) => {
+          console.log('Lead enviado exitosamente', response.status);
+        },
+        (error) => {
+          console.error('Error al enviar lead:', error);
+        }
+      );
+
       setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].thank_you }]);
       setStep('completed');
     } else {
