@@ -103,11 +103,31 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  const selectedLanguage = (req.body && req.body.language === 'en') ? 'en' : 'es';
+  const fallbackPlainText = selectedLanguage === 'en'
+    ? `Sorry, I had a technical issue. You can contact us directly:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}`
+    : `Disculpá, tuve un problema técnico. Contactanos directamente:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}`;
+
+  const writePlainTextResponse = (text) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Transfer-Encoding', 'chunked');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    res.write(text);
+    res.end();
+  };
+
   try {
-    const { messages, language = 'es' } = req.body;
+    const { messages } = req.body || {};
 
     if (!messages || !Array.isArray(messages)) {
       return res.status(400).json({ error: 'Invalid messages format' });
+    }
+
+    if (!process.env.GEMINI_API_KEY) {
+      console.error('Missing GEMINI_API_KEY environment variable');
+      return writePlainTextResponse(fallbackPlainText);
     }
 
     const model = genAI.getGenerativeModel({ 
@@ -165,34 +185,14 @@ module.exports = async function handler(req, res) {
 
     let lastMessage = recentMessages[recentMessages.length - 1].text;
 
-    // Agregar contexto solo en el primer mensaje
+    // Inyectar prompt del sistema (según idioma) en el primer mensaje para guiar a Gemini.
+    // En mensajes siguientes, mantener recordatorio de brevedad.
     if (history.length === 0) {
-      lastMessage = language === 'en' ?
-        `You are Alora, Alora's agency assistant. Services: web development, e-commerce, design.
-
-CRITICAL RULES:
-- Maximum 2 sentences
-- NO lists or bullets
-- NO prices
-- If they ask prices: give contact (📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email})
-- If they want meeting/consultation: ASK for their number or email, DO NOT give yours
-
-User: ${lastMessage}` :
-        `Eres Alora, asistente de la agencia Alora. Servicios: desarrollo web, e-commerce, diseño.
-
-REGLAS CRÍTICAS:
-- Máximo 2 oraciones
-- NO uses listas ni bullets
-- NO menciones precios
-- Si preguntan precios: da contacto (📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email})
-- Si quieren agendar reunión/consulta: PIDE su número o email, NO des el tuyo
-
-Usuario: ${lastMessage}`;
+      lastMessage = `${SYSTEM_PROMPTS[selectedLanguage]}\n\n${selectedLanguage === 'en' ? 'User' : 'Usuario'}: ${lastMessage}`;
     } else {
-      // En mensajes siguientes, solo recordar brevedad
-      lastMessage = `[Responde en máximo 2 oraciones, sin listas. Si piden reunión/consulta: PIDE su contacto]
-
-Usuario: ${lastMessage}`;
+      lastMessage = selectedLanguage === 'en'
+        ? `[Answer in max 2 sentences, no lists. If they want a meeting/consultation: ASK for their contact]\n\nUser: ${lastMessage}`
+        : `[Responde en máximo 2 oraciones, sin listas. Si piden reunión/consulta: PIDE su contacto]\n\nUsuario: ${lastMessage}`;
     }
 
     const chat = model.startChat({ 
@@ -223,7 +223,9 @@ Usuario: ${lastMessage}`;
 
     // Fallback si no hay respuesta
     if (!hasContent || fullResponse.trim().length < 10) {
-      const fallback = `Para ayudarte mejor, contactanos directamente:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}\n\n¿En qué podemos ayudarte?`;
+      const fallback = selectedLanguage === 'en'
+        ? `To help you better, contact us directly:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}\n\nHow can we help you?`
+        : `Para ayudarte mejor, contactanos directamente:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}\n\n¿En qué podemos ayudarte?`;
       res.write(fallback);
     }
 
@@ -236,17 +238,12 @@ Usuario: ${lastMessage}`;
       status: error?.status,
       statusText: error?.statusText
     });
-    
-    const fallbackMessage = `Disculpá, tuve un problema técnico. Contactanos directamente:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}`;
-    
+
     if (res.headersSent) {
-      res.write(fallbackMessage);
+      res.write(fallbackPlainText);
       return res.end();
     }
-    
-    return res.status(500).json({ 
-      error: 'Failed to get response from AI.', 
-      details: process.env.NODE_ENV === 'production' ? 'Error del servidor' : error.message 
-    });
+
+    return writePlainTextResponse(fallbackPlainText);
   }
 };
