@@ -31,17 +31,19 @@ const Chatbot = () => {
       error: 'Sorry, I cannot respond at the moment.'
     }
   };
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
-
-  // Establecer mensaje inicial según el idioma
-  useEffect(() => {
-    setMessages([{ from: 'bot', text: messages_by_lang[locale].welcome }]);
-  }, [locale]);
   const [inputValue, setInputValue] = useState('');
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
+  const [step, setStep] = useState('chat');
+  const [userData, setUserData] = useState({ name: '', email: '', phone: '' });
   const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    setMessages([{ from: 'bot', text: messages_by_lang[locale].welcome }]);
+  }, [locale]);
 
   const toggleChat = () => {
     const newState = !isOpen;
@@ -118,13 +120,6 @@ const Chatbot = () => {
       return () => clearTimeout(timer);
     }
   }, [hasAutoOpened]);
-
-  const [step, setStep] = useState('chat');
-  const [userData, setUserData] = useState({
-    name: '',
-    email: '',
-    phone: ''
-  });
 
   const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -265,7 +260,6 @@ const Chatbot = () => {
       setStep('completed');
     }
     setInputValue('');
-  };
   };
 
   return (
