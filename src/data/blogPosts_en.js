@@ -150,6 +150,27 @@ const posts = [
       { type: 'subtitle', value: 'Want to Recommend Your Favorite Plugin?' },
       { type: 'text', value: 'Leave it in the comments or share this article! Let’s help more users build quality sites.' }
     ]
+  },
+  {
+    slug: 'technical-seo-guide-2026-attract-clients',
+    translationSlug: 'guia-seo-tecnico-2026-atraer-clientes',
+    title: 'Technical SEO Guide 2026: How to Attract Clients While You Sleep',
+    description: 'Learn the technical SEO strategies that are transforming websites into lead generation machines this year.',
+    date: '2026-01-21',
+    cover: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+    content: [
+      { type: 'subtitle', value: 'Is your website a digital brochure or a tireless salesperson?' },
+      { type: 'text', value: 'In 2026, having a "pretty" website is no longer enough. Technical SEO has become the invisible foundation that decides who gets the clients and who disappears on page 10 of Google.' },
+      { type: 'subtitle', value: '1. Core Web Vitals: Google\'s New Obsession' },
+      { type: 'text', value: 'Loading speed and visual stability are not just for user experience; they are critical ranking factors. A site that loads in less than 1.5 seconds is 300% more likely to convert a visitor into a client.' },
+      { type: 'subtitle', value: '2. Information Architecture and Structured Data' },
+      { type: 'text', value: 'Implementing Schema Markup (JSON-LD) allows Google to understand exactly what you sell, your prices, and your customer reviews before they even enter your site.' },
+      { type: 'code', value: '{ "@context": "https://schema.org", "@type": "Service", "name": "SEO Web Development", "provider": "Alora" }' },
+      { type: 'subtitle', value: '3. Mobile-First and Accessibility' },
+      { type: 'text', value: '80% of your potential clients will find you from a mobile device. If your menu is hard to use or your text is small, you are giving away clients to your competition.' },
+      { type: 'subtitle', value: 'Conclusion: Technology at Your Service' },
+      { type: 'text', value: 'You don\'t need to be a coding expert; you need an ally who masters these tools so you can focus on closing sales. Is your website ready for 2026?' }
+    ]
   }
 ];
 

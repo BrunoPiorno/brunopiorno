@@ -150,6 +150,27 @@ const posts = [
       { type: 'subtitle', value: '¿Tienes dudas o quieres recomendar tu plugin favorito?' },
       { type: 'text', value: '¡Déjalo en los comentarios o comparte este artículo! Así ayudamos a más usuarios a crear webs de calidad.' }
     ]
+  },
+  {
+    slug: 'guia-seo-tecnico-2026-atraer-clientes',
+    translationSlug: 'technical-seo-guide-2026-attract-clients',
+    title: 'Guía de SEO Técnico 2026: Cómo atraer clientes mientras duermes',
+    description: 'Aprende las estrategias de SEO técnico que están transformando sitios web en máquinas de generación de leads este año.',
+    date: '2026-01-21',
+    cover: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+    content: [
+      { type: 'subtitle', value: '¿Tu sitio web es un folleto digital o un vendedor incansable?' },
+      { type: 'text', value: 'En 2026, tener una web "bonita" ya no es suficiente. El SEO técnico se ha convertido en la base invisible que decide quién se queda con los clientes y quién desaparece en la página 10 de Google.' },
+      { type: 'subtitle', value: '1. Core Web Vitals: La nueva obsesión de Google' },
+      { type: 'text', value: 'La velocidad de carga y la estabilidad visual no son solo para la experiencia del usuario; son factores críticos de ranking. Un sitio que carga en menos de 1.5 segundos tiene un 300% más de probabilidades de convertir un visitante en un cliente.' },
+      { type: 'subtitle', value: '2. Arquitectura de Información y Datos Estructurados' },
+      { type: 'text', value: 'Implementar Schema Markup (JSON-LD) permite que Google entienda exactamente qué vendes, tus precios y las reseñas de tus clientes antes de que siquiera entren a tu web.' },
+      { type: 'code', value: '{ "@context": "https://schema.org", "@type": "Service", "name": "Desarrollo Web SEO", "provider": "Alora" }' },
+      { type: 'subtitle', value: '3. Mobile-First y Accesibilidad' },
+      { type: 'text', value: 'El 80% de tus clientes potenciales te encontrarán desde un móvil. Si tu menú es difícil de usar o tu texto es pequeño, estás regalando clientes a tu competencia.' },
+      { type: 'subtitle', value: 'Conclusión: La tecnología a tu servicio' },
+      { type: 'text', value: 'No necesitas ser un experto en código, necesitas un aliado que domine estas herramientas para que tú puedas enfocarte en cerrar las ventas. ¿Está tu web preparada para el 2026?' }
+    ]
   }
 ];
 
