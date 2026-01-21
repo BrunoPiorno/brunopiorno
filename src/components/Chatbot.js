@@ -32,9 +32,12 @@ const Chatbot = () => {
     }
   };
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { from: 'bot', text: messages_by_lang[locale].welcome }
-  ]);
+  const [messages, setMessages] = useState([]);
+
+  // Establecer mensaje inicial según el idioma
+  useEffect(() => {
+    setMessages([{ from: 'bot', text: messages_by_lang[locale].welcome }]);
+  }, [locale]);
   const [step, setStep] = useState('chat');
   const [userData, setUserData] = useState({
     name: '',
@@ -143,7 +146,10 @@ const Chatbot = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ messages: newMessages.slice(-10) }), 
+          body: JSON.stringify({ 
+            messages: newMessages.slice(-10),
+            language: locale
+          }), 
         });
 
         if (!response.ok) {
@@ -193,11 +199,11 @@ const Chatbot = () => {
       }
     } else if (step === 'pre_contact') {
       // Si el usuario responde afirmativamente
-      if (inputValue.toLowerCase().includes('si') || 
-          inputValue.toLowerCase().includes('sí') || 
-          inputValue.toLowerCase().includes('ok') || 
-          inputValue.toLowerCase().includes('dale') || 
-          inputValue.toLowerCase().includes('bueno')) {
+      const affirmativeWords = locale === 'en' ?
+        ['yes', 'yeah', 'sure', 'ok', 'okay', 'alright', 'fine'] :
+        ['si', 'sí', 'ok', 'dale', 'bueno'];
+
+      if (affirmativeWords.some(word => inputValue.toLowerCase().includes(word))) {
         setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].ask_name }]);
         setStep('name');
       } else {
@@ -244,7 +250,10 @@ const Chatbot = () => {
             'Content-Type': 'application/json',
           },
           // Enviamos solo los mensajes relevantes para no exceder el límite de tokens
-          body: JSON.stringify({ messages: newMessages.slice(-10) }), 
+          body: JSON.stringify({ 
+            messages: newMessages.slice(-10),
+            language: locale
+          }), 
         });
 
         if (!response.ok) {
