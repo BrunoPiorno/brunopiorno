@@ -12,7 +12,7 @@ import ServiceCard from './ServiceCard';
 import AboutSection from './AboutSection';
 import ProjectCard from './ProjectCard';
 import ClientCard from './ClientCard';
-import TestimonialCard from './TestimonialCard';
+//import TestimonialCard from './TestimonialCard';
 import LatestPosts from './LatestPosts';
 import FloatingIcons from './FloatingIcons';
 import ContactForm from './ContactForm';
@@ -569,7 +569,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonios" className="testimonials-section">
+      {/* <section id="testimonios" className="testimonials-section">
         <motion.div 
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
@@ -598,7 +598,7 @@ const HomePage = () => {
             <TestimonialCard key={index} testimonial={testimonial} index={index} />
           ))}
         </div>
-      </section> 
+      </section>  */}
 
       {/* Recognition Section */}
       <section id="reconocimientos" className="recognition-section">
