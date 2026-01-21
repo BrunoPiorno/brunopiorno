@@ -10,7 +10,6 @@ const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const LegalNotice = lazy(() => import('./components/LegalNotice'));
 const CookiesPolicy = lazy(() => import('./components/CookiesPolicy'));
 const ThankYouPage = lazy(() => import('./components/ThankYouPage'));
-const WebExpress = lazy(() => import('./components/WebExpress'));
 
 const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
@@ -22,7 +21,6 @@ const AppRoutes = () => (
       <Route path="/legal-notice" element={<LegalNotice />} />
       <Route path="/cookies-policy" element={<CookiesPolicy />} />
             <Route path="/thank-you" element={<ThankYouPage />} />
-      <Route path="/web-express" element={<WebExpress />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </Suspense>

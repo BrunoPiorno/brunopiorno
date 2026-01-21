@@ -100,6 +100,15 @@ export const en = {
   'services.performance.title': 'Performance Optimization',
   'services.performance.desc': 'We ensure your website is fast and efficient for the best user experience.',
 
+  // Testimonials
+  'testimonials.title': 'What Our Clients Say',
+  'testimonials.subtitle': 'Real stories of digital transformation and measurable results',
+
+  'testimonials.tenis.quote': 'Working with Alora was an excellent experience. They developed both the institutional website and a fully customized professional ranking system that allows us to manage players, statistics, and points clearly and efficiently. The platform is fast, easy to use, and gave us a quality leap in Table Tennis organization. There was always good communication, commitment, and willingness to adapt the system to our real needs.',
+  'testimonials.tenis.metric1': 'Integral system',
+  'testimonials.tenis.metric2': 'Efficient management',
+  'testimonials.tenis.metric3': 'Easy to use',
+
   // Projects
   'projects.viewSite': 'View Site',
   'contribution.full': 'Full-Stack Development',

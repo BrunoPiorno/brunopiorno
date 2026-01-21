@@ -110,6 +110,15 @@ export const es = {
   'projects.protorneo.title': 'Protorneos',
   'projects.protorneo.desc': 'Sitio web liviano y estático desarrollado con HTML5, CSS3 y JavaScript puro. Diseño responsive, estructura optimizada para velocidad de carga y fácil mantenimiento, ideal para mostrar información institucional y deportiva sin depender de CMS.',
 
+  // Testimonials
+  'testimonials.title': 'Lo que dicen nuestros clientes',
+  'testimonials.subtitle': 'Historias reales de transformación digital y resultados medibles',
+
+  'testimonials.tenis.quote': 'Trabajar con Alora fue una excelente experiencia. Desarrollaron tanto el sitio web institucional como un sistema de ranking profesional totalmente a medida, que hoy nos permite gestionar jugadores, estadísticas y puntos de forma clara y eficiente. La plataforma es rápida, fácil de usar y nos dio un salto de calidad en la organización del Tenis de Mesa. Siempre hubo buena comunicación, compromiso y predisposición para adaptar el sistema a nuestras necesidades reales.',
+  'testimonials.tenis.metric1': 'Sistema integral',
+  'testimonials.tenis.metric2': 'Gestión eficiente',
+  'testimonials.tenis.metric3': 'Fácil de usar',
+
 
   // Últimas noticias
   'latestPosts': {
