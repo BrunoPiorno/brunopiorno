@@ -175,15 +175,21 @@ const Chatbot = () => {
           });
         }
 
-        // Si la respuesta del bot pide contacto o detectamos palabras clave, pasamos directamente al formulario
-        if (botResponse.toLowerCase().includes('contacto') || 
-            botResponse.toLowerCase().includes('contact') || 
-            botResponse.toLowerCase().includes('precio') || 
-            botResponse.toLowerCase().includes('presupuesto') || 
-            botResponse.toLowerCase().includes('costo')) {
+        // Si detectamos palabras clave de precio/presupuesto, ofrecemos contacto
+        // Pero NO si es un mensaje de error/fallback (contiene "problema técnico" o "technical issue")
+        const isErrorFallback = botResponse.toLowerCase().includes('problema técnico') || 
+                                botResponse.toLowerCase().includes('technical issue');
+        
+        const wantsQuote = botResponse.toLowerCase().includes('precio') || 
+                          botResponse.toLowerCase().includes('presupuesto') || 
+                          botResponse.toLowerCase().includes('costo') ||
+                          botResponse.toLowerCase().includes('price') ||
+                          botResponse.toLowerCase().includes('quote');
+        
+        if (!isErrorFallback && wantsQuote) {
           setStep('name');
           setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].ask_name }]);
-        } else if (messages.length >= 4) {
+        } else if (!isErrorFallback && messages.length >= 4) {
           setTimeout(() => {
             setMessages(prev => [...prev, { 
               from: 'bot', 
