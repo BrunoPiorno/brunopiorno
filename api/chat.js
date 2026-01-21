@@ -131,7 +131,7 @@ module.exports = async function handler(req, res) {
     }
 
     const model = genAI.getGenerativeModel({ 
-      model: 'gemini-1.5-flash',
+      model: 'gemini-pro',
       generationConfig: {
         temperature: 0.4,
         topP: 0.8,
