@@ -264,6 +264,8 @@ const Chatbot = () => {
       setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].thank_you }]);
       setStep('completed');
     }
+    setInputValue('');
+  };
   };
 
   return (
