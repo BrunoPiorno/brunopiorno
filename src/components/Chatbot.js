@@ -38,6 +38,7 @@ const Chatbot = () => {
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [step, setStep] = useState('chat');
+  const [hasOfferedContact, setHasOfferedContact] = useState(false);
   const [userData, setUserData] = useState({ name: '', email: '', phone: '' });
   const messagesEndRef = useRef(null);
 
@@ -186,10 +187,12 @@ const Chatbot = () => {
                           botResponse.toLowerCase().includes('price') ||
                           botResponse.toLowerCase().includes('quote');
         
-        if (!isErrorFallback && wantsQuote) {
+        if (!isErrorFallback && wantsQuote && !hasOfferedContact) {
+          setHasOfferedContact(true);
           setStep('name');
           setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].ask_name }]);
-        } else if (!isErrorFallback && messages.length >= 4) {
+        } else if (!isErrorFallback && messages.length >= 4 && !hasOfferedContact) {
+          setHasOfferedContact(true);
           setTimeout(() => {
             setMessages(prev => [...prev, { 
               from: 'bot', 
