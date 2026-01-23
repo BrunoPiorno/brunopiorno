@@ -2528,7 +2528,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .headline {
     font-size: 36px;
   }
@@ -2616,20 +2616,20 @@ body {
     transform: rotate(-45deg) translate(5px, -6px);
   }
 
-.clients-slider-container {
+  .clients-slider-container {
   width: 100%;
   padding: 2rem 0;
-}
+  }
 
-.clients-swiper .swiper-slide {
+  .clients-swiper .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  }
 
-.clients-swiper .client-card {
+  .clients-swiper .client-card {
   width: 100%;
-}
+  }
 
   .nav-links {
     position: fixed;
@@ -2663,7 +2663,7 @@ body {
 
   .nav-links .contact-btn {
     margin-top: 1rem;
-    width: 100%;
+    width: 400px;
   }
 
   .workflow-content {
