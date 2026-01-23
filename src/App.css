@@ -89,6 +89,7 @@ body {
 /* Logo */
 .logo-container {
   flex-shrink: 0;
+  z-index: 1;
 }
 
 .logo {
@@ -1709,6 +1710,7 @@ body {
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   margin: 0 1rem;
+  z-index: 1;
 }
 
 .language-toggle:hover {
@@ -1716,6 +1718,7 @@ body {
   color: var(--background-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .identity h3 {
@@ -2633,7 +2636,7 @@ body {
     top: 0;
     right: -100%;
     width: 100%;
-    max-width: 400px;
+    max-width: auto;
     height: 100vh;
     background-color: rgba(17, 17, 17, 0.98);
     backdrop-filter: blur(10px);
