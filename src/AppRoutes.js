@@ -16,13 +16,13 @@ const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/whatsapp-generator" element={<WhatsAppGenerator />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/legal-notice" element={<LegalNotice />} />
       <Route path="/cookies-policy" element={<CookiesPolicy />} />
       <Route path="/thank-you" element={<ThankYouPage />} />
+      <Route path="/whatsapp-generator" element={<WhatsAppGenerator />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </Suspense>
