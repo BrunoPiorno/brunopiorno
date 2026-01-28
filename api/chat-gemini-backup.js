@@ -1,8 +1,6 @@
-const OpenAI = require('openai');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const CONTACT_INFO = {
   whatsapp: '+541124629452', 
@@ -26,10 +24,6 @@ Si preguntan por precios → Da contacto inmediatamente.
 REGLA #3 - NO LISTAS:
 NO uses bullets (•, *, -), NO enumeres, NO hagas listas largas.
 
-REGLA #4 - DETECCIÓN DE INTENCIÓN:
-Si el usuario menciona "presupuesto", "precio", "costo", "cotización" → NO ofiertas reunión directamente.
-Primero haz preguntas sobre el proyecto, luego ofrece reunión.
-
 SERVICIOS: Desarrollo web, e-commerce, diseño UI/UX, mantenimiento.
 
 PLATAFORMAS: Somos especialistas en WordPress y WooCommerce. También nos adaptamos a otras plataformas según las necesidades del cliente.
@@ -48,11 +42,23 @@ Tú: "Depende de tus necesidades. Contactanos: 📱 ${CONTACT_INFO.whatsapp} �
 Usuario: "¿Hacen tiendas online?"
 Tú: "Sí, somos especialistas en WooCommerce para tiendas online. ¿Qué productos querés vender?"
 
-Usuario: "Busco presupuesto para landing page"
-Tú: "¿Qué tipo de proyecto tienes en mente? (Ej: landing page, e-commerce, app web, blog, etc.)"
+Usuario: "¿Con qué plataformas trabajan?"
+Tú: "Somos especialistas en WordPress y WooCommerce, pero nos adaptamos a lo que necesites. ¿Qué tipo de proyecto tenés en mente?"
 
 Usuario: "Dame un rango de precios"
 Tú: "Cada proyecto es único. Contactanos: 📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email}"
+
+Usuario: "¿Cuánto cuesta hosting/dominio/plataforma?"
+Tú: "Varía según el proyecto. Contactanos: 📱 ${CONTACT_INFO.whatsapp} 📧 ${CONTACT_INFO.email}"
+
+Usuario: "¿Cómo me contacto?" o "¿Cómo los contacto?"
+Tú: "Escribinos por WhatsApp al ${CONTACT_INFO.whatsapp} o por email a ${CONTACT_INFO.email}"
+
+Usuario: "Quiero agendar una reunión" o "Quiero una consulta"
+Tú: "¡Perfecto! Dejame tu número de teléfono o email y te contactamos en el día para coordinar la reunión."
+
+Usuario: "Quiero más información" o "Me interesa"
+Tú: "¡Genial! Dejame tu número o email y te enviamos toda la info que necesites."
 
 CRÍTICO: Si tu respuesta supera 50 palabras o menciona precios, DETENTE y da solo el contacto.`,
 
@@ -70,10 +76,6 @@ If they ask for prices → Give contact immediately.
 
 RULE #3 - NO LISTS:
 DO NOT use bullets (•, *, -), DO NOT enumerate, DO NOT make long lists.
-
-RULE #4 - INTENT DETECTION:
-If user mentions "quote", "price", "cost", "estimate" → DON'T offer meeting directly.
-First ask project questions, then offer meeting.
 
 SERVICES: Web development, e-commerce, UI/UX design, maintenance.
 
@@ -123,14 +125,13 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid messages format' });
     }
 
-    if (!process.env.OPENAI_API_KEY) {
-      console.error('Missing OPENAI_API_KEY environment variable');
+    if (!process.env.GEMINI_API_KEY) {
+      console.error('Missing GEMINI_API_KEY environment variable');
       return writePlainTextResponse(fallbackPlainText);
     }
 
-<<<<<<< Updated upstream
     const model = genAI.getGenerativeModel({ 
-      model: 'gemini-2.0-flash',
+      model: 'gemini-flash-latest',
       generationConfig: {
         temperature: 0.4,
         topP: 0.8,
@@ -157,37 +158,48 @@ module.exports = async function handler(req, res) {
       ]
     });
 
-=======
->>>>>>> Stashed changes
     const conversationMessages = messages.filter(
       msg => msg.from === 'user' || msg.from === 'bot'
     );
     
-    // Limitar historial a últimos 10 mensajes
+    // Limitar historial a últimos 10 mensajes para no sobrecargar
     const recentMessages = conversationMessages.slice(-10);
     
-    // Construir mensajes para OpenAI
-    let openaiMessages = [
-      {
-        role: "system",
-        content: SYSTEM_PROMPTS[selectedLanguage]
-      }
-    ];
+    let history = [];
+    let foundFirstUser = false;
     
-    // Agregar mensajes del usuario y bot
     for (let i = 0; i < recentMessages.length - 1; i++) {
       const msg = recentMessages[i];
-      openaiMessages.push({
-        role: msg.from === 'user' ? 'user' : 'assistant',
-        content: msg.text
-      });
+      
+      if (msg.from === 'user') {
+        foundFirstUser = true;
+      }
+      
+      if (foundFirstUser) {
+        history.push({
+          role: msg.from === 'user' ? 'user' : 'model',
+          parts: [{ text: msg.text }]
+        });
+      }
     }
-    
-    // Agregar último mensaje del usuario
-    const lastMessage = recentMessages[recentMessages.length - 1];
-    openaiMessages.push({
-      role: 'user',
-      content: lastMessage.text
+
+    let lastMessage = recentMessages[recentMessages.length - 1].text;
+
+    // Inyectar prompt del sistema (según idioma) en el primer mensaje para guiar a Gemini.
+    // En mensajes siguientes, mantener recordatorio de brevedad.
+    if (history.length === 0) {
+      lastMessage = `${SYSTEM_PROMPTS[selectedLanguage]}\n\n${selectedLanguage === 'en' ? 'User' : 'Usuario'}: ${lastMessage}`;
+    } else {
+      lastMessage = selectedLanguage === 'en'
+        ? `[Answer in max 2 sentences, no lists. If they want a meeting/consultation: ASK for their contact]\n\nUser: ${lastMessage}`
+        : `[Responde en máximo 2 oraciones, sin listas. Si piden reunión/consulta: PIDE su contacto]\n\nUsuario: ${lastMessage}`;
+    }
+
+    const chat = model.startChat({ 
+      history,
+      generationConfig: {
+        temperature: 0.5,
+      }
     });
 
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
@@ -195,22 +207,13 @@ module.exports = async function handler(req, res) {
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Connection', 'keep-alive');
 
-    const stream = await openai.chat.completions.create({
-      model: 'gpt-4o-mini', // Más económico y rápido que gpt-4
-      messages: openaiMessages,
-      max_tokens: 80, // Respuestas cortas
-      temperature: 0.3, // Más consistente
-      top_p: 0.8,
-      frequency_penalty: 0.1,
-      presence_penalty: 0.1,
-      stream: true
-    });
+    const result = await chat.sendMessageStream(lastMessage);
 
     let hasContent = false;
     let fullResponse = '';
 
-    for await (const chunk of stream) {
-      const text = chunk.choices[0]?.delta?.content || '';
+    for await (const chunk of result.stream) {
+      const text = chunk.text();
       if (text) {
         hasContent = true;
         fullResponse += text;
@@ -229,7 +232,7 @@ module.exports = async function handler(req, res) {
     res.end();
 
   } catch (error) {
-    console.error('Error calling OpenAI:', error);
+    console.error('Error calling Gemini:', error);
     console.error('Error details:', {
       message: error.message,
       status: error?.status,
