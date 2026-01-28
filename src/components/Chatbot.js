@@ -638,7 +638,7 @@ if (!isErrorFallback && wantsQuote && !hasOfferedContact) {
       
       emailjs.send(
         'service_6r3ee9k',
-        'template_chatbot_lead',
+        'template_obd8zn6', // Template existente
         templateParams,
         'CwpWaIXVC5Pdb4Kae'
       ).then(
