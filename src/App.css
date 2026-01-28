@@ -2000,8 +2000,6 @@ body {
 
 /* Contact Form */
 .contact-form {
-  max-width: 700px;
-  margin: 3rem auto 2rem;
   text-align: left;
 }
 
@@ -3036,6 +3034,411 @@ body {
   30% {
     transform: translateY(-10px);
     opacity: 1;
+  }
+}
+
+/* ========================================
+   MEJORAS VISUALES ADICIONALES PARA FORMULARIO
+   - Consistente con estética del sitio
+   ======================================== */
+
+/* Mejorar espaciado y layout */
+/* Asegurar que el formulario se vea bien en ambos idiomas */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--surface-color);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(99, 214, 183, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Filas del formulario */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-row .form-group {
+  margin-bottom: 0;
+}
+
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+/* Mejorar inputs y textareas */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 14px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-family: var(--font-family-base);
+  font-size: 15px;
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  line-height: 1.5;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(99, 214, 183, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Mejorar labels */
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group label .required {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-left: 2px;
+  font-size: 16px;
+}
+
+.form-group label .optional {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-left: 6px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Mejorar botón de envío */
+.submit-btn {
+  padding: 16px 32px;
+  background: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  box-shadow: 0 4px 16px rgba(99, 214, 183, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--primary-dark);
+  box-shadow: 0 6px 24px rgba(99, 214, 183, 0.4);
+  transform: translateY(-2px);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(99, 214, 183, 0.3);
+}
+
+.submit-btn:disabled {
+  background: rgba(160, 160, 160, 0.3);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.submit-btn .spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(27, 27, 27, 0.3);
+  border-top-color: var(--background-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Mejorar mensajes de error y éxito */
+.form-success-message,
+.form-error-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  animation: slideDown 0.4s ease;
+  margin-bottom: 16px;
+  border-left: 4px solid;
+}
+
+.form-success-message {
+  background: rgba(99, 214, 183, 0.1);
+  border-left-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.form-success-message .success-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--primary-color);
+  color: var(--background-color);
+  border-radius: 50%;
+}
+
+.form-error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border-left-color: #ef4444;
+  color: var(--text-color);
+}
+
+.form-error-message .error-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 6px;
+  animation: slideDown 0.3s ease;
+  padding: 6px 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid #ef4444;
+}
+
+/* Mejorar checkbox */
+.form-checkbox {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  margin-top: 12px;
+  transition: all 0.3s ease;
+}
+
+.form-checkbox:hover {
+  border-color: var(--primary-color);
+  background: rgba(99, 214, 183, 0.05);
+}
+
+.form-checkbox label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.form-checkbox .checkbox-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.form-checkbox a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.form-checkbox a:hover {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary-dark);
+}
+
+/* Mejorar contador de caracteres */
+.character-count {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  text-align: right;
+  font-weight: 500;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mejorar disclaimer */
+.form-disclaimer {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 12px 0 0 0;
+  line-height: 1.6;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-style: italic;
+}
+
+/* Responsive mejorado */
+@media (max-width: 768px) {
+  .contact-form-wrapper {
+    padding: 16px;
+  }
+
+  .contact-form {
+    padding: 24px;
+    gap: 20px;
+    border-radius: 8px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px; /* Previene zoom en iOS */
+    padding: 16px;
+  }
+
+  .submit-btn {
+    padding: 18px 24px;
+    font-size: 15px;
+    min-height: 52px;
+  }
+
+  .form-checkbox {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .form-success-message,
+  .form-error-message {
+    gap: 12px;
+    padding: 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-wrapper {
+    padding: 12px;
+  }
+
+  .contact-form {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+    padding: 16px 20px;
+    min-height: 48px;
+    letter-spacing: 0.5px;
+  }
+
+  .form-disclaimer {
+    font-size: 11px;
+    padding: 10px;
   }
 }
 
