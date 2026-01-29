@@ -5,6 +5,7 @@ import './devicons/devicon.min.css';
 import { HelmetProvider } from 'react-helmet-async';
 import AppContent from './AppContent';
 import ScrollToTop from './components/ScrollToTop';
+import WhatsAppButton from './components/WhatsAppButton';
 import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <ScrollToTop />
         <LanguageProvider>
           <AppContent />
+          <WhatsAppButton />
         </LanguageProvider>
       </Router>
     </HelmetProvider>
