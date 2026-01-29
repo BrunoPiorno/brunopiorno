@@ -4,46 +4,46 @@
 
 ## Qué es la empresa
 
-- Empresa de diseño y desarrollo web enfocada en soluciones digitales personalizadas.
-- **Nombre**: globalalora.
-- **Tipo**: Diseño y desarrollo web.
-- **Website**: https://www.globalalora.com/es.
+- [Empresa de diseño y desarrollo web enfocada en soluciones digitales personalizadas].
+- [Nombre]:globalalora.
+- [Tipo]:Diseño y desarrollo web.
+- [Website]:https://www.globalalora.com/es.
 
 ## Servicios
 
-- **Diseño web**: Diseño visual y experiencia de usuario adaptada a cada proyecto.
-- **Desarrollo web**: Implementación técnica optimizada y escalable.
-- **Sitio web corporativo**: Soluciones web a medida.
-- **Tienda online, e-commerce**: Desarrollo de tiendas online con WooCommerce.
-- **Soluciones digitales**: Desarrollo de funcionalidades específicas.
-- **Consultoría tecnológica**: Asesoramiento estratégico para optimizar tu presencia digital y tecnológica.
-- **Mantenimiento y soporte**: Sitio web funcione de manera óptima.
-- **Optimización de rendimiento**: Rápido y eficiente.
-- **Sistemas a medida**: Desarrollo de sistemas y aplicaciones complejas.
+- [Diseño web]:Diseño visual y experiencia de usuario adaptada a cada proyecto.
+- [Desarrollo web]:Implementación técnica optimizada y escalable.
+- [Sitio web corporativo]:Soluciones web a medida.
+- [Tienda online, e-commerce]:Desarrollo de tiendas online con WooCommerce.
+- [Soluciones digitales]:Desarrollo de funcionalidades específicas.
+- [Consultoría tecnológica]:Asesoramiento estratégico para optimizar tu presencia digital y tecnológica.
+- [Mantenimiento y soporte]:Sitio web funcione de manera óptima.
+- [Optimización de rendimiento]:Rápido y eficiente.
+- [Sistemas a medida]:Desarrollo de sistemas y aplicaciones complejas.
 
 ## Tipo de clientes
 
-- Pequeñas y medianas empresas (PYME).
-- Profesionales independientes.
-- Negocios que necesitan presencia online.
+- [Pequeñas y medianas empresas (PYME)].
+- [Profesionales independientes].
+- [Negocios que necesitan presencia online].
 
 ## Qué hace diferente a globalalora
 
-- Trabajo a medida.
-- Planificación detallada.
-- Enfoque en funcionalidad y claridad.
-- Acompañamiento técnico durante el proyecto.
-- Comunicación efectiva e interpretación de entorno.
-- Transparencia total.
+- [Trabajo a medida].
+- [Planificación detallada].
+- [Enfoque en funcionalidad y claridad].
+- [Acompañamiento técnico durante el proyecto].
+- [Comunicación efectiva e interpretación de entorno].
+- [Transparencia total].
 
 ## Qué NO hace globalalora
 
-- No vende productos digitales propios.
-- No ofrece servicios de marketing o publicidad.
-- No trabaja con plataformas cerradas o propietarias.
-- No ofrece servicios de copywriting o redacción comercial.
+- [No vende productos digitales propios].
+- [No ofrece servicios de marketing o publicidad].
+- [No trabaja con plataformas cerradas o propietarias].
+- [No ofrece servicios de copywriting o redacción comercial].
 
 ## Contacto
 
-- Para consultas comerciales y soporte, utilizar el formulario de contacto en https://www.globalalora.com/es.
+- [Para consultas comerciales y soporte]:utilizar el formulario de contacto en https://www.globalalora.com/es.
 - [WhatsApp](https://api.whatsapp.com/send/?phone=%2B5491124629452&text&type=phone_number&app_absent=0): Mensaje directo via WhatsApp.
