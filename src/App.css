@@ -2901,6 +2901,9 @@ body {
   .chatbot-fab {
     bottom: 20px;
     right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
   }
 }
 
@@ -3438,3 +3441,580 @@ body {
   }
 }
 
+  
+
+/* ========================================
+   FORMULARIO DE CONTACTO - MailerLite
+   ======================================== */
+
+.contact-form-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   GRUPOS DE FORMULARIO
+   ======================================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-group label .required {
+  color: #e74c3c;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.form-group label .optional {
+  font-size: 12px;
+  font-weight: 400;
+  color: #999;
+  margin-left: 4px;
+}
+
+/* ========================================
+   INPUTS Y TEXTAREAS
+   ======================================== */
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  line-height: 1.5;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+  border-color: #63d6b7;
+  box-shadow: 0 0 0 1px rgba(99, 214, 183, 0.1);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #63d6b7;
+  box-shadow: 0 0 0 3px rgba(99, 214, 183, 0.15);
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled,
+.form-group select:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"],
+.form-group select[aria-invalid="true"] {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+/* SELECT específico */
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23333' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.form-group select:disabled {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+}
+
+/* TEXTAREA */
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+/* ========================================
+   CHECKBOX PERSONALIZADO
+   ======================================== */
+
+.form-checkbox {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  margin-top: 8px;
+}
+
+.form-checkbox label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: #63d6b7;
+  flex-shrink: 0;
+}
+
+.form-checkbox .checkbox-text {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.form-checkbox a {
+  color: #63d6b7;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.form-checkbox a:hover {
+  color: #4db8a0;
+  text-decoration: underline;
+}
+
+/* ========================================
+   MENSAJES DE ERROR
+   ======================================== */
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #e74c3c;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: -4px;
+  animation: slideDown 0.2s ease;
+}
+
+.error-message::before {
+  content: "⚠";
+  flex-shrink: 0;
+}
+
+/* ========================================
+   ALERTAS (Success / Error)
+   ======================================== */
+
+.form-success-message,
+.form-error-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  animation: slideDown 0.3s ease;
+  margin-bottom: 8px;
+}
+
+.form-success-message {
+  background-color: #ecf8f3;
+  border: 1px solid #a4d6c4;
+  color: #0d7e4a;
+}
+
+.form-success-message .success-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.form-success-message .success-title {
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #0d7e4a;
+}
+
+.form-success-message .success-text {
+  margin: 0;
+  color: #0d7e4a;
+  line-height: 1.4;
+}
+
+.form-error-message {
+  background-color: #fef5f5;
+  border: 1px solid #f5c6c6;
+  color: #c2185b;
+}
+
+.form-error-message .error-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.form-error-message .error-title {
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #c2185b;
+}
+
+.form-error-message .error-text {
+  margin: 0;
+  color: #c2185b;
+  line-height: 1.4;
+}
+
+/* ========================================
+   BOTÓN DE ENVÍO
+   ======================================== */
+
+.submit-btn {
+  padding: 14px 28px;
+  background-color: #63d6b7;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  box-shadow: 0 2px 8px rgba(99, 214, 183, 0.2);
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #4eb8a0;
+  box-shadow: 0 4px 12px rgba(99, 214, 183, 0.3);
+  transform: translateY(-2px);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(99, 214, 183, 0.2);
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.8;
+}
+
+.submit-btn .spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ========================================
+   CONTADOR DE CARACTERES
+   ======================================== */
+
+.character-count {
+  font-size: 12px;
+  color: #999;
+  margin-top: -4px;
+  text-align: right;
+}
+
+/* ========================================
+   DISCLAIMER
+   ======================================== */
+
+.form-disclaimer {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  margin: -12px 0 0 0;
+  line-height: 1.5;
+}
+
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px; /* Previene zoom en iOS */
+    padding: 14px;
+  }
+
+  .submit-btn {
+    padding: 16px 24px;
+    font-size: 14px;
+  }
+
+  .form-checkbox {
+    padding: 12px;
+  }
+
+  .form-checkbox label {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-wrapper {
+    padding: 12px;
+  }
+
+  .contact-form {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .submit-btn {
+    font-size: 13px;
+    padding: 12px 20px;
+    min-height: 44px;
+  }
+
+  .form-success-message,
+  .form-error-message {
+    gap: 10px;
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .form-disclaimer {
+    font-size: 11px;
+  }
+}
+
+/* ========================================
+   WHATSAPP FLOAT BUTTON
+   ======================================== */
+
+.whatsapp-float {
+  position: fixed;
+  left: 20px;
+  bottom: 30px;
+  width: 56px;
+  height: 56px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  text-decoration: none;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.whatsapp-float:active {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover svg {
+  transform: rotate(10deg);
+}
+
+/* Efecto de pulso sutil */
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.5);
+  }
+  100% {
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  }
+}
+
+.whatsapp-float {
+  animation: whatsapp-pulse 2s infinite;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    left: 15px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .whatsapp-float svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    left: 12px;
+    bottom: 15px;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .whatsapp-float svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* ========================================
+   DARK MODE (Opcional)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  .contact-form {
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .form-group label {
+    color: #e0e0e0;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #444;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #666;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: #63d6b7;
+  }
+
+  .form-checkbox {
+    background-color: #2a2a2a;
+    border-color: #444;
+  }
+
+  .form-checkbox .checkbox-text {
+    color: #b0b0b0;
+  }
+
+  .form-disclaimer {
+    color: #666;
+  }
+}
