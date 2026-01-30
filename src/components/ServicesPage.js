@@ -111,7 +111,7 @@ const ServicesPage = () => {
         t('services.aisupport.feature3'),
         t('services.aisupport.feature4')
       ],
-      technologies: ['Python', 'TensorFlow', 'NLP', 'Chatbot APIs', 'Machine Learning']
+      technologies: ['React', 'Google Generative AI', 'OpenAI', 'EmailJS', 'N8N', 'Google Calendar API', 'ReactGA4']
     }
   ], [t]);
 

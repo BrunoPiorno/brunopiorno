@@ -433,6 +433,25 @@ body {
   margin-top: 3rem;
 }
 
+.service-detailed-card:last-child {
+  grid-column: 1 / -1;
+  max-width: 100%;
+}
+
+.service-detailed-card:last-child .service-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .service-detailed-card:last-child .service-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
 .service-detailed-card {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 24px;
