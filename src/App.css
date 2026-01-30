@@ -168,7 +168,21 @@ body {
   display: flex;
   align-items: center;
   padding: 8rem 2rem 4rem 2rem;
-  background-color: var(--background-color);
+  background: linear-gradient(135deg, var(--background-color) 0%, var(--surface-light) 50%, var(--surface-medium) 100%);
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(99, 214, 183, 0.03) 25%, transparent 25%, transparent 50%, rgba(99, 214, 183, 0.03) 50%, rgba(99, 214, 183, 0.03) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+  opacity: 0.4;
+  z-index: 1;
 }
 
 .hero-content {
@@ -188,13 +202,19 @@ body {
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  color: var(--text-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(99, 214, 183, 0.3);
 }
 
 .hero-text p {
   font-size: 1.2rem;
   margin-bottom: 2.5rem;
+  color: var(--text-color);
   max-width: 500px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .hero-buttons {
@@ -227,7 +247,7 @@ body {
 
 .stats-section {
   padding: 6rem 2rem;
-  background-color: var(--surface-color);
+  background: linear-gradient(135deg, var(--surface-light) 0%, var(--surface-medium) 100%);
   position: relative;
   z-index: 1;
 }
@@ -315,7 +335,7 @@ body {
 /* Services Section */
 .services-section {
   padding: var(--section-padding);
-  background-color: var(--surface-color);
+  background: linear-gradient(135deg, var(--surface-light) 0%, var(--surface-medium) 100%);
 }
 
 .services-grid {
@@ -339,10 +359,45 @@ body {
   justify-content: center;
 }
 
+.service-card:nth-child(1) {
+  background: linear-gradient(135deg, rgba(99, 214, 183, 0.1), rgba(66, 167, 181, 0.05));
+  border-color: rgba(99, 214, 183, 0.2);
+}
+
+.service-card:nth-child(2) {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.05));
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.service-card:nth-child(3) {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(252, 211, 77, 0.05));
+  border-color: rgba(249, 115, 22, 0.2);
+}
+
+.service-card:nth-child(4) {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.05));
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
 .service-card i {
   font-size: 3rem;
-  color: var(--primary-color);
   margin-bottom: 1.5rem;
+}
+
+.service-card:nth-child(1) i {
+  color: var(--primary-color);
+}
+
+.service-card:nth-child(2) i {
+  color: var(--accent-purple);
+}
+
+.service-card:nth-child(3) i {
+  color: var(--accent-orange);
+}
+
+.service-card:nth-child(4) i {
+  color: var(--accent-blue);
 }
 
 .service-card h3 {
@@ -786,11 +841,17 @@ body {
   font-size: 2.5rem;
   color: var(--text-color);
   margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(99, 214, 183, 0.3);
 }
 
 .section-title p {
-  color: var(--text-secondary);
+  color: var(--text-color);
   font-size: 1.1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .services-grid {
@@ -851,7 +912,7 @@ body {
 /* Projects Section */
 .projects-section {
   padding: 6rem 2rem;
-  background-color: var(--background-color);
+  background: linear-gradient(135deg, var(--background-color) 0%, var(--surface-light) 100%);
 }
 
 .projects-grid {
@@ -1019,7 +1080,7 @@ body {
 .workflow-section {
   padding: 6rem 2rem;
   overflow-x: hidden; /* Prevent horizontal scroll from animations */
-  background-color: var(--background-color);
+  background: linear-gradient(135deg, var(--surface-medium) 0%, var(--surface-light) 100%);
 }
 
 .workflow-content {
@@ -1092,7 +1153,7 @@ body {
 /* Clients Section */
 .clients-section {
   padding: 6rem 0;
-  background-color: var(--background-alt);
+  background: linear-gradient(135deg, var(--background-color) 0%, var(--surface-light) 100%);
 }
 
 .clients-grid {
@@ -1230,7 +1291,7 @@ body {
 /* Tools Section */
 .tools-section {
   padding: var(--section-padding);
-  background-color: var(--surface-color);
+  background: linear-gradient(135deg, var(--surface-light) 0%, var(--surface-medium) 100%);
 }
 
 .tools-slider-container {
@@ -1282,7 +1343,7 @@ body {
 /* Contact Section */
 .contact-section {
   padding: var(--section-padding);
-  background: linear-gradient(135deg, var(--background-color) 0%, var(--surface-color) 100%);
+  background: linear-gradient(135deg, var(--surface-light) 0%, var(--surface-medium) 100%);
   text-align: center;
 }
 
@@ -1295,13 +1356,18 @@ body {
   font-family: var(--font-family-headline);
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: var(--text-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(99, 214, 183, 0.3);
 }
 
 .contact-content p {
-  color: var(--text-secondary);
+  color: var(--text-color);
   font-size: 1.1rem;
-  margin-bottom: 1rem; /* Adjusted margin */
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .alternative-contact {
@@ -1718,7 +1784,7 @@ body {
 /* Testimonials Section */
 .testimonials-section {
   padding: 6rem 2rem;
-  background-color: var(--background-color);
+  background: linear-gradient(135deg, var(--surface-medium) 0%, var(--surface-light) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -1899,7 +1965,7 @@ body {
 /* Recognition Section */
 .recognition-section {
   padding: 6rem 2rem;
-  background-color: var(--surface-color);
+  background: linear-gradient(135deg, var(--surface-light) 0%, var(--surface-medium) 100%);
 }
 
 .recognition-content {
@@ -2047,7 +2113,7 @@ body {
 /* CTA Section */
 .cta-section {
   padding: var(--section-padding);
-  background: linear-gradient(135deg, var(--surface-color) 0%, var(--background-color) 100%);
+  background: linear-gradient(135deg, var(--surface-light) 0%, var(--surface-medium) 100%);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -2060,7 +2126,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, rgba(153, 228, 153, 0.1) 0%, transparent 70%);
+  background: linear-gradient(45deg, rgba(99, 214, 183, 0.03) 25%, transparent 25%, transparent 50%, rgba(99, 214, 183, 0.03) 50%, rgba(99, 214, 183, 0.03) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+  opacity: 0.4;
   pointer-events: none;
 }
 
@@ -2075,18 +2143,18 @@ body {
   font-family: var(--font-family-headline);
   font-size: 3rem;
   margin-bottom: 1.5rem;
-  color: var(--text-color);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(120deg, var(--primary-color), #ffffff);
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 2px 10px rgba(99, 214, 183, 0.3);
 }
 
 .cta-section p {
   font-size: 1.25rem;
-  color: var(--text-secondary);
+  color: var(--text-color);
   margin-bottom: 2.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -2275,6 +2343,7 @@ body {
 
 .about-section {
   padding: var(--section-padding);
+  background-color: var(--surface-light);
 }
 
 .about-container {
