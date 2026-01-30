@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Loader from './components/Loader';
 
 const HomePage = lazy(() => import('./components/HomePage'));
+const ServicesPage = lazy(() => import('./components/ServicesPage'));
 const BlogList = lazy(() => import('./components/BlogList'));
 const BlogPost = lazy(() => import('./components/BlogPost'));
 const NotFoundPage = lazy(() => import('./components/NotFoundPage'));
@@ -16,6 +17,8 @@ const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/services" element={<ServicesPage />} />
+      <Route path="/whatsapp-generator" element={<WhatsAppGenerator />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
