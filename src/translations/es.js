@@ -41,9 +41,9 @@ export const es = {
 
   // Thank You Page
   'thankyou.title': '¡Mensaje Enviado!',
-  'thankyou.message': 'Gracias por ponerte en contacto. He recibido tu mensaje y te responderemos a la brevedad.',
+  'thankyou.message': 'Gracias por ponerte en contacto. Hemos recibido tu mensaje y te responderemos a la brevedad.',
   'thankyou.backButton': 'Volver al Inicio',
-  'thankyou.calendarTitle': 'Agendá una Reunión',
+  'thankyou.calendarTitle': 'Agenda una Reunión',
   'thankyou.calendarText': '¿Quieres discutir tu proyecto en detalle? Reserva una reunión de 20 minutos conmigo.',
 
   // Featured Projects

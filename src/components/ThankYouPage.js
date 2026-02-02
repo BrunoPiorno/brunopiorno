@@ -56,7 +56,7 @@ const ThankYouPage = () => {
           rel="noopener noreferrer"
           className="cta-button"
         >
-          {locale === 'es' ? 'Agendá Reunión' : 'Schedule Meeting'}
+          {locale === 'es' ? 'Agenda Reunión' : 'Schedule Meeting'}
         </a>
       </motion.div>
     </div>
