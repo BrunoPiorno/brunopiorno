@@ -40,6 +40,8 @@ export const en = {
   'thankyou.title': 'Message Sent!',
   'thankyou.message': 'Thank you for getting in touch. I have received your message and will get back to you shortly.',
   'thankyou.backButton': 'Back to Home',
+  'thankyou.calendarTitle': 'Schedule a Meeting',
+  'thankyou.calendarText': 'Want to discuss your project in detail? Book a 20-minute meeting with me.',
 
   'header.methodology': 'Methodology',
   'header.technologies': 'Technologies',
