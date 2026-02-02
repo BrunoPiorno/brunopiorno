@@ -15,6 +15,14 @@ const ThankYouPage = () => {
         'currency': 'USD'
       });
     }
+
+    // Add page class to body
+    document.body.classList.add('page-thank-you');
+
+    // Cleanup: remove class when component unmounts
+    return () => {
+      document.body.classList.remove('page-thank-you');
+    };
   }, []);
 
   return (

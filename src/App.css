@@ -1212,6 +1212,16 @@ body {
   overflow: hidden;
 }
 
+/* Hide navigation elements only on thank you page */
+body.page-thank-you header nav,
+body.page-thank-you .nav-links,
+body.page-thank-you .contact-btn,
+body.page-thank-you .language-toggle {
+  display: none !important;
+}
+body.page-thank-you footer {display: none !important;}
+
+
 .thank-you-page::before {
   content: '';
   position: absolute;
