@@ -52,12 +52,20 @@ export const en = {
   'projects.entradafan.desc': 'Online ticket sales platform for events and shows',
   'projects.terracota.title': 'Terracota Valladolid',
   'projects.terracota.desc': 'Digital menu with time-based logic that displays menu sections (breakfast, snacks, lunch, desserts) according to the time of day. Fully custom-coded with PHP and jQuery.',
+  'projects.fpnn.title': 'Fundación Por Nuestros Niños',
+  'projects.fpnn.desc': 'Fully custom site, tailor-made development with personalized design that reflects the foundation identity, mission, programs, and collaboration methods. Custom site built with HTML, PHP, SCSS, ACF with personalized design.',
   'projects.featured': [
     {
-      title: 'Gangafan',
-      description: 'Online store built with WordPress and WooCommerce, optimized for high performance',
-      image: '/images/gangafan-logo.svg',
-      url: 'https://www.gangafan.com.ar'
+      title: 'EntradaFan',
+      description: 'Online ticket sales platform for events and shows',
+      image: '/images/entradafan.svg',
+      url: 'https://entradafan.com.ar'
+    },
+    {
+      title: 'Fundación Por Nuestros Niños',
+      description: 'Fully custom site, tailor-made development with personalized design that reflects the foundation identity, mission, programs, and collaboration methods. Custom site built with HTML, PHP, SCSS, ACF with personalized design.',
+      image: '/images/fpnn.png',
+      url: 'http://fpnn.org.ar/'
     },
     {
       title: 'Grupo Terra Lauquen',
@@ -119,8 +127,10 @@ export const en = {
   'contribution.improvements': 'Improvements & New Development',
   'projects.greta.title': 'Greta Kids Atelier',
   'projects.greta.desc': 'Custom eCommerce website developed from scratch using WordPress and WooCommerce for a children’s clothing brand. The project focuses on a fully tailored structure, complete product management, optimized checkout flow, secure payment integrations, and a smooth browsing experience across all devices.',
-  'projects.alaux.title': 'Alaux Neumáticos',
-  'projects.alaux.desc': 'Website developed using WordPress and WooCommerce, featuring a custom search tool that allows users to filter tires by size. Includes full product management, a streamlined checkout process, WhatsApp integration, and mobile optimization',
+  'projects.alaux.title': 'Alaux Tires',
+  'projects.alaux.desc': 'Website developed in WordPress and WooCommerce, with custom search implementation that allows filtering tires by size. Includes complete product management, simplified purchase process, WhatsApp integration, and mobile optimization.',
+  'projects.yumkax.title': 'YumKax',
+  'projects.yumkax.desc': 'Creation of product listing and their internal pages. Development of improvements and new functionality for the medical supplies catalog.',
   'projects.gangafan.title': 'Gangafan',
   'projects.gangafan.desc': 'Online store built with WordPress and WooCommerce, optimized and customized for high performance. Includes integrations with external APIs and the WooCommerce REST API to synchronize products, orders, and inventory in real time. Responsive design, enhanced shopping experience, and SEO optimization for greater visibility.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',

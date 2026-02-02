@@ -20,6 +20,7 @@ import ContactSection from './ContactSection';
 import Chatbot from './Chatbot';
 import entradafanLogo from '../images/entradafan.svg';
 import gangafanlogo from '../images/gangafan-logo.svg';
+import fpnnLogo from '../images/fpnn.png';
 import nutriacLogo from '../images/nutriac-logo.svg';
 import yampop from '../images/yampop.png';
 import boutique from '../images/logo-boutique.png';
@@ -65,7 +66,9 @@ const HomePage = () => {
     const featuredProjects = t('projects.featured');
     return featuredProjects.map(project => ({
       ...project,
-      image: project.title === 'EntradaFan' ? entradafanLogo : gangafanlogo
+      image: project.title === 'EntradaFan' ? entradafanLogo : 
+             project.title === 'Fundación Por Nuestros Niños' ? fpnnLogo : 
+             gangafanlogo
     }));
   }, [t]);
 
@@ -233,6 +236,13 @@ const HomePage = () => {
 
   const allProjects = [
     {
+      title: t('projects.fpnn.title'),
+      description: t('projects.fpnn.desc'),
+      image: fpnnLogo,
+      url: 'http://fpnn.org.ar/',
+      contribution: 'contribution.full'
+    },
+    {
       title: t('projects.greta.title'),
       description: t('projects.greta.desc'),
       image: gretaImage,
@@ -245,6 +255,13 @@ const HomePage = () => {
       image: alauxImage,
       url: 'https://tiendaalaux.com.ar',
       contribution: 'contribution.full'
+    },
+        {
+      title: t('projects.yumkax.title'),
+      description: t('projects.yumkax.desc'),
+      image: require('../images/yumkax.png'),
+      url: 'https://yumkax.com.ar/',
+      contribution: 'contribution.improvements'
     },
     {
       title: t('projects.terracota.title'),
