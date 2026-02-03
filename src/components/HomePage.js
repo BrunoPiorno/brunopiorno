@@ -25,7 +25,7 @@ import nutriacLogo from '../images/nutriac-logo.svg';
 import yampop from '../images/yampop.png';
 import boutique from '../images/logo-boutique.png';
 import zerxio from '../images/zerxio-logo.svg';
-import heroImage from '../images/hero-tw.png';
+import heroImage from '../images/team.png';
 import alauxImage from '../images/alaux.png';
 import gretaImage from '../images/greta.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
