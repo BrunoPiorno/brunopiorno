@@ -797,7 +797,6 @@ const HomePage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3>{t('methodology.title')}</h3>
             <ul>
               {[ 'planning', 'tracking', 'communication', 'transparency' ].map(item => (
                 <li key={item}>

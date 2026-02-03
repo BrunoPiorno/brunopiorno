@@ -2725,7 +2725,7 @@ p, span, div, li, td, th {
     width: 100%;
     max-width: auto;
     height: 100vh;
-    background-color: rgba(17, 17, 17, 0.98);
+    background-color: #ffffff;
     backdrop-filter: blur(10px);
     flex-direction: column;
     justify-content: center;
