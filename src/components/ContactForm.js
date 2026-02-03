@@ -190,12 +190,56 @@ const ContactForm = () => {
         </div>
 
         <div className="form-group">
+          <label htmlFor="country">{t('contact.form.country')}</label>
+          <select 
+            id="country" 
+            {...register('country', { required: t('contact.form.validation.required') })}
+          >
+            <option value="">- Select your country -</option>
+            <optgroup label="Americas">
+              <option value="Argentina">Argentina</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Brazil">Brazil</option>
+              <option value="Chile">Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Honduras">Honduras</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Nicaragua">Nicaragua</option>
+              <option value="Panama">Panama</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Peru">Peru</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Venezuela">Venezuela</option>
+              <option value="United States">United States</option>
+              <option value="Canada">Canada</option>
+            </optgroup>
+            <optgroup label="Europe">
+              <option value="Spain">Spain</option>
+              <option value="Portugal">Portugal</option>
+            </optgroup>
+            <option value="Other">Other</option>
+          </select>
+          {errors.country && <span className="error-message">{errors.country.message}</span>}
+        </div>
+
+        <div className="form-group">
           <label htmlFor="phone">{t('contact.form.phone')}</label>
           <input 
             type="tel" 
             id="phone" 
-            {...register('phone')}
+            {...register('phone', { 
+              required: t('contact.form.validation.required'),
+              pattern: {
+                value: /^[\d\s\-\+\(\)]*$/,
+                message: t('contact.form.validation.invalidPhone')
+              }
+            })}
           />
+          {errors.phone && <span className="error-message">{errors.phone.message}</span>}
         </div>
 
         <div className="form-group">
@@ -311,12 +355,15 @@ const ContactForm = () => {
           <div className="form-group">
             <label htmlFor="country">
               {lang.country}
-              <span className="optional">{lang.optional}</span>
+              <span className="required" aria-label="Campo requerido">*</span>
             </label>
             <select 
               id="country" 
-              {...register('country')}
+              {...register('country', { 
+                required: lang.validation.required
+              })}
               disabled={isSubmitting}
+              aria-invalid={errors.country ? 'true' : 'false'}
             >
               <option value="">- Selecciona tu país -</option>
               <optgroup label="Latinoamérica">
@@ -346,19 +393,25 @@ const ContactForm = () => {
                 <option value="Otro">Otro</option>
               </optgroup>
             </select>
+            {errors.country && (
+              <span className="error-message" role="alert">
+                {errors.country.message}
+              </span>
+            )}
           </div>
 
           {/* TELÉFONO */}
           <div className="form-group">
             <label htmlFor="phone">
               {lang.phone}
-              <span className="optional">{lang.optional}</span>
+              <span className="required" aria-label="Campo requerido">*</span>
             </label>
             <input 
               type="tel" 
               id="phone" 
               placeholder="+54 9 11 1234-5678"
-              {...register('phone', {
+              {...register('phone', { 
+                required: lang.validation.required,
                 pattern: {
                   value: /^[\d\s\-\+\(\)]*$/,
                   message: lang.validation.invalidPhone

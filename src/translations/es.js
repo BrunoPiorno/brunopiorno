@@ -214,7 +214,8 @@ export const es = {
 
   'contact.form.name': 'Nombre',
   'contact.form.email': 'Email',
-  'contact.form.phone': 'Teléfono (Opcional)',
+  'contact.form.country': 'País',
+  'contact.form.phone': 'Teléfono o WhatsApp',
   'contact.form.message': 'Mensaje',
   'contact.form.submit': 'Enviar Mensaje',
   'contact.form.sending': 'Enviando...',
@@ -222,6 +223,7 @@ export const es = {
   'contact.form.error': 'Ocurrió un error. Por favor, inténtalo de nuevo más tarde.',
   'contact.form.validation.required': 'Este campo es obligatorio',
   'contact.form.validation.invalidEmail': 'Por favor, introduce un email válido',
+  'contact.form.validation.invalidPhone': 'Por favor, introduce un teléfono válido',
   'contact.alternatives': 'O si lo prefieres, contáctanos directamente:',
 
   // GDPR & Legal

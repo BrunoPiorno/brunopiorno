@@ -1677,11 +1677,6 @@ p, span, div, li, td, th {
   font-size: 3rem;
   margin-bottom: 1.5rem;
   color: var(--text-color);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(120deg, var(--primary-color), #ffffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .cta-section p {
@@ -2878,6 +2873,8 @@ p, span, div, li, td, th {
   .not-found-page img {
     margin-right: 45px;
   }
+  .about-text .section-title {text-align: center;}
+  .about-content p {text-align: center;}
 }
 
 @media (max-width: 480px) {

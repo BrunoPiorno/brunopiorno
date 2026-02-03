@@ -233,7 +233,8 @@ export const en = {
 
   'contact.form.name': 'Name',
   'contact.form.email': 'Email',
-  'contact.form.phone': 'Phone (Optional)',
+  'contact.form.country': 'Country',
+  'contact.form.phone': 'Phone or WhatsApp',
   'contact.form.message': 'Message',
   'contact.form.submit': 'Send Message',
   'contact.form.sending': 'Sending...',
@@ -241,6 +242,7 @@ export const en = {
   'contact.form.error': 'An error occurred. Please try again later.',
   'contact.form.validation.required': 'This field is required',
   'contact.form.validation.invalidEmail': 'Please enter a valid email address',
+  'contact.form.validation.invalidPhone': 'Please enter a valid phone number',
   'contact.alternatives': 'Or if you prefer, contact us directly:',
 
   // GDPR & Legal
