@@ -8,6 +8,7 @@
   --surface-color: #ffffff;
   --text-color: #42A7B5;
   --text-secondary: #a0a0a0;
+  --heading-color: #2D8A85;
   --overlay-color: rgba(0, 0, 0, 0.6);
   
   /* Typography */
@@ -44,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-headline);
   font-weight: 600;
   line-height: 1.2;
-  color: var(--text-color);
+  color: var(--heading-color);
 }
 
 h1 {
@@ -213,13 +214,14 @@ p, span, div, li, td, th {
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  color: var(--text-color);
+  color: var(--heading-color);
 }
 
 .hero-text p {
   font-size: 1.2rem;
   margin-bottom: 2.5rem;
   max-width: 500px;
+  color: #000;
 }
 
 .hero-buttons {
@@ -288,7 +290,7 @@ p, span, div, li, td, th {
 .stats-section .section-title h2 {
   font-family: var(--font-family-headline);
   font-size: 2.5rem;
-  color: var(--text-color);
+  color: var(--heading-color);
   margin-bottom: 1rem;
   font-weight: 700;
 }
@@ -377,7 +379,7 @@ p, span, div, li, td, th {
 .section-title h2 {
   font-family: var(--font-family-headline);
   font-size: 2.5rem;
-  color: var(--text-color);
+  color: var(--heading-color);
   margin-bottom: 1rem;
 }
 
@@ -2416,8 +2418,7 @@ p, span, div, li, td, th {
 .latest-posts-section .section-title {
   font-family: var(--font-family-headline);
   font-size: 2.5rem;
-  color: var(--primary-color);
-  text-align: center;
+  color: var(--heading-color);
   margin-bottom: 1rem;
 }
 

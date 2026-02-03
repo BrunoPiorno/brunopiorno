@@ -180,7 +180,7 @@ export const es = {
   'clients.subtitle': 'Empresas que confían en nuestras soluciones de desarrollo',
 
   // CTA Section
-  'cta.title': '¿Querés que trabajemos juntos?',
+  'cta.title': 'Quieres que trabajemos juntos?',
   'cta.subtitle': 'Contactame ahora para convertir tus ideas en realidad',
   'cta.whatsapp': 'WhatsApp',
   'cta.contact': 'Formulario de Contacto',
