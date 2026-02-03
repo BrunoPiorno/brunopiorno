@@ -264,6 +264,13 @@ const HomePage = () => {
       contribution: 'contribution.improvements'
     },
     {
+      title: t('projects.starleyweb.title'),
+      description: t('projects.starleyweb.desc'),
+      image: require('../images/starleyweb.png'), // Reemplazar con starleyweb.png cuando esté disponible
+      url: 'https://starleyemotion.com.ar/',
+      contribution: 'contribution.improvements'
+    },
+    {
       title: t('projects.terracota.title'),
       description: t('projects.terracota.desc'),
       image: require('../images/terracota.png'),
