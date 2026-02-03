@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
@@ -23,22 +23,64 @@ const ContactForm = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [errorDetails, setErrorDetails] = useState('');
 
-  useEffect(() => {
-    if (window.ml) return;
+  // Textos en español e inglés directamente (sin dependencias de traducción)
+  const translations = {
+    es: {
+      name: 'Nombre',
+      email: 'Email',
+      country: 'País',
+      phone: 'Teléfono o WhatsApp',
+      message: 'Consulta',
+      submit: '¡Quiero que me contacten!',
+      sending: 'Enviando...',
+      optional: '(Opcional)',
+      privacyText: 'Acepto recibir información comercial y notificaciones, y he leído la',
+      privacyPolicy: 'Política de Privacidad',
+      successTitle: '¡Gracias!',
+      successMessage: 'Tu solicitud ha sido enviada exitosamente. Nos pondremos en contacto pronto.',
+      errorTitle: 'Error al enviar',
+      errorMessage: 'Error al enviar el formulario. Por favor, intenta nuevamente.',
+      disclaimer: 'Responderemos tu consulta en un máximo de 24 horas.',
+      validation: {
+        required: 'Este campo es requerido',
+        invalidEmail: 'Por favor ingresa un email válido',
+        minLength: 'El nombre debe tener al menos 2 caracteres',
+        minMessage: 'La consulta debe tener al menos 10 caracteres',
+        maxMessage: 'La consulta no puede exceder 2000 caracteres',
+        privacyRequired: 'Debes aceptar la política de privacidad',
+        invalidPhone: 'Por favor ingresa un teléfono válido'
+      }
+    },
+    en: {
+      name: 'Name',
+      email: 'Email',
+      country: 'Country',
+      phone: 'Phone or WhatsApp',
+      message: 'Message',
+      submit: 'Contact me!',
+      sending: 'Sending...',
+      optional: '(Optional)',
+      privacyText: 'I accept to receive commercial information and notifications, and I have read the',
+      privacyPolicy: 'Privacy Policy',
+      successTitle: 'Thank you!',
+      successMessage: 'Your request has been sent successfully. We will contact you soon.',
+      errorTitle: 'Error sending',
+      errorMessage: 'Error sending the form. Please try again.',
+      disclaimer: 'We will respond to your inquiry within 24 hours.',
+      validation: {
+        required: 'This field is required',
+        invalidEmail: 'Please enter a valid email',
+        minLength: 'The name must have at least 2 characters',
+        minMessage: 'The message must have at least 10 characters',
+        maxMessage: 'The message cannot exceed 2000 characters',
+        privacyRequired: 'You must accept the privacy policy',
+        invalidPhone: 'Please enter a valid phone'
+      }
+    }
+  };
 
-    (function(w,d,e,u,f,l,n){
-      w[f]=w[f]||function(){
-        (w[f].q=w[f].q||[]).push(arguments);
-      };
-      l=d.createElement(e);
-      l.async=1;
-      l.src=u;
-      n=d.getElementsByTagName(e)[0];
-      n.parentNode.insertBefore(l,n);
-    })(window,document,"script","https://assets.mailerlite.com/js/universal.js","ml");
-
-    window.ml("account", "2070356");
-  }, []);
+  // Selecciona el idioma (usa fallback a español si no existe)
+  const lang = translations[locale] || translations.es;
 
   const onSubmit = async (data) => {
     // For English version, use EmailJS
@@ -108,7 +150,7 @@ const ContactForm = () => {
       } catch (error) {
         console.error('Error al enviar formulario:', error);
         setSubmitStatus('error');
-        setErrorDetails(error.message || 'Error al enviar el formulario. Por favor, intenta nuevamente.');
+        setErrorDetails(error.message || lang.errorMessage);
         setIsSubmitting(false);
       }
     }
@@ -148,12 +190,56 @@ const ContactForm = () => {
         </div>
 
         <div className="form-group">
+          <label htmlFor="country">{t('contact.form.country')}</label>
+          <select 
+            id="country" 
+            {...register('country', { required: t('contact.form.validation.required') })}
+          >
+            <option value="">- Select your country -</option>
+            <optgroup label="Americas">
+              <option value="Argentina">Argentina</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Brazil">Brazil</option>
+              <option value="Chile">Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Honduras">Honduras</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Nicaragua">Nicaragua</option>
+              <option value="Panama">Panama</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Peru">Peru</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Venezuela">Venezuela</option>
+              <option value="United States">United States</option>
+              <option value="Canada">Canada</option>
+            </optgroup>
+            <optgroup label="Europe">
+              <option value="Spain">Spain</option>
+              <option value="Portugal">Portugal</option>
+            </optgroup>
+            <option value="Other">Other</option>
+          </select>
+          {errors.country && <span className="error-message">{errors.country.message}</span>}
+        </div>
+
+        <div className="form-group">
           <label htmlFor="phone">{t('contact.form.phone')}</label>
           <input 
             type="tel" 
             id="phone" 
-            {...register('phone')}
+            {...register('phone', { 
+              required: t('contact.form.validation.required'),
+              pattern: {
+                value: /^[\d\s\-\+\(\)]*$/,
+                message: t('contact.form.validation.invalidPhone')
+              }
+            })}
           />
+          {errors.phone && <span className="error-message">{errors.phone.message}</span>}
         </div>
 
         <div className="form-group">
@@ -189,8 +275,8 @@ const ContactForm = () => {
           <div className="form-success-message" role="alert">
             <span className="success-icon">✓</span>
             <div>
-              <p className="success-title">¡Gracias!</p>
-              <p className="success-text">Tu solicitud ha sido enviada exitosamente. Nos pondremos en contacto pronto.</p>
+              <p className="success-title">{lang.successTitle}</p>
+              <p className="success-text">{lang.successMessage}</p>
             </div>
           </div>
         )}
@@ -200,137 +286,152 @@ const ContactForm = () => {
           <div className="form-error-message" role="alert">
             <span className="error-icon">⚠</span>
             <div>
-              <p className="error-title">Error al enviar</p>
+              <p className="error-title">{lang.errorTitle}</p>
               <p className="error-text">{errorDetails}</p>
             </div>
           </div>
         )}
 
-        {/* NOMBRE */}
-        <div className="form-group">
-          <label htmlFor="name">
-            Nombre
-            <span className="required" aria-label="Campo requerido">*</span>
-          </label>
-          <input 
-            type="text" 
-            id="name" 
-            placeholder="Juan Pérez"
-            {...register('name', { 
-              required: 'Este campo es requerido',
-              minLength: {
-                value: 2,
-                message: 'El nombre debe tener al menos 2 caracteres'
-              }
-            })}
-            disabled={isSubmitting}
-            aria-invalid={errors.name ? 'true' : 'false'}
-          />
-          {errors.name && (
-            <span className="error-message" role="alert">
-              {errors.name.message}
-            </span>
-          )}
+        {/* PRIMERA FILA: NOMBRE Y EMAIL */}
+        <div className="form-row">
+          {/* NOMBRE */}
+          <div className="form-group">
+            <label htmlFor="name">
+              {lang.name}
+              <span className="required" aria-label="Campo requerido">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              placeholder="Juan Pérez"
+              {...register('name', { 
+                required: lang.validation.required,
+                minLength: {
+                  value: 2,
+                  message: lang.validation.minLength
+                }
+              })}
+              disabled={isSubmitting}
+              aria-invalid={errors.name ? 'true' : 'false'}
+            />
+            {errors.name && (
+              <span className="error-message" role="alert">
+                {errors.name.message}
+              </span>
+            )}
+          </div>
+
+          {/* EMAIL */}
+          <div className="form-group">
+            <label htmlFor="email">
+              {lang.email}
+              <span className="required" aria-label="Campo requerido">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              placeholder="tu@email.com"
+              {...register('email', { 
+                required: lang.validation.required,
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: lang.validation.invalidEmail
+                }
+              })}
+              disabled={isSubmitting}
+              aria-invalid={errors.email ? 'true' : 'false'}
+            />
+            {errors.email && (
+              <span className="error-message" role="alert">
+                {errors.email.message}
+              </span>
+            )}
+          </div>
         </div>
 
-        {/* EMAIL */}
-        <div className="form-group">
-          <label htmlFor="email">
-            Email
-            <span className="required" aria-label="Campo requerido">*</span>
-          </label>
-          <input 
-            type="email" 
-            id="email" 
-            placeholder="tu@email.com"
-            {...register('email', { 
-              required: 'Este campo es requerido',
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Por favor ingresa un email válido'
-              }
-            })}
-            disabled={isSubmitting}
-            aria-invalid={errors.email ? 'true' : 'false'}
-          />
-          {errors.email && (
-            <span className="error-message" role="alert">
-              {errors.email.message}
-            </span>
-          )}
-        </div>
+        {/* SEGUNDA FILA: PAÍS Y TELÉFONO */}
+        <div className="form-row">
+          {/* PAÍS */}
+          <div className="form-group">
+            <label htmlFor="country">
+              {lang.country}
+              <span className="required" aria-label="Campo requerido">*</span>
+            </label>
+            <select 
+              id="country" 
+              {...register('country', { 
+                required: lang.validation.required
+              })}
+              disabled={isSubmitting}
+              aria-invalid={errors.country ? 'true' : 'false'}
+            >
+              <option value="">- Selecciona tu país -</option>
+              <optgroup label="Latinoamérica">
+                <option value="Argentina">Argentina</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Brazil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Mexico">México</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panama">Panamá</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Peru">Perú</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Venezuela">Venezuela</option>
+              </optgroup>
+              <optgroup label="Otros">
+                <option value="España">España</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Canada">Canadá</option>
+                <option value="Otro">Otro</option>
+              </optgroup>
+            </select>
+            {errors.country && (
+              <span className="error-message" role="alert">
+                {errors.country.message}
+              </span>
+            )}
+          </div>
 
-        {/* PAÍS */}
-        <div className="form-group">
-          <label htmlFor="country">
-            País
-            <span className="optional">(Opcional)</span>
-          </label>
-          <select 
-            id="country" 
-            {...register('country')}
-            disabled={isSubmitting}
-          >
-            <option value="">- Selecciona tu país -</option>
-            <optgroup label="Latinoamérica">
-              <option value="Argentina">Argentina</option>
-              <option value="Bolivia">Bolivia</option>
-              <option value="Brazil">Brasil</option>
-              <option value="Chile">Chile</option>
-              <option value="Colombia">Colombia</option>
-              <option value="Costa Rica">Costa Rica</option>
-              <option value="Ecuador">Ecuador</option>
-              <option value="El Salvador">El Salvador</option>
-              <option value="Guatemala">Guatemala</option>
-              <option value="Honduras">Honduras</option>
-              <option value="Mexico">México</option>
-              <option value="Nicaragua">Nicaragua</option>
-              <option value="Panama">Panamá</option>
-              <option value="Paraguay">Paraguay</option>
-              <option value="Peru">Perú</option>
-              <option value="Uruguay">Uruguay</option>
-              <option value="Venezuela">Venezuela</option>
-            </optgroup>
-            <optgroup label="Otros">
-              <option value="España">España</option>
-              <option value="Portugal">Portugal</option>
-              <option value="Estados Unidos">Estados Unidos</option>
-              <option value="Canada">Canadá</option>
-              <option value="Otro">Otro</option>
-            </optgroup>
-          </select>
-        </div>
-
-        {/* TELÉFONO */}
-        <div className="form-group">
-          <label htmlFor="phone">
-            Teléfono o WhatsApp
-            <span className="optional">(Opcional)</span>
-          </label>
-          <input 
-            type="tel" 
-            id="phone" 
-            placeholder="+54 9 11 1234-5678"
-            {...register('phone', {
-              pattern: {
-                value: /^[\d\s\-\+\(\)]*$/,
-                message: 'Por favor ingresa un teléfono válido'
-              }
-            })}
-            disabled={isSubmitting}
-            aria-invalid={errors.phone ? 'true' : 'false'}
-          />
-          {errors.phone && (
-            <span className="error-message" role="alert">
-              {errors.phone.message}
-            </span>
-          )}
+          {/* TELÉFONO */}
+          <div className="form-group">
+            <label htmlFor="phone">
+              {lang.phone}
+              <span className="required" aria-label="Campo requerido">*</span>
+            </label>
+            <input 
+              type="tel" 
+              id="phone" 
+              placeholder="+54 9 11 1234-5678"
+              {...register('phone', { 
+                required: lang.validation.required,
+                pattern: {
+                  value: /^[\d\s\-\+\(\)]*$/,
+                  message: lang.validation.invalidPhone
+                }
+              })}
+              disabled={isSubmitting}
+              aria-invalid={errors.phone ? 'true' : 'false'}
+            />
+            {errors.phone && (
+              <span className="error-message" role="alert">
+                {errors.phone.message}
+              </span>
+            )}
+          </div>
         </div>
 
         {/* MENSAJE / CONSULTA */}
         <div className="form-group">
           <label htmlFor="message">
-            Consulta
+            {lang.message}
             <span className="required" aria-label="Campo requerido">*</span>
           </label>
           <textarea 
@@ -338,14 +439,14 @@ const ContactForm = () => {
             rows="5" 
             placeholder="Cuéntanos tu consulta o proyecto..."
             {...register('message', { 
-              required: 'Este campo es requerido',
+              required: lang.validation.required,
               minLength: {
                 value: 10,
-                message: 'La consulta debe tener al menos 10 caracteres'
+                message: lang.validation.minMessage
               },
               maxLength: {
                 value: 2000,
-                message: 'La consulta no puede exceder 2000 caracteres'
+                message: lang.validation.maxMessage
               }
             })}
             disabled={isSubmitting}
@@ -368,20 +469,20 @@ const ContactForm = () => {
               type="checkbox" 
               id="privacy_accepted" 
               {...register('privacy_accepted', { 
-                required: 'Debes aceptar la política de privacidad'
+                required: lang.validation.privacyRequired
               })}
               disabled={isSubmitting}
               aria-invalid={errors.privacy_accepted ? 'true' : 'false'}
             />
             <span className="checkbox-text">
-              Acepto recibir información comercial y notificaciones, y he leído la
+              {lang.privacyText}
               {' '}
               <a 
                 href={`/${locale}/privacy-policy`} 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                Política de Privacidad
+                {lang.privacyPolicy}
               </a>
               <span className="required" aria-label="Campo requerido">*</span>
             </span>
@@ -403,16 +504,16 @@ const ContactForm = () => {
           {isSubmitting ? (
             <>
               <span className="spinner"></span>
-              Enviando...
+              {lang.sending}
             </>
           ) : (
-            '¡Quiero que me contacten!'
+            lang.submit
           )}
         </button>
 
         {/* Disclaimer */}
         <p className="form-disclaimer">
-          Responderemos tu consulta en un máximo de 24 horas.
+          {lang.disclaimer}
         </p>
       </form>
     </div>

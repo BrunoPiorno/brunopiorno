@@ -40,6 +40,8 @@ export const en = {
   'thankyou.title': 'Message Sent!',
   'thankyou.message': 'Thank you for getting in touch. I have received your message and will get back to you shortly.',
   'thankyou.backButton': 'Back to Home',
+  'thankyou.calendarTitle': 'Schedule a Meeting',
+  'thankyou.calendarText': 'Want to discuss your project in detail? Book a 20-minute meeting with me.',
 
   'header.methodology': 'Methodology',
   'header.technologies': 'Technologies',
@@ -50,12 +52,20 @@ export const en = {
   'projects.entradafan.desc': 'Online ticket sales platform for events and shows',
   'projects.terracota.title': 'Terracota Valladolid',
   'projects.terracota.desc': 'Digital menu with time-based logic that displays menu sections (breakfast, snacks, lunch, desserts) according to the time of day. Fully custom-coded with PHP and jQuery.',
+  'projects.fpnn.title': 'Fundación Por Nuestros Niños',
+  'projects.fpnn.desc': 'Fully custom site, tailor-made development with personalized design that reflects the foundation identity, mission, programs, and collaboration methods. Custom site built with HTML, PHP, SCSS, ACF with personalized design.',
   'projects.featured': [
     {
-      title: 'Gangafan',
-      description: 'Online store built with WordPress and WooCommerce, optimized for high performance',
-      image: '/images/gangafan-logo.svg',
-      url: 'https://www.gangafan.com.ar'
+      title: 'EntradaFan',
+      description: 'Online ticket sales platform for events and shows',
+      image: '/images/entradafan.svg',
+      url: 'https://entradafan.com.ar'
+    },
+    {
+      title: 'Fundación Por Nuestros Niños',
+      description: 'Fully custom site, tailor-made development with personalized design that reflects the foundation identity, mission, programs, and collaboration methods. Custom site built with HTML, PHP, SCSS, ACF with personalized design.',
+      image: '/images/fpnn.png',
+      url: 'http://fpnn.org.ar/'
     },
     {
       title: 'Grupo Terra Lauquen',
@@ -193,10 +203,14 @@ export const en = {
   'contribution.improvements': 'Improvements & New Development',
   'projects.greta.title': 'Greta Kids Atelier',
   'projects.greta.desc': 'Custom eCommerce website developed from scratch using WordPress and WooCommerce for a children’s clothing brand. The project focuses on a fully tailored structure, complete product management, optimized checkout flow, secure payment integrations, and a smooth browsing experience across all devices.',
-  'projects.alaux.title': 'Alaux Neumáticos',
-  'projects.alaux.desc': 'Website developed using WordPress and WooCommerce, featuring a custom search tool that allows users to filter tires by size. Includes full product management, a streamlined checkout process, WhatsApp integration, and mobile optimization',
+  'projects.alaux.title': 'Alaux Tires',
+  'projects.alaux.desc': 'Website developed in WordPress and WooCommerce, with custom search implementation that allows filtering tires by size. Includes complete product management, simplified purchase process, WhatsApp integration, and mobile optimization.',
+  'projects.yumkax.title': 'YumKax',
+  'projects.yumkax.desc': 'Creation of product listing and their internal pages. Development of improvements and new functionality for the medical supplies catalog.',
   'projects.gangafan.title': 'Gangafan',
-  'projects.gangafan.desc': 'Online store built with WordPress and WooCommerce, optimized and customized for high performance. Includes integrations with external APIs and the WooCommerce REST API to synchronize products, orders, and inventory in real time. Responsive design, enhanced shopping experience, and SEO optimization for greater visibility.',
+  'projects.gangafan.desc': 'Anime streaming platform with over 50,000 active users. Complete development from scratch including playback system, content management, user profiles and subscription system.',
+  'projects.starleyweb.title': 'Starley',
+  'projects.starleyweb.desc': 'WordPress site with Flatsome theme for product catalog and company information. Development of custom improvements and new functionalities to optimize user experience and product presentation.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',
   'projects.terralauquen.desc': 'Custom-developed corporate website and digital catalog using WordPress as the base framework. Fully personalized with PHP, MySQL, HTML5, CSS3, and JavaScript. Includes a product management system with PDF downloads, responsive design, and optimized performance and SEO.',
   'projects.megamayorista.title': 'Mega Mayorista',
@@ -297,7 +311,8 @@ export const en = {
 
   'contact.form.name': 'Name',
   'contact.form.email': 'Email',
-  'contact.form.phone': 'Phone (Optional)',
+  'contact.form.country': 'Country',
+  'contact.form.phone': 'Phone or WhatsApp',
   'contact.form.message': 'Message',
   'contact.form.submit': 'Send Message',
   'contact.form.sending': 'Sending...',
@@ -305,6 +320,7 @@ export const en = {
   'contact.form.error': 'An error occurred. Please try again later.',
   'contact.form.validation.required': 'This field is required',
   'contact.form.validation.invalidEmail': 'Please enter a valid email address',
+  'contact.form.validation.invalidPhone': 'Please enter a valid phone number',
   'contact.alternatives': 'Or if you prefer, contact us directly:',
 
   // GDPR & Legal

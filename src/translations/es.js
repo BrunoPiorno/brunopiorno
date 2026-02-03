@@ -41,20 +41,30 @@ export const es = {
 
   // Thank You Page
   'thankyou.title': '¡Mensaje Enviado!',
-  'thankyou.message': 'Gracias por ponerte en contacto. He recibido tu mensaje y te responderé a la brevedad.',
+  'thankyou.message': 'Gracias por ponerte en contacto. Hemos recibido tu mensaje y te responderemos a la brevedad.',
   'thankyou.backButton': 'Volver al Inicio',
+  'thankyou.calendarTitle': 'Agenda una Reunión',
+  'thankyou.calendarText': '¿Quieres discutir tu proyecto en detalle? Reserva una reunión de 20 minutos conmigo.',
 
   // Featured Projects
   'projects.entradafan.title': 'EntradaFan',
   'projects.entradafan.desc': 'Plataforma de venta de entradas online para eventos y espectáculos',
   'projects.terracota.title': 'Terracota Valladolid',
   'projects.terracota.desc': 'Carta digital con lógica de horarios que muestra secciones del menú (desayunos, para picar, comidas, postres) según la hora. Totalmente programado a medida con PHP y jQuery.',
+  'projects.fpnn.title': 'Fundación Por Nuestros Niños',
+  'projects.fpnn.desc': 'Sitio completamente custom, desarrollado a medida con diseño personalizado que refleja la identidad de la fundación, su misión, programas y formas de colaborar. Sitio hecho custom con HTML, PHP, SCSS, ACF con un diseño personalizado.',
   'projects.featured': [
     {
       title: 'EntradaFan',
       description: 'Plataforma de venta de entradas online para eventos y espectáculos',
       image: '/images/entradafan.svg',
       url: 'https://entradafan.com.ar'
+    },
+    {
+      title: 'Fundación Por Nuestros Niños',
+      description: 'Sitio completamente custom, desarrollado a medida con diseño personalizado que refleja la identidad de la fundación, su misión, programas y formas de colaborar. Sitio hecho custom con HTML, PHP, SCSS, ACF con un diseño personalizado.',
+      image: '/images/fpnn.png',
+      url: 'http://fpnn.org.ar/'
     },
   ],
 
@@ -167,8 +177,12 @@ export const es = {
   'projects.greta.desc': 'Sitio eCommerce desarrollado desde cero en WordPress y WooCommerce para una marca de indumentaria infantil. Implementa una estructura 100% personalizada, gestión completa de productos, proceso de compra optimizado, integración con medios de pago y una experiencia de navegación pensada para facilitar la conversión en todos los dispositivos.',
   'projects.alaux.title': 'Alaux Neumáticos',
   'projects.alaux.desc': 'Sitio desarrollado en WordPress y WooCommerce, con implementación de un buscador personalizado que permite filtrar cubiertas por medida. Incluye gestión completa de productos, proceso de compra simplificado, integración con WhatsApp y optimización para dispositivos móviles.',
+  'projects.yumkax.title': 'YumKax',
+  'projects.yumkax.desc': 'Creación de listado de productos y sus páginas internas. Desarrollo de mejoras y nueva funcionalidad para el catálogo de insumos médicos.',
   'projects.gangafan.title': 'Gangafan',
-  'projects.gangafan.desc': 'Tienda online desarrollada con WordPress y WooCommerce, optimizada y personalizada para alto rendimiento. Incluye integraciones con APIs externas y uso de la REST API de WooCommerce para sincronizar productos, pedidos y stock en tiempo real. Diseño responsive, mejoras en la experiencia de compra y optimización SEO para mayor visibilidad.',
+  'projects.gangafan.desc': 'Plataforma de streaming de anime con más de 50,000 usuarios activos. Desarrollo completo desde cero incluyendo sistema de reproducción, gestión de contenido, perfiles de usuario y sistema de suscripciones.',
+  'projects.starleyweb.title': 'Starley',
+  'projects.starleyweb.desc': 'Sitio WordPress con tema Flatsome para catálogo de productos e información empresarial. Desarrollo de mejoras personalizadas y nuevas funcionalidades para optimizar la experiencia de usuario y la presentación de productos.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',
   'projects.terralauquen.desc': 'Sitio web institucional y catálogo digital desarrollado 100% a medida con WordPress como framework base. Programación personalizada en PHP, MySQL, HTML5, SCSS y JS. Incluye sistema de gestión de productos con opción de descarga de fichas técnicas en PDF,  responsive y optimización para carga rápida y SEO.',
   'projects.megamayorista.title': 'Mega Mayorista',
@@ -244,7 +258,7 @@ export const es = {
   'clients.subtitle': 'Empresas que confían en nuestras soluciones de desarrollo',
 
   // CTA Section
-  'cta.title': '¿Querés que trabajemos juntos?',
+  'cta.title': 'Quieres que trabajemos juntos?',
   'cta.subtitle': 'Contactame ahora para convertir tus ideas en realidad',
   'cta.whatsapp': 'WhatsApp',
   'cta.contact': 'Formulario de Contacto',
@@ -278,7 +292,8 @@ export const es = {
 
   'contact.form.name': 'Nombre',
   'contact.form.email': 'Email',
-  'contact.form.phone': 'Teléfono (Opcional)',
+  'contact.form.country': 'País',
+  'contact.form.phone': 'Teléfono o WhatsApp',
   'contact.form.message': 'Mensaje',
   'contact.form.submit': 'Enviar Mensaje',
   'contact.form.sending': 'Enviando...',
@@ -286,6 +301,7 @@ export const es = {
   'contact.form.error': 'Ocurrió un error. Por favor, inténtalo de nuevo más tarde.',
   'contact.form.validation.required': 'Este campo es obligatorio',
   'contact.form.validation.invalidEmail': 'Por favor, introduce un email válido',
+  'contact.form.validation.invalidPhone': 'Por favor, introduce un teléfono válido',
   'contact.alternatives': 'O si lo prefieres, contáctanos directamente:',
 
   // GDPR & Legal

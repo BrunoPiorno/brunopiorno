@@ -15,6 +15,14 @@ const ThankYouPage = () => {
         'currency': 'USD'
       });
     }
+
+    // Add page class to body
+    document.body.classList.add('page-thank-you');
+
+    // Cleanup: remove class when component unmounts
+    return () => {
+      document.body.classList.remove('page-thank-you');
+    };
   }, []);
 
   return (
@@ -26,13 +34,30 @@ const ThankYouPage = () => {
         transition={{ duration: 0.6 }}
       >
         <div className="thank-you-icon">
-          <i className="fas fa-check-circle"></i>
+          <i className="fa-solid fa-check-circle"></i>
         </div>
         <h1>{t('thankyou.title')}</h1>
         <p>{t('thankyou.message')}</p>
-        <Link to={`/${locale}`} className="cta-button">
-          {t('thankyou.backButton')}
-        </Link>
+        
+        <div className="calendar-section">
+          <h3>{t('thankyou.calendarTitle')}</h3>
+          <p>{locale === 'es' 
+            ? 'Si no quieres esperar nuestra respuesta, puedes reservar ahora mismo una llamada gratuita con nosotros haciendo click en el siguiente botón:'
+            : 'If you don\'t want to wait for our response, you can book a free call with us right now by clicking the following button:'
+          }</p>
+        </div>
+        
+        <a 
+          href={locale === 'es' 
+            ? 'https://tidycal.com/alora/20-minutos-reunion' 
+            : 'https://tidycal.com/alora/20-minutes'
+          } 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="cta-button"
+        >
+          {locale === 'es' ? 'Agenda Reunión' : 'Schedule Meeting'}
+        </a>
       </motion.div>
     </div>
   );
