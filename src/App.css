@@ -2814,11 +2814,12 @@ p, span, div, li, td, th {
     flex-direction: column;
     gap: 1rem;
     padding: 0 1rem;
+    align-items: center;
   }
 
   .cta-buttons .whatsapp-button,
   .cta-buttons .contact-button {
-    width: 100%;
+    width: 400px;
     justify-content: center;
     padding: 1rem 2rem;
   }
@@ -2839,6 +2840,7 @@ p, span, div, li, td, th {
 
   .recognition-content {
     flex-direction: column;
+    align-items: center;
   }
 }
 
