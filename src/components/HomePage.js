@@ -29,9 +29,10 @@ import heroImage from '../images/team.png';
 import alauxImage from '../images/alaux.png';
 import gretaImage from '../images/greta.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, FreeMode } from 'swiper/modules';
+import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
 
 const AnimatedCounter = ({ value, suffix = '' }) => {
   const ref = useRef(null);
@@ -356,14 +357,6 @@ const HomePage = () => {
       url: 'https://trenquetdmranking.com.ar/',
       contribution: 'contribution.full',
       category: 'sistema-web'
-    },
-    {
-      title: 'Federación de Automovilismo',
-      description: 'Mejoras y optimizaciones en el sitio web de la federación, incluyendo nuevas funcionalidades y mejoras en la experiencia de usuario.',
-      image: require('../images/fapcdms-logo.png'), // Imagen temporal
-      url: '#', // URL temporal hasta que nos proporciones la correcta
-      contribution: 'contribution.improvements',
-      category: 'mejoras-web'
     }
   ];
 
@@ -570,9 +563,39 @@ const HomePage = () => {
         </motion.div>
 
         <div className="projects-grid">
-          {filteredProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
+          {/* Grid para desktop */}
+          <div className="projects-grid-desktop">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} />
+            ))}
+          </div>
+
+          {/* Carousel solo para mobile */}
+          <div className="projects-carousel-mobile">
+            <Swiper
+              modules={[Pagination]}
+              spaceBetween={20}
+              slidesPerView={1.2}
+              centeredSlides={false}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2.2,
+                  spaceBetween: 25,
+                }
+              }}
+              className="projects-swiper"
+            >
+              {filteredProjects.map((project, index) => (
+                <SwiperSlide key={index}>
+                  <ProjectCard project={project} index={index} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </section>
 

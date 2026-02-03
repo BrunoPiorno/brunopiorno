@@ -506,11 +506,78 @@ p, span, div, li, td, th {
 }
 
 .projects-grid {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.projects-grid-desktop {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  max-width: var(--container-max-width);
-  margin: 0 auto;
+}
+
+.projects-carousel-mobile {
+  display: none;
+}
+
+.projects-swiper {
+  padding: 0 0 50px;
+}
+
+.projects-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.projects-swiper .swiper-slide .project-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Asegurar altura consistente en el carousel */
+.projects-swiper {
+  padding: 0 0 60px;
+}
+
+.projects-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.projects-swiper .swiper-slide {
+  height: auto !important;
+}
+
+/* Paginación prolija fuera del carousel */
+.projects-swiper .swiper-pagination {
+  bottom: -30px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.projects-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  margin: 0 4px;
+}
+
+.projects-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Mobile: mostrar carousel, ocultar grid */
+@media (max-width: 1023px) {
+  .projects-grid-desktop {
+    display: none;
+  }
+  
+  .projects-carousel-mobile {
+    display: block;
+  }
 }
 
 .projects-filters {
@@ -560,6 +627,7 @@ p, span, div, li, td, th {
   display: flex;
   flex-direction: column;
   position: relative;
+  height: 100%;
 }
 
 
