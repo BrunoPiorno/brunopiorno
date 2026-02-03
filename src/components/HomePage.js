@@ -61,6 +61,7 @@ const HomePage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState('all');
 
   const projects = useMemo(() => {
     const featuredProjects = t('projects.featured');
@@ -240,35 +241,40 @@ const HomePage = () => {
       description: t('projects.fpnn.desc'),
       image: fpnnLogo,
       url: 'http://fpnn.org.ar/',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'web-informativa'
     },
     {
       title: t('projects.greta.title'),
       description: t('projects.greta.desc'),
       image: gretaImage,
       url: 'https://gretakidsatelier.com.ar',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'woocommerce'
     },
     {
       title: t('projects.alaux.title'),
       description: t('projects.alaux.desc'),
       image: alauxImage,
       url: 'https://tiendaalaux.com.ar',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'woocommerce'
     },
         {
       title: t('projects.yumkax.title'),
       description: t('projects.yumkax.desc'),
       image: require('../images/yumkax.png'),
       url: 'https://yumkax.com.ar/',
-      contribution: 'contribution.improvements'
+      contribution: 'contribution.improvements',
+      category: 'mejoras-web'
     },
     {
       title: t('projects.starleyweb.title'),
       description: t('projects.starleyweb.desc'),
-      image: require('../images/starleyweb.png'), // Reemplazar con starleyweb.png cuando esté disponible
+      image: require('../images/starleyweb.png'),
       url: 'https://starleyemotion.com.ar/',
-      contribution: 'contribution.improvements'
+      contribution: 'contribution.improvements',
+      category: 'landing'
     },
     {
       title: t('projects.terracota.title'),
@@ -276,71 +282,103 @@ const HomePage = () => {
       image: require('../images/terracota.png'),
       url: 'https://terracottavalladolid.com/carta/',
       contribution: 'contribution.custom_dev',
-      location: '🇪🇸'
+      location: '🇪🇸',
+      category: 'mejoras-web'
     },
     {
       title: t('projects.gangafan.title'),
       description: t('projects.gangafan.desc'),
       image: require('../images/gangafan-page.png'),
       url: 'https://gangafan.com',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'woocommerce'
     },
     {
       title: t('projects.terralauquen.title'),
       description: t('projects.terralauquen.desc'),
       image: require('../images/grupoterralauquen.com.ar_.png'),
       url: 'https://grupoterralauquen.com.ar',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'web-informativa'
     },  
     {
       title: t('projects.josejose.title'),
       description: t('projects.josejose.desc'),
       image: require('../images/josejose.png'),
       url: 'https://www.josejoseoficial.com.mx/',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'landing'
     },
     {
       title: t('projects.protorneo.title'),
       description: t('projects.protorneo.desc'),
       image: require('../images/protorneo.png'),
       url: 'https://www.protorneos.com',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'landing'
     },
     {
       title: t('projects.megamayorista.title'),
       description: t('projects.megamayorista.desc'),
       image: require('../images/megamayorista.png'),
       url: 'https://megamayorista.com',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'woocommerce'
     },
     {
       title: t('projects.cichic.title'),
       description: t('projects.cichic.desc'),
       image: require('../images/chichicImage.png'),
       url: 'https://chichicwinerelax.com/',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'web-informativa'
     },
     {
       title: t('projects.fapcdms.title'),
       description: t('projects.fapcdms.desc'),
       image: require('../images/fapcdms-logo.png'),
       url: 'https://fapcdms.com/',
-      contribution: 'contribution.improvements'
+      contribution: 'contribution.improvements',
+      category: 'sistema-web'
     },
     {
       title: t('projects.tenis.title'),
       description: t('projects.tenis.desc'),
       image: require('../images/tenisdemesatrenque.com.ar_.png'),
       url: 'https://tenisdemesatrenque.com.ar',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'landing'
     },
     {
       title: t('projects.ranking.title'),
       description: t('projects.ranking.desc'),
       image: require('../images/tenisDeMesaImageRank.png'),
       url: 'https://trenquetdmranking.com.ar/',
-      contribution: 'contribution.full'
+      contribution: 'contribution.full',
+      category: 'sistema-web'
+    },
+    {
+      title: 'Federación de Automovilismo',
+      description: 'Mejoras y optimizaciones en el sitio web de la federación, incluyendo nuevas funcionalidades y mejoras en la experiencia de usuario.',
+      image: require('../images/fapcdms-logo.png'), // Imagen temporal
+      url: '#', // URL temporal hasta que nos proporciones la correcta
+      contribution: 'contribution.improvements',
+      category: 'mejoras-web'
     }
+  ];
+
+  // Filtrar proyectos según la categoría seleccionada
+  const filteredProjects = selectedFilter === 'all' 
+    ? allProjects 
+    : allProjects.filter(project => project.category === selectedFilter);
+
+  const categories = [
+    { id: 'all', name: locale === 'es' ? 'Todos' : 'All' },
+    { id: 'woocommerce', name: 'WooCommerce' },
+    { id: 'landing', name: locale === 'es' ? 'Landing' : 'Landing' },
+    { id: 'sistema-web', name: locale === 'es' ? 'Sistema Web' : 'Web System' },
+    { id: 'web-informativa', name: locale === 'es' ? 'Web Informativa' : 'Informational Web' },
+    { id: 'mejoras-web', name: locale === 'es' ? 'Mejoras Web' : 'Web Improvements' }
   ];
 
   return (
@@ -512,8 +550,27 @@ const HomePage = () => {
           <p>{t('projects.subtitle')}</p>
         </motion.div>
 
+        {/* Filtros de proyectos */}
+        <motion.div 
+          className="projects-filters"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {categories.map(category => (
+            <button
+              key={category.id}
+              className={`filter-btn ${selectedFilter === category.id ? 'active' : ''}`}
+              onClick={() => setSelectedFilter(category.id)}
+            >
+              {category.name}
+            </button>
+          ))}
+        </motion.div>
+
         <div className="projects-grid">
-          {allProjects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
