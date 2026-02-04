@@ -276,7 +276,7 @@ const Soluciones = () => {
           </p>
         </motion.div>
 
-        <div className="process-steps">
+        <div className="process-timeline">
           {[
             {
               number: '1',
@@ -310,10 +310,10 @@ const Soluciones = () => {
             <motion.div 
               key={index}
               className="process-step"
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <div className="step-number">{step.number}</div>
               <div className="step-content">
