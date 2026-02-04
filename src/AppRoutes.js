@@ -11,11 +11,13 @@ const LegalNotice = lazy(() => import('./components/LegalNotice'));
 const CookiesPolicy = lazy(() => import('./components/CookiesPolicy'));
 const ThankYouPage = lazy(() => import('./components/ThankYouPage'));
 const WhatsAppGenerator = lazy(() => import('./components/WhatsAppGenerator'));
+const Soluciones = lazy(() => import('./components/Soluciones'));
 
 const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/soluciones" element={<Soluciones />} />
       <Route path="/whatsapp-generator" element={<WhatsAppGenerator />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />

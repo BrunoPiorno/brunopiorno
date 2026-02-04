@@ -363,6 +363,29 @@ p, span, div, li, td, th {
   box-shadow: 0 6px 20px rgba(153, 228, 153, 0.3);
 }
 
+/* Header styles for Soluciones page */
+body.soluciones-page .site-header {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.soluciones-page .site-header .nav-link {
+  color: var(--text-color);
+}
+
+body.soluciones-page .site-header .nav-link:hover {
+  color: var(--primary-color);
+}
+
+body.soluciones-page .site-header .logo-text {
+  color: var(--text-color);
+}
+
+body.soluciones-page .site-header .language-selector {
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+
 /* Responsive Design */
 
 /* Services Section */
@@ -494,9 +517,30 @@ p, span, div, li, td, th {
   z-index: 2;
 }
 
-.service-card:hover p {
-  color: var(--text-color);
-  transform: translateY(-1px);
+.services-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cta-secondary.large {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-family: var(--font-family-base);
+}
+
+.cta-secondary.large:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(66, 167, 181, 0.3);
 }
 
 /* Projects Section */

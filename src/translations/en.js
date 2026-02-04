@@ -266,7 +266,8 @@ export const en = {
   // Services Section
   'services.title': 'Services',
   'services.subtitle': 'Digital solutions tailored to your needs',
-  'services.gdprCompliance': 'All our developments comply with GDPR regulations to ensure data privacy and security.',
+  'services.gdprCompliance': 'We comply with all data protection and GDPR regulations to ensure the security and privacy of your information.',
+  'services.viewAll': 'View all services',
 
   // Projects Section
   'projects.title': 'Featured Projects',
