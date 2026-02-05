@@ -1,0 +1,150 @@
+/* Llamada de Relevamiento Page - Minimalista */
+.llamada-relevamiento-page {
+  background: white;
+  margin: 0;
+  padding: 0;
+}
+
+.llamada-relevamiento-page .header.scrolled {background-color: transparent !important; backdrop-filter: none !important; box-shadow: none !important;}
+
+/* Header wrapper */
+.llamada-header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
+}
+
+/* Ocultar menú en el header */
+.llamada-header-wrapper .nav-menu {
+  display: none !important;
+}
+
+.llamada-relevamiento-container {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+}
+
+/* Logo Header */
+.llamada-logo-header {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.llamada-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #42a8b5, #2d8a85);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+/* Simple Header */
+.llamada-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.llamada-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.llamada-header p {
+  font-size: 1.2rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Calendar Wrapper */
+.llamada-calendar-wrapper {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+/* Tidycal Embed Styles */
+.tidycal-embed {
+  width: 100%;
+  min-height: 600px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .llamada-relevamiento-container {
+    padding: 1.5rem;
+    min-height: calc(100vh - 70px);
+  }
+  
+  .llamada-logo-header {
+    top: 1.5rem;
+  }
+  
+  .llamada-logo {
+    font-size: 1.8rem;
+  }
+  
+  .llamada-header h2 {
+    font-size: 2rem;
+  }
+  
+  .llamada-header p {
+    font-size: 1.1rem;
+  }
+  
+  .llamada-calendar-wrapper {
+    max-width: 100%;
+  }
+  
+  .tidycal-embed {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .llamada-relevamiento-container {
+    padding: 1rem;
+    min-height: calc(100vh - 60px);
+  }
+  
+  .llamada-logo-header {
+    top: 1rem;
+  }
+  
+  .llamada-logo {
+    font-size: 1.6rem;
+  }
+  
+  .llamada-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .llamada-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .llamada-header p {
+    font-size: 1rem;
+  }
+  
+  .tidycal-embed {
+    min-height: 450px;
+  }
+}
