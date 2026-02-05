@@ -141,37 +141,40 @@ const Soluciones = () => {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6 }}
             >
-              {locale === 'es' 
-                ? 'Servicios digitales orientados a resultados reales' 
-                : 'Digital services focused on real results'}
+              {locale === 'es' ? 'Servicios digitales orientados a resultados reales' : 'Digital services focused on real results'}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               {locale === 'es'
-                ? 'Diseño, desarrollo, automatización y captación para negocios que necesitan soluciones claras, no promesas vacías.'
-                : 'Design, development, automation and lead generation for businesses that need clear solutions, not empty promises.'}
+                ? 'Transformamos ideas en soluciones digitales que impulsan tu negocio y generan crecimiento medible.'
+                : 'We transform ideas into digital solutions that drive your business and generate measurable growth.'}
             </motion.p>
-            <motion.div 
+            <motion.div
               className="hero-buttons"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
               <motion.button 
-                className="cta-button primary"
+                className="cta-button primary large"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {locale === 'es' ? 'Hablemos de tu proyecto' : 'Let\'s talk about your project'}
-                <span className="duration">({locale === 'es' ? '20 min – online' : '20 min – online'})</span>
+                {locale === 'es' ? 'Ver todos los servicios' : 'See all services'}
               </motion.button>
             </motion.div>
           </div>
+          <motion.div 
+            className="hero-image"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          ></motion.div>
         </motion.div>
       </section>
 
