@@ -11,11 +11,14 @@ const LegalNotice = lazy(() => import('./components/LegalNotice'));
 const CookiesPolicy = lazy(() => import('./components/CookiesPolicy'));
 const ThankYouPage = lazy(() => import('./components/ThankYouPage'));
 const WhatsAppGenerator = lazy(() => import('./components/WhatsAppGenerator'));
+const LlamadaRelevamiento = lazy(() => import('./components/LlamadaRelevamiento'));
 
 const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/llamada-de-relevamiento" element={<LlamadaRelevamiento />} />
+      <Route path="/discovery-call" element={<LlamadaRelevamiento />} />
       <Route path="/whatsapp-generator" element={<WhatsAppGenerator />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />

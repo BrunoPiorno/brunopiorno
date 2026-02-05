@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { LanguageProvider, useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/LanguageContext';
 import SiteHeader from './SiteHeader';
 import '../App.css';
 import '../devicons/devicon.min.css';
 import './LlamadaRelevamiento.css';
 
-const LlamadaRelevamientoContent = ({ forcedLocale }) => {
+const LlamadaRelevamiento = () => {
   const { locale } = useLanguage();
-  const currentLocale = forcedLocale || locale;
 
   useEffect(() => {
     // Agregar clase al body para esta página
@@ -30,10 +29,23 @@ const LlamadaRelevamientoContent = ({ forcedLocale }) => {
     };
   }, []);
 
-  const tidycalPath = currentLocale === 'es' ? 'alora/20-minutos-reunion' : 'alora/20-minutes';
+  const tidycalPath = locale === 'es' ? 'alora/20-minutos-reunion' : 'alora/20-minutes';
 
   return (
     <>
+      <Helmet>
+        <title>
+          {locale === 'es' 
+            ? 'Llamada de Relevamiento | Alora' 
+            : 'Discovery Call | Alora'}
+        </title>
+        <meta name="description" content={
+          locale === 'es'
+            ? 'Agenda una llamada de 20 minutos para analizar tu proyecto y descubrir cómo podemos ayudarte a alcanzar tus objetivos.'
+            : 'Schedule a 20-minute call to analyze your project and discover how we can help you achieve your goals.'
+        } />
+      </Helmet>
+
       {/* Header del sitio con menú oculto */}
       <div className="llamada-header-wrapper">
         <SiteHeader hideMenu={true} />
@@ -43,12 +55,12 @@ const LlamadaRelevamientoContent = ({ forcedLocale }) => {
         {/* Simple Header */}
         <div className="llamada-header">
           <h2>
-            {currentLocale === 'es' 
+            {locale === 'es' 
               ? 'Agenda tu llamada de relevamiento' 
               : 'Schedule your discovery call'}
           </h2>
           <p>
-            {currentLocale === 'es'
+            {locale === 'es'
               ? 'Selecciona el momento que mejor se adapte a tu agenda'
               : 'Select the time that best fits your schedule'}
           </p>
@@ -64,32 +76,6 @@ const LlamadaRelevamientoContent = ({ forcedLocale }) => {
       </div>
     </>
   );
-};
-
-const LlamadaRelevamiento = ({ standalone = false, locale: forcedLocale }) => {
-  if (standalone) {
-    return (
-      <LanguageProvider initialLocale={forcedLocale}>
-        <Helmet>
-          <title>
-            {forcedLocale === 'es' 
-              ? 'Llamada de Relevamiento | Alora' 
-              : 'Discovery Call | Alora'}
-          </title>
-          <meta name="description" content={
-            forcedLocale === 'es'
-              ? 'Agenda una llamada de 20 minutos para analizar tu proyecto y descubrir cómo podemos ayudarte a alcanzar tus objetivos.'
-              : 'Schedule a 20-minute call to analyze your project and discover how we can help you achieve your goals.'
-          } />
-          <html lang={forcedLocale} />
-        </Helmet>
-        <LlamadaRelevamientoContent forcedLocale={forcedLocale} />
-      </LanguageProvider>
-    );
-  }
-
-  // Para uso dentro del layout normal (si alguna vez se necesita)
-  return <LlamadaRelevamientoContent forcedLocale={forcedLocale} />;
 };
 
 export default LlamadaRelevamiento;
