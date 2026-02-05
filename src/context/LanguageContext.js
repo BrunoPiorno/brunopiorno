@@ -4,13 +4,13 @@ import { translations, defaultLocale } from '../translations';
 
 const LanguageContext = createContext();
 
-export const LanguageProvider = ({ children }) => {
+export const LanguageProvider = ({ children, initialLocale }) => {
   const params = useParams();
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Derivamos el idioma de la URL, con 'es' como fallback
-  const locale = params.lang && ['en', 'es'].includes(params.lang) ? params.lang : defaultLocale;
+  // Usamos initialLocale si se proporciona, sino derivamos de la URL
+  const locale = initialLocale || (params.lang && ['en', 'es'].includes(params.lang) ? params.lang : defaultLocale);
 
   const t = (key) => {
     return (translations[locale] && translations[locale][key]) || translations[defaultLocale][key] || key;

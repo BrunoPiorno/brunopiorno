@@ -5,7 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import '../App.css';
 
-const SiteHeader = () => {
+const SiteHeader = ({ hideMenu = false }) => {
   const { t, locale } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
@@ -78,34 +78,38 @@ const SiteHeader = () => {
         </Link>
 
         <div className="mobile-controls">
-          <LanguageToggle />
-          <button 
-            className="mobile-menu-button" 
-            onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          {!hideMenu && <LanguageToggle />}
+          {!hideMenu && (
+            <button 
+              className="mobile-menu-button" 
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          )}
         </div>
 
-        <motion.div 
-          className="nav-links"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          {navLinks.map(link => (
-            link.isRouterLink ? (
-              <Link key={link.href} to={link.href} onClick={closeMobileMenu}>{link.label}</Link>
-            ) : (
-              <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.label}</a>
-            )
-          ))}
-          <LanguageToggle />
-          <a href={`/${locale}/#contacto`} className="contact-btn" onClick={(e) => handleNavClick(e, `/${locale}/#contacto`)}>{t('header.contact')}</a>
-        </motion.div>
+        {!hideMenu && (
+          <motion.div 
+            className="nav-links"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {navLinks.map(link => (
+              link.isRouterLink ? (
+                <Link key={link.href} to={link.href} onClick={closeMobileMenu}>{link.label}</Link>
+              ) : (
+                <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.label}</a>
+              )
+            ))}
+            <LanguageToggle />
+            <a href={`/${locale}/#contacto`} className="contact-btn" onClick={(e) => handleNavClick(e, `/${locale}/#contacto`)}>{t('header.contact')}</a>
+          </motion.div>
+        )}
       </div>
     </header>
   );
