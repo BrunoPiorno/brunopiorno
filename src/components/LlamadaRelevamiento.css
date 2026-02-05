@@ -5,7 +5,17 @@
   padding: 0;
 }
 
-.llamada-relevamiento-page .header.scrolled {background-color: transparent !important; backdrop-filter: none !important; box-shadow: none !important;}
+/* Ocultar menú cuando está en la página de llamada */
+.llamada-relevamiento-page .header.scrolled {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.llamada-relevamiento-page .mobile-controls,
+.llamada-relevamiento-page .nav-links {
+  display: none !important;
+}
 
 /* Header wrapper */
 .llamada-header-wrapper {
