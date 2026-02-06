@@ -14,6 +14,7 @@
   background-color: var(--background-color);
 }
 
+
 .soluciones-page .hero-content {
   position: relative;
   z-index: 2;
@@ -1427,14 +1428,19 @@
 }
 
 @media (max-width: 1024px) {
+
+  .soluciones-page .hero-section {
+    padding: 8rem 2rem 0rem 2rem;
+  }
+
   .soluciones-page .hero-content {
     grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
+    gap: 5rem;
+    text-align: left;
+
   }
 
   .soluciones-page .hero-image {
-    min-height: 300px;
     order: 2;
   }
 
@@ -1809,7 +1815,7 @@
 
 @media (max-width: 768px) {
   .soluciones-page .hero-section {
-    padding: 6rem 1rem 3rem;
+    padding: 8rem 1rem 3rem;
   }
 
   .soluciones-page .hero-content {
@@ -1819,7 +1825,6 @@
   }
 
   .soluciones-page .hero-image {
-    min-height: 250px;
     order: 2;
   }
 
@@ -1833,6 +1838,9 @@
 
   .soluciones-page .hero-text p {
     font-size: 1.1rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
 
   .soluciones-page .service-card:last-child {
@@ -2177,6 +2185,8 @@
   .cta-button.large.primary {
     padding: 1.2rem 2.5rem;
     font-size: 1.1rem;
+    margin: 0 auto;
+    display: block;
   }
 }
 
