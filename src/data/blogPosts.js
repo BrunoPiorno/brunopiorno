@@ -178,7 +178,7 @@ const posts = [
     title: 'llms.txt: Cómo ayudar a las IAs a interpretar correctamente tu empresa',
     description: 'Guía técnica sobre llms.txt y su función para definir el contexto empresarial correcto en sistemas de interpretación de IA.',
     date: '2026-02-06',
-    cover: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    cover: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
     content: [
       { type: 'text', value: 'Las inteligencias artificiales interpretan los sitios web mediante análisis de contenido, estructura y contexto. Sin una definición clara del contexto empresarial, la interpretación puede ser incompleta o incorrecta.' },
       { type: 'subtitle', value: 'El problema de la interpretación sin contexto' },
