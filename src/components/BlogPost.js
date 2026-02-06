@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
 import posts from '../data/blogPosts';
 import posts_en from '../data/blogPosts_en';
 import { useLanguage } from '../context/LanguageContext';
@@ -59,6 +60,103 @@ const BlogPost = () => {
     <>
       <SiteHeader />
       <main className="blog-post-page">
+        {/* Hero Section - Específico para cada post */}
+        <section className="hero-section" id="hero">
+          <div className="section-content">
+            <motion.div 
+              className="hero-content"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="hero-text">
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {post.title}
+                </motion.h1>
+                <motion.p
+                  className="hero-subtitle"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  {post.description}
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  {locale === 'es'
+                    ? 'Artículo técnico basado en nuestra experiencia real desarrollando soluciones digitales.'
+                    : 'Technical article based on our real experience developing digital solutions.'}
+                </motion.p>
+                <motion.div
+                  className="hero-meta"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  <span className="blog-post-date">{post.date}</span>
+                </motion.div>
+              </div>
+              <motion.div 
+                className="hero-image"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <img src={post.cover} alt={post.title} className="blog-post-img" loading="lazy" />
+              </motion.div>
+            </motion.div>
+            
+            <section className="blog-post-content">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                {post.content.map((block, idx) => {
+                  if (block.type === 'text') return (
+                    <motion.p 
+                      key={idx}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
+                    >
+                      {block.value}
+                    </motion.p>
+                  );
+                  if (block.type === 'code') return (
+                    <motion.pre 
+                      key={idx}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
+                    >
+                      <code>{block.value}</code>
+                    </motion.pre>
+                  );
+                  if (block.type === 'subtitle') return (
+                    <motion.h2 
+                      key={idx}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
+                    >
+                      {block.value}
+                    </motion.h2>
+                  );
+                  return null;
+                })}
+              </motion.div>
+            </section>
+          </div>
+        </section>
+        
         <Helmet prioritizeSeoTags={true}>
           <title>{`${post.title} | Alora`}</title>
           <meta name="description" content={post.description} />
@@ -89,76 +187,6 @@ const BlogPost = () => {
           <meta property="article:published_time" content={post.date} />
           <meta property="article:author" content="Alora" />
         </Helmet>
-        <article className="blog-post">
-          <header className="blog-post-header">
-            <img src={post.cover} alt={post.title} className="blog-post-img" loading="lazy" />
-            <h1 className="headline">{post.title}</h1>
-            <span className="blog-post-date">{post.date}</span>
-            <div className="blog-share">
-              <span className="share-label">{t('blog.share')}</span>
-              <a
-                href="#"
-                aria-label={t('blog.shareLinkedin')}
-                className="share-btn linkedin"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open(
-                    `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullPostUrl)}`,
-                    'linkedinshare',
-                    'width=600,height=600'
-                  );
-                  return false;
-                }}
-              >
-                <i className="fab fa-linkedin"></i>
-              </a>
-              <a
-                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(fullPostUrl)}&text=${encodeURIComponent(post.title)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t('blog.shareTwitter')}
-                className="share-btn twitter"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open(
-                    `https://twitter.com/intent/tweet?url=${encodeURIComponent(fullPostUrl)}&text=${encodeURIComponent(post.title)}`,
-                    'twittershare',
-                    'width=600,height=450'
-                  );
-                  return false;
-                }}
-              >
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullPostUrl)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t('blog.shareFacebook')}
-                className="share-btn facebook"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open(
-                    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullPostUrl)}`,
-                    'facebookshare',
-                    'width=600,height=450'
-                  );
-                  return false;
-                }}
-              >
-                <i className="fab fa-facebook"></i>
-              </a>
-            </div>
-          </header>
-          <section className="blog-post-content">
-            {post.content.map((block, idx) => {
-              if (block.type === 'text') return <p key={idx}>{block.value}</p>;
-              if (block.type === 'code') return <pre key={idx}><code>{block.value}</code></pre>;
-              if (block.type === 'subtitle') return <h2 key={idx}>{block.value}</h2>;
-              return null;
-            })}
-          </section>
-        </article>
       </main>
       <ContactSection />
     </>

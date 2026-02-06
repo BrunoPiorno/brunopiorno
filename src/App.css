@@ -191,7 +191,6 @@ p, span, div, li, td, th {
 .hero-section {
   position: relative;
   min-height: 90vh;
-  display: flex;
   align-items: center;
   padding: 8rem 2rem 4rem 2rem;
   background-color: var(--background-color);
@@ -1226,14 +1225,6 @@ p, span, div, li, td, th {
 
 /* BLOG POST PAGE */
 
-.blog-share {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin: 1.1rem 0 0.5rem 0;
-  justify-content: center;
-}
-
 .share-label {
   color: var(--text-secondary);
   font-size: 1rem;
@@ -1331,7 +1322,9 @@ p, span, div, li, td, th {
 }
 
 .blog-post-content {
-  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 2rem 0;
   color: var(--text-color);
   font-size: 1.15rem;
   line-height: 1.7;
