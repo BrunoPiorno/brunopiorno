@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import ReactGA from 'react-ga4';
+// import ReactGA from 'react-ga4';
 import emailjs from '@emailjs/browser';
 
 const Chatbot = () => {
@@ -52,11 +52,11 @@ const Chatbot = () => {
     
     // Trackear cuando se abre el chatbot
     if (newState) {
-      ReactGA.event({
-        category: 'Chatbot',
-        action: 'Chatbot Abierto',
-        label: 'Usuario abrió el chatbot'
-      });
+      // ReactGA.event({
+      //   category: 'Chatbot',
+      //   action: 'Chatbot Abierto',
+      //   label: 'Usuario abrió el chatbot'
+      // });
     }
   };
 
