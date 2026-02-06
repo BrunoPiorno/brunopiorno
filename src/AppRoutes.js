@@ -13,6 +13,7 @@ const ThankYouPage = lazy(() => import('./components/ThankYouPage'));
 const WhatsAppGenerator = lazy(() => import('./components/WhatsAppGenerator'));
 const Soluciones = lazy(() => import('./components/Soluciones'));
 const DesarrolloWeb = lazy(() => import('./components/DesarrolloWeb'));
+const LandingPages = lazy(() => import('./components/LandingPages'));
 
 const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
@@ -20,6 +21,7 @@ const AppRoutes = () => (
       <Route path="/" element={<HomePage />} />
       <Route path="/soluciones" element={<Soluciones />} />
       <Route path="/soluciones/desarrollo-web" element={<DesarrolloWeb />} />
+      <Route path="/soluciones/landing-pages" element={<LandingPages />} />
       <Route path="/whatsapp-generator" element={<WhatsAppGenerator />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
