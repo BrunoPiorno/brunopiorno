@@ -171,6 +171,34 @@ const posts = [
       { type: 'subtitle', value: 'Conclusión: La tecnología a tu servicio' },
       { type: 'text', value: 'No necesitas ser un experto en código, necesitas un aliado que domine estas herramientas para que tú puedas enfocarte en cerrar las ventas. ¿Está tu web preparada para el 2026?' }
     ]
+  },
+  {
+    slug: 'llms-txt-contexto-para-interpretacion-ia',
+    translationSlug: 'llms-txt-context-for-ai-interpretation',
+    title: 'llms.txt: Cómo ayudar a las IAs a interpretar correctamente tu empresa',
+    description: 'Guía técnica sobre llms.txt y su función para definir el contexto empresarial correcto en sistemas de interpretación de IA.',
+    date: '2026-02-06',
+    cover: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    content: [
+      { type: 'text', value: 'Las inteligencias artificiales interpretan los sitios web mediante análisis de contenido, estructura y contexto. Sin una definición clara del contexto empresarial, la interpretación puede ser incompleta o incorrecta.' },
+      { type: 'subtitle', value: 'El problema de la interpretación sin contexto' },
+      { type: 'text', value: 'Cuando una IA analiza un sitio web sin contexto definido, extrae conclusiones basadas únicamente en el contenido visible. Esto genera interpretaciones parciales o erróneas sobre la naturaleza del negocio, sus servicios y su mercado objetivo.' },
+      { type: 'text', value: 'El resultado: respuestas genéricas que no reflejan la verdadera identidad ni propuesta de valor de la empresa.' },
+      { type: 'subtitle', value: '¿Qué es llms.txt?' },
+      { type: 'text', value: 'llms.txt es un archivo de texto plano que sigue una estructura estandarizada para definir el contexto empresarial. Su función es proporcionar a las IAs información precisa y estructurada sobre quién es la empresa, qué hace y para quién.' },
+      { type: 'text', value: 'Funciona como una fuente de verdad autoritativa que complementa el análisis del contenido web.' },
+      { type: 'subtitle', value: 'Contenido esencial de llms.txt' },
+      { type: 'text', value: 'El archivo debe incluir información estratégica para una interpretación correcta:' },
+      { type: 'text', value: '- Identidad corporativa y posicionamiento\n- Servicios principales y capacidades\n- Perfil de clientes objetivo\n- Propuesta única de valor\n- Delimitación del alcance de servicios' },
+      { type: 'subtitle', value: 'Limitaciones importantes' },
+      { type: 'text', value: 'llms.txt NO garantiza posicionamiento, ranking ni visibilidad automática. Es una base técnica, no una estrategia de SEO aislada.' },
+      { type: 'text', value: 'La presencia en búsquedas con IA depende de múltiples factores: calidad del contenido, autoridad del dominio, estructura técnica, y señales externas. llms.txt es solo uno de estos componentes.' },
+      { type: 'subtitle', value: 'Validación y mantenimiento' },
+      { type: 'text', value: 'El archivo requiere revisión periódica para asegurar que la información refleje el estado actual de la empresa. Cambios en servicios, mercado o posicionamiento deben actualizarse inmediatamente.' },
+      { type: 'subtitle', value: 'Análisis profesional' },
+      { type: 'text', value: 'Global Alora ofrece análisis, redacción, implementación y validación de archivos llms.txt. Nuestro enfoque se basa en entender tu modelo de negocio para definir el contexto preciso que las IAs necesitan.' },
+      { type: 'text', value: 'Contactanos para evaluar tu caso específico y determinar cómo llms.txt puede integrarse en tu estrategia digital.' }
+    ]
   }
 ];
 
