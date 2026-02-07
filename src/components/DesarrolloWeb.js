@@ -115,36 +115,237 @@ const DesarrolloWeb = () => {
     }
   ];
 
-  const complementaryServices = [
-    {
-      icon: '🎯',
-      title: locale === 'es' ? 'Landing Pages' : 'Landing Pages',
-      description: locale === 'es'
-        ? 'Para campañas específicas, lanzamientos o captación de leads con un objetivo concreto.'
-        : 'For specific campaigns, launches or lead capture with a specific objective.'
-    },
-    {
-      icon: '📈',
-      title: 'Google Ads',
-      description: locale === 'es'
-        ? 'Para generar tráfico calificado y acelerar la generación de consultas o ventas.'
-        : 'To generate qualified traffic and accelerate the generation of inquiries or sales.'
-    },
-    {
-      icon: '🔧',
-      title: locale === 'es' ? 'Mantenimiento Web' : 'Web Maintenance',
-      description: locale === 'es'
-        ? 'Para asegurar estabilidad, actualizaciones y mejoras continuas una vez publicado el sitio.'
-        : 'To ensure stability, updates and continuous improvements once the site is published.'
-    },
-    {
-      icon: '🤖',
-      title: locale === 'es' ? 'IA para atención al cliente' : 'AI for customer service',
-      description: locale === 'es'
-        ? 'Para automatizar respuestas, calificar consultas y optimizar el proceso de contacto.'
-        : 'To automate responses, qualify inquiries and optimize the contact process.'
-    }
-  ];
+  const complementaryServices = locale === 'es'
+    ? [
+        {
+          title: 'Landing Pages orientadas a conversión',
+          lead: 'Pensadas para convertir visitas en consultas.',
+          description: 'Las usamos en campañas específicas, lanzamientos o acciones con objetivos medibles y tiempos cortos.',
+          example: 'Ejemplo típico: captación de leads cualificados desde Google Ads o LinkedIn Ads.'
+        },
+        {
+          title: 'Google Ads & Paid Acquisition',
+          lead: 'Diseñadas para generar tráfico calificado sostenible.',
+          description: 'Nos enfocamos en campañas que alimentan al sitio con intención real, optimizando keywords, anuncios y páginas de destino.',
+          example: 'Ejemplo: sostener flujo de oportunidades B2B mientras el equipo comercial escala.'
+        },
+        {
+          title: 'Mantenimiento y evolución web',
+          lead: 'Asegura estabilidad, performance y mejoras continuas.',
+          description: 'Incluye actualizaciones técnicas, monitoreo y evolutivos para mantener el sitio alineado al negocio.',
+          example: 'Ejemplo: releases mensuales para sumar nuevos casos, productos o integraciones.'
+        },
+        {
+          title: 'Automatización con IA en atención',
+          lead: 'Integramos bots y flujos inteligentes para responder rápido.',
+          description: 'Entrenamos asistentes con tu información real para clasificar consultas, derivar leads y liberar al equipo.',
+          example: 'Ejemplo: asistente que filtra solicitudes de soporte y agenda llamadas prioritarias.'
+        }
+      ]
+    : [
+        {
+          title: 'Conversion-focused landing pages',
+          lead: 'Built to turn visits into qualified inquiries.',
+          description: 'We use them for campaigns, launches or initiatives with measurable objectives and short deadlines.',
+          example: 'Example: capturing qualified B2B leads from Google Ads or LinkedIn Ads.'
+        },
+        {
+          title: 'Google Ads & paid acquisition',
+          lead: 'Designed to sustain qualified traffic.',
+          description: 'We focus on campaigns that feed the site with real intent, optimizing keywords, ads and landing experiences.',
+          example: 'Example: keeping a steady pipeline while the sales team scales.'
+        },
+        {
+          title: 'Web maintenance & evolution',
+          lead: 'Keeps stability, performance and ongoing improvements.',
+          description: 'Covers technical updates, monitoring and incremental releases so the site follows the business.',
+          example: 'Example: monthly releases to add new case studies, products or integrations.'
+        },
+        {
+          title: 'Customer automation with AI',
+          lead: 'We integrate bots and smart flows for faster answers.',
+          description: 'Assistants are trained with your real knowledge to classify inquiries, route leads and free up the team.',
+          example: 'Example: assistant that filters support requests and schedules priority calls.'
+        }
+      ];
+
+  const idealCriteria = locale === 'es'
+    ? [
+        {
+          title: 'Negocios en marcha',
+          highlight: 'Tu empresa ya opera con clientes y mercado claros.',
+          detail: 'Necesitás que el sitio represente el nivel actual y sostenga el crecimiento.'
+        },
+        {
+          title: 'Objetivos comerciales concretos',
+          highlight: 'El sitio debe generar consultas, pedidos o leads calificados.',
+          detail: 'Lo tratamos como una herramienta para ventas y desarrollo de negocio.'
+        },
+        {
+          title: 'Interlocutores disponibles',
+          highlight: 'Contás con referentes internos que aportan criterio y feedback.',
+          detail: 'El proyecto avanza con decisiones ágiles y colaboración real.'
+        },
+        {
+          title: 'Necesidad de evolucionar',
+          highlight: 'Tu sitio actual quedó corto o no refleja el posicionamiento.',
+          detail: 'Buscás una base sólida para coordinar próximas iniciativas digitales.'
+        }
+      ]
+    : [
+        {
+          title: 'Established operations',
+          highlight: 'Your company already runs with real customers and a defined market.',
+          detail: 'You need the site to reflect the current level and support growth.'
+        },
+        {
+          title: 'Clear commercial objectives',
+          highlight: 'The website must generate qualified inquiries or requests.',
+          detail: 'We treat it as a tool for sales and business development.'
+        },
+        {
+          title: 'Available stakeholders',
+          highlight: 'You have internal references who provide direction and feedback.',
+          detail: 'The project progresses with agile decisions and real collaboration.'
+        },
+        {
+          title: 'Need to evolve',
+          highlight: 'Your current site is outdated or misaligned with your positioning.',
+          detail: 'You want a solid base for upcoming digital initiatives.'
+        }
+      ];
+
+  const processSteps = locale === 'es'
+    ? [
+        {
+          title: 'Análisis del negocio',
+          lead: 'Entendemos objetivos, contexto y prioridades reales.',
+          description: 'Define qué debe lograr el sitio y qué métricas vamos a mover.'
+        },
+        {
+          title: 'Arquitectura y foco',
+          lead: 'Convertimos objetivos en estructura y alcance técnico.',
+          description: 'Priorizamos contenidos, integraciones y criterios antes del diseño.'
+        },
+        {
+          title: 'Experiencia y contenido',
+          lead: 'Diseñamos interfaz y mensajes que guían al usuario.',
+          description: 'Prototipamos layouts y microcopys listos para validar con tu equipo.'
+        },
+        {
+          title: 'Desarrollo y QA',
+          lead: 'Construimos con código mantenible y pruebas en cada iteración.',
+          description: 'Integramos CMS, automatizaciones y performance antes del lanzamiento.'
+        },
+        {
+          title: 'Lanzamiento y mejora continua',
+          lead: 'Acompañamos la puesta en línea y los ajustes reales.',
+          description: 'Medimos comportamiento y planificamos evolutivos junto a tu equipo.'
+        }
+      ]
+    : [
+        {
+          title: 'Business analysis',
+          lead: 'We understand objectives, context and real priorities.',
+          description: 'Defines what the site must achieve and which metrics we need to move.'
+        },
+        {
+          title: 'Architecture and focus',
+          lead: 'We translate objectives into structure and technical scope.',
+          description: 'Content, integrations and criteria are prioritized before design.'
+        },
+        {
+          title: 'Experience and content',
+          lead: 'We design interface and messaging that guide the user.',
+          description: 'Layouts and microcopy are prototyped ready to validate with your team.'
+        },
+        {
+          title: 'Development & QA',
+          lead: 'We build with maintainable code and iteration-based testing.',
+          description: 'CMS, automations and performance are integrated before launch.'
+        },
+        {
+          title: 'Launch and continuous improvement',
+          lead: 'We stay for the go-live and real adjustments.',
+          description: 'We measure behaviour and plan evolutions alongside your team.'
+        }
+      ];
+
+  const solutionPrinciples = locale === 'es'
+    ? [
+        {
+          title: 'Contexto de negocio primero',
+          description: 'Definimos propuesta de valor, audiencias y objetivos antes de diseñar.'
+        },
+        {
+          title: 'Arquitectura y contenido precisos',
+          description: 'Estructuramos el sitio para que explique qué haces y cómo se trabaja contigo.'
+        },
+        {
+          title: 'Interacción enfocada en conversión',
+          description: 'Cada vista guía a la acción correcta: agendar, cotizar o solicitar información.'
+        }
+      ]
+    : [
+        {
+          title: 'Business context first',
+          description: 'We define value proposition, audiences and goals before touching design.'
+        },
+        {
+          title: 'Precise architecture & content',
+          description: 'We structure the site so it explains what you do and how to work with you.'
+        },
+        {
+          title: 'Conversion-focused interaction',
+          description: 'Every view guides the next action: schedule, request pricing or talk to sales.'
+        }
+      ];
+
+  const websiteTypes = locale === 'es'
+    ? [
+        {
+          title: 'Sitios corporativos estratégicos',
+          description: 'Reposicionan a la compañía con narrativa clara, credenciales y roadmap de crecimiento.',
+          examples: ['Holding y empresas B2B', 'Firmas industriales y tecnológicas']
+        },
+        {
+          title: 'Servicios profesionales y consultoras',
+          description: 'Explican metodología, casos y equipo para captar leads de alto valor.',
+          examples: ['Estudios de arquitectura e ingeniería', 'Consultoras de negocio / boutiques creativas']
+        },
+        {
+          title: 'Plataformas orientadas a demanda',
+          description: 'Diseñadas para captar oportunidades, automatizar contactos y nutrir pipelines.',
+          examples: ['Empresas SaaS y tecnología', 'Servicios con ciclos de venta consultivos']
+        },
+        {
+          title: 'One-pagers para ofertas puntuales',
+          description: 'Activan campañas o lanzamientos específicos con foco en mensaje y CTA.',
+          examples: ['Eventos privados', 'Programas de formación corporativa']
+        }
+      ]
+    : [
+        {
+          title: 'Strategic corporate sites',
+          description: 'Reposition the company with clear narrative, credentials and growth roadmap.',
+          examples: ['Holdings and B2B companies', 'Industrial and technology firms']
+        },
+        {
+          title: 'Professional services & consulting',
+          description: 'Explains methodology, cases and team to attract high-value leads.',
+          examples: ['Architecture / engineering studios', 'Boutique consulting or creative firms']
+        },
+        {
+          title: 'Demand-oriented platforms',
+          description: 'Built to capture opportunities, automate contacts and nurture pipelines.',
+          examples: ['SaaS & tech companies', 'Services with consultative sales cycles']
+        },
+        {
+          title: 'Focused one-pagers',
+          description: 'Activate campaigns or launches with sharp messaging and CTA.',
+          examples: ['Private events', 'Corporate training programs']
+        }
+      ];
 
   return (
     <div className="desarrollo-web-page">
@@ -231,49 +432,61 @@ const DesarrolloWeb = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>
-            {locale === 'es' ? 'El problema habitual' : 'The usual problem'}
+          <h2 className="problem-section-title">
+            {locale === 'es' ? '¿Tu sitio web te está frenando?' : 'Is your website holding you back?'}
           </h2>
-          <p>
+          <p className="problem-section-subtitle">
             {locale === 'es'
-              ? 'Muchos negocios tienen un sitio web que:'
-              : 'Many businesses have a website that:'}
+              ? 'Muchas empresas tienen un sitio web que no está alineado con el nivel real de su negocio, generando desafíos como:'
+              : 'Many companies have a website that doesn\'t align with their actual business level, creating challenges like:'}
           </p>
-          <div className="problems-list">
+          <div className="problem-grid">
             <div className="problem-item">
-              <span className="problem-icon">❌</span>
-              <span>
+              <span className="problem-icon">💡</span>
+              <h3 className="problem-item-title">
+                {locale === 'es' ? 'Falta de Reflejo Profesional' : 'Lack of Professional Reflection'}
+              </h3>
+              <p className="problem-item-description">
                 {locale === 'es'
-                  ? 'No refleja su verdadero nivel profesional'
-                  : 'Does not reflect their true professional level'}
-              </span>
+                  ? 'La imagen online no comunica la calidad y seriedad de tu empresa.'
+                  : 'The online image doesn\'t communicate the quality and seriousness of your company.'}
+              </p>
             </div>
             <div className="problem-item">
-              <span className="problem-icon">❌</span>
-              <span>
+              <span className="problem-icon">⏳</span>
+              <h3 className="problem-item-title">
+                {locale === 'es' ? 'Obsoleto o Confuso' : 'Outdated or Confusing'}
+              </h3>
+              <p className="problem-item-description">
                 {locale === 'es'
-                  ? 'Está desactualizado o es confuso'
-                  : 'Is outdated or confusing'}
-              </span>
+                  ? 'Un diseño anticuado o una navegación poco clara frustran a tus visitantes.'
+                  : 'An outdated design or unclear navigation frustrates your visitors.'}
+              </p>
             </div>
             <div className="problem-item">
-              <span className="problem-icon">❌</span>
-              <span>
+              <span className="problem-icon">📈</span>
+              <h3 className="problem-item-title">
+                {locale === 'es' ? 'Baja Conversión' : 'Low Conversion'}
+              </h3>
+              <p className="problem-item-description">
                 {locale === 'es'
-                  ? 'No genera consultas ni contactos'
-                  : 'Does not generate inquiries or contacts'}
-              </span>
+                  ? 'No genera consultas, contactos o ventas que tu negocio necesita.'
+                  : 'It doesn\'t generate the inquiries, contacts, or sales your business needs.'}
+              </p>
             </div>
             <div className="problem-item">
-              <span className="problem-icon">❌</span>
-              <span>
+              <span className="problem-icon">🚀</span>
+              <h3 className="problem-item-title">
+                {locale === 'es' ? 'Sin Escalabilidad' : 'No Scalability'}
+              </h3>
+              <p className="problem-item-description">
                 {locale === 'es'
-                  ? 'No acompaña el crecimiento del negocio'
-                  : 'Does not support business growth'}
-              </span>
+                  ? 'No acompaña el crecimiento y las nuevas necesidades de tu negocio.'
+                  : 'It doesn\'t support the growth and new needs of your business.'}
+              </p>
             </div>
           </div>
-          <div className="problem-result">
+          <div className="problem-conclusion">
             <p>
               {locale === 'es'
                 ? 'El resultado es claro: visitas que no convierten y oportunidades perdidas.'
@@ -286,45 +499,42 @@ const DesarrolloWeb = () => {
       {/* Solution Section */}
       <section className="solution-section">
         <motion.div 
-          className="section-content"
+          className="section-content solution-content"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>
-            {locale === 'es' ? 'Nuestra solución' : 'Our solution'}
-          </h2>
-          <p>
-            {locale === 'es'
-              ? 'En Alora desarrollamos sitios web claros, modernos y funcionales, diseñados para que el usuario entienda rápidamente:'
-              : 'At Alora we develop clear, modern and functional websites, designed so that the user quickly understands:'}
-          </p>
-          <div className="solution-points">
-            <div className="solution-point">
-              <span className="point-number">1</span>
-              <span>
-                {locale === 'es' ? 'quién eres' : 'who you are'}
-              </span>
-            </div>
-            <div className="solution-point">
-              <span className="point-number">2</span>
-              <span>
-                {locale === 'es' ? 'qué ofreces' : 'what you offer'}
-              </span>
-            </div>
-            <div className="solution-point">
-              <span className="point-number">3</span>
-              <span>
-                {locale === 'es' ? 'y cuál es el siguiente paso' : 'and what is the next step'}
-              </span>
-            </div>
+          <div className="solution-header">
+            <span className="solution-eyebrow">
+              {locale === 'es' ? 'Metodología' : 'Methodology'}
+            </span>
+            <h2 className="solution-title">
+              {locale === 'es'
+                ? 'Un sistema web pensado para que tu negocio se entienda y convierta'
+                : 'A web system built so your business is understood and converts'}
+            </h2>
+            <p className="solution-subtitle">
+              {locale === 'es'
+                ? 'Diseñamos desde el negocio, no desde plantillas. Cada entrega se enfoca en explicar qué haces, cómo trabajas y cuál es el siguiente paso.'
+                : 'We design from the business outward. Every deliverable explains what you do, how you work and the next step to take.'}
+            </p>
           </div>
-          <p className="solution-approach">
-            {locale === 'es'
-              ? 'Cada proyecto parte del negocio y sus objetivos, no de plantillas genéricas.'
-              : 'Each project starts from the business and its objectives, not from generic templates.'}
-          </p>
+          <div className="solution-grid">
+            {solutionPrinciples.map((principle, index) => (
+              <div className="solution-card" key={index}>
+                <h3>{principle.title}</h3>
+                <p>{principle.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="solution-footer">
+            <p>
+              {locale === 'es'
+                ? 'Partimos de objetivos medibles y responsables definidos en tu equipo. No usamos atajos ni sitios genéricos.'
+                : 'We start from measurable goals and clear ownership on your team. No shortcuts, no generic sites.'}
+            </p>
+          </div>
         </motion.div>
       </section>
 
@@ -358,63 +568,56 @@ const DesarrolloWeb = () => {
               </motion.div>
             ))}
           </div>
-          <p className="services-summary">
-            {locale === 'es'
-              ? 'Todo lo necesario para contar con un sitio web profesional, funcional y preparado para crecer.'
-              : 'Everything necessary to have a professional, functional website ready to grow.'}
-          </p>
+          <div className="services-summary">
+            <span className="services-summary-label">
+              {locale === 'es' ? 'Conclusión' : 'Conclusion'}
+            </span>
+            <p>
+              {locale === 'es'
+                ? 'Todo lo necesario para contar con un sitio web profesional, funcional y preparado para crecer.'
+                : 'Everything required to operate with a professional, functional site that is ready to scale.'}
+            </p>
+          </div>
         </motion.div>
       </section>
 
       {/* Website Types Section */}
       <section className="website-types-section">
         <motion.div 
-          className="section-content"
+          className="section-content website-types-content"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>
-            {locale === 'es' ? 'Tipos de sitios web que desarrollamos' : 'Types of websites we develop'}
-          </h2>
-          <div className="types-grid">
-            <div className="type-item">
-              <span className="type-icon">🏢</span>
-              <span>
-                {locale === 'es' ? 'Sitios web corporativos' : 'Corporate websites'}
-              </span>
-            </div>
-            <div className="type-item">
-              <span className="type-icon">💼</span>
-              <span>
-                {locale === 'es' ? 'Sitios web de servicios profesionales' : 'Professional service websites'}
-              </span>
-            </div>
-            <div className="type-item">
-              <span className="type-icon">🏛️</span>
-              <span>
-                {locale === 'es' ? 'Sitios institucionales' : 'Institutional websites'}
-              </span>
-            </div>
-            <div className="type-item">
-              <span className="type-icon">📄</span>
-              <span>
-                {locale === 'es' ? 'One pages estratégicas' : 'Strategic one pages'}
-              </span>
-            </div>
-            <div className="type-item">
-              <span className="type-icon">🎯</span>
-              <span>
-                {locale === 'es' ? 'Sitios orientados a captación de leads' : 'Lead capture oriented websites'}
-              </span>
-            </div>
+          <div className="website-types-header">
+            <h2>{locale === 'es' ? 'Tipos de sitios web que desarrollamos' : 'Types of websites we develop'}</h2>
+            <p>
+              {locale === 'es'
+                ? 'Partimos del objetivo y de la audiencia. Cada tipo de sitio responde a una necesidad específica del negocio.'
+                : 'We start from the business objective and the audience. Every site type responds to a specific need.'}
+            </p>
           </div>
-          <p className="types-note">
-            {locale === 'es'
-              ? 'Si el proyecto requiere una solución específica, se evalúa y se define de forma conjunta.'
-              : 'If the project requires a specific solution, it is evaluated and defined jointly.'}
-          </p>
+          <div className="website-types-grid">
+            {websiteTypes.map((type, index) => (
+              <div className="website-type-card" key={index}>
+                <h3>{type.title}</h3>
+                <p>{type.description}</p>
+                <div className="website-type-examples">
+                  {type.examples.map((example, idx) => (
+                    <span key={idx}>{example}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="website-types-footer">
+            <p>
+              {locale === 'es'
+                ? 'Si el proyecto requiere una solución específica, diseñamos la arquitectura a medida y la validamos junto a tu equipo.'
+                : 'If the project needs a specific approach, we design the architecture from scratch and validate it with your team.'}
+            </p>
+          </div>
         </motion.div>
       </section>
 
@@ -457,11 +660,13 @@ const DesarrolloWeb = () => {
               </motion.div>
             ))}
           </div>
-          <p className="projects-conclusion">
-            {locale === 'es'
-              ? 'Cada proyecto responde a un objetivo distinto, pero todos comparten el mismo enfoque: que el sitio web cumpla una función real dentro del negocio.'
-              : 'Each project responds to a different objective, but all share the same approach: that the website fulfills a real function within the business.'}
-          </p>
+          <div className="projects-conclusion">
+            <p>
+              {locale === 'es'
+                ? 'Cada proyecto responde a un objetivo distinto, pero todos comparten el mismo enfoque: que el sitio web cumpla una función real dentro del negocio.'
+                : 'Each project responds to a different objective, yet they all share the same focus: the website must fulfill a real business function.'}
+            </p>
+          </div>
         </motion.div>
       </section>
 
@@ -492,23 +697,24 @@ const DesarrolloWeb = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="complementary-icon">
-                  <span>{service.icon}</span>
-                </div>
                 <h3>{service.title}</h3>
-                <p>{service.description}</p>
+                <p className="complementary-lead"><strong>{service.lead}</strong></p>
+                <p className="complementary-description">{service.description}</p>
+                <div className="complementary-example">{service.example}</div>
               </motion.div>
             ))}
           </div>
-          <p className="complementary-note">
-            {locale === 'es'
-              ? 'Durante el análisis inicial se evalúa si tiene sentido integrar alguno de estos servicios o si el desarrollo web por sí solo es suficiente.'
-              : 'During the initial analysis, it is evaluated whether it makes sense to integrate any of these services or if web development alone is sufficient.'}
-          </p>
+          <div className="complementary-note">
+            <p>
+              {locale === 'es'
+                ? 'Durante el análisis inicial evaluamos qué servicios suman valor real al proyecto y solo proponemos los que impactan en los objetivos.'
+                : 'During the initial analysis we evaluate which services add real value to the project and only propose those that impact the objectives.'}
+            </p>
+          </div>
         </motion.div>
       </section>
 
-      {/* How We Work Section - Grid Design */}
+      {/* How We Work Section - Timeline */}
       <section className="process-section">
         <motion.div 
           className="section-content"
@@ -522,124 +728,58 @@ const DesarrolloWeb = () => {
           </h2>
           <p>
             {locale === 'es'
-              ? 'Un proceso claro y estructurado para garantizar resultados.'
-              : 'A clear and structured process to guarantee results.'}
+              ? 'Un método claro, conectado y medible en cada etapa.'
+              : 'A clear, connected and measurable method at every stage.'}
           </p>
-          <div className="process-grid">
-            <div className="process-card">
-              <div className="process-icon">🔍</div>
-              <div className="process-number">01</div>
-              <h3>
-                {locale === 'es' ? 'Análisis del negocio y los objetivos' : 'Business and objectives analysis'}
-              </h3>
-              <p>
-                {locale === 'es'
-                  ? 'Estudiamos tu negocio, competencia y objetivos para definir la mejor estrategia.'
-                  : 'We study your business, competition and objectives to define the best strategy.'}
-              </p>
-            </div>
-            <div className="process-card">
-              <div className="process-icon">📋</div>
-              <div className="process-number">02</div>
-              <h3>
-                {locale === 'es' ? 'Definición de estructura y enfoque' : 'Definition of structure and approach'}
-              </h3>
-              <p>
-                {locale === 'es'
-                  ? 'Diseñamos la arquitectura y definimos el alcance técnico del proyecto.'
-                  : 'We design the architecture and define the technical scope of the project.'}
-              </p>
-            </div>
-            <div className="process-card">
-              <div className="process-icon">🎨</div>
-              <div className="process-number">03</div>
-              <h3>
-                {locale === 'es' ? 'Diseño de la experiencia y los contenidos' : 'Design of experience and content'}
-              </h3>
-              <p>
-                {locale === 'es'
-                  ? 'Creamos el diseño visual y estructuramos los contenidos para máxima efectividad.'
-                  : 'We create the visual design and structure the content for maximum effectiveness.'}
-              </p>
-            </div>
-            <div className="process-card">
-              <div className="process-icon">⚡</div>
-              <div className="process-number">04</div>
-              <h3>
-                {locale === 'es' ? 'Desarrollo del sitio web' : 'Website development'}
-              </h3>
-              <p>
-                {locale === 'es'
-                  ? 'Construimos el sitio con tecnología moderna y mejores prácticas.'
-                  : 'We build the site with modern technology and best practices.'}
-              </p>
-            </div>
-            <div className="process-card">
-              <div className="process-icon">🚀</div>
-              <div className="process-number">05</div>
-              <h3>
-                {locale === 'es' ? 'Publicación y entrega final' : 'Publication and final delivery'}
-              </h3>
-              <p>
-                {locale === 'es'
-                  ? 'Lanzamos el sitio y te entregamos el control total con capacitación incluida.'
-                  : 'We launch the site and deliver full control with included training.'}
-              </p>
-            </div>
+          <div className="process-timeline">
+            {processSteps.map((step, index) => (
+              <div className="process-step" key={index}>
+                <div className="process-step-number">{String(index + 1).padStart(2, '0')}</div>
+                <div className="process-step-content">
+                  <h3>{step.title}</h3>
+                  <p className="process-step-lead"><strong>{step.lead}</strong></p>
+                  <p>{step.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          <p className="process-summary">
-            {locale === 'es'
-              ? 'Proceso claro, comunicación directa y sin pasos innecesarios.'
-              : 'Clear process, direct communication and without unnecessary steps.'}
-          </p>
+          <div className="process-summary">
+            <span>{locale === 'es' ? 'Principio de trabajo' : 'Working principle'}</span>
+            <p>
+              {locale === 'es'
+                ? 'Trabajamos con procesos claros, comunicación directa y solo los pasos necesarios para lograr resultados reales.'
+                : 'We work with clear processes, direct communication and only the steps required to deliver real results.'}
+            </p>
+          </div>
         </motion.div>
       </section>
 
       {/* Ideal For Section */}
       <section className="ideal-for-section">
         <motion.div 
-          className="section-content"
+          className="section-content ideal-for-content"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>
-            {locale === 'es' ? 'Este servicio es ideal si' : 'This service is ideal if'}
-          </h2>
-          <div className="ideal-list">
-            <div className="ideal-item">
-              <span className="ideal-icon">✓</span>
-              <span>
-                {locale === 'es'
-                  ? 'Tu negocio ya está en funcionamiento'
-                  : 'Your business is already operating'}
-              </span>
-            </div>
-            <div className="ideal-item">
-              <span className="ideal-icon">✓</span>
-              <span>
-                {locale === 'es'
-                  ? 'Necesitas un sitio web profesional y actualizado'
-                  : 'You need a professional and updated website'}
-              </span>
-            </div>
-            <div className="ideal-item">
-              <span className="ideal-icon">✓</span>
-              <span>
-                {locale === 'es'
-                  ? 'Quieres generar consultas de forma constante'
-                  : 'You want to generate inquiries constantly'}
-              </span>
-            </div>
-            <div className="ideal-item">
-              <span className="ideal-icon">✓</span>
-              <span>
-                {locale === 'es'
-                  ? 'Buscas una base sólida para futuras acciones digitales'
-                  : 'You are looking for a solid base for future digital actions'}
-              </span>
-            </div>
+          <div className="ideal-for-header">
+            <h2>{locale === 'es' ? 'Este servicio es ideal si' : 'This service is ideal when'}</h2>
+            <p>
+              {locale === 'es'
+                ? 'Trabajamos mejor con equipos que ya están operando y necesitan un sitio web que acompañe decisiones reales de negocio.'
+                : 'We work best with teams that are already operating and need a website aligned with real business decisions.'}
+            </p>
+          </div>
+          <div className="ideal-for-grid">
+            {idealCriteria.map((item, index) => (
+              <div className="ideal-for-item" key={index}>
+                <h3>{item.title}</h3>
+                <p>
+                  <strong>{item.highlight}</strong> {item.detail}
+                </p>
+              </div>
+            ))}
           </div>
         </motion.div>
       </section>
