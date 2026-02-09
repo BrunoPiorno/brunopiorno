@@ -8,11 +8,15 @@ import '../App.css';
 
 import SiteHeader from './SiteHeader';
 import ContactSection from './ContactSection';
+import Chatbot from './Chatbot';
 
 const BlogList = () => {
   const { locale, t } = useLanguage();
   const selectedPosts = locale === 'en' ? posts_en : posts;
   const blogPath = `/${locale}/blog`;
+  
+  // Ordenar posts del más nuevo al más viejo
+  const sortedPosts = [...selectedPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
     <>
@@ -31,7 +35,7 @@ const BlogList = () => {
           <p className="intro">{t('blog.intro')}</p>
         </section>
         <section className="blog-list">
-          {selectedPosts.map(post => (
+          {sortedPosts.map(post => (
             <article key={post.slug} className="blog-card">
               <Link to={`${blogPath}/${post.slug}`} className="blog-card-link">
                 <img src={post.cover} alt={post.title} className="blog-card-img" loading="lazy" />
@@ -46,6 +50,7 @@ const BlogList = () => {
         </section>
       </main>
       <ContactSection />
+      <Chatbot />
     </>
   );
 };

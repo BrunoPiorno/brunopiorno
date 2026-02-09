@@ -9,6 +9,7 @@ import '../App.css';
 
 import SiteHeader from './SiteHeader';
 import ContactSection from './ContactSection';
+import Chatbot from './Chatbot';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -189,6 +190,7 @@ const BlogPost = () => {
         </Helmet>
       </main>
       <ContactSection />
+      <Chatbot />
     </>
   );
 };
