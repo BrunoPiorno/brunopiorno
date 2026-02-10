@@ -56,134 +56,542 @@ const LandingPages = () => {
     }
   ];
 
-  const services = [
-    {
-      icon: '🎯',
-      title: locale === 'es' ? 'Definición del objetivo principal de conversión' : 'Definition of main conversion objective',
-      description: locale === 'es'
-        ? 'Identificamos el objetivo específico que perseguimos con la landing page.'
-        : 'We identify the specific objective we pursue with the landing page.'
-    },
-    {
-      icon: '📋',
-      title: locale === 'es' ? 'Estructura estratégica orientada a resultados' : 'Strategic structure oriented to results',
-      description: locale === 'es'
-        ? 'Diseñamos la arquitectura perfecta para guiar al usuario hacia la conversión.'
-        : 'We design the perfect architecture to guide the user towards conversion.'
-    },
-    {
-      icon: '✍️',
-      title: locale === 'es' ? 'Copy claro, directo y enfocado en beneficios' : 'Clear, direct copy focused on benefits',
-      description: locale === 'es'
-        ? 'Creamos textos persuasivos que conectan con las necesidades del usuario.'
-        : 'We create persuasive texts that connect with user needs.'
-    },
-    {
-      icon: '🎨',
-      title: locale === 'es' ? 'Diseño visual alineado a la marca' : 'Visual design aligned with the brand',
-      description: locale === 'es'
-        ? 'Desarrollamos un diseño profesional que representa tu identidad de marca.'
-        : 'We develop a professional design that represents your brand identity.'
-    },
-    {
-      icon: '📱',
-      title: locale === 'es' ? 'Experiencia optimizada para dispositivos móviles' : 'Experience optimized for mobile devices',
-      description: locale === 'es'
-        ? 'Garantizamos una experiencia perfecta en todos los dispositivos.'
-        : 'We guarantee a perfect experience on all devices.'
-    },
-    {
-      icon: '⚡',
-      title: locale === 'es' ? 'Desarrollo técnico rápido y eficiente' : 'Fast and efficient technical development',
-      description: locale === 'es'
-        ? 'Construimos la landing page con tecnología moderna y mejores prácticas.'
-        : 'We build the landing page with modern technology and best practices.'
-    },
-    {
-      icon: '🔗',
-      title: locale === 'es' ? 'Integración con formularios, agendas o herramientas externas' : 'Integration with forms, calendars or external tools',
-      description: locale === 'es'
-        ? 'Conectamos la landing page con las herramientas que ya utilizas.'
-        : 'We connect the landing page with the tools you already use.'
-    },
-    {
-      icon: '🚀',
-      title: locale === 'es' ? 'Optimización básica de velocidad y rendimiento' : 'Basic speed and performance optimization',
-      description: locale === 'es'
-        ? 'Optimizamos la carga y el rendimiento para máxima conversión.'
-        : 'We optimize loading and performance for maximum conversion.'
-    }
-  ];
+  const problemCards = locale === 'es'
+    ? [
+        {
+          icon: '🚫',
+          title: 'Páginas que no convierten',
+          highlight: 'Reciben tráfico pero no generan acción inmediata.',
+          description: 'Se invierte en campañas, pero el usuario aterriza en un hero genérico, sin jerarquía ni un CTA insistente que le diga qué hacer.'
+        },
+        {
+          icon: '🔄',
+          title: 'Demasiada información',
+          highlight: 'Todo compite por atención al mismo tiempo.',
+          description: 'Servicios, historia y enlaces secundarios aparecen mezclados, el foco de conversión desaparece antes del primer scroll.'
+        },
+        {
+          icon: '❓',
+          title: 'Mensaje confuso',
+          highlight: 'No se entiende la propuesta ni el siguiente paso.',
+          description: 'El copy habla de la empresa y no de la promesa. Falta contexto, beneficio y una razón clara para dejar sus datos.'
+        },
+        {
+          icon: '💸',
+          title: 'Pérdida de oportunidades',
+          highlight: 'Los leads se diluyen en formularios sin seguimiento.',
+          description: 'No se explica qué ocurre después del envío ni se refuerza la confianza, por lo que se abandonan contactos valiosos.'
+        }
+      ]
+    : [
+        {
+          icon: '🚫',
+          title: 'Pages that don’t convert',
+          highlight: 'Traffic arrives but never triggers action.',
+          description: 'You pay for campaigns yet visitors land on a generic hero with no hierarchy or persistent CTA telling them what to do.'
+        },
+        {
+          icon: '🔄',
+          title: 'Too much information',
+          highlight: 'Everything competes for attention at once.',
+          description: 'Services, brand story and secondary links mix together, so the conversion focus vanishes before the first scroll.'
+        },
+        {
+          icon: '❓',
+          title: 'Confusing message',
+          highlight: 'People can’t understand the offer or next step.',
+          description: 'Copy talks about the company instead of the promise. There’s no context, benefit or reason to leave their data.'
+        },
+        {
+          icon: '💸',
+          title: 'Lost opportunities',
+          highlight: 'Leads leak out through unsupported forms.',
+          description: 'You never clarify what happens after submission, so trust drops and potential contacts abandon the journey.'
+        }
+      ];
+
+  const landingUseCases = locale === 'es'
+    ? [
+        {
+          title: 'Captación de leads',
+          highlight: 'Convertimos visitas en contactos calificados.',
+          description: 'Ideal para campañas en Google Ads, Meta Ads o newsletters donde cada lead tiene un costo definido.'
+        },
+        {
+          title: 'Venta de servicios consultivos',
+          highlight: 'Explicamos la propuesta y guiamos hacia la decisión.',
+          description: 'Se utiliza cuando el objetivo es vender un servicio concreto o agendar una llamada comercial.'
+        },
+        {
+          title: 'Lanzamientos y campañas puntuales',
+          highlight: 'Concentramos el mensaje de una campaña específica.',
+          description: 'Perfecta para nuevos productos, promociones temporales o acciones de performance marketing.'
+        },
+        {
+          title: 'Reserva de demos o reuniones',
+          highlight: 'Reducimos pasos para agendar una conversación.',
+          description: 'Integramos la landing con calendarios o formularios para acelerar el paso a una reunión real.'
+        }
+      ]
+    : [
+        {
+          title: 'Lead capture',
+          highlight: 'We turn visits into qualified contacts.',
+          description: 'Ideal for Google Ads, Meta Ads or newsletter campaigns where every lead has a defined cost.'
+        },
+        {
+          title: 'Service sales and consultative offers',
+          highlight: 'We explain the value proposition and drive a decision.',
+          description: 'Used when the goal is to sell a specific service or book a commercial call.'
+        },
+        {
+          title: 'Launches and time-bound campaigns',
+          highlight: 'We condense the message of a specific campaign.',
+          description: 'Perfect for new products, limited promos or performance marketing pushes.'
+        },
+        {
+          title: 'Demo or meeting booking',
+          highlight: 'We remove steps to schedule a conversation.',
+          description: 'The landing integrates with calendars or forms to accelerate the path to a real meeting.'
+        }
+      ];
+
+  const typesIntro = locale === 'es'
+    ? 'Los casos más frecuentes muestran cómo adaptamos la landing a cada objetivo concreto.'
+    : 'These common use cases show how we adapt the landing to each specific goal.';
+
+  const typesConclusion = locale === 'es'
+    ? 'Cuando el objetivo es claro, diseñamos la landing exacta para alcanzarlo.'
+    : 'When the objective is clear, we design the exact landing needed to achieve it.';
+
+  const extensionSummary = locale === 'es'
+    ? 'Una landing alcanza su mejor rendimiento cuando forma parte de un sistema y se complementa con las piezas correctas.'
+    : 'A landing performs best when it is part of a system and is complemented by the right pieces.';
+
+  const extensionServices = locale === 'es'
+    ? [
+        {
+          title: 'Campañas de adquisición (Google Ads, Meta Ads)',
+          highlight: 'Atraemos tráfico con intención real.',
+          description: 'Se activa cuando necesitamos volumen de visitas calificadas para validar rápidamente la propuesta.'
+        },
+        {
+          title: 'Automatización y CRM',
+          highlight: 'Conectamos la landing con tus procesos internos.',
+          description: 'Integraciones con formularios, agendas y CRM para que cada lead llegue al seguimiento correcto.'
+        },
+        {
+          title: 'Mantenimiento y optimización continua',
+          highlight: 'Iteramos con datos reales.',
+          description: 'Analizamos métricas, probamos variantes y ajustamos el contenido para mejorar la conversión.'
+        },
+        {
+          title: 'Contenido y nurturing',
+          highlight: 'Preparamos el contexto antes y después del clic.',
+          description: 'Emails, secuencias o piezas de apoyo que sostienen el mensaje y elevan la confianza.'
+        }
+      ]
+    : [
+        {
+          title: 'Acquisition campaigns (Google Ads, Meta Ads)',
+          highlight: 'We bring in traffic with real intent.',
+          description: 'Used when we need qualified visits to quickly validate the offer.'
+        },
+        {
+          title: 'Automation and CRM',
+          highlight: 'We connect the landing to your internal processes.',
+          description: 'Forms, schedulers and CRMs integrate so every lead is routed to the right follow-up.'
+        },
+        {
+          title: 'Ongoing maintenance and optimization',
+          highlight: 'We iterate using real data.',
+          description: 'Metrics, experiments and copy updates keep conversion improving.'
+        },
+        {
+          title: 'Content and nurturing',
+          highlight: 'We prepare the context before and after the click.',
+          description: 'Emails, sequences or supporting assets reinforce the message and trust.'
+        }
+      ];
+
+  const extensionClosing = locale === 'es'
+    ? 'No recomendamos extensiones por defecto: sólo sumamos lo que aporta valor real al objetivo del proyecto.'
+    : 'We never add extensions by default—only what brings real value to the project objective.';
+
+  const landingLead = locale === 'es'
+    ? 'Una landing page es ideal cuando hay un único objetivo claro y urgente.'
+    : 'A landing page is ideal when there is a single, urgent objective.';
+
+  const websiteLead = locale === 'es'
+    ? 'Un sitio web completo sostiene múltiples historias y recorridos.'
+    : 'A full website supports multiple stories and journeys.';
+
+  const landingConclusion = locale === 'es'
+    ? 'La landing elimina distracciones y concentra al usuario en un movimiento medible.'
+    : 'The landing removes distractions and concentrates the user on one measurable movement.';
+
+  const websiteConclusion = locale === 'es'
+    ? 'El sitio web funciona como la base institucional donde convergen todos los canales.'
+    : 'The website operates as the institutional base where every channel converges.';
+
+  const recommendationSummary = locale === 'es'
+    ? 'No recomendamos formatos por defecto: elegimos la herramienta que mejor sirve al objetivo del negocio.'
+    : 'We never recommend formats by default—we choose the tool that best serves the business objective.';
+
+  const recommendationDescription = locale === 'es'
+    ? 'Analizamos meta comercial, madurez digital y recursos antes de sugerir si desarrollar una landing, un sitio o ambos.'
+    : 'We examine business goals, digital maturity and resources before suggesting whether to ship a landing, a full site or both.';
+
+  const recommendationDetails = locale === 'es'
+    ? [
+        {
+          label: 'Landing page',
+          text: 'Se utiliza para convertir tráfico con intención específica, medir resultados y ajustar rápido.'
+        },
+        {
+          label: 'Sitio web',
+          text: 'Sostiene la marca, explica el portfolio completo y consolida la relación a largo plazo.'
+        }
+      ]
+    : [
+        {
+          label: 'Landing page',
+          text: 'Used to convert intent-driven traffic, measure outcomes and iterate quickly.'
+        },
+        {
+          label: 'Website',
+          text: 'Supports the brand, explains the full offering and nurtures long-term relationships.'
+        }
+      ];
+
+  const recommendationClosing = locale === 'es'
+    ? 'Cada recomendación es a medida: si tu estrategia sólo necesita una pieza, construiremos sólo esa.'
+    : 'Every recommendation is bespoke—if your strategy only needs one piece, we will only build that piece.';
+
+  const solutionIntro = locale === 'es'
+    ? 'Nuestro método combina análisis comercial, UX y analítica para diseñar landing pages que conducen a la acción con intención.'
+    : 'Our method combines business analysis, UX and analytics to design landing pages that move users to act deliberately.';
+
+  const solutionPrinciples = locale === 'es'
+    ? [
+        {
+          title: 'Objetivo del negocio',
+          highlight: 'Definimos qué acción debe realizar el usuario.',
+          description: 'Cada landing responde a un objetivo medible: captar leads, vender un servicio o agendar una llamada.'
+        },
+        {
+          title: 'Nivel de conciencia del usuario',
+          highlight: 'Adaptamos el mensaje al punto en el que se encuentra.',
+          description: 'No comunicamos igual a quien ya reconoce el problema que a quien recién lo descubre; ajustamos tono, pruebas y objeciones.'
+        },
+        {
+          title: 'Fuente de tráfico',
+          highlight: 'Diseñamos según desde dónde llega el usuario.',
+          description: 'El ritmo, la jerarquía y los llamados varían si el tráfico es pago, orgánico o referido.'
+        }
+      ]
+    : [
+        {
+          title: 'Business objective',
+          highlight: 'We define the exact action the user must take.',
+          description: 'Each landing answers a measurable goal: capture leads, sell a service or book a call.'
+        },
+        {
+          title: 'User awareness level',
+          highlight: 'We adapt the message to where the user stands.',
+          description: 'We do not speak the same way to someone who knows the problem as to someone discovering it; tone, proof and objections shift.'
+        },
+        {
+          title: 'Traffic source',
+          highlight: 'We design based on the entry point.',
+          description: 'Rhythm, hierarchy and CTAs change if visitors arrive via paid, organic or referral channels.'
+        }
+      ];
+
+  const solutionClosing = locale === 'es'
+    ? 'Nada se deja al azar: cada decisión responde a un objetivo, un usuario y un contexto concreto.'
+    : 'Nothing is left to chance: every decision answers to a goal, a user and a concrete context.';
+
+  const landingCriteria = locale === 'es'
+    ? [
+        {
+          icon: '🎯',
+          title: 'Un único objetivo medible',
+          detail: 'Necesitas que cada visita termine en un lead, agenda o compra sin distracciones intermedias.'
+        },
+        {
+          icon: '📈',
+          title: 'Tráfico controlado',
+          detail: 'Invertís en Ads, email o alianzas y querés atribuir cada conversión a su fuente.'
+        },
+        {
+          icon: '⚡',
+          title: 'Oferta puntual o experimento',
+          detail: 'Validás un servicio, promo o evento con ventanas cortas y mensajes muy específicos.'
+        },
+        {
+          icon: '🔁',
+          title: 'Necesidad de iterar rápido',
+          detail: 'Buscás lanzar en semanas, medir y ajustar el copy o la propuesta sobre la marcha.'
+        }
+      ]
+    : [
+        {
+          icon: '🎯',
+          title: 'One measurable objective',
+          detail: 'Every visit must end in a lead, booking or purchase with zero side quests.'
+        },
+        {
+          icon: '📈',
+          title: 'Controlled traffic',
+          detail: 'You invest in Ads, email or partnerships and need clear attribution per conversion.'
+        },
+        {
+          icon: '⚡',
+          title: 'Specific offer or experiment',
+          detail: 'You validate a service, promo or launch with tight timelines and precise messaging.'
+        },
+        {
+          icon: '🔁',
+          title: 'Need for rapid iteration',
+          detail: 'You plan to ship in weeks, measure and tweak copy or offer continuously.'
+        }
+      ];
+
+  const websiteCriteria = locale === 'es'
+    ? [
+        {
+          icon: '🏢',
+          title: 'Varios recorridos en paralelo',
+          detail: 'Tu negocio requiere contar servicios, casos, equipo, blog y recursos en un mismo eje.'
+        },
+        {
+          icon: '📣',
+          title: 'Construcción profunda de marca',
+          detail: 'Buscás autoridad, SEO y presencia institucional para sostener campañas y referidos.'
+        },
+        {
+          icon: '🧩',
+          title: 'Ecosistema con múltiples piezas',
+          detail: 'Necesitás alojar landings, contenidos, integraciones o productos en evolución.'
+        },
+        {
+          icon: '🤝',
+          title: 'Relaciones de largo plazo',
+          detail: 'El usuario decide en varias etapas y querés nutrirlo con contexto, confianza y seguimiento.'
+        }
+      ]
+    : [
+        {
+          icon: '🏢',
+          title: 'Parallel customer journeys',
+          detail: 'You must explain services, use cases, team, blog and resources within one home base.'
+        },
+        {
+          icon: '📣',
+          title: 'Deep brand building',
+          detail: 'You need authority, SEO and institutional presence to support campaigns and referrals.'
+        },
+        {
+          icon: '🧩',
+          title: 'Multi-piece ecosystem',
+          detail: 'You have to host landings, content, integrations or evolving products together.'
+        },
+        {
+          icon: '🤝',
+          title: 'Long-term relationships',
+          detail: 'Decisions happen in stages and you want to nurture with context, trust and follow-up.'
+        }
+      ];
+
+  const services = locale === 'es'
+    ? [
+        {
+          title: 'Definición del objetivo principal de conversión',
+          highlight: 'Clarificamos qué acción debe realizar el usuario.',
+          description: 'Cada landing se diseña con un único objetivo medible, alineado al negocio y al embudo.'
+        },
+        {
+          title: 'Estructura estratégica orientada a resultados',
+          highlight: 'Convertimos el objetivo en un recorrido lógico.',
+          description: 'Ordenamos secciones, evidencias y llamados para eliminar fricción y guiar a la conversión.'
+        },
+        {
+          title: 'Copy claro, directo y enfocado en beneficios',
+          highlight: 'Traducimos los beneficios en mensajes accionables.',
+          description: 'Cada bloque de texto responde a objeciones, refuerza valor y conduce al clic esperado.'
+        },
+        {
+          title: 'Diseño visual alineado a la marca',
+          highlight: 'La estética refuerza confianza y coherencia.',
+          description: 'Construimos una interfaz limpia que refleja tu identidad y prioriza la lectura escaneable.'
+        },
+        {
+          title: 'Experiencia optimizada para dispositivos móviles',
+          highlight: 'El flujo funciona igual de bien en pantallas pequeñas.',
+          description: 'Ajustamos layout, espaciados y CTAs para maximizar la conversión desde móviles.'
+        },
+        {
+          title: 'Desarrollo técnico rápido y eficiente',
+          highlight: 'Implementamos tecnología moderna con performance real.',
+          description: 'Codificamos siguiendo mejores prácticas para asegurar velocidad, estabilidad e iteración ágil.'
+        },
+        {
+          title: 'Integraciones y automatización',
+          highlight: 'Conectamos la landing con tus procesos existentes.',
+          description: 'Formularios, agendas y herramientas quedan integrados para que cada lead llegue a tu stack.'
+        },
+        {
+          title: 'Optimización de velocidad y medición',
+          highlight: 'Medimos antes de lanzar y dejamos tracking configurado.',
+          description: 'Optimización de carga, etiquetado y analytics para tomar decisiones post-lanzamiento.'
+        }
+      ]
+    : [
+        {
+          title: 'Definition of the main conversion objective',
+          highlight: 'We clarify the exact action the user must take.',
+          description: 'Each landing is built around one measurable goal aligned with the business and funnel.'
+        },
+        {
+          title: 'Strategic structure oriented to results',
+          highlight: 'We turn the goal into a logical journey.',
+          description: 'Sections, proof and CTAs are organized to remove friction and guide every step.'
+        },
+        {
+          title: 'Clear, benefit-driven copywriting',
+          highlight: 'We translate benefits into actionable language.',
+          description: 'Every paragraph addresses objections, reinforces value and nudges the desired click.'
+        },
+        {
+          title: 'Visual design aligned with the brand',
+          highlight: 'The interface reinforces trust and coherence.',
+          description: 'We craft a clean layout that reflects your identity and keeps reading effortless.'
+        },
+        {
+          title: 'Experience optimized for mobile devices',
+          highlight: 'The flow performs equally well on smaller screens.',
+          description: 'Layout, spacing and CTAs are tuned to maximize conversions from mobile traffic.'
+        },
+        {
+          title: 'Fast and efficient technical development',
+          highlight: 'We implement modern technology with real performance.',
+          description: 'Code follows best practices to ensure speed, stability and agile iteration.'
+        },
+        {
+          title: 'Integrations and automation',
+          highlight: 'We connect the landing to your existing processes.',
+          description: 'Forms, schedulers and tools are integrated so every lead lands in your stack.'
+        },
+        {
+          title: 'Speed optimization and measurement',
+          highlight: 'We measure before launch and leave tracking ready.',
+          description: 'Loading, tagging and analytics are optimized to inform post-launch decisions.'
+        }
+      ];
 
   const processSteps = [
     {
-      icon: '🔍',
       number: '01',
-      title: locale === 'es' ? 'Análisis del objetivo y la oferta' : 'Analysis of objective and offer',
+      title: locale === 'es' ? 'Análisis del objetivo y la oferta' : 'Objective and offer analysis',
+      highlight: locale === 'es'
+        ? 'Definimos qué se quiere vender y a quién.'
+        : 'We define what is being sold and to whom.',
       description: locale === 'es'
-        ? 'Estudiamos tu objetivo, tu oferta y tu público para definir la estrategia.'
-        : 'We study your objective, your offer and your audience to define the strategy.'
+        ? 'Revisamos objetivo, propuesta de valor y público para construir una estrategia clara desde el inicio.'
+        : 'We review the goal, value proposition and audience to build a clear strategy from the start.'
     },
     {
-      icon: '📋',
       number: '02',
-      title: locale === 'es' ? 'Definición de estructura y mensaje' : 'Definition of structure and message',
+      title: locale === 'es' ? 'Arquitectura y guion' : 'Architecture and narrative',
+      highlight: locale === 'es'
+        ? 'Traducimos la estrategia en un recorrido lógico.'
+        : 'We turn the strategy into a logical journey.',
       description: locale === 'es'
-        ? 'Diseñamos la arquitectura y el mensaje clave para máxima efectividad.'
-        : 'We design the architecture and key message for maximum effectiveness.'
+        ? 'Definimos secciones, jerarquías y mensajes clave que eliminan fricción.'
+        : 'We define sections, hierarchy and key messages that remove friction.'
     },
     {
-      icon: '🎨',
       number: '03',
-      title: locale === 'es' ? 'Diseño de la experiencia y el contenido' : 'Design of experience and content',
+      title: locale === 'es' ? 'Contenido y diseño de experiencia' : 'Content and experience design',
+      highlight: locale === 'es'
+        ? 'Creamos copy y visuales orientados a conversión.'
+        : 'We craft conversion-focused copy and visuals.',
       description: locale === 'es'
-        ? 'Creamos el diseño visual y desarrollamos el contenido persuasivo.'
-        : 'We create the visual design and develop the persuasive content.'
+        ? 'Cada bloque combina storytelling, evidencia y llamados claros para motivar la acción.'
+        : 'Each block blends storytelling, proof and clear calls-to-action to motivate movement.'
     },
     {
-      icon: '⚡',
       number: '04',
-      title: locale === 'es' ? 'Desarrollo de la landing page' : 'Development of the landing page',
+      title: locale === 'es' ? 'Desarrollo e integraciones' : 'Development and integrations',
+      highlight: locale === 'es'
+        ? 'Implementamos tecnología moderna y conectada.'
+        : 'We implement modern, connected technology.',
       description: locale === 'es'
-        ? 'Construimos la landing page con tecnología moderna y optimización.'
-        : 'We build the landing page with modern technology and optimization.'
+        ? 'Construimos la landing con performance real e integramos formularios, agendas y analítica.'
+        : 'We build with real performance and connect forms, schedulers and analytics.'
     },
     {
-      icon: '🚀',
       number: '05',
-      title: locale === 'es' ? 'Publicación y entrega final' : 'Publication and final delivery',
+      title: locale === 'es' ? 'Lanzamiento y optimización inicial' : 'Launch and initial optimization',
+      highlight: locale === 'es'
+        ? 'Medimos, ajustamos y transferimos el control.'
+        : 'We measure, adjust and hand over control.',
       description: locale === 'es'
-        ? 'Lanzamos la landing page y te entregamos el control total.'
-        : 'We launch the landing page and deliver full control to you.'
+        ? 'Activamos tracking, revisamos métricas tempranas y dejamos un plan claro de próximos pasos.'
+        : 'We activate tracking, review early metrics and leave a clear plan for next steps.'
     }
   ];
 
-  const idealFor = [
-    {
-      icon: '💰',
-      text: locale === 'es'
-        ? 'Inviertes en tráfico y no estás convirtiendo'
-        : 'You invest in traffic and are not converting'
-    },
-    {
-      icon: '🎯',
-      text: locale === 'es'
-        ? 'Necesitas generar leads de forma directa'
-        : 'You need to generate leads directly'
-    },
-    {
-      icon: '✅',
-      text: locale === 'es'
-        ? 'Quieres validar una oferta o servicio'
-        : 'You want to validate an offer or service'
-    },
-    {
-      icon: '⚡',
-      text: locale === 'es'
-        ? 'Buscas una página enfocada en acción, no en información'
-        : 'You are looking for a page focused on action, not information'
-    }
-  ];
+  const idealIntro = locale === 'es'
+    ? 'No todos los proyectos necesitan una landing page. Estos son los escenarios en los que realmente aporta valor.'
+    : 'Not every project needs a landing page. These are the scenarios where it truly adds value.';
+
+  const idealCriteria = locale === 'es'
+    ? [
+        {
+          title: 'Cuando ya existe tráfico, pero se diluye',
+          highlight: 'La landing concentra el mensaje y elimina distracciones.',
+          description: 'Ideal cuando se invierte en campañas o hay visitas constantes que no se transforman en leads.'
+        },
+        {
+          title: 'Cuando se quiere validar una oferta nueva',
+          highlight: 'Permite testear narrativa, propuesta y acción sin construir un sitio completo.',
+          description: 'Se usa para lanzar MVPs, servicios piloto o bundles que necesitan feedback rápido.'
+        },
+        {
+          title: 'Cuando el proceso comercial requiere foco',
+          highlight: 'Cada paso guía al usuario hacia una sola decisión.',
+          description: 'Funciona para servicios consultivos o productos con ticket medio/alto que necesitan contexto claro.'
+        },
+        {
+          title: 'Cuando el equipo necesita medir y optimizar',
+          highlight: 'Una landing facilita iterar, comparar variantes y escalar lo que funciona.',
+          description: 'Permite correr experimentos de copy, estructura o integraciones sin tocar todo el sitio.'
+        }
+      ]
+    : [
+        {
+          title: 'When traffic already exists but leaks out',
+          highlight: 'The landing focuses the message and removes distractions.',
+          description: 'Ideal when you invest in campaigns or have steady visits that never turn into leads.'
+        },
+        {
+          title: 'When you need to validate a new offer',
+          highlight: 'It lets you test narrative, proposition and CTA without building a full site.',
+          description: 'Used to launch MVPs, pilot services or bundles that demand fast feedback.'
+        },
+        {
+          title: 'When the sales process requires focus',
+          highlight: 'Every step guides the user toward a single decision.',
+          description: 'Works for consultative services or mid/high-ticket products that need clear context.'
+        },
+        {
+          title: 'When the team must measure and optimize',
+          highlight: 'A landing makes it easy to iterate, compare variants and scale what works.',
+          description: 'You can run copy, structure or integration experiments without touching the entire site.'
+        }
+      ];
 
   return (
     <div className="landing-pages-page">
@@ -235,7 +643,7 @@ const LandingPages = () => {
         </motion.div>
       </section>
 
-      {/* Problem Section - Grilla de 4 */}
+      {/* Problem Section */}
       <section className="problem-section">
         <motion.div 
           className="section-content"
@@ -247,71 +655,27 @@ const LandingPages = () => {
           <h2>
             {locale === 'es' ? 'El problema habitual' : 'The usual problem'}
           </h2>
-          <p>
+          <p className="problem-intro">
             {locale === 'es'
-              ? 'Muchos negocios invierten en tráfico, campañas o contenidos, pero:'
-              : 'Many businesses invest in traffic, campaigns or content, but:'}
+              ? 'Muchos negocios invierten en tráfico o contenidos, pero la experiencia que espera al usuario no tiene la misma disciplina.'
+              : 'Many companies invest in traffic or content, yet the landing experience that greets visitors lacks the same discipline.'}
           </p>
           <div className="problems-grid">
-            <div className="problem-card">
-              <div className="problem-icon">🚫</div>
-              <h3>
-                {locale === 'es'
-                  ? 'Páginas que no convierten'
-                  : 'Pages that don\'t convert'}
-              </h3>
-              <p>
-                {locale === 'es'
-                  ? 'Envían a los usuarios a páginas que no están optimizadas para la conversión.'
-                  : 'They send users to pages that are not optimized for conversion.'}
-              </p>
-            </div>
-            <div className="problem-card">
-              <div className="problem-icon">🔄</div>
-              <h3>
-                {locale === 'es'
-                  ? 'Demasiada información'
-                  : 'Too much information'}
-              </h3>
-              <p>
-                {locale === 'es'
-                  ? 'Mezclan demasiada información y objetivos en una sola página.'
-                  : 'They mix too much information and objectives on a single page.'}
-              </p>
-            </div>
-            <div className="problem-card">
-              <div className="problem-icon">❓</div>
-              <h3>
-                {locale === 'es'
-                  ? 'Mensaje confuso'
-                  : 'Confusing message'}
-              </h3>
-              <p>
-                {locale === 'es'
-                  ? 'No tienen un mensaje claro ni una acción definida para el usuario.'
-                  : 'They don\'t have a clear message or defined action for the user.'}
-              </p>
-            </div>
-            <div className="problem-card">
-              <div className="problem-icon">💸</div>
-              <h3>
-                {locale === 'es'
-                  ? 'Pérdida de oportunidades'
-                  : 'Lost opportunities'}
-              </h3>
-              <p>
-                {locale === 'es'
-                  ? 'Pierden oportunidades valiosas por falta de foco y claridad.'
-                  : 'They lose valuable opportunities due to lack of focus and clarity.'}
-              </p>
-            </div>
+            {problemCards.map((card, index) => (
+              <div className="problem-card" key={index}>
+                <div className="problem-icon" aria-hidden="true">{card.icon}</div>
+                <h3>{card.title}</h3>
+                <p className="problem-highlight"><strong>{card.highlight}</strong></p>
+                <p className="problem-description">{card.description}</p>
+              </div>
+            ))}
           </div>
           <div className="problem-result">
-            <p>
+            <strong>
               {locale === 'es'
-                ? 'El resultado es siempre el mismo: tráfico que llega, pero no convierte.'
-                : 'The result is always the same: traffic arrives, but doesn\'t convert.'}
-            </p>
+                ? 'El resultado se repite: tráfico que llega, pero no se transforma en oportunidades reales.'
+                : 'The outcome is always the same: traffic arrives, but it never turns into real opportunities.'}
+            </strong>
           </div>
         </motion.div>
       </section>
@@ -328,7 +692,7 @@ const LandingPages = () => {
           <h2>
             {locale === 'es' ? '¿Necesito un sitio web o una landing page?' : 'Do I need a website or a landing page?'}
           </h2>
-          <p>
+          <p className="comparison-text">
             {locale === 'es'
               ? 'No todos los objetivos requieren un sitio web completo. En muchos casos, una landing page es la solución más efectiva.'
               : 'Not all objectives require a complete website. In many cases, a landing page is the most effective solution.'}
@@ -339,49 +703,22 @@ const LandingPages = () => {
               <h3>
                 {locale === 'es' ? 'Cuándo conviene una landing page' : 'When a landing page is advisable'}
               </h3>
-              <p>
-                {locale === 'es'
-                  ? 'Una landing page es la mejor opción si:'
-                  : 'A landing page is the best option if:'}
+              <p className="comparison-lead">
+                <strong>{landingLead}</strong>
               </p>
               <div className="comparison-list">
-                <div className="comparison-item">
-                  <span className="item-icon">🎯</span>
-                  <span>
-                    {locale === 'es'
-                      ? 'Tienes un objetivo único y claro (captar leads, vender un servicio, agendar llamadas).'
-                      : 'You have a single, clear objective (capture leads, sell a service, schedule calls).'}
-                  </span>
-                </div>
-                <div className="comparison-item">
-                  <span className="item-icon">💰</span>
-                  <span>
-                    {locale === 'es'
-                      ? 'Inviertes en campañas de pago o tráfico específico.'
-                      : 'You invest in paid campaigns or specific traffic.'}
-                  </span>
-                </div>
-                <div className="comparison-item">
-                  <span className="item-icon">⚡</span>
-                  <span>
-                    {locale === 'es'
-                      ? 'Necesitas convertir rápidamente sin distracciones.'
-                      : 'You need to convert quickly without distractions.'}
-                  </span>
-                </div>
-                <div className="comparison-item">
-                  <span className="item-icon">✅</span>
-                  <span>
-                    {locale === 'es'
-                      ? 'Quieres validar una oferta o servicio concreto.'
-                      : 'You want to validate a specific offer or service.'}
-                  </span>
-                </div>
+                {landingCriteria.map((criterion, index) => (
+                  <div className="comparison-item" key={index}>
+                    <span className="item-icon" aria-hidden="true">{criterion.icon}</span>
+                    <div className="comparison-copy">
+                      <strong>{criterion.title}</strong>
+                      <span>{criterion.detail}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
               <p className="comparison-conclusion">
-                {locale === 'es'
-                  ? 'La landing page elimina lo innecesario y guía al usuario hacia una sola acción.'
-                  : 'The landing page eliminates the unnecessary and guides the user toward a single action.'}
+                {landingConclusion}
               </p>
             </div>
 
@@ -389,49 +726,22 @@ const LandingPages = () => {
               <h3>
                 {locale === 'es' ? 'Cuándo conviene un sitio web' : 'When a website is advisable'}
               </h3>
-              <p>
-                {locale === 'es'
-                  ? 'Un sitio web completo es más adecuado si:'
-                  : 'A complete website is more suitable if:'}
+              <p className="comparison-lead">
+                <strong>{websiteLead}</strong>
               </p>
               <div className="comparison-list">
-                <div className="comparison-item">
-                  <span className="item-icon">🏢</span>
-                  <span>
-                    {locale === 'es'
-                      ? 'Necesitas presentar tu negocio de forma integral.'
-                      : 'You need to present your business comprehensively.'}
-                  </span>
-                </div>
-                <div className="comparison-item">
-                  <span className="item-icon">🔧</span>
-                  <span>
-                    {locale === 'es'
-                      ? 'Ofreces varios servicios o soluciones.'
-                      : 'You offer several services or solutions.'}
-                  </span>
-                </div>
-                <div className="comparison-item">
-                  <span className="item-icon">🎯</span>
-                  <span>
-                    {locale === 'es'
-                      ? 'Buscas posicionamiento de marca y presencia institucional.'
-                      : 'You seek brand positioning and institutional presence.'}
-                  </span>
-                </div>
-                <div className="comparison-item">
-                  <span className="item-icon">🏗️</span>
-                  <span>
-                    {locale === 'es'
-                      ? 'Quieres construir una base sólida a largo plazo.'
-                      : 'You want to build a solid long-term foundation.'}
-                  </span>
-                </div>
+                {websiteCriteria.map((criterion, index) => (
+                  <div className="comparison-item" key={index}>
+                    <span className="item-icon" aria-hidden="true">{criterion.icon}</span>
+                    <div className="comparison-copy">
+                      <strong>{criterion.title}</strong>
+                      <span>{criterion.detail}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
               <p className="comparison-conclusion">
-                {locale === 'es'
-                  ? 'El sitio web funciona como el centro de tu ecosistema digital.'
-                  : 'The website functions as the center of your digital ecosystem.'}
+                {websiteConclusion}
               </p>
             </div>
           </div>
@@ -450,24 +760,20 @@ const LandingPages = () => {
           <h2>
             {locale === 'es' ? '¿Qué recomendamos en Alora?' : 'What do we recommend at Alora?'}
           </h2>
-          <p>
-            {locale === 'es'
-              ? 'No se trata de elegir uno u otro por defecto. Se trata de elegir la herramienta correcta según tu objetivo actual.'
-              : 'It\'s not about choosing one or the other by default. It\'s about choosing the right tool according to your current objective.'}
-          </p>
-          <div className="recommendation-content">
-            <div className="recommendation-text">
-              <p>
-                {locale === 'es'
-                  ? 'En muchos proyectos: la landing page se utiliza para convertir, y el sitio web para respaldar, posicionar y escalar.'
-                  : 'In many projects: the landing page is used to convert, and the website to support, position and scale.'}
-              </p>
-              <p>
-                {locale === 'es'
-                  ? 'Durante el análisis inicial evaluamos tu caso y te recomendamos la opción más adecuada, incluso si eso implica no desarrollar ambos.'
-                  : 'During the initial analysis we evaluate your case and recommend the most appropriate option, even if that means not developing both.'}
-              </p>
+          <div className="recommendation-panel">
+            <p className="recommendation-statement">
+              <strong>{recommendationSummary}</strong>
+            </p>
+            <p className="recommendation-description">{recommendationDescription}</p>
+            <div className="recommendation-points">
+              {recommendationDetails.map((item, index) => (
+                <div className="recommendation-point" key={index}>
+                  <span className="recommendation-label">{item.label}</span>
+                  <p>{item.text}</p>
+                </div>
+              ))}
             </div>
+            <p className="recommendation-closing">{recommendationClosing}</p>
           </div>
         </motion.div>
       </section>
@@ -484,34 +790,19 @@ const LandingPages = () => {
           <h2>
             {locale === 'es' ? 'Nuestra solución' : 'Our solution'}
           </h2>
-          <p>
-            {locale === 'es'
-              ? 'En Alora diseñamos landing pages claras, directas y orientadas a conversión, pensadas para guiar al usuario paso a paso hacia una acción concreta.'
-              : 'At Alora we design clear, direct and conversion-oriented landing pages, designed to guide the user step by step towards a specific action.'}
-          </p>
-          <div className="solution-points">
-            <div className="solution-point">
-              <span className="point-icon">🎯</span>
-              <span>
-                {locale === 'es' ? 'el objetivo del negocio' : 'the business objective'}
-              </span>
-            </div>
-            <div className="solution-point">
-              <span className="point-icon">👥</span>
-              <span>
-                {locale === 'es' ? 'el nivel de conciencia del usuario' : 'the user\'s awareness level'}
-              </span>
-            </div>
-            <div className="solution-point">
-              <span className="point-icon">📊</span>
-              <span>
-                {locale === 'es' ? 'la fuente de tráfico' : 'the traffic source'}
-              </span>
-            </div>
+          <p className="solution-description">{solutionIntro}</p>
+          <div className="solution-method">
+            {solutionPrinciples.map((principle, index) => (
+              <div className="solution-block" key={index}>
+                <h3>{principle.title}</h3>
+                <p>
+                  <strong>{principle.highlight}</strong>{' '}
+                  {principle.description}
+                </p>
+              </div>
+            ))}
           </div>
-          <p className="solution-conclusion">
-            {locale === 'es' ? 'Nada se deja al azar.' : 'Nothing is left to chance.'}
-          </p>
+          <p className="solution-conclusion">{solutionClosing}</p>
         </motion.div>
       </section>
 
@@ -527,26 +818,33 @@ const LandingPages = () => {
           <h2>
             {locale === 'es' ? 'Qué incluye el servicio de landing pages' : 'What the landing pages service includes'}
           </h2>
-          <div className="services-grid">
+          <p className="services-intro">
+            {locale === 'es'
+              ? 'Cada entrega cubre estrategia, contenido, diseño, desarrollo e integración para que la landing quede lista para convertir.'
+              : 'Every engagement covers strategy, content, design, development and integration so the landing is ready to convert.'}
+          </p>
+          <div className="services-list">
             {services.map((service, index) => (
               <motion.div 
                 key={index}
-                className="service-card"
+                className="service-item"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <div className="service-icon">{service.icon}</div>
                 <h3>{service.title}</h3>
-                <p>{service.description}</p>
+                <p>
+                  <strong>{service.highlight}</strong>{' '}
+                  {service.description}
+                </p>
               </motion.div>
             ))}
           </div>
           <p className="services-conclusion">
             {locale === 'es'
-              ? 'Todo orientado a que el usuario entienda, confíe y actúe.'
-              : 'All oriented so that the user understands, trusts and acts.'}
+              ? 'Todo está pensado para que el usuario entienda la propuesta, confíe en ella y realice una acción concreta.'
+              : 'Everything is designed so the user understands the offer, trusts it and takes a concrete action.'}
           </p>
         </motion.div>
       </section>
@@ -563,43 +861,26 @@ const LandingPages = () => {
           <h2>
             {locale === 'es' ? 'Tipos de landing pages que desarrollamos' : 'Types of landing pages we develop'}
           </h2>
-          <div className="types-grid">
-            <div className="type-item">
-              <span className="type-icon">🎯</span>
-              <span>
-                {locale === 'es' ? 'Captación de leads' : 'Lead capture'}
-              </span>
-            </div>
-            <div className="type-item">
-              <span className="type-icon">💼</span>
-              <span>
-                {locale === 'es' ? 'Venta de servicios' : 'Service sales'}
-              </span>
-            </div>
-            <div className="type-item">
-              <span className="type-icon">🚀</span>
-              <span>
-                {locale === 'es' ? 'Lanzamientos y campañas específicas' : 'Launches and specific campaigns'}
-              </span>
-            </div>
-            <div className="type-item">
-              <span className="type-icon">📅</span>
-              <span>
-                {locale === 'es' ? 'Reserva de llamadas o reuniones' : 'Call or meeting reservation'}
-              </span>
-            </div>
-            <div className="type-item">
-              <span className="type-icon">✅</span>
-              <span>
-                {locale === 'es' ? 'Validación de ofertas o ideas' : 'Validation of offers or ideas'}
-              </span>
-            </div>
+          <p className="types-description">{typesIntro}</p>
+          <div className="types-list">
+            {landingUseCases.map((useCase, index) => (
+              <motion.div 
+                className="type-case"
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+              >
+                <h3>{useCase.title}</h3>
+                <p>
+                  <strong>{useCase.highlight}</strong>{' '}
+                  {useCase.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
-          <p className="types-note">
-            {locale === 'es'
-              ? 'Si el objetivo es claro, la landing page se adapta.'
-              : 'If the objective is clear, the landing page adapts.'}
-          </p>
+          <p className="types-conclusion">{typesConclusion}</p>
         </motion.div>
       </section>
 
@@ -615,7 +896,7 @@ const LandingPages = () => {
           <h2>
             {locale === 'es' ? 'Proyectos de landing pages desarrollados' : 'Landing page projects developed'}
           </h2>
-          <p>
+          <p className="project-text"> 
             {locale === 'es'
               ? 'Diseñamos landing pages para distintos tipos de campañas y negocios, siempre con el mismo criterio: simplicidad, foco y conversión.'
               : 'We design landing pages for different types of campaigns and businesses, always with the same criteria: simplicity, focus and conversion.'}
@@ -644,8 +925,18 @@ const LandingPages = () => {
           </div>
           <p className="projects-conclusion">
             {locale === 'es'
-              ? 'Cada landing page responde a un objetivo específico, pero todas comparten el mismo principio: eliminar fricción y maximizar la conversión.'
-              : 'Each landing page responds to a specific objective, but all share the same principle: eliminate friction and maximize conversion.'}
+              ? (
+                  <>
+                    Cada landing page responde a un objetivo específico, pero todas comparten el mismo principio: {' '}
+                    <strong>eliminar fricción y maximizar la conversión.</strong>
+                  </>
+                )
+              : (
+                  <>
+                    Each landing page responds to a specific objective, yet they all share one principle: {' '}
+                    <strong>eliminate friction and maximize conversion.</strong>
+                  </>
+                )}
           </p>
         </motion.div>
       </section>
@@ -662,56 +953,26 @@ const LandingPages = () => {
           <h2>
             {locale === 'es' ? 'Servicios que complementan una landing page' : 'Services that complement a landing page'}
           </h2>
-          <p>
-            {locale === 'es'
-              ? 'Una landing page alcanza su máximo rendimiento cuando forma parte de un sistema completo. Según el objetivo del proyecto, suele combinarse con otros servicios.'
-              : 'A landing page reaches its maximum performance when it is part of a complete system. Depending on the project objective, it is usually combined with other services.'}
-          </p>
-          <div className="complementary-grid">
-            <div className="complementary-item">
-              <h4>Google Ads</h4>
-              <p>
-                {locale === 'es'
-                  ? 'Para atraer tráfico con intención real y acelerar resultados.'
-                  : 'To attract traffic with real intent and accelerate results.'}
-              </p>
-            </div>
-            <div className="complementary-item">
-              <h4>
-                {locale === 'es' ? 'Desarrollo Web' : 'Web Development'}
-              </h4>
-              <p>
-                {locale === 'es'
-                  ? 'Cuando la landing forma parte de un ecosistema digital más amplio.'
-                  : 'When the landing is part of a broader digital ecosystem.'}
-              </p>
-            </div>
-            <div className="complementary-item">
-              <h4>
-                {locale === 'es' ? 'Mantenimiento y optimización' : 'Maintenance and optimization'}
-              </h4>
-              <p>
-                {locale === 'es'
-                  ? 'Para realizar ajustes, mejoras y optimizaciones continuas.'
-                  : 'To make adjustments, improvements and continuous optimizations.'}
-              </p>
-            </div>
-            <div className="complementary-item">
-              <h4>
-                {locale === 'es' ? 'IA para atención al cliente' : 'AI for customer service'}
-              </h4>
-              <p>
-                {locale === 'es'
-                  ? 'Para responder consultas, calificar leads y automatizar el primer contacto.'
-                  : 'To respond to inquiries, qualify leads and automate first contact.'}
-              </p>
-            </div>
+          <p className="complementary-summary">{extensionSummary}</p>
+          <div className="complementary-list">
+            {extensionServices.map((service, index) => (
+              <motion.div 
+                className="complementary-block"
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+              >
+                <h4>{service.title}</h4>
+                <p>
+                  <strong>{service.highlight}</strong>{' '}
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
-          <p className="complementary-note">
-            {locale === 'es'
-              ? 'Durante el análisis inicial se define si tiene sentido integrar alguno de estos servicios o si la landing page por sí sola es suficiente.'
-              : 'During the initial analysis it is defined if it makes sense to integrate any of these services or if the landing page alone is sufficient.'}
-          </p>
+          <p className="complementary-closing">{extensionClosing}</p>
         </motion.div>
       </section>
 
@@ -727,18 +988,24 @@ const LandingPages = () => {
           <h2>
             {locale === 'es' ? 'Cómo trabajamos' : 'How we work'}
           </h2>
-          <p>
+          <p className="process-lead">
             {locale === 'es'
-              ? 'Proceso claro, rápido y enfocado en resultados.'
-              : 'Clear, fast and results-focused process.'}
+              ? 'Un flujo continuo que va desde la estrategia hasta el lanzamiento medido.'
+              : 'A continuous flow that runs from strategy to a measured launch.'}
           </p>
-          <div className="process-grid">
+          <div className="process-flow">
             {processSteps.map((step, index) => (
-              <div className="process-card" key={index}>
-                <div className="process-icon">{step.icon}</div>
-                <div className="process-number">{step.number}</div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
+              <div className="process-step" key={index}>
+                <div className="process-node">
+                  <span>{step.number}</span>
+                </div>
+                <div className="process-copy">
+                  <h3>{step.title}</h3>
+                  <p>
+                    <strong>{step.highlight}</strong>{' '}
+                    {step.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -755,13 +1022,17 @@ const LandingPages = () => {
           transition={{ duration: 0.6 }}
         >
           <h2>
-            {locale === 'es' ? 'Este servicio es ideal si' : 'This service is ideal if'}
+            {locale === 'es' ? 'Cuándo una landing page es la mejor opción' : 'When a landing page is the best option'}
           </h2>
-          <div className="ideal-list">
-            {idealFor.map((item, index) => (
-              <div className="ideal-item" key={index}>
-                <span className="ideal-icon">{item.icon}</span>
-                <span>{item.text}</span>
+          <p className="ideal-summary">{idealIntro}</p>
+          <div className="ideal-criteria">
+            {idealCriteria.map((criterion, index) => (
+              <div className="ideal-criterion" key={index}>
+                <h3>{criterion.title}</h3>
+                <p>
+                  <strong>{criterion.highlight}</strong>{' '}
+                  {criterion.description}
+                </p>
               </div>
             ))}
           </div>
