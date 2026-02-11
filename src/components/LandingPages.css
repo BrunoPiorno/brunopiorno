@@ -103,21 +103,47 @@
   padding: 5rem 2rem;
 }
 
-.landing-pages-page .section-content h2 {
-  font-size: 2.5rem;
+.landing-pages-page section h2 {
+  font-size: 2.8rem;
   font-weight: 800;
-  margin-bottom: 2rem;
-  color: var(--heading-color);
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
   font-family: var(--font-family-headline);
+  line-height: 1.2;
   text-align: center;
 }
 
+.landing-pages-page h4 {
+  text-align: center;
+}
 
 /* Problem Section */
 .problem-section {
   background: #f6f8fb;
   border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
+}
+
+.lp-icon-wrapper,
+.problem-icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+  margin-bottom: 0.85rem;
+}
+
+.problem-icon-wrapper {
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.2);
+}
+
+.lp-icon-svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .problem-intro {
@@ -459,10 +485,10 @@
 }
 
 .service-item h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 650;
   color: #0f172a;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.5rem;
 }
 
 .service-item p {
