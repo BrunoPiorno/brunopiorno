@@ -15,6 +15,7 @@ const Soluciones = lazy(() => import('./components/Soluciones'));
 const DesarrolloWeb = lazy(() => import('./components/DesarrolloWeb'));
 const LandingPages = lazy(() => import('./components/LandingPages'));
 const AplicacionesWeb = lazy(() => import('./components/AplicacionesWeb'));
+const Ecommerce = lazy(() => import('./components/Ecommerce'));
 
 const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
@@ -24,6 +25,7 @@ const AppRoutes = () => (
       <Route path="/soluciones/desarrollo-web" element={<DesarrolloWeb />} />
       <Route path="/soluciones/landing-pages" element={<LandingPages />} />
       <Route path="/soluciones/aplicaciones-web" element={<AplicacionesWeb />} />
+      <Route path="/soluciones/ecommerce" element={<Ecommerce />} />
       <Route path="/whatsapp-generator" element={<WhatsAppGenerator />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
