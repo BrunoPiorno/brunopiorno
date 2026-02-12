@@ -7,6 +7,77 @@ import './Soluciones.css';
 const Soluciones = () => {
   const { t, locale } = useLanguage();
 
+  const iconPalette = {
+    teal: 'linear-gradient(135deg, #0ea5e9, #34d399)',
+    violet: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+    amber: 'linear-gradient(135deg, #f59e0b, #f97316)',
+    rose: 'linear-gradient(135deg, #fb7185, #f472b6)',
+    slate: 'linear-gradient(135deg, #334155, #64748b)',
+    emerald: 'linear-gradient(135deg, #10b981, #22d3ee)'
+  };
+
+  const iconLibrary = {
+    globe: (
+      <svg viewBox="0 0 32 32" className="soluciones-icon-svg">
+        <circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" strokeWidth="2" />
+        <path d="M4 16h24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M16 4c-3 4-3 20 0 24m0-24c3 4 3 20 0 24" fill="none" stroke="currentColor" strokeWidth="2" />
+      </svg>
+    ),
+    target: (
+      <svg viewBox="0 0 32 32" className="soluciones-icon-svg">
+        <circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.4" />
+        <circle cx="16" cy="16" r="6" fill="none" stroke="currentColor" strokeWidth="2" />
+        <circle cx="16" cy="16" r="2" fill="currentColor" />
+      </svg>
+    ),
+    gear: (
+      <svg viewBox="0 0 32 32" className="soluciones-icon-svg">
+        <path d="M12 6l2-2h4l2 2 3-1 2 3-2 3 2 3-2 3-3-1-2 2h-4l-2-2-3 1-2-3 2-3-2-3 2-3z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+        <circle cx="16" cy="16" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+      </svg>
+    ),
+    cart: (
+      <svg viewBox="0 0 32 32" className="soluciones-icon-svg">
+        <path d="M6 8h3l3 15h12l3-11H10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="13" cy="27" r="2" fill="currentColor" />
+        <circle cx="24" cy="27" r="2" fill="currentColor" />
+      </svg>
+    ),
+    ads: (
+      <svg viewBox="0 0 32 32" className="soluciones-icon-svg">
+        <path d="M8 6h16v8H8z" fill="none" stroke="currentColor" strokeWidth="2" />
+        <path d="M8 20h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="12" cy="26" r="2" fill="currentColor" />
+        <circle cx="20" cy="26" r="2" fill="currentColor" opacity="0.7" />
+      </svg>
+    ),
+    wrench: (
+      <svg viewBox="0 0 32 32" className="soluciones-icon-svg">
+        <path d="M20 6a6 6 0 01-6 6l-2 2-6 6 6 6 6-6 2-2a6 6 0 006-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="24" cy="8" r="2" fill="currentColor" />
+      </svg>
+    ),
+    bot: (
+      <svg viewBox="0 0 32 32" className="soluciones-icon-svg">
+        <rect x="6" y="10" width="20" height="14" rx="4" fill="none" stroke="currentColor" strokeWidth="2" />
+        <circle cx="12" cy="17" r="2" fill="currentColor" />
+        <circle cx="20" cy="17" r="2" fill="currentColor" />
+        <path d="M16 6v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M10 26h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    )
+  };
+
+  const renderIcon = (iconName, tone = 'teal', wrapperClass = 'soluciones-icon-wrapper') => {
+    if (!iconLibrary[iconName]) return null;
+    return (
+      <span className={wrapperClass} style={{ background: iconPalette[tone] || iconPalette.teal }}>
+        {iconLibrary[iconName]}
+      </span>
+    );
+  };
+
   useEffect(() => {
     // Agregar clase al header para esta página
     document.body.classList.add('soluciones-page');
@@ -19,7 +90,8 @@ const Soluciones = () => {
 
   const services = [
     {
-      icon: '🌐',
+      icon: 'globe',
+      tone: 'teal',
       title: locale === 'es' ? 'Desarrollo Web' : 'Web Development',
       purpose: locale === 'es' 
         ? 'Crear una presencia digital profesional y funcional.'
@@ -30,7 +102,8 @@ const Soluciones = () => {
       id: 'desarrollo-web'
     },
     {
-      icon: '🎯',
+      icon: 'target',
+      tone: 'rose',
       title: locale === 'es' ? 'Landing Pages' : 'Landing Pages',
       purpose: locale === 'es'
         ? 'Captar leads o vender una oferta concreta.'
@@ -41,7 +114,8 @@ const Soluciones = () => {
       id: 'landing-pages'
     },
     {
-      icon: '⚙️',
+      icon: 'gear',
+      tone: 'violet',
       title: locale === 'es' ? 'Aplicaciones Web' : 'Web Applications',
       purpose: locale === 'es'
         ? 'Desarrollar sistemas y plataformas a medida.'
@@ -52,7 +126,8 @@ const Soluciones = () => {
       id: 'aplicaciones-web'
     },
     {
-      icon: '🛒',
+      icon: 'cart',
+      tone: 'amber',
       title: locale === 'es' ? 'Ecommerce' : 'Ecommerce',
       purpose: locale === 'es'
         ? 'Vender productos online de forma clara y escalable.'
@@ -63,7 +138,8 @@ const Soluciones = () => {
       id: 'ecommerce'
     },
     {
-      icon: '📈',
+      icon: 'ads',
+      tone: 'slate',
       title: 'Google Ads',
       purpose: locale === 'es'
         ? 'Captar demanda activa con intención de compra.'
@@ -74,7 +150,8 @@ const Soluciones = () => {
       id: 'google-ads'
     },
     {
-      icon: '🔧',
+      icon: 'wrench',
+      tone: 'emerald',
       title: locale === 'es' ? 'Mantenimiento Web' : 'Web Maintenance',
       purpose: locale === 'es'
         ? 'Mantener tu sitio actualizado, estable y seguro.'
@@ -85,7 +162,8 @@ const Soluciones = () => {
       id: 'mantenimiento-web'
     },
     {
-      icon: '🤖',
+      icon: 'bot',
+      tone: 'rose',
       title: locale === 'es' ? 'IA para Atención al Cliente' : 'AI for Customer Service',
       purpose: locale === 'es'
         ? 'Automatizar respuestas, calificar leads y agendar reuniones.'
@@ -212,7 +290,7 @@ const Soluciones = () => {
                 <>
                   <div className="novedad-badge">NOVEDAD</div>
                   <div className="service-icon">
-                    <span>{service.icon}</span>
+                    {renderIcon(service.icon, service.tone)}
                   </div>
                   <div className="service-content">
                     <div className="service-text">
@@ -234,7 +312,7 @@ const Soluciones = () => {
                 // Layout normal para otros servicios
                 <>
                   <div className="service-icon">
-                    <span>{service.icon}</span>
+                    {renderIcon(service.icon, service.tone)}
                   </div>
                   <div className="service-content">
                     <h3>{service.title}</h3>

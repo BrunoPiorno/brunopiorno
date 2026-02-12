@@ -11,6 +11,7 @@ const SiteHeader = ({ hideMenu = false }) => {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const SiteHeader = ({ hideMenu = false }) => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+    setIsSolutionsOpen(false);
   };
 
   const handleNavClick = (e, href) => {
@@ -53,14 +55,53 @@ const SiteHeader = ({ hideMenu = false }) => {
     }
   };
 
-  const navLinks = [
+  const solutionsBase = `/${locale}/soluciones`;
+
+  const navLinksBeforeDropdown = [
     { href: `/${locale}/#about`, label: t('header.about'), isRouterLink: false },
-    { href: `/${locale}/services`, label: t('header.services'), isRouterLink: true },
-    { href: `/${locale}/#proyectos`, label: t('header.projects'), isRouterLink: false },
-    { href: `/${locale}/#clientes`, label: t('header.clients'), isRouterLink: false },
-    { href: `/${locale}/#tecnologias`, label: t('header.technologies'), isRouterLink: false },
-    { href: `/${locale}/blog`, label: t('header.blog'), isRouterLink: true },
+    { href: `/${locale}/#proyectos`, label: t('header.projects'), isRouterLink: false }
   ];
+
+  const navLinksAfterDropdown = [
+    { href: `/${locale}/#clientes`, label: t('header.clients'), isRouterLink: false },
+    { href: `/${locale}/#tecnologias`, label: t('header.technologies'), isRouterLink: false }
+  ];
+
+  const solutionsMenu = locale === 'es'
+    ? [
+        { label: 'Desarrollo Web', href: `${solutionsBase}/desarrollo-web` },
+        { label: 'Landing Pages', href: `${solutionsBase}/landing-pages` },
+        { label: 'Aplicaciones Web', href: `${solutionsBase}/aplicaciones-web` },
+        { label: 'Ecommerce', href: `${solutionsBase}/ecommerce` },
+        { label: 'Google Ads', href: `${solutionsBase}/google-ads` }
+      ]
+    : [
+        { label: 'Web Development', href: `${solutionsBase}/desarrollo-web` },
+        { label: 'Landing Pages', href: `${solutionsBase}/landing-pages` },
+        { label: 'Web Applications', href: `${solutionsBase}/aplicaciones-web` },
+        { label: 'Ecommerce', href: `${solutionsBase}/ecommerce` },
+        { label: 'Google Ads', href: `${solutionsBase}/google-ads` }
+      ];
+
+  const handleSolutionsToggle = () => {
+    setIsSolutionsOpen(prev => !prev);
+  };
+
+  const handleSolutionsHover = (open) => {
+    if (window.innerWidth >= 992) {
+      setIsSolutionsOpen(open);
+    }
+  };
+
+  const handleSolutionClick = () => {
+    closeMobileMenu();
+    setIsSolutionsOpen(false);
+  };
+
+  const handleSolutionsClick = () => {
+    navigate(solutionsBase);
+    closeMobileMenu();
+  };
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
@@ -100,7 +141,77 @@ const SiteHeader = ({ hideMenu = false }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {navLinks.map(link => (
+            {navLinksBeforeDropdown.map(link => (
+              link.isRouterLink ? (
+                <Link key={link.href} to={link.href} onClick={closeMobileMenu}>{link.label}</Link>
+              ) : (
+                <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.label}</a>
+              )
+            ))}
+            <div
+              className={`nav-item has-dropdown ${isSolutionsOpen ? 'open' : ''}`}
+              onMouseEnter={() => handleSolutionsHover(true)}
+              onMouseLeave={() => handleSolutionsHover(false)}
+            >
+              <button
+                className="dropdown-trigger"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={isSolutionsOpen}
+                onClick={handleSolutionsClick}
+              >
+                {t('header.solutions')}
+                <span className="dropdown-icon" aria-hidden="true">⌄</span>
+              </button>
+              <div className="solutions-dropdown">
+                {solutionsMenu.map(item => (
+                  <Link key={item.href} to={item.href} onClick={handleSolutionClick}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            {navLinksAfterDropdown.map(link => (
+              link.isRouterLink ? (
+                <Link key={link.href} to={link.href} onClick={closeMobileMenu}>{link.label}</Link>
+              ) : (
+                <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.label}</a>
+              )
+            ))}
+            <LanguageToggle />
+            <a href={`/${locale}/#contacto`} className="contact-btn" onClick={(e) => handleNavClick(e, `/${locale}/#contacto`)}>{t('header.contact')}</a>
+          </motion.div>
+        )}
+        {isMobileMenuOpen && !hideMenu && (
+          <motion.div 
+            className="mobile-nav-links"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {navLinksBeforeDropdown.map(link => (
+              link.isRouterLink ? (
+                <Link key={link.href} to={link.href} onClick={closeMobileMenu}>{link.label}</Link>
+              ) : (
+                <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.label}</a>
+              )
+            ))}
+            <div className={`mobile-dropdown ${isSolutionsOpen ? 'open' : ''}`}>
+              <button className="dropdown-trigger" onClick={handleSolutionsToggle}>
+                {t('header.solutions')}
+                <span className="dropdown-icon" aria-hidden="true">⌄</span>
+              </button>
+              {isSolutionsOpen && (
+                <div className="solutions-dropdown">
+                  {solutionsMenu.map(item => (
+                    <Link key={item.href} to={item.href} onClick={handleSolutionClick}>
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            {navLinksAfterDropdown.map(link => (
               link.isRouterLink ? (
                 <Link key={link.href} to={link.href} onClick={closeMobileMenu}>{link.label}</Link>
               ) : (

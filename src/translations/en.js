@@ -16,6 +16,7 @@ export const en = {
   // Header
   'header.home': 'Home',
   'header.services': 'Services',
+  'header.solutions': 'Solutions',
   'header.projects': 'Projects',
   'header.clients': 'Clients',
   'header.about': 'About Us',

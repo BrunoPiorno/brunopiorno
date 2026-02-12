@@ -16,6 +16,7 @@ export const es = {
   // Header
   'header.home': 'Inicio',
   'header.services': 'Servicios',
+  'header.solutions': 'Soluciones',
   'header.projects': 'Proyectos',
   'header.clients': 'Clientes',
   'header.about': 'Quiénes Somos',
