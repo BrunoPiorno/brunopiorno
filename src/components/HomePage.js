@@ -423,6 +423,7 @@ const HomePage = () => {
         <meta property="og:description" content={t('meta.description')} />
         <meta property="og:image" content="/aloralogo.png" />
         <meta property="og:url" content="https://globalalora.com" />
+        <link rel="canonical" href="https://globalalora.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t('meta.title')} />
         <meta name="twitter:description" content={t('meta.description')} />
