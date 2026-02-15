@@ -47,7 +47,15 @@ const ContactForm = () => {
         maxMessage: 'La consulta no puede exceder 2000 caracteres',
         privacyRequired: 'Debes aceptar la política de privacidad',
         invalidPhone: 'Por favor ingresa un teléfono válido'
-      }
+      },
+      placeholders: {
+        name: 'Juan Pérez',
+        email: 'tu@email.com',
+        country: '- Selecciona tu país -',
+        phone: '+54 9 11 1234-5678',
+        message: 'Cuéntanos tu consulta o proyecto...'
+      },
+      charCountLabel: 'caracteres'
     },
     en: {
       name: 'Name',
@@ -73,7 +81,15 @@ const ContactForm = () => {
         maxMessage: 'The message cannot exceed 2000 characters',
         privacyRequired: 'You must accept the privacy policy',
         invalidPhone: 'Please enter a valid phone'
-      }
+      },
+      placeholders: {
+        name: 'John Smith',
+        email: 'you@example.com',
+        country: '- Select your country -',
+        phone: '+1 415 555 0000',
+        message: 'Tell us about your project...'
+      },
+      charCountLabel: 'characters'
     }
   };
 
@@ -166,7 +182,7 @@ const ContactForm = () => {
             <input 
               type="text" 
               id="name" 
-              placeholder="Juan Pérez"
+              placeholder={lang.placeholders.name}
               {...register('name', { 
                 required: lang.validation.required,
                 minLength: {
@@ -193,7 +209,7 @@ const ContactForm = () => {
             <input 
               type="email" 
               id="email" 
-              placeholder="tu@email.com"
+              placeholder={lang.placeholders.email}
               {...register('email', { 
                 required: lang.validation.required,
                 pattern: {
@@ -228,7 +244,7 @@ const ContactForm = () => {
               disabled={isSubmitting}
               aria-invalid={errors.country ? 'true' : 'false'}
             >
-              <option value="">- Selecciona tu país -</option>
+              <option value="">{lang.placeholders.country}</option>
               <optgroup label="Latinoamérica">
                 <option value="Argentina">Argentina</option>
                 <option value="Bolivia">Bolivia</option>
@@ -272,7 +288,7 @@ const ContactForm = () => {
             <input 
               type="tel" 
               id="phone" 
-              placeholder="+54 9 11 1234-5678"
+              placeholder={lang.placeholders.phone}
               {...register('phone', { 
                 required: lang.validation.required,
                 pattern: {
@@ -300,7 +316,7 @@ const ContactForm = () => {
           <textarea 
             id="message" 
             rows="5" 
-            placeholder="Cuéntanos tu consulta o proyecto..."
+            placeholder={lang.placeholders.message}
             {...register('message', { 
               required: lang.validation.required,
               minLength: {
@@ -321,7 +337,7 @@ const ContactForm = () => {
             </span>
           )}
           <span className="character-count">
-            {watch('message')?.length || 0} / 2000 caracteres
+            {watch('message')?.length || 0} / 2000 {lang.charCountLabel}
           </span>
         </div>
 
