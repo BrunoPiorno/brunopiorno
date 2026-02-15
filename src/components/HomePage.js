@@ -423,7 +423,6 @@ const HomePage = () => {
         <meta property="og:description" content={t('meta.description')} />
         <meta property="og:image" content="/aloralogo.png" />
         <meta property="og:url" content="https://globalalora.com" />
-        <link rel="canonical" href="https://globalalora.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t('meta.title')} />
         <meta name="twitter:description" content={t('meta.description')} />
@@ -618,6 +617,23 @@ const HomePage = () => {
             <ServiceCard key={index} service={service} index={index} />
           ))}
         </div>
+
+        <motion.div 
+          className="services-cta"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <motion.a 
+            href="/soluciones"
+            className="cta-secondary large"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {t('services.viewAll')}
+          </motion.a>
+        </motion.div>
 
         <motion.div 
           className="gdpr-compliance-block"
