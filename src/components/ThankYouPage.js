@@ -49,8 +49,8 @@ const ThankYouPage = () => {
         
         <a 
           href={locale === 'es' 
-            ? 'https://tidycal.com/alora/20-minutos-reunion' 
-            : 'https://tidycal.com/alora/20-minutes'
+            ? 'https://www.globalalora.com/es/llamada-de-relevamiento' 
+            : 'https://www.globalalora.com/en/discovery-call'
           } 
           target="_blank" 
           rel="noopener noreferrer"
