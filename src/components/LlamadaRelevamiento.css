@@ -24,9 +24,10 @@
   min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 2rem;
+  padding-bottom: 4rem;
   background: white;
 }
 
@@ -77,7 +78,6 @@
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e2e8f0;
-  overflow: hidden;
 }
 
 /* Tidycal Embed Styles */
@@ -89,8 +89,9 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .llamada-relevamiento-container {
-    padding: 1.5rem;
-    min-height: calc(100vh - 70px);
+    padding: 1.5rem 1rem 3rem;
+    min-height: auto;
+    align-items: stretch;
   }
   
   .llamada-logo-header {
@@ -120,8 +121,8 @@
 
 @media (max-width: 480px) {
   .llamada-relevamiento-container {
-    padding: 1rem;
-    min-height: calc(100vh - 60px);
+    padding: 1rem 1rem 3rem;
+    min-height: auto;
   }
   
   .llamada-logo-header {
