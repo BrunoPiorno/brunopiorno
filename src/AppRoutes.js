@@ -17,6 +17,7 @@ const LandingPages = lazy(() => import('./components/LandingPages'));
 const AplicacionesWeb = lazy(() => import('./components/AplicacionesWeb'));
 const Ecommerce = lazy(() => import('./components/Ecommerce'));
 const GoogleAds = lazy(() => import('./components/GoogleAds'));
+const ProposalLanding = lazy(() => import('./components/proposals/ProposalLanding'));
 
 const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
@@ -35,6 +36,7 @@ const AppRoutes = () => (
       <Route path="/legal-notice" element={<LegalNotice />} />
       <Route path="/cookies-policy" element={<CookiesPolicy />} />
       <Route path="/thank-you" element={<ThankYouPage />} />
+      <Route path="/:slug" element={<ProposalLanding />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </Suspense>

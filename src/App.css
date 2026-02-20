@@ -3157,6 +3157,13 @@ body.soluciones-page .site-header .language-selector {
   }
 }
 
+/* Proposal Page Styles */
+body.proposal-page-active .nav-links,
+body.proposal-page-active .mobile-menu-button,
+body.proposal-page-active .mobile-controls .language-toggle {
+  display: none !important;
+}
+
 /* Chatbot Styles */
 .chatbot-fab {
   position: fixed;
