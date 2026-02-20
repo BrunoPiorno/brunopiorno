@@ -13,11 +13,11 @@
   max-width: 1440px;
   margin: 0 auto;
 }
-
-.hero-content {
+.proposal-hero .hero-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: flex-start;
 }
 
 .hero-badge {
