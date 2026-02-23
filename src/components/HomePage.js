@@ -12,7 +12,7 @@ import ServiceCard from './ServiceCard';
 import AboutSection from './AboutSection';
 import ProjectCard from './ProjectCard';
 import ClientCard from './ClientCard';
-//import TestimonialCard from './TestimonialCard';
+import TestimonialCard from './TestimonialCard';
 import LatestPosts from './LatestPosts';
 import FloatingIcons from './FloatingIcons';
 import ContactForm from './ContactForm';
@@ -28,6 +28,7 @@ import zerxio from '../images/zerxio-logo.svg';
 import heroImage from '../images/team.png';
 import alauxImage from '../images/alaux.png';
 import gretaImage from '../images/greta.png';
+import talleresImage from '../images/talleres.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -63,14 +64,19 @@ const HomePage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('all');
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   const projects = useMemo(() => {
     const featuredProjects = t('projects.featured');
+    const projectImages = {
+      EntradaFan: entradafanLogo,
+      'Fundación Por Nuestros Niños': fpnnLogo,
+      'Talleres Unidos': talleresImage,
+    };
+
     return featuredProjects.map(project => ({
       ...project,
-      image: project.title === 'EntradaFan' ? entradafanLogo : 
-             project.title === 'Fundación Por Nuestros Niños' ? fpnnLogo : 
-             gangafanlogo
+      image: projectImages[project.title] || project.image || gangafanlogo
     }));
   }, [t]);
 
@@ -144,6 +150,62 @@ const HomePage = () => {
       url: 'https://mimikids.com.ar'
     },
   ];
+
+  const testimonials = useMemo(() => ([
+    {
+      quote: t('testimonials.tenis.quote'),
+      author: 'Alejandro',
+      company: 'Presidente de la Comisión de Tenis de Mesa',
+      image: require('../images/tenisdemesa.png'),
+      metrics: [
+        t('testimonials.tenis.metric1'),
+        t('testimonials.tenis.metric2'),
+        t('testimonials.tenis.metric3')
+      ],
+      link: {
+        url: 'https://trenquetdmranking.com.ar/',
+        label: 'Ver ranking en vivo'
+      }
+    },
+    {
+      quote: t('testimonials.fundacion.quote'),
+      author: 'Verónica Figueroa',
+      company: t('testimonials.fundacion.company'),
+      image: require('../images/fundacion.png'),
+      metrics: [
+        t('testimonials.fundacion.metric1'),
+        t('testimonials.fundacion.metric2'),
+        t('testimonials.fundacion.metric3')
+      ],
+      link: {
+        url: 'http://fpnn.org.ar/',
+        label: 'Visitar FPNN'
+      }
+    },
+    {
+      quote: t('testimonials.rulo.quote'),
+      author: 'Rulo de Viaje',
+      company: t('testimonials.rulo.company'),
+      image: require('../images/rulo.png'),
+      metrics: [
+        t('testimonials.rulo.metric1'),
+        t('testimonials.rulo.metric2'),
+        t('testimonials.rulo.metric3')
+      ],
+      link: {
+        url: 'https://club.rulodeviaje.com/',
+        label: 'Ver comunidad'
+      }
+    }
+  ]), [t]);
+
+  const handleNextTestimonial = () => {
+    setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const handlePrevTestimonial = () => {
+    setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -237,6 +299,14 @@ const HomePage = () => {
   ];
 
   const allProjects = [
+        {
+      title: t('projects.talleres.title'),
+      description: t('projects.talleres.desc'),
+      image: talleresImage,
+      url: '#',
+      contribution: 'contribution.full',
+      category: 'sistema-web'
+    },
     {
       title: t('projects.fpnn.title'),
       description: t('projects.fpnn.desc'),
@@ -691,7 +761,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials Section */}
-      {/* <section id="testimonios" className="testimonials-section">
+      <section id="testimonios" className="testimonials-section">
         <motion.div 
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
@@ -703,24 +773,37 @@ const HomePage = () => {
           <p>{t('testimonials.subtitle')}</p>
         </motion.div>
 
-        <div className="testimonials-grid">
-          {[
-            {
-              quote: t('testimonials.tenis.quote'),
-              author: 'Alejandro',
-              company: 'Presidente de la Comisión de Tenis de Mesa',
-              image: require('../images/tenisdemesa.png'),
-              metrics: [
-                t('testimonials.tenis.metric1'),
-                t('testimonials.tenis.metric2'),
-                t('testimonials.tenis.metric3')
-              ]
-            }
-          ].map((testimonial, index) => (
-            <TestimonialCard key={index} testimonial={testimonial} index={index} />
+        <div className="testimonials-slider" aria-live="polite">
+          <button className="testimonial-nav" onClick={handlePrevTestimonial} aria-label="Testimonio anterior">
+            ←
+          </button>
+          <div className="testimonials-window">
+            <div
+              className="testimonials-track"
+              style={{ transform: `translateX(-${activeTestimonial * 100}%)` }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div key={`testimonial-${index}`} className="testimonial-slide">
+                  <TestimonialCard testimonial={testimonial} index={index} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <button className="testimonial-nav" onClick={handleNextTestimonial} aria-label="Siguiente testimonio">
+            →
+          </button>
+        </div>
+        <div className="testimonial-dots">
+          {testimonials.map((_, index) => (
+            <button
+              key={`testimonial-dot-${index}`}
+              className={`testimonial-dot ${index === activeTestimonial ? 'active' : ''}`}
+              onClick={() => setActiveTestimonial(index)}
+              aria-label={`Ir al testimonio ${index + 1}`}
+            />
           ))}
         </div>
-      </section>  */}
+      </section>
 
       {/* Recognition Section */}
       <section id="reconocimientos" className="recognition-section">
