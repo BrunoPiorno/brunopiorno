@@ -22,6 +22,8 @@ export const es = {
   'header.contact': 'Contacto',
   'header.methodology': 'Metodología',
   'header.technologies': 'Tecnologías',
+  'header.faqs': 'FAQs',
+  'header.testimonials': 'Testimonios',
   'header.blog': 'Blog',
   'home.contact.title': 'Contacto',
   'home.gdpr.title': 'Tu Privacidad es Nuestra Prioridad',
@@ -53,6 +55,8 @@ export const es = {
   'projects.terracota.desc': 'Carta digital con lógica de horarios que muestra secciones del menú (desayunos, para picar, comidas, postres) según la hora. Totalmente programado a medida con PHP y jQuery.',
   'projects.fpnn.title': 'Fundación Por Nuestros Niños',
   'projects.fpnn.desc': 'Sitio completamente custom, desarrollado a medida con diseño personalizado que refleja la identidad de la fundación, su misión, programas y formas de colaborar. Sitio hecho custom con HTML, PHP, SCSS, ACF con un diseño personalizado.',
+  'projects.talleres.title': 'Talleres Unidos',
+  'projects.talleres.desc': 'Sistema web con login de usuarios, suscripción y desafíos mensuales de escritura y lectura. Construido con Elementor y desarrollo personalizado para gestionar comunidades creativas.',
   'projects.featured': [
     {
       title: 'EntradaFan',
@@ -65,6 +69,12 @@ export const es = {
       description: 'Sitio completamente custom, desarrollado a medida con diseño personalizado que refleja la identidad de la fundación, su misión, programas y formas de colaborar. Sitio hecho custom con HTML, PHP, SCSS, ACF con un diseño personalizado.',
       image: '/images/fpnn.png',
       url: 'http://fpnn.org.ar/'
+    },
+    {
+      title: 'Talleres Unidos',
+      description: 'Sistema web con login de usuarios, suscripción y desafíos mensuales de escritura y lectura. Construido con Elementor y desarrollo personalizado para gestionar comunidades creativas.',
+      image: '/images/talleres.png',
+      url: '#'
     },
   ],
 
@@ -132,6 +142,18 @@ export const es = {
   'testimonials.tenis.metric1': 'Sistema integral',
   'testimonials.tenis.metric2': 'Gestión eficiente',
   'testimonials.tenis.metric3': 'Fácil de usar',
+
+  'testimonials.fundacion.quote': 'Desde Fundación por Nuestros Niños agradecemos el proceso compartido en la creación de nuestra página web. Ha sido una experiencia muy linda, que además nos permitió revisar aspectos muy importantes de nuestra institución. Era una deuda pendiente para nuestra ONG que lleva más de 28 años trabajando por la niñez de Salta. Gracias por la calidez, compromiso, profesionalismo y paciencia del equipo de Alora. ¡Esperamos mantener nuestra alianza por el bien común!'.trim(),
+  'testimonials.fundacion.company': 'Fundación por Nuestros Niños – Presidenta del Consejo de Administración',
+  'testimonials.fundacion.metric1': 'Proceso colaborativo',
+  'testimonials.fundacion.metric2': 'Impacto social',
+  'testimonials.fundacion.metric3': 'Equipo comprometido',
+
+  'testimonials.rulo.quote': 'Fue un placer trabajar con Bruno y su equipo. Desde los procesos y canales de comunicación, el manejo de los tiempos y la seriedad con la que abordaron el trabajo. Dedicaron tiempo para entender la esencia del proyecto, hacer las sugerencias pertinentes y tener la predisposición para resolver cada situación. Quedé muy conforme con el trabajo realizado y los recomiendo.',
+  'testimonials.rulo.company': 'Creador de la comunidad Club Rulo de Viaje',
+  'testimonials.rulo.metric1': 'Proceso claro',
+  'testimonials.rulo.metric2': 'Comunicación abierta',
+  'testimonials.rulo.metric3': 'Resultados impecables',
 
 
   // Últimas noticias

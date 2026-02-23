@@ -1479,13 +1479,65 @@ body.soluciones-page .site-header .language-selector {
   pointer-events: none;
 }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 2rem;
+.testimonials-slider {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+.testimonials-window {
+  overflow: hidden;
+  flex: 1;
+}
+
+.testimonials-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.testimonial-slide {
+  flex: 0 0 100%;
+  padding: 0 10px;
+}
+
+.testimonial-nav {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+  font-size: 1.25rem;
+  color: #0f172a;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.testimonial-nav:hover {
+  transform: translateY(-2px);
+}
+
+.testimonial-dots {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.testimonial-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #cbd5f5;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.testimonial-dot.active {
+  background: #2d8a85;
+  transform: scale(1.2);
 }
 
 .testimonial-card {
@@ -1496,10 +1548,44 @@ body.soluciones-page .site-header .language-selector {
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+}
+
+.testimonial-link {
+  margin-top: 1.5rem;
+}
+
+.testimonial-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  background: #101b2d;
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 15px 35px rgba(16, 27, 45, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimonial-link a::after {
+  content: '↗';
+  font-size: 0.95rem;
+}
+
+.testimonial-link a:hover {
+  background: #1f2f46;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 45px rgba(16, 27, 45, 0.28);
+}
+
+.testimonial-author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .testimonial-card::before {
@@ -1592,6 +1678,7 @@ body.soluciones-page .site-header .language-selector {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  margin-top: 1rem;
 }
 
 .author-info strong {
@@ -1627,16 +1714,19 @@ body.soluciones-page .site-header .language-selector {
 }
 
 @media (max-width: 768px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    padding: 1rem;
+  .testimonials-slider {
+    flex-direction: column;
   }
 
-  .testimonial-card {
-    padding: 2rem;
+  .testimonials-window,
+  .testimonials-track,
+  .testimonial-slide {
+    width: 100%;
   }
 
-  .testimonial-quote {
+  .testimonial-nav {
+    width: 44px;
+    height: 44px;
     font-size: 1rem;
   }
 }

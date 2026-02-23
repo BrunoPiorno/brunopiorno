@@ -42,9 +42,10 @@ export const en = {
   'thankyou.backButton': 'Back to Home',
   'thankyou.calendarTitle': 'Schedule a Meeting',
   'thankyou.calendarText': 'Want to discuss your project in detail? Book a 20-minute meeting with me.',
-
   'header.methodology': 'Methodology',
   'header.technologies': 'Technologies',
+  'header.faqs': 'FAQs',
+  'header.testimonials': 'Testimonials',
   'header.blog': 'Blog',
 
   // Featured Projects
@@ -54,6 +55,8 @@ export const en = {
   'projects.terracota.desc': 'Digital menu with time-based logic that displays menu sections (breakfast, snacks, lunch, desserts) according to the time of day. Fully custom-coded with PHP and jQuery.',
   'projects.fpnn.title': 'Fundación Por Nuestros Niños',
   'projects.fpnn.desc': 'Fully custom site, tailor-made development with personalized design that reflects the foundation identity, mission, programs, and collaboration methods. Custom site built with HTML, PHP, SCSS, ACF with personalized design.',
+  'projects.talleres.title': 'Talleres Unidos',
+  'projects.talleres.desc': 'Web system with user login, subscriber workflow, and monthly creative challenges (writing, reading, story library) built with Elementor plus custom code.',
   'projects.featured': [
     {
       title: 'EntradaFan',
@@ -84,6 +87,12 @@ export const en = {
       description: 'Online ticket sales platform for events and shows',
       image: '/images/entradafan.svg',
       url: 'https://entradafan.com.ar'
+    },
+    {
+      title: 'Talleres Unidos',
+      description: 'Web system with user login, subscriber workflow, and monthly creative challenges (writing, reading, story library) built with Elementor plus custom code.',
+      image: '/images/talleres.png',
+      url: '#'
     }
   ],
 
@@ -118,6 +127,18 @@ export const en = {
   'testimonials.tenis.metric1': 'Integral system',
   'testimonials.tenis.metric2': 'Efficient management',
   'testimonials.tenis.metric3': 'Easy to use',
+
+  'testimonials.fundacion.quote': 'From Fundación por Nuestros Niños, we are grateful for the process we shared while creating our website. It was a beautiful experience that also allowed us to revisit essential aspects of our institution. It was a pending milestone for our NGO, which has spent more than 28 years working to improve access to health, education, development, and rights for children and adolescents in Salta. Thank you for the warmth, commitment, professionalism, and patience of the Alora team. We hope to continue this alliance for the greater good!',
+  'testimonials.fundacion.company': 'Fundación por Nuestros Niños – Chair of the Board of Directors',
+  'testimonials.fundacion.metric1': 'Collaborative process',
+  'testimonials.fundacion.metric2': 'Social impact',
+  'testimonials.fundacion.metric3': 'Committed team',
+
+  'testimonials.rulo.quote': 'It was a pleasure working with Bruno and his team. From the communication processes and channels to time management and the seriousness with which they approached the work. They took the time to understand the essence of the project, make the pertinent suggestions, and were willing to resolve every situation. I was very satisfied with the final result and highly recommend them.',
+  'testimonials.rulo.company': 'Founder of Club Rulo de Viaje community',
+  'testimonials.rulo.metric1': 'Clear process',
+  'testimonials.rulo.metric2': 'Open communication',
+  'testimonials.rulo.metric3': 'Impeccable results',
 
   // Projects
   'projects.viewSite': 'View Site',
