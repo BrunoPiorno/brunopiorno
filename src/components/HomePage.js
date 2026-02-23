@@ -688,22 +688,7 @@ const HomePage = () => {
           ))}
         </div>
 
-        <motion.div 
-          className="services-cta"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <motion.a 
-            href="/soluciones"
-            className="cta-secondary large"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {t('services.viewAll')}
-          </motion.a>
-        </motion.div>
+
 
         <motion.div 
           className="gdpr-compliance-block"
