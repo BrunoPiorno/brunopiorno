@@ -144,7 +144,7 @@ module.exports = async function handler(req, res) {
       ? 'Answer in max 2 sentences, no lists. If they want a meeting/consultation, ask for their contact.'
       : 'Respondé en máximo 2 oraciones, sin listas. Si piden reunión/consulta, pedí su contacto.';
 
-    const prompt = `${SYSTEM_PROMPTS[selectedLanguage]}\n\n${selectedLanguage === 'en' ? 'Conversation' : 'Conversación'}:\n${conversationText}\n\n${reminder}`;
+    const prompt = `${selectedLanguage === 'en' ? 'Conversation' : 'Conversación'}:\n${conversationText}\n\n${reminder}`;
 
     const groqPayload = {
       model: GROQ_MODEL,
