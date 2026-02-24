@@ -11,6 +11,11 @@ const CONTACT_INFO = {
 
 const MAX_CHAT_RETRIES = 2;
 
+const formatConversationForEmail = (conversationArray = []) =>
+  conversationArray
+    .map(msg => `${msg.from === 'user' ? 'Cliente' : 'Bot'}: ${msg.text}`)
+    .join('\n\n');
+
 const Chatbot = () => {
   const { locale } = useLanguage();
 
@@ -69,7 +74,7 @@ const Chatbot = () => {
   };
 
   // Detectar y enviar leads por email
-  const detectAndSendLead = (userMessage) => {
+  const detectAndSendLead = (userMessage, conversationSnapshot = messages) => {
     // Detectar números de teléfono (formato argentino y general)
     const phoneRegex = /(\+?54\s?9?\s?)?(\d{2,4})[\s-]?(\d{6,8})|(\d{10,})/g;
     // Detectar emails
@@ -79,15 +84,15 @@ const Chatbot = () => {
     const emails = userMessage.match(emailRegex);
     
     if (phones || emails) {
-      // Preparar el historial de conversación
-      const conversationHistory = messages
-        .map(msg => `${msg.from === 'user' ? 'Cliente' : 'Bot'}: ${msg.text}`)
-        .join('\n\n');
+      const conversationHistory = formatConversationForEmail(conversationSnapshot);
       
       // Enviar email con EmailJS
       const templateParams = {
-        lead_contact: phones ? phones.join(', ') : emails.join(', '),
-        lead_type: phones ? 'Teléfono' : 'Email',
+        lead_contact: [
+          phones ? `Teléfono(s): ${phones.join(', ')}` : null,
+          emails ? `Email(s): ${emails.join(', ')}` : null
+        ].filter(Boolean).join('\n'),
+        lead_type: phones && emails ? 'Teléfono y Email' : (phones ? 'Teléfono' : 'Email'),
         conversation: conversationHistory,
         user_message: userMessage,
         date: new Date().toLocaleString('es-AR')
@@ -142,7 +147,7 @@ const Chatbot = () => {
 
     const userMessage = { from: 'user', text: inputValue };
     const newMessages = [...messages, userMessage];
-    detectAndSendLead(inputValue);
+    detectAndSendLead(inputValue, newMessages);
 
     if (step === 'chat') {
       setIsSending(true);
@@ -154,7 +159,7 @@ const Chatbot = () => {
         const botResponse = await chatRequestWithRetry(newMessages, 0);
         setIsTyping(false);
         setMessages(prev => [...prev, { from: 'bot', text: botResponse }]);
-        handleContactOffer(botResponse, newMessages.length);
+        handleContactOffer(botResponse, userMessage.text, newMessages.length);
       } catch (error) {
         console.error('Error al contactar la API del chat:', error);
         const fallback = locale === 'en'
@@ -194,11 +199,8 @@ const Chatbot = () => {
     } else if (step === 'phone') {
       const updatedUserData = { ...userData, phone: inputValue };
       setUserData(updatedUserData);
-      
-      // Preparar el historial de conversación
-      const conversationHistory = messages
-        .map(msg => `${msg.from === 'user' ? 'Cliente' : 'Bot'}: ${msg.text}`)
-        .join('\n\n');
+
+      const conversationHistory = formatConversationForEmail(newMessages);
       
       // Enviar email con EmailJS
       const templateParams = {
@@ -229,19 +231,19 @@ const Chatbot = () => {
     setInputValue('');
   };
 
-  const handleContactOffer = (botResponse, conversationLength) => {
+  const handleContactOffer = (botResponse, userMessageText, conversationLength) => {
     const responseLower = botResponse.toLowerCase();
+    const userTextLower = (userMessageText || '').toLowerCase();
     const isErrorFallback = responseLower.includes('problema técnico') || responseLower.includes('technical issue');
 
     if (isErrorFallback || hasOfferedContact) return;
 
-    const wantsQuote = responseLower.includes('precio') ||
-      responseLower.includes('presupuesto') ||
-      responseLower.includes('costo') ||
-      responseLower.includes('price') ||
-      responseLower.includes('quote');
+    const quoteKeywords = ['precio', 'presupuesto', 'costo', 'price', 'quote', 'budget'];
+    const meetingKeywords = ['contacto', 'contact', 'reunión', 'reunion', 'meeting', 'llamar', 'llamada', 'call', 'whatsapp'];
+    const wantsQuote = quoteKeywords.some(word => userTextLower.includes(word));
+    const wantsMeeting = meetingKeywords.some(word => userTextLower.includes(word));
 
-    if (wantsQuote) {
+    if (wantsQuote || wantsMeeting) {
       setHasOfferedContact(true);
       setStep('name');
       setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].ask_name }]);
