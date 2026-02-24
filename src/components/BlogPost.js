@@ -169,6 +169,7 @@ const BlogPost = () => {
                     return (
                       <motion.p 
                         key={idx}
+                        className="blog-paragraph"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay }}
@@ -238,6 +239,27 @@ const BlogPost = () => {
                       >
                         {block.value}
                       </motion.h2>
+                    );
+                  }
+                  if (block.type === 'faq' && Array.isArray(block.items)) {
+                    return (
+                      <motion.div
+                        key={idx}
+                        className="blog-faqs"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay }}
+                      >
+                        {block.items.map((item, faqIdx) => (
+                          <div className="faq-item" key={`${idx}-faq-${faqIdx}`}>
+                            <div className="faq-question">
+                              <span className="faq-icon">?</span>
+                              <p>{item.question}</p>
+                            </div>
+                            <p className="faq-answer">{item.answer}</p>
+                          </div>
+                        ))}
+                      </motion.div>
                     );
                   }
                   return null;
