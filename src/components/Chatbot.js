@@ -147,9 +147,9 @@ const Chatbot = () => {
 
     const userMessage = { from: 'user', text: inputValue };
     const newMessages = [...messages, userMessage];
-    detectAndSendLead(inputValue, newMessages);
 
     if (step === 'chat') {
+      detectAndSendLead(inputValue, newMessages);
       setIsSending(true);
       setMessages(newMessages);
       setInputValue('');
