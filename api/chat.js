@@ -1,6 +1,7 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const REQUEST_TIMEOUT_MS = 8500;
 
 const CONTACT_INFO = {
   whatsapp: '+541124629452', 
@@ -202,34 +203,28 @@ module.exports = async function handler(req, res) {
       }
     });
 
+    const sendMessagePromise = chat.sendMessage(lastMessage);
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => reject(new Error('timeout')), REQUEST_TIMEOUT_MS);
+    });
+
+    const result = await Promise.race([sendMessagePromise, timeoutPromise]);
+
+    const responseText = result.response?.text?.() || '';
+    const trimmedText = responseText.trim();
+
+    res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.setHeader('Transfer-Encoding', 'chunked');
     res.setHeader('Cache-Control', 'no-cache');
-    res.setHeader('Connection', 'keep-alive');
 
-    const result = await chat.sendMessageStream(lastMessage);
-
-    let hasContent = false;
-    let fullResponse = '';
-
-    for await (const chunk of result.stream) {
-      const text = chunk.text();
-      if (text) {
-        hasContent = true;
-        fullResponse += text;
-        res.write(text);
-      }
-    }
-
-    // Fallback si no hay respuesta
-    if (!hasContent || fullResponse.trim().length < 10) {
+    if (!trimmedText || trimmedText.length < 10) {
       const fallback = selectedLanguage === 'en'
         ? `To help you better, contact us directly:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}\n\nHow can we help you?`
         : `Para ayudarte mejor, contactanos directamente:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}\n\n¿En qué podemos ayudarte?`;
-      res.write(fallback);
+      res.end(fallback);
+    } else {
+      res.end(trimmedText);
     }
-
-    res.end();
 
   } catch (error) {
     console.error('Error calling Gemini:', error);

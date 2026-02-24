@@ -4,6 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ReactGA from 'react-ga4';
 import emailjs from '@emailjs/browser';
 
+const CONTACT_INFO = {
+  whatsapp: '+541124629452',
+  email: 'info@globalalora.com',
+};
+
+const MAX_CHAT_RETRIES = 2;
+
 const Chatbot = () => {
   const { locale } = useLanguage();
 
@@ -39,6 +46,7 @@ const Chatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [step, setStep] = useState('chat');
   const [hasOfferedContact, setHasOfferedContact] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const [userData, setUserData] = useState({ name: '', email: '', phone: '' });
   const messagesEndRef = useRef(null);
 
@@ -128,84 +136,34 @@ const Chatbot = () => {
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
+
+    if (!inputValue.trim()) return;
+    if (step === 'chat' && isSending) return;
+
     const userMessage = { from: 'user', text: inputValue };
     const newMessages = [...messages, userMessage];
-    
+    detectAndSendLead(inputValue);
+
     if (step === 'chat') {
-      // Primero enviamos el mensaje a la API
+      setIsSending(true);
       setMessages(newMessages);
       setInputValue('');
       setIsTyping(true);
 
       try {
-        const response = await fetch('/api/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ 
-            messages: newMessages.slice(-10),
-            language: locale
-          }), 
-        });
-
-        if (!response.ok) {
-          throw new Error('La respuesta de la red no fue correcta');
-        }
-
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-        let botResponse = '';
-
-        // Añadimos un mensaje de bot vacío que se irá llenando
-        setMessages(prev => [...prev, { from: 'bot', text: '' }]);
+        const botResponse = await chatRequestWithRetry(newMessages, 0);
         setIsTyping(false);
-
-        // Leer el stream de datos
-        while (true) {
-          const { value, done } = await reader.read();
-          if (done) break;
-          
-          const chunk = decoder.decode(value, { stream: true });
-          botResponse += chunk;
-          
-          setMessages(prev => {
-            const lastMessage = prev[prev.length - 1];
-            lastMessage.text = botResponse;
-            return [...prev.slice(0, -1), lastMessage];
-          });
-        }
-
-        // Si detectamos palabras clave de precio/presupuesto, ofrecemos contacto
-        // Pero NO si es un mensaje de error/fallback (contiene "problema técnico" o "technical issue")
-        const isErrorFallback = botResponse.toLowerCase().includes('problema técnico') || 
-                                botResponse.toLowerCase().includes('technical issue');
-        
-        const wantsQuote = botResponse.toLowerCase().includes('precio') || 
-                          botResponse.toLowerCase().includes('presupuesto') || 
-                          botResponse.toLowerCase().includes('costo') ||
-                          botResponse.toLowerCase().includes('price') ||
-                          botResponse.toLowerCase().includes('quote');
-        
-        if (!isErrorFallback && wantsQuote && !hasOfferedContact) {
-          setHasOfferedContact(true);
-          setStep('name');
-          setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].ask_name }]);
-        } else if (!isErrorFallback && messages.length >= 4 && !hasOfferedContact) {
-          setHasOfferedContact(true);
-          setTimeout(() => {
-            setMessages(prev => [...prev, { 
-              from: 'bot', 
-              text: messages_by_lang[locale].offer_contact
-            }]);
-            setStep('pre_contact');
-          }, 1000);
-        }
-
+        setMessages(prev => [...prev, { from: 'bot', text: botResponse }]);
+        handleContactOffer(botResponse, newMessages.length);
       } catch (error) {
         console.error('Error al contactar la API del chat:', error);
+        const fallback = locale === 'en'
+          ? `Sorry, I had a technical issue. You can reach us via WhatsApp ${CONTACT_INFO.whatsapp} or email ${CONTACT_INFO.email}.`
+          : `Tuvimos un problema técnico. Podés escribirnos por WhatsApp ${CONTACT_INFO.whatsapp} o al correo ${CONTACT_INFO.email}.`;
+        setMessages(prev => [...prev, { from: 'bot', text: fallback }]);
         setIsTyping(false);
-        setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].error }]);
+      } finally {
+        setIsSending(false);
       }
     } else if (step === 'pre_contact') {
       // Si el usuario responde afirmativamente
@@ -269,6 +227,63 @@ const Chatbot = () => {
       setStep('chat');
     }
     setInputValue('');
+  };
+
+  const handleContactOffer = (botResponse, conversationLength) => {
+    const responseLower = botResponse.toLowerCase();
+    const isErrorFallback = responseLower.includes('problema técnico') || responseLower.includes('technical issue');
+
+    if (isErrorFallback || hasOfferedContact) return;
+
+    const wantsQuote = responseLower.includes('precio') ||
+      responseLower.includes('presupuesto') ||
+      responseLower.includes('costo') ||
+      responseLower.includes('price') ||
+      responseLower.includes('quote');
+
+    if (wantsQuote) {
+      setHasOfferedContact(true);
+      setStep('name');
+      setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].ask_name }]);
+    } else if (conversationLength >= 4) {
+      setHasOfferedContact(true);
+      setTimeout(() => {
+        setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].offer_contact }]);
+        setStep('pre_contact');
+      }, 1000);
+    }
+  };
+
+  const chatRequestWithRetry = async (payload, attempt = 0) => {
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: payload.slice(-10),
+          language: locale,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Respuesta inválida: ${response.status}`);
+      }
+
+      const botResponse = await response.text();
+      if (!botResponse || !botResponse.trim()) {
+        throw new Error('Respuesta vacía del bot');
+      }
+
+      return botResponse.trim();
+    } catch (error) {
+      if (attempt < MAX_CHAT_RETRIES) {
+        await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+        return chatRequestWithRetry(payload, attempt + 1);
+      }
+      throw error;
+    }
   };
 
   return (
