@@ -134,25 +134,33 @@ module.exports = async function handler(req, res) {
       .filter(msg => msg.from === 'user' || msg.from === 'bot')
       .slice(-8);
 
-    const userLabel = selectedLanguage === 'en' ? 'User' : 'Usuario';
-    const botLabel = selectedLanguage === 'en' ? 'Bot' : 'Bot';
-    const conversationText = conversationMessages
-      .map(msg => `${msg.from === 'user' ? userLabel : botLabel}: ${msg.text}`)
-      .join('\n');
-
     const reminder = selectedLanguage === 'en'
       ? 'Answer in max 2 sentences, no lists. If they want a meeting/consultation, ask for their contact.'
       : 'Respondé en máximo 2 oraciones, sin listas. Si piden reunión/consulta, pedí su contacto.';
 
-    const prompt = `${selectedLanguage === 'en' ? 'Conversation' : 'Conversación'}:\n${conversationText}\n\n${reminder}`;
+    const systemPrompt = `${SYSTEM_PROMPTS[selectedLanguage]}
+
+${reminder}`;
+
+    const historyMessages = conversationMessages.map(msg => ({
+      role: msg.from === 'user' ? 'user' : 'assistant',
+      content: msg.text,
+    }));
+
+    if (!historyMessages.length) {
+      historyMessages.push({
+        role: 'user',
+        content: selectedLanguage === 'en' ? 'Hi! I need more information about your services.' : 'Hola, necesito más información sobre sus servicios.'
+      });
+    }
 
     const groqPayload = {
       model: GROQ_MODEL,
       temperature: 0.35,
       max_tokens: 220,
       messages: [
-        { role: 'system', content: SYSTEM_PROMPTS[selectedLanguage] },
-        { role: 'user', content: prompt }
+        { role: 'system', content: systemPrompt },
+        ...historyMessages
       ],
     };
 
@@ -171,7 +179,8 @@ module.exports = async function handler(req, res) {
     const response = await Promise.race([sendMessagePromise, timeoutPromise]);
 
     if (!response.ok) {
-      throw new Error(`Groq response status ${response.status}`);
+      const errorText = await response.text();
+      throw new Error(`Groq response status ${response.status}: ${errorText}`);
     }
 
     const data = await response.json();
