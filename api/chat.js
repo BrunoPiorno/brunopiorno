@@ -1,7 +1,6 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const REQUEST_TIMEOUT_MS = 8500;
+const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
+const GROQ_MODEL = 'llama-3.1-70b-versatile';
 
 const CONTACT_INFO = {
   whatsapp: '+541124629452', 
@@ -126,92 +125,58 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid messages format' });
     }
 
-    if (!process.env.GEMINI_API_KEY) {
-      console.error('Missing GEMINI_API_KEY environment variable');
+    if (!process.env.GROQ_API_KEY) {
+      console.error('Missing GROQ_API_KEY environment variable');
       return writePlainTextResponse(fallbackPlainText);
     }
 
-    const model = genAI.getGenerativeModel({ 
-      model: 'gemini-flash-latest',
-      generationConfig: {
-        temperature: 0.4,
-        topP: 0.8,
-        topK: 20,
-        maxOutputTokens: 80,
+    const conversationMessages = messages
+      .filter(msg => msg.from === 'user' || msg.from === 'bot')
+      .slice(-8);
+
+    const userLabel = selectedLanguage === 'en' ? 'User' : 'Usuario';
+    const botLabel = selectedLanguage === 'en' ? 'Bot' : 'Bot';
+    const conversationText = conversationMessages
+      .map(msg => `${msg.from === 'user' ? userLabel : botLabel}: ${msg.text}`)
+      .join('\n');
+
+    const reminder = selectedLanguage === 'en'
+      ? 'Answer in max 2 sentences, no lists. If they want a meeting/consultation, ask for their contact.'
+      : 'Respondé en máximo 2 oraciones, sin listas. Si piden reunión/consulta, pedí su contacto.';
+
+    const prompt = `${SYSTEM_PROMPTS[selectedLanguage]}\n\n${selectedLanguage === 'en' ? 'Conversation' : 'Conversación'}:\n${conversationText}\n\n${reminder}`;
+
+    const groqPayload = {
+      model: GROQ_MODEL,
+      temperature: 0.35,
+      max_tokens: 220,
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPTS[selectedLanguage] },
+        { role: 'user', content: prompt }
+      ],
+    };
+
+    const sendMessagePromise = fetch(GROQ_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
       },
-      safetySettings: [
-        {
-          category: "HARM_CATEGORY_HARASSMENT",
-          threshold: "BLOCK_NONE",
-        },
-        {
-          category: "HARM_CATEGORY_HATE_SPEECH",
-          threshold: "BLOCK_NONE",
-        },
-        {
-          category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-          threshold: "BLOCK_NONE",
-        },
-        {
-          category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-          threshold: "BLOCK_NONE",
-        },
-      ]
+      body: JSON.stringify(groqPayload),
     });
-
-    const conversationMessages = messages.filter(
-      msg => msg.from === 'user' || msg.from === 'bot'
-    );
-    
-    // Limitar historial a últimos 10 mensajes para no sobrecargar
-    const recentMessages = conversationMessages.slice(-10);
-    
-    let history = [];
-    let foundFirstUser = false;
-    
-    for (let i = 0; i < recentMessages.length - 1; i++) {
-      const msg = recentMessages[i];
-      
-      if (msg.from === 'user') {
-        foundFirstUser = true;
-      }
-      
-      if (foundFirstUser) {
-        history.push({
-          role: msg.from === 'user' ? 'user' : 'model',
-          parts: [{ text: msg.text }]
-        });
-      }
-    }
-
-    let lastMessage = recentMessages[recentMessages.length - 1].text;
-
-    // Inyectar prompt del sistema (según idioma) en el primer mensaje para guiar a Gemini.
-    // En mensajes siguientes, mantener recordatorio de brevedad.
-    if (history.length === 0) {
-      lastMessage = `${SYSTEM_PROMPTS[selectedLanguage]}\n\n${selectedLanguage === 'en' ? 'User' : 'Usuario'}: ${lastMessage}`;
-    } else {
-      lastMessage = selectedLanguage === 'en'
-        ? `[Answer in max 2 sentences, no lists. If they want a meeting/consultation: ASK for their contact]\n\nUser: ${lastMessage}`
-        : `[Responde en máximo 2 oraciones, sin listas. Si piden reunión/consulta: PIDE su contacto]\n\nUsuario: ${lastMessage}`;
-    }
-
-    const chat = model.startChat({ 
-      history,
-      generationConfig: {
-        temperature: 0.5,
-      }
-    });
-
-    const sendMessagePromise = chat.sendMessage(lastMessage);
     const timeoutPromise = new Promise((_, reject) => {
       setTimeout(() => reject(new Error('timeout')), REQUEST_TIMEOUT_MS);
     });
 
-    const result = await Promise.race([sendMessagePromise, timeoutPromise]);
+    const response = await Promise.race([sendMessagePromise, timeoutPromise]);
 
-    const responseText = result.response?.text?.() || '';
-    const trimmedText = responseText.trim();
+    if (!response.ok) {
+      throw new Error(`Groq response status ${response.status}`);
+    }
+
+    const data = await response.json();
+    const responseText = data?.choices?.[0]?.message?.content || '';
+    const trimmedText = (responseText || '').trim();
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
