@@ -192,6 +192,42 @@ const BlogPost = () => {
                       <code>{block.value}</code>
                     </motion.pre>
                   );
+                  if (block.type === 'comparison') {
+                    return (
+                      <motion.div
+                        key={idx}
+                        className="blog-comparison-wrapper"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay }}
+                      >
+                        <div className="blog-comparison-table">
+                          <div className="table-head">
+                            <span>{block.headers[0]}</span>
+                            <span>{block.headers[1]}</span>
+                            <span>{block.headers[2]}</span>
+                          </div>
+                          {block.rows.map((row, rowIdx) => (
+                            <div key={`${idx}-row-${rowIdx}`} className="table-row">
+                              <span className="label">{row.label}</span>
+                              <span 
+                                className="landing"
+                                data-label={block.headers?.[1] || 'Landing page'}
+                              >
+                                {row.landing}
+                              </span>
+                              <span 
+                                className="website"
+                                data-label={block.headers?.[2] || 'Sitio web'}
+                              >
+                                {row.website}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    );
+                  }
                   if (block.type === 'subtitle') return (
                     <motion.h2 
                       key={idx}

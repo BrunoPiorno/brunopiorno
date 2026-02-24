@@ -6,7 +6,7 @@ const posts = [
     title: 'Landing Page vs Website: When to Use Each One (and How They Capture Leads)',
     description: 'Compare landing pages and full websites to decide what you need based on your SEO goals and lead generation strategy.',
     date: '2026-02-24',
-    cover: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=800&q=80',
+    cover: 'https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=1200&q=80',
     content: [
       { type: 'subtitle', value: 'Landing page vs website: what do your leads expect?' },
       { type: 'text', value: 'When a potential client arrives from Google or a paid campaign, they want fast answers: what problem do you solve? how much does it cost? what is the next step? That is why you must decide whether to send them to a focused landing page or to a full website that tells your entire story.' },
@@ -18,6 +18,32 @@ const posts = [
       { type: 'text', value: 'It works best when:\n- You sell consultative or high-ticket services\n- Your buyer journey needs social proof, blog posts, and FAQs\n- SEO is key to attracting recurring traffic' },
       { type: 'subtitle', value: 'Which KPIs does each one push?' },
       { type: 'text', value: 'Landing page = CTR, conversion rate, CPL, and fast experimentation. Website = time on page, domain authority, informational intent ranking, and nurturing complex leads.' },
+      {
+        type: 'comparison',
+        headers: ['Criteria', 'Landing Page', 'Website'],
+        rows: [
+          {
+            label: 'Primary goal',
+            landing: 'Convert a single CTA (lead magnet, demo, purchase).',
+            website: 'Educate, position, display portfolio, and multiple services.'
+          },
+          {
+            label: 'Structure',
+            landing: 'Single page with sequential messaging and repeated CTAs.',
+            website: 'Multiple sections and navigation to dive deeper per interest.'
+          },
+          {
+            label: 'Measurement',
+            landing: 'Optimizes paid campaigns and quick A/B tests.',
+            website: 'Analyzes organic traffic, behavior per section, and technical SEO.'
+          },
+          {
+            label: 'Funnel stage',
+            landing: 'Decision: the lead already sees the value and needs the next step.',
+            website: 'Discovery/consideration: builds trust and authority.'
+          }
+        ]
+      },
       { type: 'subtitle', value: 'Common mistakes that kill conversions' },
       { type: 'text', value: '1. Using a landing page to tell the entire company story.\n2. Having a website without clear messaging or visible CTAs.\n3. Duplicating content and confusing Google with cannibalization.\n4. Ignoring mobile: more than 70% of clicks come from there.' },
       { type: 'subtitle', value: 'How to combine them for SEO and sales' },
