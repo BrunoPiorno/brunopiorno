@@ -3,66 +3,51 @@ const posts = [
   {
     slug: 'landing-page-vs-sitio-web',
     translationSlug: 'landing-page-vs-website',
-    title: 'Landing page vs sitio web: cuándo usar cada uno (y cómo convierten leads)',
-    description: 'Compara landing pages y sitios web completos para decidir qué necesitas según tu objetivo de SEO y generación de leads.',
+    title: 'Landing page vs sitio web: diferencias reales, cuándo usar cada uno y cómo impactan en tus conversiones y ventas',
+    description: 'Una landing page es técnicamente una página dentro de un sitio web, pero en estrategia digital se entiende como una página independiente diseñada para convertir un único objetivo. Un sitio web es un conjunto de múltiples páginas conectadas entre sí, pensado para posicionar, educar y construir autoridad. Ambos necesitan dominio y hosting. La diferencia no es técnica, es estratégica.',
     date: '2026-02-24',
     cover: 'https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=1200&q=80',
     content: [
-      { type: 'subtitle', value: 'Landing page vs sitio web: diferencias reales, cuándo usar cada uno y cómo impactan en tus conversiones y ventas' },
-      { type: 'subtitle', value: 'Resumen breve' },
-      { type: 'text', value: 'Una landing page es técnicamente una página dentro de un sitio web, pero en estrategia digital se diseña como pieza independiente para convertir un único objetivo. Un sitio web es un conjunto de páginas conectadas para posicionar, educar y construir autoridad. Ambos necesitan dominio y hosting: la diferencia no es técnica, es estratégica.' },
       { type: 'subtitle', value: '¿Qué ocurre cuando un usuario llega a tu web?' },
-      { type: 'text', value: 'Cuando alguien llega desde Google o una campaña publicitaria no evalúa cuántas páginas tiene tu sitio. Solo intenta responder tres preguntas: \n1. ¿Resuelve mi problema?\n2. ¿Puedo confiar en esta empresa?\n3. ¿Cuál es el siguiente paso?' },
-      { type: 'text', value: 'La estructura que elijas determina cómo responde a esas preguntas. Una landing ofrece un recorrido lineal que plantea el problema, propone la solución y guía hacia una única acción. Un sitio multipágina permite explorar, validar experiencia, revisar casos y construir confianza antes de avanzar.' },
-      { type: 'text', value: 'Si el usuario ya está convencido, la landing elimina fricción y acelera la conversión. Si todavía está evaluando opciones, el sitio web le da contexto para decidir.' },
+      { type: 'text', value: 'Cuando alguien llega desde Google o desde una campaña publicitaria, no está evaluando si entró a una landing o a un sitio multipágina.\nEstá intentando responder tres preguntas:\n- ¿Resuelve mi problema?\n- ¿Puedo confiar en esta empresa?\n- ¿Cuál es el siguiente paso?\n\nLa estructura que elijas determina cómo responde a esas preguntas.\nUna landing page responde de forma directa y lineal: presenta el problema, ofrece la solución y guía hacia una única acción. Reduce fricción y acelera la decisión.\nUn sitio web multipágina responde de forma progresiva: permite explorar, validar experiencia, leer casos, entender el enfoque y construir confianza antes de dar el siguiente paso.\nSi el usuario ya está convencido y necesita claridad, la landing suele ser más efectiva.\nSi el usuario aún está evaluando opciones, el sitio web ofrece el contexto necesario.' },
       { type: 'subtitle', value: 'Qué es realmente una landing page' },
-      { type: 'text', value: 'Desde el punto de vista técnico, una landing page es simplemente una página web. Puede vivir dentro de un sitio multipágina (tudominio.com/servicio-especifico) o ser el único contenido de un dominio completo. En ambos casos necesita hosting, dominio, SSL, optimización de rendimiento y puede ser rastreable por buscadores.' },
-      { type: 'text', value: 'La diferencia está en la intención estratégica: su diseño persigue una única acción (descargar, registrarse, agendar, comprar). No busca múltiples rutas sino guiar de forma directa hacia la decisión concreta.' },
-      { type: 'subtitle', value: 'Qué es un sitio web multipágina' },
-      { type: 'text', value: 'Un sitio web es un ecosistema digital con distintas secciones (inicio, servicios, casos, blog, FAQs, contacto). Su función principal es construir contexto, generar confianza, posicionar en buscadores y presentar varias líneas de negocio. Mientras la landing optimiza la decisión inmediata, el sitio multipágina optimiza la confianza progresiva.' },
+      { type: 'text', value: 'Desde el punto de vista técnico, una landing page es simplemente una página web. Puede existir de dos formas:\n- Como una sección dentro de un sitio multipágina (por ejemplo: tudominio.com/servicio-especifico).\n- Como el único contenido de un dominio completo (un sitio web de una sola página).\n\nEn ambos casos:\n- Está alojada en un servidor.\n- Necesita dominio.\n- Requiere hosting.\n- Debe contar con certificado SSL.\n- Es rastreable por los motores de búsqueda (o no, si no lo quieres así).\n- Impacta en el rendimiento y en la autoridad del dominio.\n\nPor eso es un error pensar que una landing “no es un sitio web”.\nEs un sitio web con una sola página.\nLo que la diferencia no es su infraestructura, sino su intención estratégica.\nUna landing está diseñada para una única acción: registrarse, descargar, agendar una reunión, comprar o solicitar información. No busca explorar múltiples rutas, sino guiar al usuario de forma directa hacia una decisión concreta.' },
+      { type: 'subtitle', value: 'Qué es un sitio web multipágina (lo que tú conoces como “página web” o “sitio web institucional”).' },
+      { type: 'text', value: 'Un sitio web es un ecosistema digital compuesto por distintas secciones: inicio, servicios, casos de éxito, blog, preguntas frecuentes, contacto, entre otras.\nSu función principal no es solo convertir, sino:\n- Construir contexto.\n- Generar confianza.\n- Posicionarse en buscadores.\n- Educar al usuario.\n- Presentar múltiples líneas de negocio.\n\nMientras la landing optimiza la decisión inmediata, el sitio web optimiza la confianza progresiva.' },
       { type: 'subtitle', value: 'Diferencia estratégica entre landing page y sitio web' },
-      { type: 'text', value: 'La diferencia puede resumirse así: \n- Landing page: optimiza la conversión de una acción específica.\n- Sitio web: optimiza la construcción de autoridad y el posicionamiento en el tiempo.\nNo compiten; cumplen funciones distintas dentro del embudo.' },
-      { type: 'subtitle', value: '¿Qué KPI impulsa cada uno?' },
-      { type: 'text', value: 'Landing page = CTR, tasa de conversión, CPL y experimentación rápida. Sitio web = tiempo en página, autoridad de dominio, posicionamiento por intención informativa y nurturing de leads complejos.' },
+      { type: 'text', value: 'La diferencia puede resumirse así:\nLanding page: optimiza la conversión de una acción específica.\n\nSitio web: optimiza la construcción de autoridad y posicionamiento en el tiempo.\n\nNo compiten entre sí. Cumplen funciones distintas dentro del embudo.' },
+      { type: 'subtitle', value: 'Cuándo conviene usar una landing page' },
+      { type: 'text', value: 'Una landing page suele ser la mejor opción cuando:\n- Se lanza una campaña publicitaria puntual.\n- Se promociona un servicio específico.\n- Se ofrece un lead magnet.\n- Se realiza un lanzamiento o promoción temporal.\n- Se quiere medir con precisión el rendimiento de anuncios.\n\nEn estos casos, eliminar navegación y reducir distracciones mejora la tasa de conversión.' },
+      { type: 'subtitle', value: 'Cuándo conviene un sitio web completo' },
+      { type: 'text', value: 'Un sitio web multipágina es recomendable cuando:\n- El negocio ofrece varios servicios.\n- La venta requiere confianza y validación previa.\n- Se busca posicionamiento orgánico a mediano y largo plazo.\n- El proceso de decisión del cliente es más racional o consultivo.\n- Se necesita contenido educativo o prueba social.\n\nSi el usuario necesita investigar antes de tomar una decisión, el sitio completo cumple un rol clave.' },
+      { type: 'subtitle', value: 'Error frecuente: creer que hay que elegir uno u otro' },
+      { type: 'text', value: 'No se trata de elegir entre landing o sitio web.\nLa estrategia más sólida combina ambos.\nModelo habitual en sistemas digitales efectivos:\nEl blog atrae tráfico orgánico.\n\nEl sitio web construye autoridad y contexto.\n\nLa landing convierte cuando el usuario está listo para decidir.\n\nEsta integración permite que el marketing funcione como un sistema y no como piezas aisladas.' },
+      { type: 'subtitle', value: 'Preguntas frecuentes' },
       {
-        type: 'comparison',
-        headers: ['Criterio', 'Landing page', 'Sitio web'],
-        rows: [
+        type: 'faq',
+        items: [
           {
-            label: 'Objetivo principal',
-            landing: 'Convertir un CTA específico (lead magnet, demo, compra).',
-            website: 'Educar, posicionar, presentar portafolio y múltiples servicios.'
+            question: '¿Una landing page es un sitio web?',
+            answer: 'Sí. Técnicamente es una página web que puede formar parte de un sitio multipágina o ser un sitio de una sola página.'
           },
           {
-            label: 'Estructura',
-            landing: 'Una sola página con mensajes secuenciales y CTA repetidos.',
-            website: 'Múltiples secciones y navegación para profundizar según interés.'
+            question: '¿Una landing necesita dominio y hosting?',
+            answer: 'Sí. Aunque sea una sola página, necesita dominio, hosting y estructura técnica adecuada.'
           },
           {
-            label: 'Medición',
-            landing: 'Optimiza campañas pagas y test A/B rápidos.',
-            website: 'Analiza tráfico orgánico, comportamiento por secciones y SEO técnico.'
+            question: '¿Se puede comenzar solo con una landing?',
+            answer: 'Sí. Muchas validaciones de negocio comienzan con una landing. Sin embargo, si se busca posicionamiento orgánico sostenido, será necesario desarrollar un sitio web más completo.'
           },
           {
-            label: 'Momento del funnel',
-            landing: 'Decisión: el lead ya entiende el valor y necesita dar el siguiente paso.',
-            website: 'Descubrimiento y consideración: construye confianza y autoridad.'
+            question: '¿Qué convierte más: una landing o un sitio web?',
+            answer: 'Depende del objetivo y del momento del usuario. En campañas pagas y ofertas concretas, la landing suele convertir mejor. En procesos de decisión más complejos, el sitio genera la confianza necesaria antes de la conversión.'
           }
         ]
       },
-      { type: 'subtitle', value: 'Cuándo conviene usar una landing page' },
-      { type: 'text', value: 'La landing suele ser la mejor opción cuando:\n- Lanzas una campaña publicitaria puntual.\n- Promocionas un servicio o producto específico.\n- Ofreces un lead magnet.\n- Realizas un lanzamiento o promoción temporal.\n- Necesitas medir con precisión el rendimiento de anuncios.' },
-      { type: 'subtitle', value: 'Cuándo conviene un sitio web completo' },
-      { type: 'text', value: 'El sitio multipágina es recomendable cuando:\n- Ofreces varios servicios o líneas de negocio.\n- La venta requiere confianza y validación previa.\n- Buscas posicionamiento orgánico sostenido.\n- El proceso de decisión es consultivo o racional.\n- Necesitas contenido educativo y prueba social.' },
-      { type: 'subtitle', value: 'Error frecuente: creer que hay que elegir uno u otro' },
-      { type: 'text', value: 'La estrategia más sólida integra todo el sistema: el blog atrae tráfico orgánico, el sitio construye autoridad y contexto, y la landing convierte cuando el usuario está listo para decidir.' },
-      { type: 'subtitle', value: 'Preguntas frecuentes' },
-      { type: 'text', value: '¿Una landing page es un sitio web? Sí, puede ser parte de uno o vivir sola.\n¿Necesita dominio y hosting? Sí, como cualquier página.\n¿Se puede comenzar solo con una landing? Sí, para validar rápido, pero para SEO sostenido necesitarás un sitio completo.\n¿Qué convierte más? Depende del objetivo y del momento del usuario.' },
       { type: 'subtitle', value: 'Conclusión' },
-      { type: 'text', value: 'La diferencia entre landing y sitio web no es técnica sino estratégica. Si quieres captar una acción puntual con máxima claridad, usa una landing. Si buscas posicionar la marca, educar y sostener un sistema de leads en el tiempo, necesitas un sitio completo. Cuando trabajan integrados, tu web pasa de ser presencia estática a un sistema que atrae, educa y convierte.' },
+      { type: 'text', value: 'La diferencia entre landing page y sitio web no es técnica, sino estratégica.\nSi el objetivo es captar una acción puntual con máxima claridad, la landing es la herramienta adecuada.\nSi el objetivo es posicionar la marca, educar al mercado y sostener un sistema de generación de leads en el tiempo, el sitio web completo es indispensable.\nCuando ambos trabajan de forma integrada, la web deja de ser solo presencia digital y se convierte en un sistema estructurado que atrae, educa y convierte.' },
       { type: 'subtitle', value: '¿Necesitas una landing page o un sitio web para tu negocio?' },
-      { type: 'text', value: 'Elegir mal la estructura puede hacerte perder conversiones y presupuesto publicitario. No todos los negocios necesitan lo mismo: algunos requieren una landing optimizada para campañas, otros un sitio completo que funcione como sistema de captación. Si no sabes qué conviene en tu caso, reserva una reunión de relevamiento gratuita y analizaremos: \n- Tu modelo de negocio.\n- Tu etapa actual.\n- Tu estrategia de adquisición.\n- Qué estructura te permitirá generar más resultados.' },
-      { type: 'text', value: 'Haz clic en el botón final para agendar tu sesión y diseñar la combinación correcta entre sitio web y landing page.' }
+      { type: 'text', value: 'Elegir mal la estructura puede significar perder conversiones, desaprovechar presupuesto publicitario o frenar tu posicionamiento orgánico.\nNo todos los negocios necesitan lo mismo.\nAlgunos requieren una landing optimizada para campañas específicas.\nOtros necesitan un sitio web completo que funcione como sistema de captación y autoridad.\nSi no tienes claro cuál es la mejor opción en tu caso, podemos ayudarte a definirlo.\nReserva una reunión de relevamiento totalmente gratuita y sin compromiso con nosotros y analizaremos:\nTu modelo de negocio.\n\nTu etapa actual.\n\nTu estrategia de adquisición.\n\nQué estructura te permitirá generar más resultados.' }
     ]
   },
   {
