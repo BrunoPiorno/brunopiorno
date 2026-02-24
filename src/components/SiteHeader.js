@@ -64,6 +64,7 @@ const SiteHeader = ({ hideMenu = false }) => {
     { href: `/${locale}/#clientes`, label: t('header.clients'), isRouterLink: false },
     { href: `/${locale}/#testimonios`, label: t('header.testimonials') || 'Testimonios', isRouterLink: false },
     { href: `/${locale}/#tecnologias`, label: t('header.technologies'), isRouterLink: false },
+    { href: `/${locale}/blog`, label: t('header.blog'), isRouterLink: true },
   ];
 
   const handleSolutionsToggle = () => {

@@ -1,6 +1,32 @@
 // Ejemplo de posts para el blog. Agrega más objetos para más artículos.
 const posts = [
   {
+    slug: 'landing-page-vs-sitio-web',
+    translationSlug: 'landing-page-vs-website',
+    title: 'Landing page vs sitio web: cuándo usar cada uno (y cómo convierten leads)',
+    description: 'Compara landing pages y sitios web completos para decidir qué necesitas según tu objetivo de SEO y generación de leads.',
+    date: '2026-02-24',
+    cover: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=800&q=80',
+    content: [
+      { type: 'subtitle', value: 'Landing page vs sitio web: ¿qué esperan tus leads?' },
+      { type: 'text', value: 'Cuando un potencial cliente llega desde Google o una campaña paga, está buscando respuestas rápidas: ¿qué problema resuelves? ¿cuánto cuesta? ¿cómo avanzar? Por eso necesitas decidir si lo envías a una landing page enfocada o a un sitio web completo que cuente toda tu historia.' },
+      { type: 'subtitle', value: 'Landing page: disparo de precisión' },
+      { type: 'text', value: 'Una landing page es una sola página con una propuesta concreta, pensada para convertir un objetivo específico (descarga, demo, registro). Minimiza distracciones, usa una narrativa lineal y CTA repetidos.' },
+      { type: 'text', value: 'Úsala cuando:\n- Lanzas un servicio o campaña con una única oferta\n- Necesitas medir anuncios o keywords con claridad\n- Tu argumento de venta cabe en un scroll' },
+      { type: 'subtitle', value: 'Sitio web: ecosistema completo' },
+      { type: 'text', value: 'Un sitio web multipágina es ideal para negocios con varias líneas de servicio, casos de éxito, contenidos educativos y posicionamiento orgánico a largo plazo. Permite construir autoridad y confianza antes de pedir los datos del lead.' },
+      { type: 'text', value: 'Funciona mejor cuando:\n- Ofreces servicios consultivos o tickets altos\n- Tu buyer journey necesita prueba social, blog y FAQs\n- El SEO es clave para atraer tráfico recurrente' },
+      { type: 'subtitle', value: '¿Qué KPI impulsa cada uno?' },
+      { type: 'text', value: 'Landing page = CTR, tasa de conversión, CPL y experimentación rápida. Sitio web = tiempo en página, autoridad de dominio, posicionamiento por intención informativa y nurturing de leads complejos.' },
+      { type: 'subtitle', value: 'Errores comunes que frenan a los leads' },
+      { type: 'text', value: '1. Usar una landing para contar toda la historia de la empresa.\n2. Tener un sitio web sin mensajes claros ni CTA visibles.\n3. Duplicar contenido y confundir a Google con canibalización.\n4. Olvidar la versión móvil: más del 70% de los clics llegan desde allí.' },
+      { type: 'subtitle', value: 'Cómo combinarlos para SEO y ventas' },
+      { type: 'text', value: '1. Diseña el sitio web como hub principal con navegación clara y blog optimizado.\n2. Crea landings temáticas conectadas al hub mediante enlaces contextuales para transferir autoridad.\n3. Ajusta los mensajes según la etapa del embudo: descubrimiento en el blog, consideración en servicios, decisión en la landing.\n4. Mide todo con UTMs y mapas de calor para saber qué versión convierte mejor.' },
+      { type: 'subtitle', value: 'Conclusión práctica' },
+      { type: 'text', value: 'No se trata de elegir entre landing o sitio web, sino de orquestarlos. Un sitio sólido atrae y educa; una landing específica captura el interés justo cuando el lead está listo. Cuando ambos comparten estrategia, tu marketing deja de ser improvisado y se convierte en una máquina de leads.' }
+    ]
+  },
+  {
     slug: 'como-usar-ia-en-wordpress-para-atraer-clientes',
     translationSlug: 'how-to-use-ai-in-wordpress-to-attract-customers',
     title: 'Cómo Usar la Inteligencia Artificial en WordPress para Atraer Más Clientes (Aunque no seas un experto)',
