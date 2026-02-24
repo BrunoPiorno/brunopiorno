@@ -1,6 +1,6 @@
 const REQUEST_TIMEOUT_MS = 8500;
 const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
-const GROQ_MODEL = 'llama-3.1-70b-versatile';
+const GROQ_MODEL = 'llama-3.1-8b-instant';
 
 const CONTACT_INFO = {
   whatsapp: '+541124629452', 
