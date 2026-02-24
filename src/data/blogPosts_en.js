@@ -8,16 +8,24 @@ const posts = [
     date: '2026-02-24',
     cover: 'https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=1200&q=80',
     content: [
-      { type: 'subtitle', value: 'Landing page vs website: what do your leads expect?' },
-      { type: 'text', value: 'When a potential client arrives from Google or a paid campaign, they want fast answers: what problem do you solve? how much does it cost? what is the next step? That is why you must decide whether to send them to a focused landing page or to a full website that tells your entire story.' },
-      { type: 'subtitle', value: 'Landing page: precision shot' },
-      { type: 'text', value: 'A landing page is a single page with a concrete proposition designed to convert a specific goal (download, demo, signup). It minimizes distractions, uses a linear narrative, and repeats clear CTAs.' },
-      { type: 'text', value: 'Use it when:\n- You launch a service or campaign with one offer\n- You need to measure ads or keywords clearly\n- Your sales argument fits within one scroll' },
-      { type: 'subtitle', value: 'Website: complete ecosystem' },
-      { type: 'text', value: 'A multipage website is ideal for businesses with several service lines, case studies, educational content, and long-term organic positioning. It builds authority and trust before asking for the lead’s data.' },
-      { type: 'text', value: 'It works best when:\n- You sell consultative or high-ticket services\n- Your buyer journey needs social proof, blog posts, and FAQs\n- SEO is key to attracting recurring traffic' },
-      { type: 'subtitle', value: 'Which KPIs does each one push?' },
-      { type: 'text', value: 'Landing page = CTR, conversion rate, CPL, and fast experimentation. Website = time on page, domain authority, informational intent ranking, and nurturing complex leads.' },
+      { type: 'subtitle', value: 'Landing Page vs Website: Real Differences, When to Use Each One, and How They Impact Your Conversions and Sales' },
+      { type: 'subtitle', value: 'Quick Summary' },
+      { type: 'text', value: 'A landing page is technically a page inside a website, but in digital strategy it behaves as a standalone asset built to convert a single objective. A website is a collection of interconnected pages designed to rank, educate, and build authority. Both require domain and hosting: the difference is strategic, not technical.' },
+      { type: 'subtitle', value: 'What Happens When a User Lands on Your Website?' },
+      { type: 'text', value: 'When someone arrives from Google or from a paid campaign, they are not analyzing whether they landed on a single page or a multi-page site. They immediately try to answer:\n1. Does this solve my problem?\n2. Can I trust this company?\n3. What is the next step?' },
+      { type: 'text', value: 'The structure you choose defines how those answers appear. A landing page delivers a direct storyline: highlights the problem, presents the solution, and drives one action—lower friction, faster decision. A multi-page website lets the visitor explore, validate expertise, read case studies, and gain trust before moving forward.' },
+      { type: 'text', value: 'If the user already believes in your offer and needs clarity, the landing is usually the most effective path. If the user is still comparing options, the website provides the context needed to choose you.' },
+      { type: 'subtitle', value: 'What a Landing Page Really Is' },
+      { type: 'text', value: 'Technically, a landing page is simply a web page. It can exist as:\n- A section inside a larger site (yourdomain.com/specific-service).\n- The only content on an entire domain (a one-page website).' },
+      { type: 'text', value: 'In both scenarios it lives on a server, requires domain + hosting, needs SSL, can be indexed (unless you block it), and impacts performance and domain authority. So yes, a landing page is a website—it just has one page with one purpose.' },
+      { type: 'text', value: 'Its strategic intention is what makes it different: it is engineered for a single action (register, download, book, buy, request info). No multiple navigation paths—just a guided decision.' },
+      { type: 'subtitle', value: 'What a Multi-Page Website Is' },
+      { type: 'text', value: 'A website is a digital ecosystem with sections such as home, services, case studies, blog, FAQs, and contact. Its mission goes beyond conversion. It must:\n- Build context.\n- Generate trust.\n- Rank in search engines.\n- Educate your audience.\n- Present multiple service or product lines.' },
+      { type: 'text', value: 'While a landing page optimizes the immediate decision, a website optimizes progressive trust-building throughout the funnel.' },
+      { type: 'subtitle', value: 'The Strategic Difference Between a Landing Page and a Website' },
+      { type: 'text', value: 'In short:\n- Landing page: optimizes the conversion of a specific action.\n- Website: optimizes authority-building and long-term positioning.\nThey do not compete—they activate different funnel stages.' },
+      { type: 'subtitle', value: 'Which KPIs Does Each One Boost?' },
+      { type: 'text', value: 'Landing page = CTR, conversion rate, CPL, rapid experimentation. Website = time on page, domain authority, informational intent rankings, nurturing complex leads.' },
       {
         type: 'comparison',
         headers: ['Criteria', 'Landing Page', 'Website'],
@@ -25,31 +33,38 @@ const posts = [
           {
             label: 'Primary goal',
             landing: 'Convert a single CTA (lead magnet, demo, purchase).',
-            website: 'Educate, position, display portfolio, and multiple services.'
+            website: 'Educate, position, and highlight multiple services or business units.'
           },
           {
             label: 'Structure',
-            landing: 'Single page with sequential messaging and repeated CTAs.',
-            website: 'Multiple sections and navigation to dive deeper per interest.'
+            landing: 'One page with sequential messaging and repeated CTAs.',
+            website: 'Multiple sections, navigation, and depth per topic.'
           },
           {
             label: 'Measurement',
-            landing: 'Optimizes paid campaigns and quick A/B tests.',
-            website: 'Analyzes organic traffic, behavior per section, and technical SEO.'
+            landing: 'Perfect for paid campaigns and fast A/B tests.',
+            website: 'Tracks organic behavior, per-section performance, and technical SEO.'
           },
           {
             label: 'Funnel stage',
-            landing: 'Decision: the lead already sees the value and needs the next step.',
-            website: 'Discovery/consideration: builds trust and authority.'
+            landing: 'Decision stage: the user already understands the value and needs a next step.',
+            website: 'Discovery/consideration: builds authority, context, and trust.'
           }
         ]
       },
-      { type: 'subtitle', value: 'Common mistakes that kill conversions' },
-      { type: 'text', value: '1. Using a landing page to tell the entire company story.\n2. Having a website without clear messaging or visible CTAs.\n3. Duplicating content and confusing Google with cannibalization.\n4. Ignoring mobile: more than 70% of clicks come from there.' },
-      { type: 'subtitle', value: 'How to combine them for SEO and sales' },
-      { type: 'text', value: '1. Design the website as the main hub with clear navigation and an optimized blog.\n2. Create thematic landings connected to the hub via contextual links to pass authority.\n3. Adjust messaging to the funnel stage: discovery in the blog, consideration in services, decision in the landing.\n4. Measure everything with UTMs and heatmaps to see which version converts better.' },
-      { type: 'subtitle', value: 'Practical takeaway' },
-      { type: 'text', value: 'It is not about choosing between landing or website, but orchestrating both. A solid website attracts and educates; a specific landing captures interest when the lead is ready. When they share the same strategy, your marketing stops being improvised and becomes a lead machine.' }
+      { type: 'subtitle', value: 'When You Should Use a Landing Page' },
+      { type: 'text', value: 'Choose a landing page when:\n- Launching a specific advertising campaign.\n- Promoting one service or offer.\n- Releasing a lead magnet.\n- Running a limited-time promotion.\n- Testing and measuring messaging performance.\nRemoving navigation and distractions here boosts conversions.' },
+      { type: 'subtitle', value: 'When You Should Use a Full Website' },
+      { type: 'text', value: 'A multi-page website is ideal when:\n- You sell multiple services or product lines.\n- The sale demands trust and detailed validation.\n- You want medium/long-term organic positioning.\n- The buying process is rational or consultative.\n- You rely on educational content and social proof.' },
+      { type: 'subtitle', value: 'A Common Mistake: Thinking You Have to Choose One' },
+      { type: 'text', value: 'High-performing digital systems integrate everything: the blog brings organic traffic, the website builds authority and context, and the landing page converts when the lead is ready.' },
+      { type: 'subtitle', value: 'Frequently Asked Questions' },
+      { type: 'text', value: 'Is a landing page a website? Yes—either part of a site or a one-page site.\nDoes it need domain and hosting? Absolutely.\nCan you start with just a landing page? Yes for quick validation, but you will eventually need a fuller site for sustainable SEO.\nWhat converts better? Depends on the objective and the user stage: campaigns love landings; complex decisions need websites.' },
+      { type: 'subtitle', value: 'Conclusion' },
+      { type: 'text', value: 'The landing-vs-website difference is strategic, not technical. Use a landing when you need a single, crystal-clear action. Use a website when you must position the brand, educate the market, and sustain lead generation. Together they transform “having a site” into building a conversion system.' },
+      { type: 'subtitle', value: 'Do You Need a Landing Page or a Website for Your Business?' },
+      { type: 'text', value: 'Choosing the wrong structure can cost conversions, waste ad budget, and stall organic growth. Some businesses need a finely tuned landing for specific campaigns; others need a full website acting as an authority and acquisition system. If you are unsure, book a free discovery call and we will review: \n- Your business model.\n- Your current stage.\n- Your acquisition strategy.\n- The structure that will deliver better results.' },
+      { type: 'text', value: 'Click the button below, schedule your session, and define the right mix of website + landing page for sustainable growth.' }
     ]
   },
   {
