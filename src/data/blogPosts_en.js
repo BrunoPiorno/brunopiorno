@@ -1,6 +1,32 @@
 // Example posts for the blog in English. Add more objects for more articles.
 const posts = [
   {
+    slug: 'landing-page-vs-website',
+    translationSlug: 'landing-page-vs-sitio-web',
+    title: 'Landing Page vs Website: When to Use Each One (and How They Capture Leads)',
+    description: 'Compare landing pages and full websites to decide what you need based on your SEO goals and lead generation strategy.',
+    date: '2026-02-24',
+    cover: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=800&q=80',
+    content: [
+      { type: 'subtitle', value: 'Landing page vs website: what do your leads expect?' },
+      { type: 'text', value: 'When a potential client arrives from Google or a paid campaign, they want fast answers: what problem do you solve? how much does it cost? what is the next step? That is why you must decide whether to send them to a focused landing page or to a full website that tells your entire story.' },
+      { type: 'subtitle', value: 'Landing page: precision shot' },
+      { type: 'text', value: 'A landing page is a single page with a concrete proposition designed to convert a specific goal (download, demo, signup). It minimizes distractions, uses a linear narrative, and repeats clear CTAs.' },
+      { type: 'text', value: 'Use it when:\n- You launch a service or campaign with one offer\n- You need to measure ads or keywords clearly\n- Your sales argument fits within one scroll' },
+      { type: 'subtitle', value: 'Website: complete ecosystem' },
+      { type: 'text', value: 'A multipage website is ideal for businesses with several service lines, case studies, educational content, and long-term organic positioning. It builds authority and trust before asking for the lead’s data.' },
+      { type: 'text', value: 'It works best when:\n- You sell consultative or high-ticket services\n- Your buyer journey needs social proof, blog posts, and FAQs\n- SEO is key to attracting recurring traffic' },
+      { type: 'subtitle', value: 'Which KPIs does each one push?' },
+      { type: 'text', value: 'Landing page = CTR, conversion rate, CPL, and fast experimentation. Website = time on page, domain authority, informational intent ranking, and nurturing complex leads.' },
+      { type: 'subtitle', value: 'Common mistakes that kill conversions' },
+      { type: 'text', value: '1. Using a landing page to tell the entire company story.\n2. Having a website without clear messaging or visible CTAs.\n3. Duplicating content and confusing Google with cannibalization.\n4. Ignoring mobile: more than 70% of clicks come from there.' },
+      { type: 'subtitle', value: 'How to combine them for SEO and sales' },
+      { type: 'text', value: '1. Design the website as the main hub with clear navigation and an optimized blog.\n2. Create thematic landings connected to the hub via contextual links to pass authority.\n3. Adjust messaging to the funnel stage: discovery in the blog, consideration in services, decision in the landing.\n4. Measure everything with UTMs and heatmaps to see which version converts better.' },
+      { type: 'subtitle', value: 'Practical takeaway' },
+      { type: 'text', value: 'It is not about choosing between landing or website, but orchestrating both. A solid website attracts and educates; a specific landing captures interest when the lead is ready. When they share the same strategy, your marketing stops being improvised and becomes a lead machine.' }
+    ]
+  },
+  {
     slug: 'how-to-use-ai-in-wordpress-to-attract-customers',
     translationSlug: 'como-usar-ia-en-wordpress-para-atraer-clientes',
     title: 'How to Use Artificial Intelligence in WordPress to Attract More Customers (Even if You\'re Not an Expert)',

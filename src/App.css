@@ -1386,6 +1386,65 @@ body.soluciones-page .site-header .language-selector {
   margin-bottom: 1.3rem;
 }
 
+.blog-rich-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.2rem 0 1.6rem 0;
+  border-left: 3px solid rgba(153, 228, 153, 0.6);
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.blog-rich-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.blog-rich-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: linear-gradient(120deg, #99e499, #42A7B5);
+  box-shadow: 0 0 10px rgba(66, 167, 181, 0.4);
+}
+
+.blog-rich-list li span {
+  display: block;
+}
+
+.blog-rich-list.ordered {
+  counter-reset: blog-counter;
+  border-left-color: rgba(66, 167, 181, 0.8);
+}
+
+.blog-rich-list.ordered li {
+  padding-left: 2.2rem;
+}
+
+.blog-rich-list.ordered li::before {
+  counter-increment: blog-counter;
+  content: counter(blog-counter);
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 12px;
+  background: rgba(66, 167, 181, 0.2);
+  color: #42A7B5;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+}
+
 .blog-post-content pre {
   background: #151c17;
   color: #b6e4b6;

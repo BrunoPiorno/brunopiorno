@@ -121,22 +121,73 @@ const BlogPost = () => {
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
                 {post.content.map((block, idx) => {
-                  if (block.type === 'text') return (
-                    <motion.p 
-                      key={idx}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
-                    >
-                      {block.value}
-                    </motion.p>
-                  );
+                  const delay = 0.6 + idx * 0.1;
+                  if (block.type === 'text') {
+                    const rawLines = block.value.split('\n');
+                    const listLines = rawLines
+                      .map(line => line.trim())
+                      .filter(line => line.length > 0);
+                    const isUnorderedList = listLines.length > 1 && listLines.every(line => line.startsWith('- '));
+                    const isOrderedList = listLines.length > 1 && listLines.every(line => /^\d+\./.test(line));
+
+                    if (isUnorderedList) {
+                      return (
+                        <motion.ul
+                          key={idx}
+                          className="blog-rich-list"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay }}
+                        >
+                          {listLines.map((line, itemIdx) => (
+                            <li key={`${idx}-${itemIdx}`}>
+                              <span>{line.replace(/^\-\s*/, '')}</span>
+                            </li>
+                          ))}
+                        </motion.ul>
+                      );
+                    }
+
+                    if (isOrderedList) {
+                      return (
+                        <motion.ol
+                          key={idx}
+                          className="blog-rich-list ordered"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay }}
+                        >
+                          {listLines.map((line, itemIdx) => (
+                            <li key={`${idx}-${itemIdx}`}>
+                              <span>{line.replace(/^\d+\.\s*/, '')}</span>
+                            </li>
+                          ))}
+                        </motion.ol>
+                      );
+                    }
+
+                    return (
+                      <motion.p 
+                        key={idx}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay }}
+                      >
+                        {rawLines.map((line, lineIdx) => (
+                          <React.Fragment key={`${idx}-line-${lineIdx}`}>
+                            {line}
+                            {lineIdx !== rawLines.length - 1 && <br />}
+                          </React.Fragment>
+                        ))}
+                      </motion.p>
+                    );
+                  }
                   if (block.type === 'code') return (
                     <motion.pre 
                       key={idx}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
+                      transition={{ duration: 0.4, delay }}
                     >
                       <code>{block.value}</code>
                     </motion.pre>
@@ -146,7 +197,7 @@ const BlogPost = () => {
                       key={idx}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
+                      transition={{ duration: 0.4, delay }}
                     >
                       {block.value}
                     </motion.h2>
