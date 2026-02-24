@@ -228,57 +228,102 @@ const BlogPost = () => {
                       </motion.div>
                     );
                   }
-                  if (block.type === 'subtitle') return (
-                    <motion.h2 
-                      key={idx}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay }}
-                    >
-                      {block.value}
-                    </motion.h2>
-                  );
+                  if (block.type === 'subtitle') {
+                    return (
+                      <motion.h2 
+                        key={idx}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay }}
+                      >
+                        {block.value}
+                      </motion.h2>
+                    );
+                  }
                   return null;
                 })}
               </motion.div>
             </section>
-          </div>
-        </section>
-        
-        <Helmet prioritizeSeoTags={true}>
-          <title>{`${post.title} | Alora`}</title>
-          <meta name="description" content={post.description} />
-          <link rel="canonical" href={fullPostUrl} />
 
-          {/* Open Graph / Facebook */}
-          <meta property="og:title" content={`${post.title} | Alora`} />
-          <meta property="og:description" content={post.description} />
-          <meta property="og:image" content={post.cover} />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:type" content="article" />
-          <meta property="og:url" content={fullPostUrl} />
-          <meta property="og:site_name" content="Alora" />
-          <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'es_ES'} />
+          <motion.section
+            className="blog-post-cta"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            <div className="cta-card">
+              <div className="cta-text">
+                <p className="eyebrow">
+                  {locale === 'es' ? 'Diagnóstico estratégico' : 'Strategic diagnosis'}
+                </p>
+                <h3>
+                  {locale === 'es'
+                    ? '¿Listo para definir si necesitas una landing o un sitio completo?'
+                    : 'Ready to define if you need a landing page or a full site?'}
+                </h3>
+                <p>
+                  {locale === 'es'
+                    ? 'Reservemos una llamada de relevamiento gratuita para analizar tu modelo de negocio, etapa de crecimiento y objetivos de adquisición.'
+                    : 'Book a free discovery call to review your business model, growth stage, and acquisition goals.'}
+                </p>
+                <ul>
+                  <li>{locale === 'es' ? 'Análisis de tu embudo actual' : 'Current funnel analysis'}</li>
+                  <li>{locale === 'es' ? 'Mapa de contenidos y autoridad' : 'Content & authority mapping'}</li>
+                  <li>{locale === 'es' ? 'Recomendación de la estructura ideal' : 'Recommendation of the ideal structure'}</li>
+                </ul>
+                <Link
+                  to={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cta-button blog-cta-button"
+                >
+                  {locale === 'es'
+                    ? 'Reserva tu llamada de relevamiento para tu proyecto'
+                    : 'Book your discovery call'}
+                </Link>
+              </div>
+              <div className="cta-visual">
+                <img
+                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
+                  alt={locale === 'es' ? 'Equipo planificando estrategia digital' : 'Team planning digital strategy'}
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </motion.section>
+        </div>
+      </section>
+    </main>
+    <Helmet prioritizeSeoTags={true}>
+      <title>{`${post.title} | Alora`}</title>
+      <meta name="description" content={post.description} />
+      <link rel="canonical" href={fullPostUrl} />
+      <meta property="og:description" content={post.description} />
+      <meta property="og:image" content={post.cover} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={fullPostUrl} />
+      <meta property="og:site_name" content="Alora" />
+      <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'es_ES'} />
 
-          {/* Twitter Card */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={`${post.title} | Alora`} />
-          <meta name="twitter:description" content={post.description} />
-          <meta name="twitter:image" content={post.cover} />
-          <meta name="twitter:url" content={fullPostUrl} />
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={`${post.title} | Alora`} />
+      <meta name="twitter:description" content={post.description} />
+      <meta name="twitter:image" content={post.cover} />
+      <meta name="twitter:url" content={fullPostUrl} />
 
-          {/* LinkedIn */}
-          <meta property="linkedin:title" content={`${post.title} | Alora`} />
-          <meta property="linkedin:description" content={post.description} />
-          <meta property="linkedin:image" content={post.cover} />
-          <meta property="article:published_time" content={post.date} />
-          <meta property="article:author" content="Alora" />
-        </Helmet>
-      </main>
-      <ContactSection />
-      <Chatbot />
-    </>
+      {/* LinkedIn */}
+      <meta property="linkedin:title" content={`${post.title} | Alora`} />
+      <meta property="linkedin:description" content={post.description} />
+      <meta property="linkedin:image" content={post.cover} />
+      <meta property="article:published_time" content={post.date} />
+      <meta property="article:author" content="Alora" />
+    </Helmet>
+    <ContactSection />
+    <Chatbot />
+  </>
   );
 };
 
