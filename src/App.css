@@ -1445,6 +1445,106 @@ body.soluciones-page .site-header .language-selector {
   box-shadow: none;
 }
 
+.blog-comparison-wrapper {
+  margin: 2rem 0;
+}
+
+.blog-comparison-table {
+  border: 1px solid rgba(66, 167, 181, 0.25);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(20, 55, 52, 0.12);
+  background: #fff;
+}
+
+.blog-comparison-table .table-head,
+.blog-comparison-table .table-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  align-items: flex-start;
+}
+
+.blog-comparison-table .table-head {
+  background: linear-gradient(120deg, rgba(66, 167, 181, 0.12), rgba(153, 228, 153, 0.2));
+}
+
+.blog-comparison-table .table-head span {
+  font-weight: 700;
+  color: #0f2d2a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+}
+
+.blog-comparison-table .table-row {
+  background: rgba(250, 253, 252, 1);
+  border-top: 1px solid rgba(66, 167, 181, 0.12);
+}
+
+.blog-comparison-table .table-row:nth-child(even) {
+  background: rgba(244, 250, 249, 0.85);
+}
+
+.blog-comparison-table .table-row .label {
+  font-weight: 700;
+  color: #1e4f4b;
+}
+
+.blog-comparison-table .table-row .landing,
+.blog-comparison-table .table-row .website {
+  color: #2f2f2f;
+  line-height: 1.6;
+  position: relative;
+  padding-right: 0.5rem;
+}
+
+.blog-comparison-table .table-row .landing {
+  border-right: 1px solid rgba(66, 167, 181, 0.12);
+  padding-right: 1.2rem;
+}
+
+.blog-comparison-table .table-row .website {
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .blog-comparison-table .table-head,
+  .blog-comparison-table .table-row {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-comparison-table .table-head span {
+    font-size: 0.78rem;
+    text-align: center;
+  }
+
+  .blog-comparison-table .table-row .landing,
+  .blog-comparison-table .table-row .website {
+    border: none;
+    padding: 0;
+    padding-bottom: 1rem;
+  }
+
+  .blog-comparison-table .table-row .landing:last-child,
+  .blog-comparison-table .table-row .website:last-child {
+    padding-bottom: 0;
+  }
+
+  .blog-comparison-table .table-row .landing::before,
+  .blog-comparison-table .table-row .website::before {
+    content: attr(data-label);
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #42A7B5;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+}
+
 .blog-post-content pre {
   background: #151c17;
   color: #b6e4b6;

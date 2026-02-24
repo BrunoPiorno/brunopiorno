@@ -6,7 +6,7 @@ const posts = [
     title: 'Landing page vs sitio web: cuándo usar cada uno (y cómo convierten leads)',
     description: 'Compara landing pages y sitios web completos para decidir qué necesitas según tu objetivo de SEO y generación de leads.',
     date: '2026-02-24',
-    cover: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=800&q=80',
+    cover: 'https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=1200&q=80',
     content: [
       { type: 'subtitle', value: 'Landing page vs sitio web: ¿qué esperan tus leads?' },
       { type: 'text', value: 'Cuando un potencial cliente llega desde Google o una campaña paga, está buscando respuestas rápidas: ¿qué problema resuelves? ¿cuánto cuesta? ¿cómo avanzar? Por eso necesitas decidir si lo envías a una landing page enfocada o a un sitio web completo que cuente toda tu historia.' },
@@ -18,6 +18,32 @@ const posts = [
       { type: 'text', value: 'Funciona mejor cuando:\n- Ofreces servicios consultivos o tickets altos\n- Tu buyer journey necesita prueba social, blog y FAQs\n- El SEO es clave para atraer tráfico recurrente' },
       { type: 'subtitle', value: '¿Qué KPI impulsa cada uno?' },
       { type: 'text', value: 'Landing page = CTR, tasa de conversión, CPL y experimentación rápida. Sitio web = tiempo en página, autoridad de dominio, posicionamiento por intención informativa y nurturing de leads complejos.' },
+      {
+        type: 'comparison',
+        headers: ['Criterio', 'Landing page', 'Sitio web'],
+        rows: [
+          {
+            label: 'Objetivo principal',
+            landing: 'Convertir un CTA específico (lead magnet, demo, compra).',
+            website: 'Educar, posicionar, presentar portafolio y múltiples servicios.'
+          },
+          {
+            label: 'Estructura',
+            landing: 'Una sola página con mensajes secuenciales y CTA repetidos.',
+            website: 'Múltiples secciones y navegación para profundizar según interés.'
+          },
+          {
+            label: 'Medición',
+            landing: 'Optimiza campañas pagas y test A/B rápidos.',
+            website: 'Analiza tráfico orgánico, comportamiento por secciones y SEO técnico.'
+          },
+          {
+            label: 'Momento del funnel',
+            landing: 'Decisión: el lead ya entiende el valor y necesita dar el siguiente paso.',
+            website: 'Descubrimiento y consideración: construye confianza y autoridad.'
+          }
+        ]
+      },
       { type: 'subtitle', value: 'Errores comunes que frenan a los leads' },
       { type: 'text', value: '1. Usar una landing para contar toda la historia de la empresa.\n2. Tener un sitio web sin mensajes claros ni CTA visibles.\n3. Duplicar contenido y confundir a Google con canibalización.\n4. Olvidar la versión móvil: más del 70% de los clics llegan desde allí.' },
       { type: 'subtitle', value: 'Cómo combinarlos para SEO y ventas' },
