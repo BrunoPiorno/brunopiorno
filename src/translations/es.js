@@ -233,7 +233,7 @@ export const es = {
   'testimonials.rulo.metric3': 'Resultados impecables',
 
   'testimonials.starley.quote': 'Durante este tiempo, el trabajo fue muy profesional, con excelente predisposición y cumplimiento en los plazos. La comunicación fue siempre clara y resolutiva. Destaco el compromiso y la eficiencia.',
-  'testimonials.starley.company': 'Starley – Área comercial',
+  'testimonials.starley.company': 'Starley – Gerente',
   'testimonials.starley.metric1': 'Profesionalismo constante',
   'testimonials.starley.metric2': 'Comunicación clara',
   'testimonials.starley.metric3': 'Compromiso y eficiencia',
