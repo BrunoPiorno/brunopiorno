@@ -1,3 +1,17 @@
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-icon {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(96, 20, 112, 0.08);
+  color: #601470;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
 .proposal-page {
   background: #ffffff;
   min-height: 100vh;
@@ -81,13 +95,23 @@
   box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
 }
 
+
 .client-logo {
   margin-bottom: 10px;
+  background: linear-gradient(135deg, #601470, #8b2ca0);
+  border-radius: 18px;
+  padding: 18px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 35px rgba(96, 20, 112, 0.35);
 }
 
 .client-logo img {
   max-width: 180px;
   height: auto;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
 }
 
 .hero-summary-title {
@@ -113,6 +137,121 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
+}
+
+.proposal-section-groups {
+  max-width: 1440px;
+  margin: 80px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.section-group {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 28px;
+  padding: 50px;
+  box-shadow: 0 12px 60px rgba(15, 23, 42, 0.08);
+}
+
+.section-group-header {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.section-group-header h2 {
+  font-size: 2.25rem;
+  margin: 0 0 10px 0;
+  color: #0f172a;
+}
+
+.section-group-header p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.section-group-grid {
+  display: grid;
+  gap: 30px;
+}
+
+.proposal-sections {
+  max-width: 1440px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.rich-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.rich-section {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rich-section-wide {
+  grid-column: span 2;
+}
+
+.rich-section-feature {
+  border: 1px solid rgba(96, 20, 112, 0.15);
+  box-shadow: 0 15px 40px rgba(96, 20, 112, 0.12);
+  position: relative;
+}
+
+.rich-section-feature::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 1px solid rgba(96, 20, 112, 0.15);
+  pointer-events: none;
+}
+
+.rich-section-header h3 {
+  font-size: 1.4rem;
+  margin: 0 0 10px;
+  color: #0f172a;
+}
+
+.rich-section-header p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.rich-section-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.rich-section-group h4 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #2d8a85;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.rich-section-group {
+  border: 1px dashed rgba(66, 168, 181, 0.35);
+  border-radius: 18px;
+  padding: 20px;
+  background: rgba(66, 168, 181, 0.05);
 }
 
 .objective-card {
@@ -185,7 +324,7 @@
 
 .stages-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
 }
 
@@ -257,12 +396,23 @@
   gap: 12px;
 }
 
+.proposal-list-multi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 28px;
+}
+
 .proposal-list li {
   padding-left: 28px;
   position: relative;
   font-size: 0.95rem;
   line-height: 1.6;
   color: #475569;
+}
+
+.proposal-list-group li {
+  padding-left: 20px;
+  font-size: 0.9rem;
 }
 
 .proposal-list li::before {
@@ -273,10 +423,20 @@
   font-weight: 700;
 }
 
+.proposal-list-group li::before {
+  content: '•';
+}
+
 .includes-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
+}
+
+@media (min-width: 900px) {
+  .includes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .card {
@@ -397,6 +557,26 @@
   border: 2px solid #fbbf24;
   border-radius: 20px;
   padding: 35px;
+}
+
+.considerations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.consideration-group {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.1);
+}
+
+.consideration-group h3 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #9a3412;
 }
 
 .considerations-card .proposal-list li {

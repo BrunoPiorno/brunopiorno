@@ -4,13 +4,23 @@ import { Helmet } from 'react-helmet-async';
 import proposals from './proposalsData';
 import './ProposalLanding.css';
 
-const InfoList = ({ items }) => (
-  <ul className="proposal-list">
-    {items.map((item, index) => (
-      <li key={`${item}-${index}`}>{item}</li>
-    ))}
-  </ul>
-);
+const InfoList = ({ items, variant }) => {
+  const listClasses = ['proposal-list'];
+  if (variant) {
+    listClasses.push(`proposal-list-${variant}`);
+  }
+  if (items.length > 8) {
+    listClasses.push('proposal-list-multi');
+  }
+
+  return (
+    <ul className={listClasses.join(' ')}>
+      {items.map((item, index) => (
+        <li key={`${item}-${index}`}>{item}</li>
+      ))}
+    </ul>
+  );
+};
 
 const StageCard = ({ stage }) => (
   <article className="proposal-stage-card">
@@ -28,6 +38,66 @@ const StageCard = ({ stage }) => (
     )}
     {stage.scope && <InfoList items={stage.scope} />}
   </article>
+);
+
+const ContentGroup = ({ group }) => (
+  <div className="rich-section-group">
+    {group.label && <h4>{group.label}</h4>}
+    {group.items && <InfoList items={group.items} variant="group" />}
+  </div>
+);
+
+const TechIcons = ({ icons = [] }) => (
+  <div className="tech-icons">
+    {icons.map((icon) => (
+      <span key={icon} className="tech-icon">
+        {icon}
+      </span>
+    ))}
+  </div>
+);
+
+const RichSection = ({ section }) => {
+  const sectionClasses = ['rich-section'];
+  if (section.layout) {
+    sectionClasses.push(`rich-section-${section.layout}`);
+  }
+
+  const hasItems = Array.isArray(section.items) && section.items.length > 0;
+  const hasGroups = Array.isArray(section.groups) && section.groups.length > 0;
+
+  return (
+    <article className={sectionClasses.join(' ')}>
+      <div className="rich-section-header">
+        <h3>{section.title}</h3>
+        {section.description && <p>{section.description}</p>}
+      </div>
+      {section.icons && section.icons.length > 0 && <TechIcons icons={section.icons} />}
+      {hasItems && <InfoList items={section.items} />}
+      {hasGroups && (
+        <div className="rich-section-groups">
+          {section.groups.map((group, index) => (
+            <ContentGroup key={`${group.label || 'group'}-${index}`} group={group} />
+          ))}
+        </div>
+      )}
+    </article>
+  );
+};
+
+const SectionGroup = ({ group }) => (
+  <section className="section-group">
+    <div className="section-group-header">
+      <p className="eyebrow">{group.eyebrow || 'Bloque estratégico'}</p>
+      <h2>{group.heading}</h2>
+      {group.description && <p>{group.description}</p>}
+    </div>
+    <div className="section-group-grid">
+      {group.cards?.map((card) => (
+        <RichSection key={card.title} section={card} />
+      ))}
+    </div>
+  </section>
 );
 
 const ProposalLanding = ({ slug: slugProp }) => {
@@ -51,14 +121,17 @@ const ProposalLanding = ({ slug: slugProp }) => {
     client,
     project,
     highlight,
-    stages,
-    includes,
-    excludes,
-    timeline,
-    workflow,
-    considerations,
-    investment,
-    cta,
+    sections = [],
+    sectionGroups = [],
+    stages = [],
+    includes = [],
+    excludes = [],
+    timeline = {},
+    workflow = [],
+    considerations = [],
+    considerationsGroups = [],
+    investment = {},
+    cta = {},
   } = proposal;
 
   return (
@@ -75,7 +148,15 @@ const ProposalLanding = ({ slug: slugProp }) => {
         <div className="hero-content">
           <p className="hero-badge">{project.subtitle}</p>
           <h1>{project.title}</h1>
-          <p className="hero-client">{client.name} &mdash; {client.description}</p>
+          <p className="hero-client">
+            {client.name}
+            {client.description && (
+              <>
+                {' '}
+                &mdash; {client.description}
+              </>
+            )}
+          </p>
           <div className="hero-meta">
             <div>
               <span>Fecha</span>
@@ -118,78 +199,125 @@ const ProposalLanding = ({ slug: slugProp }) => {
         )}
       </section>
 
-      <section className="proposal-stages">
-        <div className="section-heading">
-          <p className="eyebrow">Roadmap</p>
-          <h2>Etapas del Proyecto</h2>
-        </div>
-        <div className="stages-grid">
-          {stages.map((stage) => (
-            <StageCard key={stage.title} stage={stage} />
+      {sectionGroups.length > 0 ? (
+        <div className="proposal-section-groups">
+          {sectionGroups.map((group) => (
+            <SectionGroup key={group.heading} group={group} />
           ))}
         </div>
-      </section>
-
-      <section className="proposal-includes">
-        <div className="section-heading">
-          <p className="eyebrow">Alcance</p>
-          <h2>¿Qué incluye?</h2>
-        </div>
-        <div className="includes-grid">
-          <div className="card includes-card">
-            <h3>✓ Incluye</h3>
-            <InfoList items={includes} />
-          </div>
-          <div className="card excludes-card">
-            <h3>✗ No incluye</h3>
-            <InfoList items={excludes} />
-          </div>
-        </div>
-      </section>
-
-      <section className="proposal-timeline">
-        <div className="section-heading">
-          <p className="eyebrow">Planificación</p>
-          <h2>Timeline del Proyecto</h2>
-        </div>
-        <div className="timeline-card">
-          <div className="timeline-total">
-            <strong>Duración total estimada:</strong> {timeline.total}
-          </div>
-          {timeline.conditions && (
-            <ul className="timeline-conditions">
-              {timeline.conditions.map((condition, index) => (
-                <li key={`condition-${index}`}>{condition}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </section>
-
-      <section className="proposal-workflow">
-        <div className="section-heading">
-          <p className="eyebrow">Metodología</p>
-          <h2>Flujo de Trabajo</h2>
-        </div>
-        <div className="workflow-steps">
-          {workflow.map((step, index) => (
-            <div key={`step-${index}`} className="workflow-step">
-              <span className="step-number">{index + 1}</span>
-              <p>{step}</p>
+      ) : (
+        sections.length > 0 && (
+          <section className="proposal-sections">
+            <div className="section-heading">
+              <p className="eyebrow">Arquitectura Estratégica</p>
+              <h2>Plan y Alcance Detallado</h2>
             </div>
-          ))}
-        </div>
-      </section>
+            <div className="rich-sections-grid">
+              {sections.map((section) => (
+                <RichSection key={section.title} section={section} />
+              ))}
+            </div>
+          </section>
+        )
+      )}
 
-      <section className="proposal-considerations">
-        <div className="section-heading">
-          <p className="eyebrow">Importante</p>
-          <h2>Consideraciones</h2>
-        </div>
-        <div className="considerations-card">
-          <InfoList items={considerations} />
-        </div>
-      </section>
+      {stages.length > 0 && (
+        <section className="proposal-stages">
+          <div className="section-heading">
+            <p className="eyebrow">Roadmap</p>
+            <h2>Etapas del Proyecto</h2>
+          </div>
+          <div className="stages-grid">
+            {stages.map((stage) => (
+              <StageCard key={stage.title} stage={stage} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {(includes.length > 0 || excludes.length > 0) && (
+        <section className="proposal-includes">
+          <div className="section-heading">
+            <p className="eyebrow">Alcance</p>
+            <h2>¿Qué incluye?</h2>
+          </div>
+          <div className="includes-grid">
+            {includes.length > 0 && (
+              <div className="card includes-card">
+                <h3>✓ Incluye</h3>
+                <InfoList items={includes} />
+              </div>
+            )}
+            {excludes.length > 0 && (
+              <div className="card excludes-card">
+                <h3>✗ No incluye</h3>
+                <InfoList items={excludes} />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {timeline.total && (
+        <section className="proposal-timeline">
+          <div className="section-heading">
+            <p className="eyebrow">Planificación</p>
+            <h2>Timeline del Proyecto</h2>
+          </div>
+          <div className="timeline-card">
+            <div className="timeline-total">
+              <strong>Duración total estimada:</strong> {timeline.total}
+            </div>
+            {timeline.conditions && (
+              <ul className="timeline-conditions">
+                {timeline.conditions.map((condition, index) => (
+                  <li key={`condition-${index}`}>{condition}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      )}
+
+      {workflow && workflow.length > 0 && (
+        <section className="proposal-workflow">
+          <div className="section-heading">
+            <p className="eyebrow">Metodología</p>
+            <h2>Flujo de Trabajo</h2>
+          </div>
+          <div className="workflow-steps">
+            {workflow.map((step, index) => (
+              <div key={`step-${index}`} className="workflow-step">
+                <span className="step-number">{index + 1}</span>
+                <p>{step}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {(considerationsGroups || considerations) && (
+        <section className="proposal-considerations">
+          <div className="section-heading">
+            <p className="eyebrow">Importante</p>
+            <h2>Consideraciones</h2>
+          </div>
+          {considerationsGroups ? (
+            <div className="considerations-grid">
+              {considerationsGroups.map((group) => (
+                <article key={group.title} className="consideration-group">
+                  <h3>{group.title}</h3>
+                  <InfoList items={group.items} variant="group" />
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="considerations-card">
+              <InfoList items={considerations} />
+            </div>
+          )}
+        </section>
+      )}
 
       <section className="proposal-investment">
         <div className="section-heading">
