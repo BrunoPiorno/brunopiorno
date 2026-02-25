@@ -418,6 +418,30 @@ body.soluciones-page .site-header .language-selector {
   margin: 0 auto;
 }
 
+.service-card.featured-service {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(66, 167, 181, 0.22), rgba(153, 228, 153, 0.18));
+  border: 1px solid rgba(66, 167, 181, 0.45);
+  text-align: center;
+  padding: 3.5rem 3rem;
+  align-items: center;
+}
+
+.service-card.featured-service h3 {
+  color: var(--primary-dark);
+  font-size: 2rem;
+}
+
+.service-card.featured-service p {
+  font-size: 1.1rem;
+  color: #0e0e0e;
+}
+
+.service-card.featured-service i {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
 .gdpr-compliance-block {
   background-color: rgba(255, 255, 255, 0.05);
   border-left: 4px solid var(--primary-color);

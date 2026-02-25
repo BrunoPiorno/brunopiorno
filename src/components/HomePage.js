@@ -237,29 +237,29 @@ const HomePage = () => {
 
   const services = [
     {
-      title: t('services.wordpress.title'),
-      description: t('services.wordpress.desc'),
-      icon: 'devicon-wordpress-plain'
-    },
-    {
-      title: t('services.ecommerce.title'),
-      description: t('services.ecommerce.desc'),
-      icon: 'devicon-woocommerce-plain'
-    },
-    {
       title: t('services.webdev.title'),
       description: t('services.webdev.desc'),
       icon: 'devicon-html5-plain'
     },
     {
-      title: t('services.custom.title'),
-      description: t('services.custom.desc'),
-      icon: 'devicon-react-original'
+      title: t('services.landing.title'),
+      description: t('services.landing.desc'),
+      icon: 'devicon-bootstrap-plain'
     },
     {
-      title: t('services.consulting.title'),
-      description: t('services.consulting.desc'),
-      icon: 'devicon-git-plain'
+      title: t('services.webapp.title'),
+      description: t('services.webapp.desc'),
+      icon: 'devicon-nodejs-plain'
+    },
+    {
+      title: t('services.ecommerce.title'),
+      description: t('services.ecommerce.desc'),
+      icon: 'fa-solid fa-cart-shopping'
+    },
+    {
+      title: t('services.googleads.title'),
+      description: t('services.googleads.desc'),
+      icon: 'devicon-google-plain'
     },
     {
       title: t('services.maintenance.title'),
@@ -267,14 +267,10 @@ const HomePage = () => {
       icon: 'devicon-github-original'
     },
     {
-      title: t('services.seo.title'),
-      description: t('services.seo.desc'),
-      icon: 'devicon-docker-plain'
-    },
-    {
-      title: t('services.performance.title'),
-      description: t('services.performance.desc'),
-      icon: 'devicon-redis-plain'
+      title: t('services.aisupport.title'),
+      description: t('services.aisupport.desc'),
+      icon: 'fa-solid fa-robot',
+      highlight: true
     }
   ];
 
