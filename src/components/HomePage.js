@@ -199,7 +199,7 @@ const HomePage = () => {
     },
     {
       quote: t('testimonials.starley.quote'),
-      author: 'Fernando',
+      author: 'Fernando Celaya',
       company: t('testimonials.starley.company'),
       image: 'https://www.globalalora.com/static/media/starley.2f17ea4f84781e41e085.png',
       metrics: [
