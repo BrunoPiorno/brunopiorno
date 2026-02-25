@@ -412,14 +412,14 @@ body.soluciones-page .site-header .language-selector {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   max-width: var(--container-max-width);
   margin: 0 auto;
 }
 
 .service-card.featured-service {
-  grid-column: 1 / -1;
+  grid-column: span 3;
   background: linear-gradient(135deg, rgba(66, 167, 181, 0.22), rgba(153, 228, 153, 0.18));
   border: 1px solid rgba(66, 167, 181, 0.45);
   text-align: center;
@@ -440,6 +440,26 @@ body.soluciones-page .site-header .language-selector {
 .service-card.featured-service i {
   color: var(--primary-dark);
   margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-card.featured-service {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card.featured-service {
+    grid-column: span 1;
+  }
 }
 
 .gdpr-compliance-block {
@@ -3206,10 +3226,6 @@ body.soluciones-page .site-header .language-selector {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .services-grid {
     grid-template-columns: 1fr;
   }
 
