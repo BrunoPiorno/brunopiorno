@@ -217,6 +217,12 @@ export const en = {
   'testimonials.rulo.metric2': 'Open communication',
   'testimonials.rulo.metric3': 'Impeccable results',
 
+  'testimonials.starley.quote': 'During this time, the work was highly professional, with excellent willingness and strict adherence to timelines. Communication was always clear and solution-oriented. I highlight their commitment and efficiency.',
+  'testimonials.starley.company': 'Starley – Commercial area',
+  'testimonials.starley.metric1': 'Consistent professionalism',
+  'testimonials.starley.metric2': 'Clear communication',
+  'testimonials.starley.metric3': 'Commitment & efficiency',
+
   // Projects
   'projects.viewSite': 'View Site',
   'contribution.full': 'Full-Stack Development',
