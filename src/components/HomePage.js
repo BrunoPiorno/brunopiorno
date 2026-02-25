@@ -196,6 +196,17 @@ const HomePage = () => {
         url: 'https://club.rulodeviaje.com/',
         label: 'Ver comunidad'
       }
+    },
+    {
+      quote: t('testimonials.starley.quote'),
+      author: 'Fernando',
+      company: t('testimonials.starley.company'),
+      image: 'https://www.globalalora.com/static/media/starley.2f17ea4f84781e41e085.png',
+      metrics: [
+        t('testimonials.starley.metric1'),
+        t('testimonials.starley.metric2'),
+        t('testimonials.starley.metric3')
+      ]
     }
   ]), [t]);
 
