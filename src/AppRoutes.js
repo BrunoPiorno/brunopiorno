@@ -38,7 +38,7 @@ const AppRoutes = () => (
       <Route path="/cookies-policy" element={<CookiesPolicy />} />
       <Route path="/thank-you" element={<ThankYouPage />} />
       <Route path="/presentacion" element={<PresentationPage />} />
-      <Route path="/:slug" element={<ProposalLanding />} />
+      <Route path="/propuesta/:slug" element={<ProposalLanding />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </Suspense>
