@@ -64,7 +64,6 @@ const HomePage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('all');
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   const projects = useMemo(() => {
     const featuredProjects = t('projects.featured');
@@ -209,14 +208,6 @@ const HomePage = () => {
       ]
     }
   ]), [t]);
-
-  const handleNextTestimonial = () => {
-    setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const handlePrevTestimonial = () => {
-    setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -764,36 +755,14 @@ const HomePage = () => {
           <p>{t('testimonials.subtitle')}</p>
         </motion.div>
 
-        <div className="testimonials-slider" aria-live="polite">
-          <button className="testimonial-nav" onClick={handlePrevTestimonial} aria-label="Testimonio anterior">
-            ←
-          </button>
-          <div className="testimonials-window">
-            <div
-              className="testimonials-track"
-              style={{ transform: `translateX(-${activeTestimonial * 100}%)` }}
-            >
-              {testimonials.map((testimonial, index) => (
-                <div key={`testimonial-${index}`} className="testimonial-slide">
-                  <TestimonialCard testimonial={testimonial} index={index} />
-                </div>
-              ))}
-            </div>
+        <div className="testimonials-panel">
+          <div className="testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard key={`testimonial-${index}`} testimonial={testimonial} index={index} />
+            ))}
           </div>
-          <button className="testimonial-nav" onClick={handleNextTestimonial} aria-label="Siguiente testimonio">
-            →
-          </button>
         </div>
-        <div className="testimonial-dots">
-          {testimonials.map((_, index) => (
-            <button
-              key={`testimonial-dot-${index}`}
-              className={`testimonial-dot ${index === activeTestimonial ? 'active' : ''}`}
-              onClick={() => setActiveTestimonial(index)}
-              aria-label={`Ir al testimonio ${index + 1}`}
-            />
-          ))}
-        </div>
+
       </section>
 
       {/* Recognition Section */}
