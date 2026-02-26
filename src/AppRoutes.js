@@ -14,6 +14,7 @@ const ReviewsPage = lazy(() => import('./components/ReviewsPage'));
 const WhatsAppGenerator = lazy(() => import('./components/WhatsAppGenerator'));
 const ProposalLanding = lazy(() => import('./components/proposals/ProposalLanding'));
 const PresentationPage = lazy(() => import('./components/PresentationPage'));
+const LlamadaRelevamiento = lazy(() => import('./components/LlamadaRelevamiento'));
 
 const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
@@ -28,6 +29,8 @@ const AppRoutes = () => (
       <Route path="/thank-you" element={<ThankYouPage />} />
       <Route path="/presentacion" element={<PresentationPage />} />
       <Route path="/reseñas" element={<ReviewsPage />} />
+      <Route path="/llamada-de-relevamiento" element={<LlamadaRelevamiento />} />
+      <Route path="/discovery-call" element={<LlamadaRelevamiento />} />
       <Route path="/propuesta/:slug" element={<ProposalLanding />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
