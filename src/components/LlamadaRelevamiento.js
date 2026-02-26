@@ -1,14 +1,24 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from '../context/LanguageContext';
 import SiteHeader from './SiteHeader';
 import '../App.css';
 import '../devicons/devicon.min.css';
 import './LlamadaRelevamiento.css';
 
-const LlamadaRelevamientoContent = ({ forcedLocale }) => {
+const LlamadaRelevamientoContent = ({ forcedLocale, standalone = false }) => {
   const { locale } = useLanguage();
-  const currentLocale = forcedLocale || locale;
+  const location = useLocation();
+  
+  // Detectar idioma de la ruta
+  const detectLocaleFromPath = () => {
+    if (location.pathname.includes('/discovery-call')) return 'en';
+    if (location.pathname.includes('/llamada-de-relevamiento')) return 'es';
+    return locale;
+  };
+  
+  const currentLocale = forcedLocale || detectLocaleFromPath();
 
   useEffect(() => {
     // Agregar clase al body para esta página
@@ -34,10 +44,12 @@ const LlamadaRelevamientoContent = ({ forcedLocale }) => {
 
   return (
     <>
-      {/* Header del sitio con menú oculto */}
-      <div className="llamada-header-wrapper">
-        <SiteHeader hideMenu={true} />
-      </div>
+      {/* Header del sitio con menú oculto - solo en modo standalone */}
+      {standalone && (
+        <div className="llamada-header-wrapper">
+          <SiteHeader hideMenu={true} />
+        </div>
+      )}
 
       <div className="llamada-relevamiento-container">
         {/* Simple Header */}
@@ -83,13 +95,13 @@ const LlamadaRelevamiento = ({ standalone = false, locale: forcedLocale }) => {
           } />
           <html lang={forcedLocale} />
         </Helmet>
-        <LlamadaRelevamientoContent forcedLocale={forcedLocale} />
+        <LlamadaRelevamientoContent forcedLocale={forcedLocale} standalone={true} />
       </LanguageProvider>
     );
   }
 
   // Para uso dentro del layout normal (si alguna vez se necesita)
-  return <LlamadaRelevamientoContent forcedLocale={forcedLocale} />;
+  return <LlamadaRelevamientoContent forcedLocale={forcedLocale} standalone={false} />;
 };
 
 export default LlamadaRelevamiento;
