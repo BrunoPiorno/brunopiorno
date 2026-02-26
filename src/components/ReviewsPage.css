@@ -1,0 +1,356 @@
+:root {
+  --reviews-bg: #070c17;
+  --reviews-card: rgba(12, 18, 32, 0.75);
+  --reviews-border: rgba(255, 255, 255, 0.08);
+  --reviews-highlight: #62e0c8;
+  --reviews-secondary: #101b2d;
+}
+
+.reviews-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, rgba(98, 224, 200, 0.12), transparent 45%),
+    radial-gradient(circle at bottom left, rgba(110, 114, 255, 0.18), transparent 45%),
+    var(--reviews-bg);
+  color: #f8fbff;
+  padding-bottom: 6rem;
+}
+
+.reviews-hero {
+  padding: 8rem 1.5rem 4rem;
+}
+
+.reviews-hero .hero-grid {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  align-items: center;
+}
+
+.reviews-hero .hero-copy .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.reviews-hero h1 {
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  margin: 1rem 0;
+  color: #fff;
+}
+
+.reviews-hero p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  border-radius: 999px;
+  padding: 0.9rem 1.7rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+}
+
+.primary-btn {
+  background: linear-gradient(120deg, #63d6b7, #74ecf7);
+  color: #04131b;
+  box-shadow: 0 20px 45px rgba(98, 214, 183, 0.45);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.metric-card {
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: var(--reviews-card);
+  border: 1px solid var(--reviews-border);
+  backdrop-filter: blur(18px);
+  min-height: 140px;
+}
+
+.metric-card span {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.metric-card strong {
+  display: block;
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+.reviews-list-section,
+.reviews-form-section {
+  max-width: 1440PX;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 0;
+}
+
+.section-heading {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.section-heading p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.reviews-filters {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+  padding: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+.reviews-filters button {
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.reviews-filters button.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.5rem;
+}
+
+.review-card {
+  background: rgba(6, 10, 24, 0.8);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+}
+
+.review-card.pending::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.05), transparent 60%);
+  pointer-events: none;
+}
+
+.review-rating {
+  color: #ffc857;
+  font-size: 1rem;
+}
+
+.review-message {
+  margin: 1.2rem 0;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.review-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.review-meta strong {
+  font-size: 1.05rem;
+}
+
+.review-meta span {
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.project-chip {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: rgba(98, 224, 200, 0.15);
+  color: #7cf2d8;
+}
+
+.pending-label {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.empty-state {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.reviews-form-section {
+  margin-top: 4rem;
+}
+
+.form-card {
+  background: rgba(4, 9, 20, 0.85);
+  border-radius: 24px;
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.form-card h3 {
+  font-size: 2rem;
+}
+
+.form-card p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.reviews-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.reviews-form input,
+.reviews-form select,
+.reviews-form textarea {
+  background: rgba(10, 18, 34, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  color: #fff;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+
+.reviews-form input:focus,
+.reviews-form select:focus,
+.reviews-form textarea:focus {
+  outline: none;
+  border-color: rgba(98, 224, 200, 0.8);
+  box-shadow: 0 0 0 2px rgba(98, 224, 200, 0.2);
+}
+
+.reviews-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.rating-field {
+  margin: 1.5rem 0;
+}
+
+.rating-options {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.rating-options button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rating-options button.active {
+  background: rgba(98, 224, 200, 0.15);
+  border-color: rgba(98, 224, 200, 0.6);
+  color: #7df2d9;
+}
+
+.status-message {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+
+.status-message.success {
+  background: rgba(98, 224, 200, 0.15);
+  color: #8affe0;
+}
+
+.status-message.error {
+  background: rgba(255, 99, 132, 0.15);
+  color: #ff99a8;
+}
+
+@media (max-width: 768px) {
+  .reviews-hero {
+    padding-top: 6rem;
+  }
+
+  .form-card {
+    padding: 2rem;
+  }
+
+  .review-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-metrics {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}

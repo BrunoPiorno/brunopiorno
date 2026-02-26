@@ -25,6 +25,7 @@ export const es = {
   'header.technologies': 'Tecnologías',
   'header.faqs': 'FAQs',
   'header.testimonials': 'Testimonios',
+  'header.reviews': 'Reseñas',
   'header.blog': 'Blog',
   'home.contact.title': 'Contacto',
   'home.gdpr.title': 'Tu Privacidad es Nuestra Prioridad',
@@ -237,6 +238,35 @@ export const es = {
   'testimonials.starley.metric1': 'Profesionalismo constante',
   'testimonials.starley.metric2': 'Comunicación clara',
   'testimonials.starley.metric3': 'Compromiso y eficiencia',
+
+
+  // Reviews Page
+  'reviews.meta.title': 'Reseñas de clientes | Alora',
+  'reviews.meta.description': 'Leé experiencias reales y dejá tu reseña para seguir construyendo confianza en la red.',
+  'reviews.hero.title': 'Confianza creada con código real',
+  'reviews.hero.subtitle': 'Historias, métricas e impacto directo contados por quienes ya trabajaron con Alora.',
+  'reviews.hero.cta': 'Compartir mi experiencia',
+  'reviews.hero.secondary': 'Volver al inicio',
+  'reviews.metrics.projects': 'Proyectos impulsados',
+  'reviews.metrics.satisfaction': 'Satisfacción promedio',
+  'reviews.metrics.years': 'Años construyendo',
+  'reviews.filters.all': 'Todas las reseñas',
+  'reviews.filters.recent': 'Más recientes',
+  'reviews.form.title': 'Dejá tu reseña',
+  'reviews.form.subtitle': 'Contanos cómo fue trabajar con nosotros. Leemos cada mensaje y puede aparecer en la home.',
+  'reviews.form.name': 'Nombre y apellido',
+  'reviews.form.email': 'Email (solo para contactarte si necesitamos más info)',
+  'reviews.form.company': 'Empresa / Proyecto',
+  'reviews.form.role': 'Rol',
+  'reviews.form.projectType': 'Tipo de proyecto',
+  'reviews.form.message': 'Tu reseña',
+  'reviews.form.ratingLabel': 'Calificación general',
+  'reviews.form.submit': 'Enviar reseña',
+  'reviews.form.success': '¡Gracias! Recibimos tu reseña y la revisaremos a la brevedad.',
+  'reviews.form.error': 'No pudimos guardar la reseña. Probá de nuevo en unos minutos.',
+  'reviews.list.title': 'Reseñas destacadas',
+  'reviews.list.subtitle': 'Seleccionamos historias reales de equipos y marcas con las que trabajamos.',
+  'reviews.empty': 'Aún no hay reseñas con este filtro. Sé la primera persona en contar su experiencia.',
 
 
   // Últimas noticias
