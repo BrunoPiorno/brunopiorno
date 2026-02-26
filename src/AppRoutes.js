@@ -10,6 +10,7 @@ const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const LegalNotice = lazy(() => import('./components/LegalNotice'));
 const CookiesPolicy = lazy(() => import('./components/CookiesPolicy'));
 const ThankYouPage = lazy(() => import('./components/ThankYouPage'));
+const ReviewsPage = lazy(() => import('./components/ReviewsPage'));
 const WhatsAppGenerator = lazy(() => import('./components/WhatsAppGenerator'));
 const ProposalLanding = lazy(() => import('./components/proposals/ProposalLanding'));
 const PresentationPage = lazy(() => import('./components/PresentationPage'));
@@ -26,7 +27,8 @@ const AppRoutes = () => (
       <Route path="/cookies-policy" element={<CookiesPolicy />} />
       <Route path="/thank-you" element={<ThankYouPage />} />
       <Route path="/presentacion" element={<PresentationPage />} />
-      <Route path="/:slug" element={<ProposalLanding />} />
+      <Route path="/reseñas" element={<ReviewsPage />} />
+      <Route path="/propuesta/:slug" element={<ProposalLanding />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </Suspense>

@@ -47,6 +47,7 @@ export const en = {
   'header.technologies': 'Technologies',
   'header.faqs': 'FAQs',
   'header.testimonials': 'Testimonials',
+  'header.reviews': 'Reviews',
   'header.blog': 'Blog',
 
   // Featured Projects
@@ -222,6 +223,34 @@ export const en = {
   'testimonials.starley.metric1': 'Consistent professionalism',
   'testimonials.starley.metric2': 'Clear communication',
   'testimonials.starley.metric3': 'Commitment & efficiency',
+
+  // Reviews Page
+  'reviews.meta.title': 'Client Reviews | Alora',
+  'reviews.meta.description': 'Read real experiences and leave your own review to keep building trust across the network.',
+  'reviews.hero.title': 'Trust built with real code',
+  'reviews.hero.subtitle': 'Stories, metrics, and impact straight from the teams we partner with.',
+  'reviews.hero.cta': 'Share my experience',
+  'reviews.hero.secondary': 'Back to home',
+  'reviews.metrics.projects': 'Projects shipped',
+  'reviews.metrics.satisfaction': 'Avg. satisfaction',
+  'reviews.metrics.years': 'Years building',
+  'reviews.filters.all': 'All reviews',
+  'reviews.filters.recent': 'Most recent',
+  'reviews.form.title': 'Leave your review',
+  'reviews.form.subtitle': 'Tell us how it was to work together. Every message is read and can show up on the homepage.',
+  'reviews.form.name': 'Full name',
+  'reviews.form.email': 'Email (only if we need to follow up)',
+  'reviews.form.company': 'Company / Project',
+  'reviews.form.role': 'Role',
+  'reviews.form.projectType': 'Project type',
+  'reviews.form.message': 'Your review',
+  'reviews.form.ratingLabel': 'Overall rating',
+  'reviews.form.submit': 'Submit review',
+  'reviews.form.success': 'Thanks! We received your review and will publish it shortly.',
+  'reviews.form.error': 'We could not save the review. Please try again in a moment.',
+  'reviews.list.title': 'Featured reviews',
+  'reviews.list.subtitle': 'Handpicked stories from the brands and teams we support.',
+  'reviews.empty': 'There are no reviews for this filter yet. Be the first one to share your experience.',
 
   // Projects
   'projects.viewSite': 'View Site',
