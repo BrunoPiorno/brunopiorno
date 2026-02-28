@@ -115,27 +115,95 @@ const DesarrolloWeb = () => {
     }
   ];
 
+  const complementaryIcons = {
+    conversion: (
+      <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="2.5" fill="none" opacity="0.3" />
+        <circle cx="24" cy="24" r="12" stroke="currentColor" strokeWidth="2.5" fill="none" opacity="0.6" />
+        <circle cx="24" cy="24" r="5" fill="currentColor" />
+      </svg>
+    ),
+    ads: (
+      <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <path d="M10 32l8-10 8 6 12-16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M30 12h10v10" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="12" cy="34" r="2" fill="currentColor" opacity="0.7" />
+      </svg>
+    ),
+    maintenance: (
+      <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <path d="M14 30l12 12 4-4-6-6 6-6-6-6 4-4-12-12" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="34" cy="14" r="6" fill="none" stroke="currentColor" strokeWidth="3" />
+      </svg>
+    ),
+    automation: (
+      <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <circle cx="24" cy="16" r="6" fill="none" stroke="currentColor" strokeWidth="3" />
+        <circle cx="11" cy="32" r="5" fill="none" stroke="currentColor" strokeWidth="3" />
+        <circle cx="37" cy="32" r="5" fill="none" stroke="currentColor" strokeWidth="3" />
+        <path d="M24 22v6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        <path d="M20 28l-6 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        <path d="M28 28l6 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      </svg>
+    ),
+  };
+
+  const idealIcons = {
+    business: (
+      <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <rect x="8" y="14" width="32" height="22" rx="3" fill="none" stroke="currentColor" strokeWidth="3" />
+        <path d="M16 14v-6h16v6" fill="none" stroke="currentColor" strokeWidth="3" />
+        <path d="M18 24h4v4h-4zM26 24h4v4h-4z" fill="currentColor" />
+        <path d="M12 36h24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      </svg>
+    ),
+    goals: (
+      <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" strokeWidth="3" opacity="0.4" />
+        <circle cx="24" cy="24" r="10" fill="none" stroke="currentColor" strokeWidth="3" opacity="0.7" />
+        <path d="M24 14v10l7 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+    team: (
+      <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <circle cx="16" cy="18" r="6" fill="none" stroke="currentColor" strokeWidth="3" />
+        <circle cx="32" cy="18" r="6" fill="none" stroke="currentColor" strokeWidth="3" />
+        <path d="M8 38c0-5 4-9 9-9h14c5 0 9 4 9 9" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      </svg>
+    ),
+    evolve: (
+      <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <path d="M24 6l6 10-6 4-6-4 6-10z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
+        <path d="M18 20l-6 16 12-4 12 4-6-16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
+      </svg>
+    ),
+  };
+
   const complementaryServices = locale === 'es'
     ? [
         {
+          iconKey: 'conversion',
           title: 'Landing Pages orientadas a conversión',
           lead: 'Pensadas para convertir visitas en consultas.',
           description: 'Las usamos en campañas específicas, lanzamientos o acciones con objetivos medibles y tiempos cortos.',
           example: 'Ejemplo típico: captación de leads cualificados desde Google Ads o LinkedIn Ads.'
         },
         {
+          iconKey: 'ads',
           title: 'Google Ads & Paid Acquisition',
           lead: 'Diseñadas para generar tráfico calificado sostenible.',
           description: 'Nos enfocamos en campañas que alimentan al sitio con intención real, optimizando keywords, anuncios y páginas de destino.',
           example: 'Ejemplo: sostener flujo de oportunidades B2B mientras el equipo comercial escala.'
         },
         {
+          iconKey: 'maintenance',
           title: 'Mantenimiento y evolución web',
           lead: 'Asegura estabilidad, performance y mejoras continuas.',
           description: 'Incluye actualizaciones técnicas, monitoreo y evolutivos para mantener el sitio alineado al negocio.',
           example: 'Ejemplo: releases mensuales para sumar nuevos casos, productos o integraciones.'
         },
         {
+          iconKey: 'automation',
           title: 'Automatización con IA en atención',
           lead: 'Integramos bots y flujos inteligentes para responder rápido.',
           description: 'Entrenamos asistentes con tu información real para clasificar consultas, derivar leads y liberar al equipo.',
@@ -144,24 +212,28 @@ const DesarrolloWeb = () => {
       ]
     : [
         {
+          iconKey: 'conversion',
           title: 'Conversion-focused landing pages',
           lead: 'Built to turn visits into qualified inquiries.',
           description: 'We use them for campaigns, launches or initiatives with measurable objectives and short deadlines.',
           example: 'Example: capturing qualified B2B leads from Google Ads or LinkedIn Ads.'
         },
         {
+          iconKey: 'ads',
           title: 'Google Ads & paid acquisition',
           lead: 'Designed to sustain qualified traffic.',
           description: 'We focus on campaigns that feed the site with real intent, optimizing keywords, ads and landing experiences.',
           example: 'Example: keeping a steady pipeline while the sales team scales.'
         },
         {
+          iconKey: 'maintenance',
           title: 'Web maintenance & evolution',
           lead: 'Keeps stability, performance and ongoing improvements.',
           description: 'Covers technical updates, monitoring and incremental releases so the site follows the business.',
           example: 'Example: monthly releases to add new case studies, products or integrations.'
         },
         {
+          iconKey: 'automation',
           title: 'Customer automation with AI',
           lead: 'We integrate bots and smart flows for faster answers.',
           description: 'Assistants are trained with your real knowledge to classify inquiries, route leads and free up the team.',
@@ -172,21 +244,25 @@ const DesarrolloWeb = () => {
   const idealCriteria = locale === 'es'
     ? [
         {
+          iconKey: 'business',
           title: 'Negocios en marcha',
           highlight: 'Tu empresa ya opera con clientes y mercado claros.',
           detail: 'Necesitás que el sitio represente el nivel actual y sostenga el crecimiento.'
         },
         {
+          iconKey: 'goals',
           title: 'Objetivos comerciales concretos',
           highlight: 'El sitio debe generar consultas, pedidos o leads calificados.',
           detail: 'Lo tratamos como una herramienta para ventas y desarrollo de negocio.'
         },
         {
+          iconKey: 'team',
           title: 'Interlocutores disponibles',
           highlight: 'Contás con referentes internos que aportan criterio y feedback.',
           detail: 'El proyecto avanza con decisiones ágiles y colaboración real.'
         },
         {
+          iconKey: 'evolve',
           title: 'Necesidad de evolucionar',
           highlight: 'Tu sitio actual quedó corto o no refleja el posicionamiento.',
           detail: 'Buscás una base sólida para coordinar próximas iniciativas digitales.'
@@ -194,21 +270,25 @@ const DesarrolloWeb = () => {
       ]
     : [
         {
+          iconKey: 'business',
           title: 'Established operations',
           highlight: 'Your company already runs with real customers and a defined market.',
           detail: 'You need the site to reflect the current level and support growth.'
         },
         {
+          iconKey: 'goals',
           title: 'Clear commercial objectives',
           highlight: 'The website must generate qualified inquiries or requests.',
           detail: 'We treat it as a tool for sales and business development.'
         },
         {
+          iconKey: 'team',
           title: 'Available stakeholders',
           highlight: 'You have internal references who provide direction and feedback.',
           detail: 'The project progresses with agile decisions and real collaboration.'
         },
         {
+          iconKey: 'evolve',
           title: 'Need to evolve',
           highlight: 'Your current site is outdated or misaligned with your positioning.',
           detail: 'You want a solid base for upcoming digital initiatives.'
@@ -304,45 +384,61 @@ const DesarrolloWeb = () => {
   const websiteTypes = locale === 'es'
     ? [
         {
+          icon: '🏢',
           title: 'Sitios corporativos estratégicos',
-          description: 'Reposicionan a la compañía con narrativa clara, credenciales y roadmap de crecimiento.',
+          description:
+            'Reposicionan a la compañía con narrativa clara, credenciales profundas y roadmap de crecimiento, dejando preparados casos, métricas y próximos pasos para el equipo comercial.',
           examples: ['Holding y empresas B2B', 'Firmas industriales y tecnológicas']
         },
         {
+          icon: '🤝',
           title: 'Servicios profesionales y consultoras',
-          description: 'Explican metodología, casos y equipo para captar leads de alto valor.',
+          description:
+            'Exponen metodología, procesos, equipo y diferenciales de valor con storytelling consultivo. Incluyen casos destacados, paquetes de servicio y llamadas a la acción de alto valor.',
           examples: ['Estudios de arquitectura e ingeniería', 'Consultoras de negocio / boutiques creativas']
         },
         {
+          icon: '⚙️',
           title: 'Plataformas orientadas a demanda',
-          description: 'Diseñadas para captar oportunidades, automatizar contactos y nutrir pipelines.',
+          description:
+            'Diseñadas para captar oportunidades, automatizar contactos y nutrir pipelines. Integran formularios inteligentes, automatizaciones y contenido educativo para cada etapa del funnel.',
           examples: ['Empresas SaaS y tecnología', 'Servicios con ciclos de venta consultivos']
         },
         {
+          icon: '🚀',
           title: 'One-pagers para ofertas puntuales',
-          description: 'Activan campañas o lanzamientos específicos con foco en mensaje y CTA.',
+          description:
+            'Activan campañas o lanzamientos específicos con foco en mensaje y CTA. Destacan beneficio único, urgencia y pasos de conversión listos para equipos de marketing o eventos.',
           examples: ['Eventos privados', 'Programas de formación corporativa']
         }
       ]
     : [
         {
+          icon: '🏢',
           title: 'Strategic corporate sites',
-          description: 'Reposition the company with clear narrative, credentials and growth roadmap.',
+          description:
+            'Reposition the company with a sharp narrative, deep credentials and a growth roadmap, packaging case studies, metrics and next steps for commercial conversations.',
           examples: ['Holdings and B2B companies', 'Industrial and technology firms']
         },
         {
+          icon: '🤝',
           title: 'Professional services & consulting',
-          description: 'Explains methodology, cases and team to attract high-value leads.',
+          description:
+            'Showcases methodology, process, team and value differentiators with consultative storytelling. Includes signature cases, service packages and high-value CTAs.',
           examples: ['Architecture / engineering studios', 'Boutique consulting or creative firms']
         },
         {
+          icon: '⚙️',
           title: 'Demand-oriented platforms',
-          description: 'Built to capture opportunities, automate contacts and nurture pipelines.',
+          description:
+            'Built to capture opportunities, automate contacts and nurture pipelines. Combines smart forms, automations and educational content for each funnel stage.',
           examples: ['SaaS & tech companies', 'Services with consultative sales cycles']
         },
         {
+          icon: '🚀',
           title: 'Focused one-pagers',
-          description: 'Activate campaigns or launches with sharp messaging and CTA.',
+          description:
+            'Activate campaigns or launches with precise messaging and CTA. Highlights singular benefits, urgency and conversion paths ready for marketing pushes or events.',
           examples: ['Private events', 'Corporate training programs']
         }
       ];
@@ -402,7 +498,7 @@ const DesarrolloWeb = () => {
                 className="cta-button primary large"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
+                onClick={() => window.open(locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call', '_blank')}
               >
                 {locale === 'es' ? 'Hablar sobre tu proyecto' : 'Talk about your project'}
                 <span className="duration">
@@ -524,12 +620,12 @@ const DesarrolloWeb = () => {
             {solutionPrinciples.map((principle, index) => (
               <div className="solution-card" key={index}>
                 <h3>{principle.title}</h3>
-                <p>{principle.description}</p>
+                <p className="solution-subtitle">{principle.description}</p>
               </div>
             ))}
           </div>
           <div className="solution-footer">
-            <p>
+            <p className="solution-subtitle">
               {locale === 'es'
                 ? 'Partimos de objetivos medibles y responsables definidos en tu equipo. No usamos atajos ni sitios genéricos.'
                 : 'We start from measurable goals and clear ownership on your team. No shortcuts, no generic sites.'}
@@ -601,8 +697,11 @@ const DesarrolloWeb = () => {
           <div className="website-types-grid">
             {websiteTypes.map((type, index) => (
               <div className="website-type-card" key={index}>
-                <h3>{type.title}</h3>
-                <p>{type.description}</p>
+                {type.icon && <div className="website-type-icon">{type.icon}</div>}
+                <div className="website-type-content">
+                  <h3>{type.title}</h3>
+                  <p>{type.description}</p>
+                </div>
                 <div className="website-type-examples">
                   {type.examples.map((example, idx) => (
                     <span key={idx}>{example}</span>
@@ -697,6 +796,11 @@ const DesarrolloWeb = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
+                {service.iconKey && (
+                  <div className="complementary-icon">
+                    {complementaryIcons[service.iconKey]}
+                  </div>
+                )}
                 <h3>{service.title}</h3>
                 <p className="complementary-lead"><strong>{service.lead}</strong></p>
                 <p className="complementary-description">{service.description}</p>
@@ -774,6 +878,11 @@ const DesarrolloWeb = () => {
           <div className="ideal-for-grid">
             {idealCriteria.map((item, index) => (
               <div className="ideal-for-item" key={index}>
+                {item.iconKey && (
+                  <div className="ideal-icon">
+                    {idealIcons[item.iconKey]}
+                  </div>
+                )}
                 <h3>{item.title}</h3>
                 <p>
                   <strong>{item.highlight}</strong> {item.detail}
@@ -808,7 +917,7 @@ const DesarrolloWeb = () => {
               className="cta-button primary large"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
+              onClick={() => window.open(locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call', '_blank')}
             >
               {locale === 'es' ? 'Agendar una llamada de 20 minutos' : 'Schedule a 20-minute call'}
             </motion.button>
@@ -817,9 +926,23 @@ const DesarrolloWeb = () => {
                 ? 'Evaluamos tu proyecto y te decimos si podemos ayudarte.'
                 : 'We evaluate your project and tell you if we can help you.'}
             </p>
+            <div className="cta-whatsapp">
+              <p>
+                {locale === 'es'
+                  ? '¿No podés contener tu ansiedad y querés chatearnos ahora?'
+                  : "Can't contain your excitement and want to chat now?"}
+              </p>
+              <a
+                href="https://wa.me/5491124629452?text=Hola%20equipo%20Alora,%20quiero%20hablar%20ahora%20sobre%20mi%20sitio."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {locale === 'es' ? 'Escribinos por WhatsApp' : 'Message us on WhatsApp'}
+              </a>
+            </div>
           </div>
           <div className="cta-image" style={{
-            background: 'url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80") center/cover'
+            background: 'url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80") center/cover'
           }}></div>
         </motion.div>
       </section>
