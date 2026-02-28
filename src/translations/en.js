@@ -302,13 +302,13 @@ export const en = {
   'nav.services': 'Services',
   'nav.projects': 'Projects',
   'nav.clients': 'Clients',
-  'nav.methodology': 'Methodology',
   'nav.technologies': 'Technologies',
   'nav.contact': 'Contact',
 
   // Hero Section
-  'hero.title': 'We create systems and websites that grow your business',
-  'hero.subtitle': 'From e-commerce to custom platforms, we help companies like yours sell more.',
+  'hero.title': 'Tailored technology for companies that want to sell more and operate better',
+  'hero.subtitle': 'We design and build websites, ecommerce experiences and custom systems for companies that need to turn their digital presence into a real driver for growth and operational efficiency.',
+  'hero.microcopy': 'From corporate sites to platforms and AI-powered automations, we work where business and technology meet.',
   'hero.cta': 'Talk to an expert',
   'hero.cta2': 'View projects',
 
@@ -340,18 +340,6 @@ export const en = {
   'cta.whatsapp': 'WhatsApp',
   'cta.contact': 'Contact Form',
 
-  // Methodology Section
-  'methodology.title': 'Work Methodology',
-  'methodology.subtitle': 'Organization and transparency in every project',
-  'methodology.asana.title': 'Professional Management with Asana',
-  'methodology.planning': 'Detailed Planning',
-  'methodology.planning.desc': 'Each project is divided into specific tasks with clear deadlines',
-  'methodology.tracking': 'Real-Time Tracking',
-  'methodology.tracking.desc': 'Access to project progress and hours dedicated to each task',
-  'methodology.communication': 'Effective Communication',
-  'methodology.communication.desc': 'Constant feedback and updates on project progress',
-  'methodology.transparency': 'Total Transparency',
-  'methodology.transparency.desc': 'Clear visualization of objectives, timelines, and project costs',
 
   // Technologies Section
   'tech.title': 'Technologies',
