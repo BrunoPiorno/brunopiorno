@@ -44,6 +44,23 @@ const Chatbot = () => {
     }
   };
 
+  const AFFIRMATIVE_WORDS = {
+    es: ['si', 'sí', 'dale', 'ok', 'okay', 'claro'],
+    en: ['yes', 'yeah', 'sure', 'ok', 'okay', 'alright']
+  };
+
+  const NEGATIVE_WORDS = {
+    es: ['no', 'nop', 'despues', 'después', 'mas tarde', 'más tarde'],
+    en: ['no', 'not really', 'maybe later', 'later', 'not now']
+  };
+
+  const normalizeText = (text = '') =>
+    text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim();
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
@@ -53,6 +70,7 @@ const Chatbot = () => {
   const [hasOfferedContact, setHasOfferedContact] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [userData, setUserData] = useState({ name: '', email: '', phone: '' });
+  const [affirmativeStreak, setAffirmativeStreak] = useState(0);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -139,52 +157,78 @@ const Chatbot = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
+  const runChatConversation = async (newMessagesSnapshot, userText) => {
+    detectAndSendLead(userText, newMessagesSnapshot);
+    setIsSending(true);
+    setMessages(newMessagesSnapshot);
+    setInputValue('');
+    setIsTyping(true);
+
+    try {
+      const botResponse = await chatRequestWithRetry(newMessagesSnapshot, 0);
+      setIsTyping(false);
+      setMessages(prev => [...prev, { from: 'bot', text: botResponse }]);
+      handleContactOffer(botResponse, userText, newMessagesSnapshot.length);
+    } catch (error) {
+      console.error('Error al contactar la API del chat:', error);
+      const fallback = locale === 'en'
+        ? `Sorry, I had a technical issue. You can reach us via WhatsApp ${CONTACT_INFO.whatsapp} or email ${CONTACT_INFO.email}.`
+        : `Tuvimos un problema técnico. Podés escribirnos por WhatsApp ${CONTACT_INFO.whatsapp} o al correo ${CONTACT_INFO.email}.`;
+      setMessages(prev => [...prev, { from: 'bot', text: fallback }]);
+      setIsTyping(false);
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   const handleSendMessage = async (e) => {
     e.preventDefault();
 
     if (!inputValue.trim()) return;
-    if (step === 'chat' && isSending) return;
+    if ((step === 'chat' || step === 'pre_contact') && isSending) return;
 
     const userMessage = { from: 'user', text: inputValue };
     const newMessages = [...messages, userMessage];
+    const normalizedInput = normalizeText(inputValue);
+    const localeAffirmatives = AFFIRMATIVE_WORDS[locale];
+    const localeNegatives = NEGATIVE_WORDS[locale];
+    const isPureAffirmative = localeAffirmatives.includes(normalizedInput);
 
     if (step === 'chat') {
-      detectAndSendLead(inputValue, newMessages);
-      setIsSending(true);
-      setMessages(newMessages);
-      setInputValue('');
-      setIsTyping(true);
+      if (isPureAffirmative) {
+        const streak = affirmativeStreak + 1;
+        setAffirmativeStreak(streak);
 
-      try {
-        const botResponse = await chatRequestWithRetry(newMessages, 0);
-        setIsTyping(false);
-        setMessages(prev => [...prev, { from: 'bot', text: botResponse }]);
-        handleContactOffer(botResponse, userMessage.text, newMessages.length);
-      } catch (error) {
-        console.error('Error al contactar la API del chat:', error);
-        const fallback = locale === 'en'
-          ? `Sorry, I had a technical issue. You can reach us via WhatsApp ${CONTACT_INFO.whatsapp} or email ${CONTACT_INFO.email}.`
-          : `Tuvimos un problema técnico. Podés escribirnos por WhatsApp ${CONTACT_INFO.whatsapp} o al correo ${CONTACT_INFO.email}.`;
-        setMessages(prev => [...prev, { from: 'bot', text: fallback }]);
-        setIsTyping(false);
-      } finally {
-        setIsSending(false);
+        if (streak >= 2) {
+          setHasOfferedContact(true);
+          setStep('pre_contact');
+          setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].offer_contact }]);
+          setInputValue('');
+          return;
+        }
+      } else {
+        setAffirmativeStreak(0);
       }
+      await runChatConversation(newMessages, userMessage.text);
     } else if (step === 'pre_contact') {
       // Si el usuario responde afirmativamente
-      const affirmativeWords = locale === 'en' ?
-        ['yes', 'yeah', 'sure', 'ok', 'okay', 'alright', 'fine'] :
-        ['si', 'sí', 'ok', 'dale', 'bueno'];
+      const negativeWords = localeNegatives;
 
-      if (affirmativeWords.some(word => inputValue.toLowerCase().includes(word))) {
+      if (localeAffirmatives.some(word => normalizedInput.includes(word))) {
         setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].ask_name }]);
         setStep('name');
-      } else {
+      } else if (negativeWords.some(word => normalizedInput.includes(word))) {
         // Si dice que no, volvemos al chat normal
         setStep('chat');
         setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].continue_chat }]);
+        setAffirmativeStreak(0);
+      } else {
+        // Si responde con más contexto, seguimos la conversación normal
+        setStep('chat');
+        await runChatConversation(newMessages, userMessage.text);
       }
     } else if (step === 'name') {
+      setAffirmativeStreak(0);
       setUserData(prev => ({ ...prev, name: inputValue }));
       setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].ask_email }]);
       setStep('email');
@@ -193,10 +237,12 @@ const Chatbot = () => {
         setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].invalid_email }]);
         return;
       }
+      setAffirmativeStreak(0);
       setUserData(prev => ({ ...prev, email: inputValue }));
       setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].ask_phone }]);
       setStep('phone');
     } else if (step === 'phone') {
+      setAffirmativeStreak(0);
       const updatedUserData = { ...userData, phone: inputValue };
       setUserData(updatedUserData);
 
