@@ -286,13 +286,13 @@ export const es = {
   'nav.services': 'Servicios',
   'nav.projects': 'Proyectos',
   'nav.clients': 'Clientes',
-  'nav.methodology': 'Metodología',
   'nav.technologies': 'Tecnologías',
   'nav.contact': 'Contacto',
 
   // Hero Section
-  'hero.title': 'Creamos sistemas y webs que hacen crecer tu negocio',
-  'hero.subtitle': 'Desde e-commerce hasta plataformas a medida, ayudamos a empresas como la tuya a vender mas.',
+  'hero.title': 'Tecnología a medida para empresas que quieren vender más y operar mejor',
+  'hero.subtitle': 'Diseñamos y desarrollamos sitios web, ecommerce y sistemas personalizados para compañías que necesitan convertir su presencia digital en una herramienta real de crecimiento y eficiencia operativa.',
+  'hero.microcopy': 'Desde webs corporativas hasta plataformas y automatizaciones con IA, trabajamos donde el negocio y la tecnología se cruzan.',
   'hero.cta': 'Hablar con un experto',
   'hero.cta2': 'Ver proyectos',
 
@@ -322,18 +322,6 @@ export const es = {
   'cta.whatsapp': 'WhatsApp',
   'cta.contact': 'Formulario de Contacto',
 
-  // Methodology Section
-  'methodology.title': 'Metodología de Trabajo',
-  'methodology.subtitle': 'Organización y transparencia en cada proyecto',
-  'methodology.asana.title': 'Gestión Profesional con Asana',
-  'methodology.planning': 'Planificación Detallada',
-  'methodology.planning.desc': 'Cada proyecto se divide en tareas específicas con plazos claros',
-  'methodology.tracking': 'Seguimiento en Tiempo Real',
-  'methodology.tracking.desc': 'Acceso al progreso del proyecto y horas dedicadas a cada tarea',
-  'methodology.communication': 'Comunicación Efectiva',
-  'methodology.communication.desc': 'Feedback y actualizaciones constantes sobre el avance del proyecto',
-  'methodology.transparency': 'Transparencia Total',
-  'methodology.transparency.desc': 'Visualización clara de objetivos, tiempos y costos del proyecto',
 
   // Technologies Section
   'tech.title': 'Tecnologías',

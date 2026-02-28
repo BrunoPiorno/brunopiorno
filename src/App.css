@@ -240,6 +240,15 @@ body.reviews-active .contact-btn {
   color: #000;
 }
 
+.hero-microcopy {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: -1.5rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-secondary);
+  max-width: 520px;
+}
+
 .hero-buttons {
   display: flex;
   gap: 1rem;

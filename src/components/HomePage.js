@@ -517,11 +517,20 @@ const HomePage = () => {
             >
               {t('hero.subtitle')}
             </motion.p>
+            {t('hero.microcopy') && (
+              <motion.p
+                className="hero-microcopy"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+              </motion.p>
+            )}
             <motion.div
               className="hero-buttons"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
             >
               <a 
                 href={locale === 'en' ? "https://wa.me/+541124629452" : "https://wa.me/+5491124629452"} 
@@ -551,54 +560,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="stats-section">
-        <motion.div 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2>{t('stats.title')}</h2>
-          <p>{t('stats.subtitle')}</p>
-        </motion.div>
-        <div className="stats-grid">
-          <motion.div 
-            className="stat-item"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <i className="fas fa-rocket"></i>
-            <AnimatedCounter value={50} suffix="+" />
-            <p>{t('stats.item1')}</p>
-          </motion.div>
-          <motion.div 
-            className="stat-item"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <i className="fas fa-lightbulb"></i>
-            <AnimatedCounter value={200} suffix="+" />
-            <p>{t('stats.item2')}</p>
-          </motion.div>
-          <motion.div 
-            className="stat-item"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <i className="fas fa-coffee"></i>
-            <AnimatedCounter value={1500} suffix="+" />
-            <p>{t('stats.item3')}</p>
-          </motion.div>
-        </div>
-      </section>
       <AboutSection />
       <section id="proyectos" className="projects-section">
         <motion.div 
@@ -849,52 +810,6 @@ const HomePage = () => {
             </a>
           </div>
         </motion.div>
-      </section>
-
-      {/* Workflow Section */}
-      <section id="metodologia" className="workflow-section">
-        <motion.div 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2>{t('methodology.title')}</h2>
-          <p>{t('methodology.subtitle')}</p>
-        </motion.div>
-
-        <div className="workflow-content">
-          <motion.div 
-            className="workflow-image"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <img src={require('../images/asana-screenshot.jpg')} alt="Asana Project Management" loading="lazy" />
-          </motion.div>
-
-          <motion.div 
-            className="workflow-info"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <ul>
-              {[ 'planning', 'tracking', 'communication', 'transparency' ].map(item => (
-                <li key={item}>
-                  <span className="icon">✓</span>
-                  <div>
-                    <strong>{t(`methodology.${item}`)}</strong>
-                    <p>{t(`methodology.${item}.desc`)}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
       </section>
 
       {/* Tools Section */}
