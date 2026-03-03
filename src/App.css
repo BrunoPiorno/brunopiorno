@@ -2280,6 +2280,9 @@ body.soluciones-page .site-header .language-selector {
   align-items: center;
   gap: 1rem;
 }
+.mobile-nav-links{
+  display:none;
+}
 
 .auth.mobile-nav-links {
   display: flex;
