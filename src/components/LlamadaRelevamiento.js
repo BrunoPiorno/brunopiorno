@@ -44,12 +44,8 @@ const LlamadaRelevamientoContent = ({ forcedLocale, standalone = false }) => {
 
   return (
     <>
-      {/* Header del sitio con menú oculto - solo en modo standalone */}
-      {standalone && (
-        <div className="llamada-header-wrapper">
-          <SiteHeader hideMenu={true} />
-        </div>
-      )}
+      {/* Header del sitio - siempre mostrar en modo standalone */}
+      {standalone && <SiteHeader />}
 
       <div className="llamada-relevamiento-container">
         {/* Simple Header */}
