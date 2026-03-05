@@ -2,11 +2,11 @@
 
 :root {
   /* Color variables */
-  --primary-color: #42A7B5;
-  --primary-dark: #42A7B5;
+  --primary-color: #2D6167;
+  --primary-dark: #2D6167;
   --background-color: #ffffff;
   --surface-color: #ffffff;
-  --text-color: #42A7B5;
+  --text-color: #2D6167;
   --text-secondary: #333333;
   --heading-color: #2D8A85;
   --overlay-color: rgba(0, 0, 0, 0.6);
@@ -417,6 +417,7 @@ body.soluciones-page .site-header .language-selector {
 .services-section {
   padding: var(--section-padding);
   background-color: var(--surface-color);
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .section-title {
@@ -1052,6 +1053,7 @@ body.soluciones-page .site-header .language-selector {
 .tools-section {
   padding: var(--section-padding);
   background-color: var(--surface-color);
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .tools-slider-container {
@@ -1104,6 +1106,7 @@ body.soluciones-page .site-header .language-selector {
 .contact-section {
   padding: var(--section-padding);
   background: linear-gradient(135deg, var(--background-color) 0%, var(--surface-color) 100%);
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
   text-align: center;
 }
 
@@ -2164,7 +2167,6 @@ body.soluciones-page .site-header .language-selector {
 /* CTA Section */
 .cta-section {
   padding: var(--section-padding);
-  background: linear-gradient(135deg, var(--surface-color) 0%, var(--background-color) 100%);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -2501,6 +2503,7 @@ body.soluciones-page .site-header .language-selector {
 
 .about-section {
   padding: var(--section-padding);
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .about-container {
