@@ -63,7 +63,7 @@ const HomePage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [selectedFilter, setSelectedFilter] = useState('woocommerce');
 
   const projects = useMemo(() => {
     const featuredProjects = t('projects.featured');
@@ -429,12 +429,9 @@ const HomePage = () => {
   ];
 
   // Filtrar proyectos según la categoría seleccionada
-  const filteredProjects = selectedFilter === 'all' 
-    ? allProjects 
-    : allProjects.filter(project => project.category === selectedFilter);
+  const filteredProjects = allProjects.filter(project => project.category === selectedFilter);
 
   const categories = [
-    { id: 'all', name: locale === 'es' ? 'Todos' : 'All' },
     { id: 'woocommerce', name: 'WooCommerce' },
     { id: 'landing', name: locale === 'es' ? 'Landing' : 'Landing' },
     { id: 'sistema-web', name: locale === 'es' ? 'Sistema Web' : 'Web System' },
