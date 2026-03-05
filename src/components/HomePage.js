@@ -560,6 +560,136 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Target Companies Section */}
+      <section id="empresas" className="target-companies-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>¿Con qué tipo de empresas trabajamos?</h2>
+          <p>No trabajamos con todo el mundo. Nos enfocamos en organizaciones que ya están operando y necesitan estructura digital real para crecer, optimizar o escalar.</p>
+        </motion.div>
+
+        <div className="target-companies-grid">
+          <motion.div 
+            className="company-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <div className="company-icon">
+              <i className="fas fa-briefcase"></i>
+            </div>
+            <h3>Empresas B2B y servicios profesionales</h3>
+            <p>Organizaciones que venden a otras empresas y necesitan comunicar autoridad, explicar procesos complejos y generar oportunidades comerciales cualificadas.</p>
+            <ul>
+              <li>Consultoras, firmas tecnológicas, estudios profesionales</li>
+              <li>Empresas industriales, compañías con ciclos de venta consultivos</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            className="company-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="company-icon">
+              <i className="fas fa-chart-line"></i>
+            </div>
+            <h3>Pymes en crecimiento</h3>
+            <p>Negocios que ya validaron su oferta y ahora necesitan profesionalizar su presencia digital y ordenar su operación.</p>
+            <ul>
+              <li>Empresas con equipo interno</li>
+              <li>Negocios que reciben consultas constantes</li>
+              <li>Compañías que quieren escalar con procesos más claros</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            className="company-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <div className="company-icon">
+              <i className="fas fa-shopping-cart"></i>
+            </div>
+            <h3>Ecommerce con intención de escalar</h3>
+            <p>Tiendas online que buscan algo más que "estar en línea". Necesitan optimizar conversión, estructura técnica y procesos.</p>
+            <ul>
+              <li>Marcas con catálogo activo</li>
+              <li>Empresas que invierten en publicidad</li>
+              <li>Negocios que quieren mejorar rendimiento y experiencia de compra</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            className="company-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="company-icon">
+              <i className="fas fa-rocket"></i>
+            </div>
+            <h3>Startups con inversión o en fase de crecimiento</h3>
+            <p>Equipos que necesitan lanzar rápido, validar producto o estructurar una plataforma sólida para crecer.</p>
+            <ul>
+              <li>Startups fundadas recientemente</li>
+              <li>Proyectos con inversión inicial</li>
+              <li>Equipos que necesitan desarrollo a medida o evolución tecnológica</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            className="company-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <div className="company-icon">
+              <i className="fas fa-cogs"></i>
+            </div>
+            <h3>Empresas que requieren sistemas a medida</h3>
+            <p>Organizaciones donde una web tradicional ya no es suficiente y necesitan automatización, integración o plataformas internas.</p>
+            <ul>
+              <li>Empresas con procesos manuales repetitivos</li>
+              <li>Equipos que trabajan con datos dispersos</li>
+              <li>Compañías que quieren eficiencia operativa</li>
+            </ul>
+          </motion.div>
+        </div>
+
+        <motion.div 
+          className="not-suitable-section"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <div className="not-suitable-icon">
+            <i className="fas fa-exclamation-triangle"></i>
+          </div>
+          <div className="not-suitable-content">
+            <h3>No somos la mejor opción si:</h3>
+            <ul>
+              <li>Estás en etapa de idea sin validación</li>
+              <li>Solo buscas una página básica sin enfoque estratégico</li>
+              <li>No existe intención de crecimiento o mejora estructural</li>
+            </ul>
+          </div>
+        </motion.div>
+      </section>
+
       <AboutSection />
       <section id="proyectos" className="projects-section">
         <motion.div 
@@ -662,6 +792,159 @@ const HomePage = () => {
       </section>
 
       
+
+      {/* Why Work with Alora Section */}
+      <section id="por-que-alora" className="why-alora-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>¿Por qué trabajar con Alora y no con otra agencia?</h2>
+          <p>No competimos por volumen. No trabajas con un sistema automatizado donde eres un proyecto más en la lista. Trabajas con un equipo que entiende que la tecnología debe adaptarse al negocio, no al revés.</p>
+        </motion.div>
+
+        <div className="why-alora-grid">
+          <motion.div 
+            className="why-alora-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <div className="why-alora-icon">
+              <i className="fas fa-user-check"></i>
+            </div>
+            <h3>Seguimiento personalizado real</h3>
+            <p>Cada proyecto tiene acompañamiento directo y seguimiento continuo.</p>
+            <ul>
+              <li>No delegamos completamente la relación en cuentas junior ni desaparecemos después de la entrega</li>
+              <li>Entendemos objetivos, cambios y evolución del negocio</li>
+              <li>Nos involucramos más allá del desarrollo inicial</li>
+              <li>No eres un ticket en un sistema. Eres un proyecto con contexto y prioridades reales</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            className="why-alora-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="why-alora-icon">
+              <i className="fas fa-sync-alt"></i>
+            </div>
+            <h3>Flexibilidad y adaptación</h3>
+            <p>Los negocios cambian. Las prioridades cambian. Las decisiones evolucionan.</p>
+            <ul>
+              <li>No trabajamos con procesos rígidos que bloquean ajustes necesarios</li>
+              <li>Adaptamos el desarrollo cuando el proyecto lo requiere, manteniendo claridad y orden</li>
+              <li>La tecnología debe acompañar la evolución del negocio, no limitarla</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            className="why-alora-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <div className="why-alora-icon">
+              <i className="fas fa-language"></i>
+            </div>
+            <h3>Talento bilingüe (español / inglés)</h3>
+            <p>Trabajamos con equipos y clientes en distintos mercados. Nuestro equipo opera fluidamente en español e inglés.</p>
+            <ul>
+              <li>Colaboración con empresas internacionales</li>
+              <li>Documentación clara</li>
+              <li>Comunicación directa sin intermediarios</li>
+              <li>Especialmente relevante para empresas B2B, startups y proyectos con proyección internacional</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            className="why-alora-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="why-alora-icon">
+              <i className="fas fa-chess"></i>
+            </div>
+            <h3>Enfoque estratégico, no solo técnico</h3>
+            <p>No empezamos escribiendo código. Empezamos entendiendo:</p>
+            <ul>
+              <li>Qué quieres lograr</li>
+              <li>Qué problema estás resolviendo</li>
+              <li>Qué debe hacer el usuario</li>
+              <li>Cómo se medirá el éxito</li>
+              <li>Diseñamos con intención. Desarrollamos con propósito</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            className="why-alora-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <div className="why-alora-icon">
+              <i className="fas fa-layer-group"></i>
+            </div>
+            <h3>Experiencia en distintos niveles de complejidad</h3>
+            <p>Desde sitios corporativos hasta plataformas con usuarios, suscripciones y automatizaciones.</p>
+            <ul>
+              <li>No improvisamos arquitectura</li>
+              <li>Diseñamos soluciones pensando en estabilidad, escalabilidad y mantenimiento futuro</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            className="why-alora-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <div className="why-alora-icon">
+              <i className="fas fa-eye"></i>
+            </div>
+            <h3>Transparencia en proceso y comunicación</h3>
+            <p>Planificación clara. Seguimiento organizado. Expectativas definidas.</p>
+            <ul>
+              <li>Sabes qué se está haciendo, en qué etapa está el proyecto y qué viene después</li>
+              <li>Sin promesas vagas</li>
+              <li>Sin procesos opacos</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            className="why-alora-card highlight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            <div className="why-alora-icon">
+              <i className="fas fa-rocket"></i>
+            </div>
+            <h3>Tecnología alineada con crecimiento</h3>
+            <p>No desarrollamos solo para publicar. Desarrollamos para que el sistema pueda evolucionar.</p>
+            <ul>
+              <li>SEO técnico correcto</li>
+              <li>Rendimiento optimizado</li>
+              <li>Base preparada para integraciones futuras</li>
+              <li>Porque crecer no debería implicar reconstruir todo desde cero</li>
+            </ul>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Clients Section */}
       <section id="clientes" className="clients-section">
