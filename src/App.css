@@ -1125,7 +1125,6 @@ body.soluciones-page .site-header .language-selector {
 .contact-content p {
   color: var(--text-secondary);
   font-size: 1.1rem;
-  margin-bottom: 1rem; /* Adjusted margin */
 }
 
 .alternative-contact {
@@ -2689,7 +2688,6 @@ body.soluciones-page .site-header .language-selector {
 
 
 .form-group {
-  margin-bottom: 1.5rem;
   position: relative;
 }
 
@@ -3741,7 +3739,7 @@ body.proposal-page-active .mobile-controls .language-toggle {
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
   background: var(--surface-color);
   padding: 30px;
   border-radius: 20px;
@@ -4052,7 +4050,6 @@ body.proposal-page-active .mobile-controls .language-toggle {
   text-align: center;
   margin: 12px 0 0 0;
   line-height: 1.6;
-  padding: 12px;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -4152,7 +4149,7 @@ body.proposal-page-active .mobile-controls .language-toggle {
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
   background: #ffffff;
   padding: 40px;
   border-radius: 8px;
@@ -4471,7 +4468,6 @@ body.proposal-page-active .mobile-controls .language-toggle {
   font-size: 12px;
   color: #999;
   text-align: center;
-  margin: -12px 0 0 0;
   line-height: 1.5;
 }
 
