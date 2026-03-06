@@ -1,7 +1,7 @@
 /* Landing Pages Page Styles */
 .landing-pages-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--background-color) 0%, #f8f9fa 100%);
+  background: linear-gradient(0deg, rgb(248, 250, 252));
 }
 
 /* Hero Section - Exactamente igual que DesarrolloWeb */
@@ -119,9 +119,7 @@
 
 /* Problem Section */
 .problem-section {
-  background: #f6f8fb;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .lp-icon-wrapper,
@@ -155,9 +153,12 @@
 
 .problems-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin: 3rem auto;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
 }
 
 .problem-card {
@@ -207,6 +208,9 @@
   line-height: 1.6;
   box-shadow: 0 25px 60px rgba(15, 23, 42, 0.35);
   text-align: center;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Comparison Section */
@@ -219,9 +223,12 @@
 }
 .comparison-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
-  margin: 3rem auto;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
   align-items: stretch;
 }
 
@@ -309,7 +316,7 @@
 
 /* Recommendation Section */
 .recommendation-section {
-  background: #f4f7fb;
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .recommendation-panel {
@@ -393,7 +400,7 @@
 
 /* Solution Section */
 .solution-section {
-  background: #f8fafc;
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .solution-description {
@@ -407,8 +414,12 @@
 
 .solution-method {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
 }
 
 .solution-block {
@@ -420,9 +431,10 @@
 }
 
 .solution-block h3 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 650;
   color: #0f172a;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .solution-block p {
@@ -445,6 +457,11 @@
   margin-top: 2.5rem;
   text-align: center;
 }
+@media (max-width: 640px) {
+  .solution-method {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* Services Section */
 .services-section {
@@ -461,8 +478,12 @@
 
 .services-list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
   margin-top: 3rem;
   counter-reset: services;
 }
@@ -541,7 +562,7 @@
 
 /* Types Section */
 .types-section {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .types-description {
@@ -554,9 +575,12 @@
 
 .types-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin: 3rem auto 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
 }
 
 .type-case {
@@ -591,8 +615,15 @@
   font-weight: 650;
   font-size: 1.15rem;
   color: var(--primary-color);
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
+
+@media (max-width: 640px) {
+  .types-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* Projects Section */
 .projects-section {
@@ -601,9 +632,12 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
-  margin: 3rem auto;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
 }
 
 .project-card {
@@ -673,7 +707,7 @@
 
 /* Complementary Services Section */
 .complementary-services-section {
-  background: #f4f7fb;
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .complementary-summary {
@@ -687,8 +721,12 @@
 
 .complementary-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
   margin-bottom: 2.5rem;
 }
 
@@ -705,6 +743,7 @@
   font-weight: 700;
   color: #0f172a;
   margin-bottom: 0.75rem;
+  text-align: start;
 }
 
 .complementary-block p {
@@ -727,6 +766,13 @@
   margin-top: 1rem;
   line-height: 1.6;
 }
+
+@media (max-width: 640px) {
+  .complementary-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .process-section {
   background: white;
@@ -822,7 +868,8 @@
 
 /* Ideal For Section */
 .ideal-for-section {
-  background: white;
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .ideal-summary {
@@ -835,8 +882,12 @@
 
 .ideal-criteria {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
 }
 
 .ideal-criterion {
@@ -864,6 +915,12 @@
   font-weight: 700;
   margin-bottom: 0.35rem;
   color: #0f172a;
+}
+
+@media (max-width: 640px) {
+  .ideal-criteria {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Final CTA Section - Exactamente igual que DesarrolloWeb */
@@ -952,22 +1009,22 @@
 }
 
 .cta-button.whatsapp {
-  background: #25D366;
+  background: linear-gradient(135deg, #25D366, #128C7E);
   color: white;
-  border: none;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
   padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
   border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.cta-button.whatsapp:hover {
-  background: #128C7E;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-}
 
 .cta-image {
   position: relative;

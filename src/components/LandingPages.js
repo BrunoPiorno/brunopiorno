@@ -1500,7 +1500,7 @@ const LandingPages = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.open('https://wa.me/5491112345678', '_blank')}
               >
-                WhatsApp
+                ¡Contáctanos por Whatsapp ahora!
               </motion.button>
             </div>
           </div>
