@@ -320,6 +320,7 @@
   margin: 2rem auto 0;
   box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
   border: 1px solid rgba(15, 23, 42, 0.06);
+  text-align: center;
 }
 
 .recommendation-statement {
@@ -345,18 +346,21 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 1.75rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .recommendation-point {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
 }
 
 .recommendation-label {
   font-weight: 650;
   color: #0f172a;
-  flex-basis: 140px;
 }
 
 .recommendation-point p {
@@ -906,6 +910,65 @@
   margin-top: 1.5rem;
 }
 
+.whatsapp-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.3), transparent);
+  margin: 0.5rem 0 1rem 0;
+}
+
+.whatsapp-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.whatsapp-title {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  position: relative;
+}
+
+.whatsapp-title::before,
+.whatsapp-title::after {
+  content: '"';
+  font-size: 1.5rem;
+  color: rgba(37, 211, 102, 0.5);
+  position: absolute;
+  font-family: var(--font-family-body);
+}
+
+.whatsapp-title::before {
+  left: -1rem;
+  top: -0.2rem;
+}
+
+.whatsapp-title::after {
+  right: -1rem;
+  bottom: -0.5rem;
+}
+
+.cta-button.whatsapp {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button.whatsapp:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
 .cta-image {
   position: relative;
   min-height: 100%;
@@ -930,14 +993,20 @@
     grid-template-columns: 1fr;
     gap: 3rem;
     text-align: center;
+    margin-top: 2rem;
   }
 
   .landing-pages-page .hero-text {
     order: 1;
   }
 
+  .landing-pages-page .hero-image {
+    order: 2;
+  }
+
   .landing-pages-page .hero-text h1 {
     font-size: 2.8rem;
+    text-align: left;
   }
 
   .comparison-grid {

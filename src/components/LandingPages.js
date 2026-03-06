@@ -429,6 +429,13 @@ const LandingPages = () => {
           title: 'Reserva de demos o reuniones',
           highlight: 'Reducimos pasos para agendar una conversación.',
           description: 'Integramos la landing con calendarios o formularios para acelerar el paso a una reunión real.'
+        },
+        {
+          icon: 'layers',
+          tone: 'rose',
+          title: 'Sitio Web Mínimo Viable',
+          highlight: 'Primera aproximación a un sitio web.',
+          description: 'Una página única que presenta la esencia de tu marca, ideal para empezar a tener presencia online.'
         }
       ]
     : [
@@ -459,6 +466,13 @@ const LandingPages = () => {
           title: 'Demo or meeting booking',
           highlight: 'We remove steps to schedule a conversation.',
           description: 'The landing integrates with calendars or forms to accelerate the path to a real meeting.'
+        },
+        {
+          icon: 'layers',
+          tone: 'rose',
+          title: 'Minimum Viable Website',
+          highlight: 'First approach to a website for brand visibility.',
+          description: 'A single page that presents the essence of your brand, ideal for starting to have an online presence.'
         }
       ];
 
@@ -942,6 +956,13 @@ const LandingPages = () => {
           title: 'Cuando el equipo necesita medir y optimizar',
           highlight: 'Una landing facilita iterar, comparar variantes y escalar lo que funciona.',
           description: 'Permite correr experimentos de copy, estructura o integraciones sin tocar todo el sitio.'
+        },
+        {
+          icon: 'rocket',
+          tone: 'rose',
+          title: 'Cuando una marca quiere empezar a tener presencia online',
+          highlight: 'Primera aproximación digital completa para empresas y emprendimientos.',
+          description: 'Ideal cuando una marca, empresa o emprendimiento quiere comenzar a tener presencia online completa, pero no está preparada todavía para tener un sitio web entero.'
         }
       ]
     : [
@@ -972,6 +993,13 @@ const LandingPages = () => {
           title: 'When the team must measure and optimize',
           highlight: 'A landing makes it easy to iterate, compare variants and scale what works.',
           description: 'You can run copy, structure or integration experiments without touching the entire site.'
+        },
+        {
+          icon: 'rocket',
+          tone: 'rose',
+          title: 'When a brand wants to start having online presence',
+          highlight: 'First complete digital approach for companies and entrepreneurs.',
+          description: 'Ideal when a brand, company or entrepreneurship wants to start having complete online presence, but is not yet prepared to have a full website.'
         }
       ];
 
@@ -1459,6 +1487,22 @@ const LandingPages = () => {
                 ? 'Evaluamos tu proyecto y te decimos si podemos ayudarte.'
                 : 'We evaluate your project and tell you if we can help you.'}
             </p>
+            <div className="whatsapp-divider"></div>
+            <div className="whatsapp-section">
+              <h3 className="whatsapp-title">
+                {locale === 'es'
+                  ? 'Y si no puedes con tu ansiedad y quieres hablar con nosotros ahora mismo, contáctanos por whatsapp'
+                  : 'And if you can\'t wait and want to talk to us right now, contact us on whatsapp'}
+              </h3>
+              <motion.button 
+                className="cta-button whatsapp"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://wa.me/5491112345678', '_blank')}
+              >
+                WhatsApp
+              </motion.button>
+            </div>
           </div>
           <div className="cta-image" style={{
             background: 'url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80") center/cover'
