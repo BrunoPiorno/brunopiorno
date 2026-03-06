@@ -125,11 +125,9 @@
 }
 
 .aplicaciones-web-page .section-content p {
-  font-size: 1.2rem;
-  color: #6b7280;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
-  line-height: 1.6;
+  margin: 0 auto 0 auto;
+  padding: 2rem 0rem;
+
 }
 .aplicaciones-web-page .section-content .difference-text {
  margin: 0 0 1rem 0;
@@ -138,8 +136,39 @@
 /* What Is Section */
 .what-is-section {
   background: #fefefe;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
+}
+
+.combined-paragraph {
+  max-width: 1000px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+.combined-paragraph p {
+  font-size: 1.4rem !important;
+  line-height: 1.7;
+  color: #374151 !important;
+  font-weight: 400;
+  margin: 0;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  position: relative;
+}
+
+.combined-paragraph p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), #6366f1);
+  border-radius: 2px;
+  top: -1.5rem;
 }
 
 .webapp-lead {
@@ -162,9 +191,13 @@
 
 .webapp-usecases {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .webapp-case {
@@ -222,9 +255,7 @@
 
 /* Difference Section */
 .difference-section {
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .difference-intro {
@@ -238,8 +269,12 @@
 
 .difference-editorial {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
   margin-bottom: 3rem;
 }
 
@@ -332,11 +367,9 @@
 
 /* Problem Section - Grilla de 4 como DesarrolloWeb */
 .problem-section {
-  background: #f8fafc;
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
   color: #0f172a;
   padding-bottom: 6rem;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
 }
 
 .problem-section h2 {
@@ -353,8 +386,13 @@
 
 .problem-editorial {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .problem-narrative {
@@ -429,8 +467,6 @@
 /* When Makes Sense Section */
 .when-makes-sense-section {
   background: white;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
 }
 
 .when-intro {
@@ -443,8 +479,13 @@
 
 .when-signals {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .when-signal {
@@ -517,8 +558,6 @@
 /* Examples Section */
 .examples-section {
   background: #fefefe;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
 }
 
 .examples-intro {
@@ -531,8 +570,13 @@
 
 .usage-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 @media (max-width: 1024px) {
@@ -604,8 +648,6 @@
 /* Solution Section */
 .solution-section {
   background: white;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
 }
 
 .solution-header {
@@ -619,27 +661,66 @@
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 1rem;
+  position: relative;
+}
+
+.solution-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.3), transparent);
+  margin: 1rem 0 0 0;
 }
 
 .solution-lead {
   color: #475569;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 
 .solution-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: repeat(2, 1fr) repeat(2, 1fr);
+  gap: 2rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .solution-card {
   padding: 2rem;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 18px;
-  background: #fefefe;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(248, 250, 252, 0.98) 50%, 
+    rgba(241, 245, 249, 1) 100%
+  );
   box-shadow: 0 15px 32px rgba(15, 23, 42, 0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.solution-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(66, 167, 181, 0.1) 0%, 
+    rgba(45, 138, 133, 0.05) 100%
+  );
+  opacity: 0.03;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .solution-index {
@@ -673,7 +754,6 @@
 .solution-authority {
   margin-top: 3.5rem;
   padding-top: 1.75rem;
-  border-top: 1px solid rgba(15, 23, 42, 0.1);
   text-align: center;
   font-size: 1.2rem;
   font-weight: 700;
@@ -682,9 +762,7 @@
 
 /* What Includes Section */
 .what-includes-section {
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .includes-header {
@@ -764,6 +842,7 @@
 }
 
 .includes-closing {
+  max-width: 600px;
   margin-top: 3rem;
   padding: 1.25rem 1.5rem;
   border: 1px solid rgba(15, 23, 42, 0.15);
@@ -777,8 +856,6 @@
 /* Process Section */
 .process-section {
   background: white;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
 }
 
 .process-header {
@@ -806,6 +883,7 @@
   gap: 1.5rem;
   max-width: 1100px;
   margin: 0 auto;
+  margin-bottom: 2rem;
 }
 
 .process-stage {
@@ -843,7 +921,6 @@
 .process-closing {
   margin-top: 3rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(15, 23, 42, 0.12);
   text-align: center;
   font-weight: 700;
   color: #0f172a;
@@ -865,8 +942,6 @@
 /* Ideal For Section */
 .ideal-for-section {
   background: #fefefe;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
 }
 
 .ideal-header {
@@ -889,8 +964,11 @@
 
 .ideal-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
 }
 
 .ideal-block {

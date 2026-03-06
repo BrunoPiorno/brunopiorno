@@ -230,42 +230,42 @@ const AplicacionesWeb = () => {
           tone: 'teal',
           title: 'Backoffice operativo',
           highlight: 'Coordina pedidos, clientes y estados en una sola vista.',
-          description: 'Evita planillas paralelas: cada equipo trabaja con los mismos datos en tiempo real.'
+          description: 'Un sistema centralizado donde tu equipo puede ver en tiempo real el estado de todos los pedidos, gestionar clientes desde un único panel y automatizar la asignación de tareas. Por ejemplo: una empresa de logística que controla flujo de paquetes desde que ingresan hasta que se entregan, con notificaciones automáticas cuando hay retrasos.'
         },
         {
           icon: 'portal',
           tone: 'violet',
           title: 'Portales para clientes o partners',
           highlight: 'Da acceso controlado a información y acciones.',
-          description: 'Los externos consultan avances, suben documentación y solicitan cambios sin correos interminables.'
+          description: 'Plataformas externas donde tus clientes pueden consultar el estado de sus pedidos, subir documentación requerida y comunicarse directamente sin necesidad de correos interminables. Por ejemplo: un portal de proveedores donde las empresas pueden ver sus facturas, subir comprobantes de pago y gestionar su catálogo de productos.'
         },
         {
           icon: 'chart',
           tone: 'emerald',
           title: 'Tableros para dirección',
           highlight: 'Visibilidad en tiempo real para decidir con datos.',
-          description: 'Métricas operativas y comerciales consolidadas para detectar cuellos de botella.'
+          description: 'Dashboards ejecutivos que muestran KPIs críticos del negocio como ventas diarias, métricas de rendimiento del equipo, indicadores de satisfacción del cliente y proyecciones basadas en datos históricos. Por ejemplo: un tablero que muestra en tiempo real el rendimiento de cada vendedor, las metas mensuales y las alertas cuando hay desviaciones.'
         },
         {
           icon: 'cycle',
           tone: 'amber',
           title: 'Seguimiento automatizado',
           highlight: 'Recordatorios y aprobaciones sin dependencia humana.',
-          description: 'Alertas, SLA y asignaciones se ejecutan solos con reglas claras.'
+          description: 'Sistemas que envían notificaciones automáticas, gestionan SLAs y ejecutan flujos de aprobación predefinidos sin intervención manual. Por ejemplo: un sistema que recuerda automáticamente cuando vence un contrato, envía recordatorios de pago y notifica al gerente cuando una aprobación está pendiente por más de 48 horas.'
         },
         {
           icon: 'link',
           tone: 'slate',
           title: 'Integración de herramientas',
           highlight: 'CRM, ERP y logística conectados en un flujo propio.',
-          description: 'Sincroniza datos críticos para que no existan duplicados ni versiones contradictorias.'
+          description: 'Conexión bidireccional entre sistemas existentes para eliminar duplicación de datos y crear una única fuente de verdad. Por ejemplo: integrar el CRM con el sistema de facturación para que cuando se actualiza un cliente en el CRM, automáticamente se refleje en el sistema de cobranza.'
         },
         {
           icon: 'grid',
           tone: 'rose',
           title: 'Productos digitales',
           highlight: 'Monetizá servicios como plataforma propia.',
-          description: 'Onboarding, planes y pagos recurrentes dentro de tu aplicación web.'
+          description: 'Transformar un servicio en un producto digital escalable con suscripción, gestión de usuarios y pagos recurrentes. Por ejemplo: una plataforma SaaS donde las empresas pagan mensualmente por acceder a herramientas de gestión de proyectos, con diferentes niveles de acceso según el plan contratado.'
         }
       ]
     : [
@@ -826,11 +826,10 @@ const AplicacionesWeb = () => {
           <h2>
             {locale === 'es' ? '¿Qué es una aplicación web?' : 'What is a web application?'}
           </h2>
-          <p className="webapp-lead">{webAppLead}</p>
-          <div className="webapp-definition">
-            {webAppDefinition.map((sentence, index) => (
-              <p key={index}>{sentence}</p>
-            ))}
+          <div className="combined-paragraph">
+            <p>
+              {webAppLead} {webAppDefinition.join(' ')}
+            </p>
           </div>
           <div className="webapp-usecases">
             {webAppUseCases.map((useCase, index) => (
