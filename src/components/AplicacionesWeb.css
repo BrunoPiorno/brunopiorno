@@ -122,6 +122,7 @@
   color: var(--primary-color);
   line-height: 1.2;
   text-align: center;
+  text-decoration: none;
 }
 
 .aplicaciones-web-page .section-content p {
@@ -140,36 +141,40 @@
 
 .combined-paragraph {
   max-width: 1000px;
-  margin: 0 auto 3rem auto;
+  margin: 3rem auto 3rem auto;
   text-align: center;
 }
 
 .combined-paragraph p {
   font-size: 1.4rem !important;
   line-height: 1.7;
-  color: #374151 !important;
+  color:#0f172a;
   font-weight: 400;
   margin: 0;
-  padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  padding: 2.5rem 2rem !important;
+  background: linear-gradient(
+    20deg,
+    rgba(47, 111, 115, 0.1),
+    rgba(127, 158, 161, 0.2)
+  );
   border-radius: 20px;
   border: 1px solid rgba(15, 23, 42, 0.06);
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
   position: relative;
+  z-index: 1;
 }
 
-.combined-paragraph p::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), #6366f1);
-  border-radius: 2px;
-  top: -1.5rem;
+.process-stage-index {
+  font-size: 1.6rem !important;
+  font-weight: 800;
+  color: var(--primary-color) !important;
+  order: 1;
+  margin:auto;
+  margin-bottom: 0;
+  display: flex;
+  gap: 0.5rem;
+  counter-increment: stage;
 }
+
 
 .webapp-lead {
   font-size: 1.2rem;
@@ -193,11 +198,25 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
-  max-width: var(--container-max-width);
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
   margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .webapp-usecases {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .webapp-usecases {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 .webapp-case {
@@ -248,8 +267,8 @@
 .webapp-closing {
   text-align: center;
   font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--primary-color);
+  font-weight: 800;
+  color: #0f172a;
   margin-top: 1rem;
 }
 
@@ -276,6 +295,20 @@
   margin-right: auto;
   margin-top: 4rem;
   margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .difference-editorial {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .difference-editorial {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 .difference-block {
@@ -388,11 +421,25 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
-  max-width: var(--container-max-width);
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
   margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .problem-editorial {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .problem-editorial {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 .problem-narrative {
@@ -480,13 +527,28 @@
 .when-signals {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 2rem;
-  max-width: var(--container-max-width);
+  gap: 4rem;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
   margin-bottom: 3rem;
 }
+
+@media (max-width: 768px) {
+  .when-signals {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .when-signals {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
 
 .when-signal {
   padding: 2rem;
@@ -522,9 +584,9 @@
 
 .when-signal h3 {
   margin: 0 0 0.75rem;
-  color: #0f172a;
+  color: var(--title-color);
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight:600;
 }
 
 .when-signal p {
@@ -541,18 +603,27 @@
 }
 
 .when-note {
-  color: #0f172a;
-  font-weight: 650;
+  color: var(--primary-color);
+  font-weight: 600;
   text-align: center;
   margin: 4rem auto 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid #e2e8f0;
-  max-width: 720px;
-  font-size: 1.2rem;
+  padding: 2rem 2.5rem;
+  border-top: 2px solid var(--primary-color);
+  max-width: 800px;
+  font-size: 1.15rem;
+  background: linear-gradient(135deg, rgba(45, 97, 103, 0.05) 0%, rgba(45, 97, 103, 0.02) 100%);
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(45, 97, 103, 0.08);
 }
 
 .when-note-strong {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(45, 97, 103, 0.1);
 }
 
 /* Examples Section */
@@ -577,6 +648,20 @@
   margin-right: auto;
   margin-top: 4rem;
   margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .usage-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .usage-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -633,7 +718,6 @@
 .examples-conclusion {
   margin-top: 3rem;
   padding-top: 1.75rem;
-  border-top: 1px solid rgba(15, 23, 42, 0.12);
   text-align: center;
   color: var(--primary-color);
   font-weight: 600;
@@ -664,18 +748,6 @@
   position: relative;
 }
 
-.solution-header h2::after {
-  content: '';
-  position: absolute;
-  bottom: -1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.3), transparent);
-  margin: 1rem 0 0 0;
-}
-
 .solution-lead {
   color: #475569;
   font-size: 1.2rem;
@@ -690,8 +762,19 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
+@media (max-width: 1024px) {
+    .solution-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+  }
+@media (max-width: 640px) {
+    .solution-grid {
+        grid-template-columns: 1fr;
+    }
+  }
 
 .solution-card {
   padding: 2rem;
@@ -724,10 +807,9 @@
 }
 
 .solution-index {
-  font-size: 0.85rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.5);
+  font-size: 1.4rem !important;
+  font-weight: 800;
+  color: var(--primary-color) !important;
   display: block;
   margin-bottom: 0.75rem;
 }
@@ -752,12 +834,18 @@
 }
 
 .solution-authority {
-  margin-top: 3.5rem;
-  padding-top: 1.75rem;
+  color: var(--primary-color);
+  font-weight: 600;
   text-align: center;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #0f172a;
+  margin: 4rem auto 0;
+  padding: 2rem 2.5rem;
+  border-top: 2px solid var(--primary-color);
+  max-width: 800px;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, rgba(45, 97, 103, 0.05) 0%, rgba(45, 97, 103, 0.02) 100%);
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(45, 97, 103, 0.08);
 }
 
 /* What Includes Section */
@@ -887,12 +975,18 @@
 }
 
 .process-stage {
-  background: white;
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.85) 50%, rgba(240, 253, 244, 0.8) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
   padding: 2.3rem;
-  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12),
+              0 4px 12px rgba(15, 23, 42, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.2);
   position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .process-stage-index {
@@ -908,7 +1002,8 @@
   margin: 0 0 0.4rem;
   font-size: 1.2rem;
   color: #0f172a;
-  font-weight: 700;
+  font-weight: 600;
+  min-height: 40px;
 }
 
 .process-stage-body p {
@@ -941,7 +1036,7 @@
 
 /* Ideal For Section */
 .ideal-for-section {
-  background: #fefefe;
+  background: linear-gradient(135deg, rgba(45, 97, 103, 0.05) 0%, rgba(45, 97, 103, 0.02) 100%);
 }
 
 .ideal-header {
@@ -964,11 +1059,13 @@
 
 .ideal-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  margin-bottom: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 .ideal-block {
@@ -1009,10 +1106,10 @@
 .ideal-closing {
   margin-top: 3rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(15, 23, 42, 0.12);
   text-align: center;
   font-weight: 700;
   color: #0f172a;
+  font-size: 1.2rem;
 }
 
 @media (max-width: 1024px) {
@@ -1043,12 +1140,13 @@
 }
 
 .cta-content h2 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
+  color: var(--primary-color);
   font-family: var(--font-family-headline);
-  color: var(--heading-color);
   line-height: 1.2;
+  text-align: center;
 }
 
 .cta-content p {
@@ -1063,6 +1161,69 @@
   color: var(--text-secondary);
   line-height: 1.6;
   margin-top: 1.5rem;
+}
+
+.whatsapp-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.3), transparent);
+  margin: 0.5rem 0 1rem 0;
+}
+
+.whatsapp-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.whatsapp-title {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem !important;
+  line-height: 1.6;
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  position: relative;
+}
+
+.whatsapp-title::before,
+.whatsapp-title::after {
+  content: '"';
+  font-size: 1.5rem;
+  color: rgba(37, 211, 102, 0.5);
+  position: absolute;
+  font-family: var(--font-family-body);
+}
+
+.whatsapp-title::before {
+  left: -1rem;
+  top: -0.2rem;
+}
+
+.whatsapp-title::after {
+  right: -1rem;
+  bottom: -0.5rem;
+}
+
+.cta-button.whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button.whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
 .cta-image {
@@ -1172,11 +1333,13 @@
 
   .aplicaciones-web-page .hero-highlight {
     font-size: 1.1rem;
+    
   }
 
   .aplicaciones-web-page .section-content h2 {
     font-size: 2rem;
   }
+
 
   .aplicaciones-web-page .section-content p {
     font-size: 1.1rem;

@@ -1138,6 +1138,22 @@ const AplicacionesWeb = () => {
                 ? 'Evaluamos tu proyecto y te decimos si podemos ayudarte.'
                 : 'We evaluate your project and tell you if we can help you.'}
             </p>
+            <div className="whatsapp-divider"></div>
+            <div className="whatsapp-section">
+              <p className="whatsapp-title">
+                {locale === 'es' 
+                  ? 'Si te supera la ansiedad y quieres hablar con nosotros ahora mismo, haz click en el siguiente botón y envíanos un mensaje por whatsapp.' 
+                  : 'If anxiety is overwhelming and you want to talk to us right now, click the button below and send us a WhatsApp message.'}
+              </p>
+              <motion.button 
+                className="cta-button whatsapp"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://wa.me/5491134567890?text=Hola%20Alora,%20quiero%20hablar%20sobre%20una%20aplicación%20web', '_blank')}
+              >
+                {locale === 'es' ? 'Enviar mensaje por WhatsApp' : 'Send WhatsApp message'}
+              </motion.button>
+            </div>
           </div>
           <div className="cta-image" style={{
             background: 'url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80") center/cover'
