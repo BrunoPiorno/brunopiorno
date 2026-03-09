@@ -155,7 +155,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  max-width: var(--container-max-width);
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
@@ -575,10 +575,10 @@
 
 .types-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
   margin-bottom: 4rem;
-  max-width: var(--container-max-width);
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
@@ -590,7 +590,35 @@
   padding: 2rem;
   border: 1px solid rgba(15, 23, 42, 0.08);
   box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  grid-column: span 2;
 }
+
+.type-case:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.type-case:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+/* Responsive para types-list */
+@media (max-width: 768px) {
+  .types-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .type-case {
+    grid-column: span 1;
+  }
+  
+  .type-case:nth-child(4),
+  .type-case:nth-child(5) {
+    grid-column: span 1;
+  }
+}
+
+
 
 .type-case h3 {
   font-size: 1.1rem;
@@ -619,12 +647,6 @@
   margin-top: 2.5rem;
 }
 
-@media (max-width: 640px) {
-  .types-list {
-    grid-template-columns: 1fr;
-  }
-}
-
 
 /* Projects Section */
 .projects-section {
@@ -635,7 +657,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
-  max-width: var(--container-max-width);
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
@@ -724,7 +746,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
-  max-width: var(--container-max-width);
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
@@ -883,9 +905,9 @@
 
 .ideal-criteria {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 2rem;
-  max-width: var(--container-max-width);
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
@@ -896,6 +918,32 @@
   border-radius: 14px;
   padding: 1.75rem;
   border: 1px solid rgba(15, 23, 42, 0.08);
+  grid-column: span 2;
+}
+
+.ideal-criterion:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.ideal-criterion:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+/* Responsive para ideal-criteria */
+@media (max-width: 768px) {
+  .ideal-criteria {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .ideal-criterion {
+    grid-column: span 1;
+  }
+  
+  .ideal-criterion:nth-child(4),
+  .ideal-criterion:nth-child(5) {
+    grid-column: span 1;
+  }
 }
 
 .ideal-criterion h3 {
