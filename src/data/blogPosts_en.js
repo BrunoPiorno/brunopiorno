@@ -1,5 +1,90 @@
+import tiendaNubeVsWoo from '../media/tienda-nube-vs-woocommerce.svg';
+
 // Example posts for the blog in English. Add more objects for more articles.
 const posts = [
+  {
+    slug: 'tienda-nube-vs-woocommerce-en',
+    translationSlug: 'tienda-nube-vs-woocommerce',
+    title: 'Tienda Nube vs WooCommerce: Real Differences, Advantages, and Which One Is Right for Your Ecommerce',
+    description:
+      'Direct comparison between Tienda Nube and WooCommerce so you can understand which platform fits your ecommerce strategy, customization needs, and growth plan.',
+    date: '2026-03-10',
+    cover: tiendaNubeVsWoo,
+    content: [
+      { type: 'subtitle', value: 'Quick Summary' },
+      {
+        type: 'text',
+        value:
+          '- Tienda Nube is a closed, managed SaaS platform so any business can sell online without worrying about technical infrastructure.\n- WooCommerce is a WordPress plugin that lets you build fully customizable stores but requires a domain, hosting, and more technical management.\n- The key difference is not “which one is better,” but the level of control, scalability, and customization your business needs.',
+      },
+      { type: 'subtitle', value: 'What Is Tienda Nube?' },
+      {
+        type: 'text',
+        value:
+          'Tienda Nube is a SaaS ecommerce platform. This means:\n- You don’t need to purchase hosting separately.\n- You don’t install anything manually.\n- Infrastructure is included.\n- You pay a monthly subscription.\n- It’s a closed system: choose a template, configure products, payments, and shipping, and start selling.\n\nIt is designed to simplify and is especially popular in Latin America thanks to local payment and logistics integrations.',
+      },
+      { type: 'subtitle', value: 'What Is WooCommerce?' },
+      {
+        type: 'text',
+        value:
+          'WooCommerce is an ecommerce plugin that runs on WordPress. This implies:\n- You need a domain and hosting.\n- You must install WordPress.\n- You must install WooCommerce.\n- You are responsible for the technical infrastructure.\n\nIn return, you gain total control. WooCommerce is not closed—it adapts from a simple store to a complex ecosystem with advanced integrations.',
+      },
+      { type: 'subtitle', value: 'Structural Difference Between Tienda Nube and WooCommerce' },
+      {
+        type: 'text',
+        value:
+          'It boils down to:\n- Tienda Nube → simplicity and speed.\n- WooCommerce → control and scalability.\n\nTienda Nube prioritizes ease of use, while WooCommerce prioritizes customization.',
+      },
+      { type: 'subtitle', value: 'Advantages of Tienda Nube' },
+      {
+        type: 'text',
+        value:
+          'Tienda Nube is ideal when:\n- You are just starting.\n- You don’t have technical support.\n- You need to launch fast.\n- The catalog is not highly complex.\n- You want an “all-in-one” solution.\n\nIts biggest advantage is simplicity: no servers, updates, or advanced security to worry about.',
+      },
+      { type: 'subtitle', value: 'Advantages of WooCommerce' },
+      {
+        type: 'text',
+        value:
+          'WooCommerce shines when:\n- You need deep customization.\n- You must integrate external systems.\n- You want to maximize technical SEO.\n- You plan to scale mid or long term.\n- You want full control over design and features.\n\nWooCommerce enables a fully tailored ecommerce, without platform limits or extra commissions for growing—but it does require more management.',
+      },
+      { type: 'subtitle', value: 'Costs: Which One Is More Affordable?' },
+      {
+        type: 'text',
+        value:
+          'Tienda Nube offers:\n- Fixed monthly plan.\n- Commissions in some tiers.\n- Add-on app costs.\n\nWooCommerce involves:\n- Hosting costs.\n- Domain costs.\n- Potential development fees.\n- Premium plugins if needed.\n\nIn the beginning, Tienda Nube can feel cheaper. Long term, WooCommerce can be more cost-effective if you grow, customize, or avoid commissions.',
+      },
+      { type: 'subtitle', value: 'SEO: Tienda Nube vs WooCommerce' },
+      {
+        type: 'text',
+        value:
+          'If organic search is crucial, WooCommerce gives you greater control: customizable technical structure, advanced optimization, performance tuning, and specialized SEO plugins.\nTienda Nube allows basic optimization inside platform limits. If SEO drives your acquisition, WooCommerce offers more strategic flexibility.',
+      },
+      { type: 'subtitle', value: 'Scalability and Growth' },
+      {
+        type: 'text',
+        value:
+          'Tienda Nube is enough when:\n- You sell standard products.\n- You don’t need complex automations.\n- You don’t require custom development.\n\nWooCommerce is better when you plan to:\n- Integrate CRM or ERP systems.\n- Build personalized funnels.\n- Implement advanced automations.\n- Create a connected digital ecosystem.',
+      },
+      { type: 'subtitle', value: 'So, Which One Should You Choose?' },
+      {
+        type: 'text',
+        value:
+          'Choose Tienda Nube if you prioritize simplicity, fast implementation, and low technical complexity.\nChoose WooCommerce if you prioritize scalability, control, deep customization, strong SEO, and advanced integrations.\nIt’s not just about price but about your long-term growth vision.',
+      },
+      { type: 'subtitle', value: 'Conclusion' },
+      {
+        type: 'text',
+        value:
+          'Tienda Nube is excellent to launch quickly and sell without technical friction.\nWooCommerce is a robust infrastructure for businesses that plan to scale and build a complete digital ecosystem.\nThe question isn’t which is better—it’s which aligns with your business model and growth strategy.',
+      },
+      { type: 'subtitle', value: 'Tienda Nube or WooCommerce for Your Business?' },
+      {
+        type: 'text',
+        value:
+          'Choosing the wrong platform can limit growth or add unnecessary costs later.\nIf you’re unsure which platform fits your ecommerce, we can help.\nBook a free, no-obligation discovery session and we’ll analyze:\n- Your business model.\n- Current volume and growth projection.\n- Technical requirements.\n- Which platform supports solid long-term growth.\n\nClick the button on the site and schedule your session.',
+      },
+    ],
+  },
   {
     slug: 'landing-page-vs-website',
     translationSlug: 'landing-page-vs-sitio-web',
