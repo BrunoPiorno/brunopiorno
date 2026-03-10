@@ -7,7 +7,7 @@ const posts = [
     description:
       'Direct comparison between Tienda Nube and WooCommerce so you can understand which platform fits your ecommerce strategy, customization needs, and growth plan.',
     date: '2026-03-10',
-    cover: '/media/tienda-nube-vs-woocommerce.svg',
+    cover: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1600&q=80',
     content: [
       { type: 'subtitle', value: 'Quick Summary' },
       {
