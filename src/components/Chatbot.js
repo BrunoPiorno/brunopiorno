@@ -11,39 +11,55 @@ const CONTACT_INFO = {
 
 const CAREERS_EMAIL = 'info@somosglobalalora.com';
 
-const CAREER_KEYWORDS = [
+const normalizeText = (text = '') =>
+  text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[^\w\s@.+-]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+const CAREER_KEYWORDS_RAW = [
   'cv',
   'curriculum',
-  'curriculum',
-  'curriculo',
   'currículo',
+  'curriculo',
   'resumen',
   'resume',
+  'quiero dejar mi cv',
+  'quiero enviar mi cv',
+  'quiero mandar mi cv',
   'trabajo',
   'trabajar',
   'postular',
   'aplicar',
   'empleo',
   'job',
+  'jobs',
   'career',
+  'careers',
   'hire',
   'hiring',
-  'portafolio',
-  'portfolio',
-  'freelance',
-  'colaborar',
   'busqueda laboral',
   'búsqueda laboral',
   'enviar cv',
-  'trabajar con ustedes'
+  'trabajar con ustedes',
+  'colaborar con ustedes',
+  'unirme al equipo',
+  'quiero trabajar con alora',
+  'portafolio',
+  'portfolio',
+  'freelance',
+  'colaborar'
 ];
 
-const RETAIL_KEYWORDS = [
+const RETAIL_KEYWORDS_RAW = [
   'pedido',
   'orden',
   'compra',
   'comprar',
   'producto',
+  'productos',
   'envio',
   'envío',
   'entrega',
@@ -65,17 +81,26 @@ const RETAIL_KEYWORDS = [
   'replacement',
   'return',
   'did not arrive',
-  'wrong item'
+  'wrong item',
+  'equivocado',
+  'no llego',
+  'no llegó',
+  'devolucion',
+  'devolución'
 ];
 
-const detectSpecialIntent = (text = '') => {
-  if (!text) return null;
+const CAREER_KEYWORDS = CAREER_KEYWORDS_RAW.map(keyword => normalizeText(keyword));
+const RETAIL_KEYWORDS = RETAIL_KEYWORDS_RAW.map(keyword => normalizeText(keyword));
 
-  if (CAREER_KEYWORDS.some(keyword => text.includes(keyword))) {
+const detectSpecialIntent = (text = '') => {
+  const normalized = normalizeText(text);
+  if (!normalized) return null;
+
+  if (CAREER_KEYWORDS.some(keyword => normalized.includes(keyword))) {
     return 'career';
   }
 
-  if (RETAIL_KEYWORDS.some(keyword => text.includes(keyword))) {
+  if (RETAIL_KEYWORDS.some(keyword => normalized.includes(keyword))) {
     return 'retail';
   }
 
@@ -131,16 +156,9 @@ const Chatbot = () => {
   };
 
   const NEGATIVE_WORDS = {
-    es: ['no', 'nop', 'despues', 'después', 'mas tarde', 'más tarde'],
-    en: ['no', 'not really', 'maybe later', 'later', 'not now']
+    es: ['no', 'nop', 'despues', 'después', 'mas tarde', 'más tarde', 'no gracias', 'no gracias estoy bien'],
+    en: ['no', 'not really', 'maybe later', 'later', 'not now', 'no thanks', 'im good']
   };
-
-  const normalizeText = (text = '') =>
-    text
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .trim();
 
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
