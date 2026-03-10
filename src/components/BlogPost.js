@@ -56,6 +56,41 @@ const BlogPost = () => {
   }
 
   const fullPostUrl = `https://globalalora.com/${locale}/blog/${post.slug}`;
+  const isTiendaNubePost = post.slug.includes('tienda-nube');
+  const emphasisSubtitle =
+    locale === 'es'
+      ? 'Entonces, ¿cuál conviene: Tienda Nube o WooCommerce?'
+      : 'So, Which One Should You Choose?';
+
+  const ctaContent = isTiendaNubePost
+    ? {
+        eyebrow: locale === 'es' ? 'Decisión Tienda Nube vs WooCommerce' : 'Tienda Nube vs WooCommerce decision',
+        title:
+          locale === 'es'
+            ? '¿Cuál plataforma te conviene hoy (y mañana)?'
+            : 'Which platform fits you today (and tomorrow)?',
+        description:
+          locale === 'es'
+            ? 'Revisamos catálogo, operaciones, integraciones y proyección para definir si Tienda Nube, WooCommerce u otra alternativa impulsará tu ecommerce.'
+            : 'We review your catalog, operations, integrations and roadmap to decide whether Tienda Nube, WooCommerce or another stack will scale your ecommerce.',
+        bullets: locale === 'es'
+          ? ['Diagnóstico técnico + comercial', 'Recomendación con próximos pasos', 'Plan de implementación o migración']
+          : ['Technical + commercial diagnosis', 'Recommendation with next steps', 'Implementation or migration plan'],
+      }
+    : {
+        eyebrow: locale === 'es' ? 'Diagnóstico estratégico' : 'Strategic diagnosis',
+        title:
+          locale === 'es'
+            ? '¿Listo para convertir visitas en oportunidades reales?'
+            : 'Ready to turn visits into real opportunities?',
+        description:
+          locale === 'es'
+            ? 'Reservemos una llamada gratuita para analizar tu modelo de negocio y definir la pieza digital que necesitás.'
+            : 'Let’s book a free call to review your business model and define the asset you really need.',
+        bullets: locale === 'es'
+          ? ['Mapa de tu embudo actual', 'Prioridades de contenido', 'Siguiente mejor acción']
+          : ['Current funnel map', 'Content priorities', 'Next best action'],
+      };
 
   return (
     <>
@@ -230,9 +265,11 @@ const BlogPost = () => {
                     );
                   }
                   if (block.type === 'subtitle') {
+                    const className = block.value === emphasisSubtitle ? 'emphasis-subtitle' : undefined;
                     return (
                       <motion.h2 
                         key={idx}
+                        className={className}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay }}
@@ -275,23 +312,13 @@ const BlogPost = () => {
           >
             <div className="cta-card">
               <div className="cta-text">
-                <p className="eyebrow">
-                  {locale === 'es' ? 'Diagnóstico estratégico' : 'Strategic diagnosis'}
-                </p>
-                <h3>
-                  {locale === 'es'
-                    ? '¿Listo para definir si necesitas una landing o un sitio completo?'
-                    : 'Ready to define if you need a landing page or a full site?'}
-                </h3>
-                <p>
-                  {locale === 'es'
-                    ? 'Reservemos una llamada de relevamiento gratuita para analizar tu modelo de negocio, etapa de crecimiento y objetivos de adquisición.'
-                    : 'Book a free discovery call to review your business model, growth stage, and acquisition goals.'}
-                </p>
+                <p className="eyebrow">{ctaContent.eyebrow}</p>
+                <h3>{ctaContent.title}</h3>
+                <p>{ctaContent.description}</p>
                 <ul>
-                  <li>{locale === 'es' ? 'Análisis de tu embudo actual' : 'Current funnel analysis'}</li>
-                  <li>{locale === 'es' ? 'Mapa de contenidos y autoridad' : 'Content & authority mapping'}</li>
-                  <li>{locale === 'es' ? 'Recomendación de la estructura ideal' : 'Recommendation of the ideal structure'}</li>
+                  {ctaContent.bullets.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
                 </ul>
                 <Link
                   to={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
@@ -306,7 +333,9 @@ const BlogPost = () => {
               </div>
               <div className="cta-visual">
                 <img
-                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
+                  src={isTiendaNubePost
+                    ? 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=900&q=80'
+                    : 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80'}
                   alt={locale === 'es' ? 'Equipo planificando estrategia digital' : 'Team planning digital strategy'}
                   loading="lazy"
                 />
