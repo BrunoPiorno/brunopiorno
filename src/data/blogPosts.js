@@ -1,5 +1,3 @@
-import tiendaNubeVsWoo from '../media/tienda-nube-vs-woocommerce.svg';
-
 // Ejemplo de posts para el blog. Agrega más objetos para más artículos.
 const posts = [
   {
@@ -9,7 +7,7 @@ const posts = [
     description:
       'Comparativa directa entre Tienda Nube y WooCommerce para entender qué plataforma conviene según el nivel de personalización, escalabilidad y estrategia de tu ecommerce.',
     date: '2026-03-10',
-    cover: tiendaNubeVsWoo,
+    cover: '/media/tienda-nube-vs-woocommerce.svg',
     content: [
       { type: 'subtitle', value: 'Resumen rápido' },
       {

@@ -1,5 +1,3 @@
-import tiendaNubeVsWoo from '../media/tienda-nube-vs-woocommerce.svg';
-
 // Example posts for the blog in English. Add more objects for more articles.
 const posts = [
   {
@@ -9,7 +7,7 @@ const posts = [
     description:
       'Direct comparison between Tienda Nube and WooCommerce so you can understand which platform fits your ecommerce strategy, customization needs, and growth plan.',
     date: '2026-03-10',
-    cover: tiendaNubeVsWoo,
+    cover: '/media/tienda-nube-vs-woocommerce.svg',
     content: [
       { type: 'subtitle', value: 'Quick Summary' },
       {
