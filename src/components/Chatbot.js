@@ -9,6 +9,79 @@ const CONTACT_INFO = {
   email: 'info@globalalora.com',
 };
 
+const CAREERS_EMAIL = 'info@somosglobalalora.com';
+
+const CAREER_KEYWORDS = [
+  'cv',
+  'curriculum',
+  'curriculum',
+  'curriculo',
+  'currículo',
+  'resumen',
+  'resume',
+  'trabajo',
+  'trabajar',
+  'postular',
+  'aplicar',
+  'empleo',
+  'job',
+  'career',
+  'hire',
+  'hiring',
+  'portafolio',
+  'portfolio',
+  'freelance',
+  'colaborar',
+  'busqueda laboral',
+  'búsqueda laboral',
+  'enviar cv',
+  'trabajar con ustedes'
+];
+
+const RETAIL_KEYWORDS = [
+  'pedido',
+  'orden',
+  'compra',
+  'comprar',
+  'producto',
+  'envio',
+  'envío',
+  'entrega',
+  'tienda',
+  'proveedor',
+  'pegatina',
+  'pegatinas',
+  'kia',
+  'auto',
+  'order',
+  'purchase',
+  'shipping',
+  'delivery',
+  'store',
+  'package',
+  'merch',
+  'merchandise',
+  'refund',
+  'replacement',
+  'return',
+  'did not arrive',
+  'wrong item'
+];
+
+const detectSpecialIntent = (text = '') => {
+  if (!text) return null;
+
+  if (CAREER_KEYWORDS.some(keyword => text.includes(keyword))) {
+    return 'career';
+  }
+
+  if (RETAIL_KEYWORDS.some(keyword => text.includes(keyword))) {
+    return 'retail';
+  }
+
+  return null;
+};
+
 const MAX_CHAT_RETRIES = 2;
 
 const formatConversationForEmail = (conversationArray = []) =>
@@ -21,7 +94,7 @@ const Chatbot = () => {
 
   const messages_by_lang = {
     es: {
-      welcome: '¡Hola! Soy el asistente virtual de Alora. ¿En qué puedo ayudarte hoy?',
+      welcome: '¡Hola! Soy el asistente virtual de Alora. Somos un estudio de desarrollo digital. ¿En qué puedo ayudarte hoy?',
       offer_contact: '¿Te gustaría que un asesor especializado te contacte para darte más detalles sobre tu proyecto?',
       ask_name: '¡Perfecto! Para que un asesor de Alora pueda contactarte, necesitamos unos datos. ¿Me podrías decir tu primer nombre?',
       ask_email: '¡Genial! ¿Me podrías proporcionar un correo al que te podamos contactar?',
@@ -29,10 +102,14 @@ const Chatbot = () => {
       ask_phone: '¡Perfecto! Y por último, ¿me podrías dejar tu número de teléfono (mejor si es por whatsapp)? (Prometemos no enviar NADA de SPAM).',
       thank_you: '¡Gracias! Un asesor se pondrá en contacto contigo pronto. ¿Hay algo más en lo que pueda ayudarte?',
       continue_chat: 'Entiendo. ¿Hay algo más en lo que pueda ayudarte?',
+      not_retail:
+        'Somos Alora, un estudio de desarrollo digital. No vendemos productos físicos ni gestionamos pedidos. Te sugerimos contactar al comercio donde realizaste la compra. ¿Podemos ayudarte con algo relacionado a desarrollo o estrategia digital?',
+      career_reply:
+        `¡Gracias por tu interés en Alora! Gestionamos las postulaciones por email. Enviá tu CV o portfolio a ${CAREERS_EMAIL} con el asunto "Quiero colaborar con Alora" y te responderemos cuando lo revisemos.`,
       error: 'Lo siento, no puedo responder en este momento.'
     },
     en: {
-      welcome: 'Hi! I\'m Alora\'s virtual assistant. How can I help you today?',
+      welcome: 'Hi! I\'m Alora\'s virtual assistant. We\'re a digital product development studio. How can I help you today?',
       offer_contact: 'Would you like a specialized advisor to contact you for more details about your project?',
       ask_name: 'Perfect! So that an Alora advisor can contact you, we need some information. Could you tell me your first name?',
       ask_email: 'Great! Could you provide an email where we can contact you?',
@@ -40,6 +117,10 @@ const Chatbot = () => {
       ask_phone: 'Perfect! And finally, could you leave your phone number (better if it\'s WhatsApp)? (We promise NO SPAM).',
       thank_you: 'Thank you! An advisor will contact you soon. Is there anything else I can help you with?',
       continue_chat: 'I understand. Is there anything else I can help you with?',
+      not_retail:
+        'We\'re Alora, a digital product development studio. We don\'t sell physical products or manage retail orders. Please reach out to the store or marketplace where you purchased the item. Can I help you with anything related to digital projects instead?',
+      career_reply:
+        `Thanks for your interest in Alora! We review applications via email. Please send your CV or portfolio to ${CAREERS_EMAIL} with the subject "Join Alora" and we\'ll get back to you soon.`,
       error: 'Sorry, I cannot respond at the moment.'
     }
   };
@@ -190,9 +271,22 @@ const Chatbot = () => {
     const userMessage = { from: 'user', text: inputValue };
     const newMessages = [...messages, userMessage];
     const normalizedInput = normalizeText(inputValue);
+    const specialIntent = detectSpecialIntent(normalizedInput);
     const localeAffirmatives = AFFIRMATIVE_WORDS[locale];
     const localeNegatives = NEGATIVE_WORDS[locale];
     const isPureAffirmative = localeAffirmatives.includes(normalizedInput);
+
+    if (specialIntent && (step === 'chat' || step === 'pre_contact')) {
+      const responseKey = specialIntent === 'career' ? 'career_reply' : 'not_retail';
+      setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale][responseKey] }]);
+      setInputValue('');
+      setAffirmativeStreak(0);
+      setStep('chat');
+      if (specialIntent === 'career') {
+        setHasOfferedContact(true);
+      }
+      return;
+    }
 
     if (step === 'chat') {
       if (isPureAffirmative) {
