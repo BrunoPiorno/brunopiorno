@@ -1,5 +1,90 @@
+import tiendaNubeVsWoo from '../media/tienda-nube-vs-woocommerce.svg';
+
 // Ejemplo de posts para el blog. Agrega más objetos para más artículos.
 const posts = [
+  {
+    slug: 'tienda-nube-vs-woocommerce',
+    translationSlug: 'tienda-nube-vs-woocommerce-en',
+    title: 'Tienda Nube vs WooCommerce: diferencias reales, ventajas y cuál conviene para tu ecommerce',
+    description:
+      'Comparativa directa entre Tienda Nube y WooCommerce para entender qué plataforma conviene según el nivel de personalización, escalabilidad y estrategia de tu ecommerce.',
+    date: '2026-03-10',
+    cover: tiendaNubeVsWoo,
+    content: [
+      { type: 'subtitle', value: 'Resumen rápido' },
+      {
+        type: 'text',
+        value:
+          '- Tienda Nube es una plataforma SaaS cerrada y gestionada, diseñada para lanzar un ecommerce sin lidiar con lo técnico.\n- WooCommerce es un plugin de WordPress que permite construir tiendas 100% personalizables, pero requiere dominio, hosting y mayor gestión.\n- La diferencia real no es cuál es “mejor”, sino qué nivel de control, escalabilidad y personalización necesita tu negocio.',
+      },
+      { type: 'subtitle', value: '¿Qué es Tienda Nube?' },
+      {
+        type: 'text',
+        value:
+          'Tienda Nube es una plataforma de comercio electrónico SaaS.\n- No necesitas contratar hosting por separado.\n- No instalas nada manualmente.\n- La infraestructura está incluida.\n- Pagas una suscripción mensual.\n- El sistema es cerrado: eliges una plantilla, configuras productos, pagos y envíos, y comenzás a vender.\n\nEstá diseñada para simplificar y es muy popular en Latinoamérica por su integración con medios de pago locales y logística regional.',
+      },
+      { type: 'subtitle', value: '¿Qué es WooCommerce?' },
+      {
+        type: 'text',
+        value:
+          'WooCommerce es un plugin de ecommerce para WordPress.\n- Necesitas dominio y hosting.\n- Debes instalar WordPress.\n- Debes instalar WooCommerce.\n- Sos responsable de la infraestructura técnica.\n\nA cambio, obtenés control total.\nWooCommerce no es una plataforma cerrada: puede adaptarse desde una tienda simple hasta un ecommerce complejo con integraciones avanzadas.',
+      },
+      { type: 'subtitle', value: 'Diferencia estructural entre Tienda Nube y WooCommerce' },
+      {
+        type: 'text',
+        value:
+          'La comparación real se resume así:\n- Tienda Nube → simplicidad y rapidez.\n- WooCommerce → control y escalabilidad.\n\nMientras Tienda Nube prioriza facilidad de uso, WooCommerce prioriza personalización.',
+      },
+      { type: 'subtitle', value: 'Ventajas de Tienda Nube' },
+      {
+        type: 'text',
+        value:
+          'Tienda Nube suele ser conveniente cuando:\n- El negocio está comenzando.\n- No se cuenta con soporte técnico.\n- Se necesita lanzar rápido.\n- El catálogo no es extremadamente complejo.\n- Se busca una solución “todo incluido”.\n\nSu principal ventaja es la facilidad: no te preocupás por servidores, actualizaciones ni seguridad técnica avanzada.',
+      },
+      { type: 'subtitle', value: 'Ventajas de WooCommerce' },
+      {
+        type: 'text',
+        value:
+          'WooCommerce suele ser mejor opción cuando:\n- El negocio necesita personalización profunda.\n- Se requiere integración con sistemas externos.\n- Se quiere optimizar SEO técnico al máximo.\n- Se proyecta escalar a mediano o largo plazo.\n- Se desea control total sobre diseño y funcionalidades.\n\nWooCommerce permite desarrollar un ecommerce a medida, sin límites de la plataforma, pero requiere mayor gestión.',
+      },
+      { type: 'subtitle', value: 'Costos: ¿cuál es más económico?' },
+      {
+        type: 'text',
+        value:
+          'Tienda Nube tiene:\n- Plan mensual fijo.\n- Comisiones en algunos planes.\n- Costos por aplicaciones adicionales.\n\nWooCommerce tiene:\n- Costo de hosting.\n- Costo de dominio.\n- Posibles costos de desarrollo.\n- Plugins premium si son necesarios.\n\nEn etapas iniciales, Tienda Nube puede parecer más accesible. A largo plazo, WooCommerce puede resultar más rentable si el negocio crece y necesita personalización o evita comisiones.',
+      },
+      { type: 'subtitle', value: 'SEO: Tienda Nube vs WooCommerce' },
+      {
+        type: 'text',
+        value:
+          'Si el posicionamiento orgánico es clave, WooCommerce ofrece mayor control: estructura técnica personalizable, optimización avanzada, control sobre velocidad y plugins SEO especializados.\nTienda Nube permite optimización básica dentro de los límites de la plataforma.\nSi el SEO es central para tu modelo de adquisición, WooCommerce suele ofrecer más margen estratégico.',
+      },
+      { type: 'subtitle', value: 'Escalabilidad y crecimiento' },
+      {
+        type: 'text',
+        value:
+          'Tienda Nube puede ser suficiente si:\n- Solo vendés productos estándar.\n- No necesitás automatizaciones complejas.\n- No requerís desarrollos a medida.\n\nWooCommerce ofrece flexibilidad cuando planeás:\n- Integrar CRM o ERP.\n- Crear embudos personalizados.\n- Implementar automatizaciones avanzadas.\n- Construir un ecosistema digital conectado.',
+      },
+      { type: 'subtitle', value: 'Entonces, ¿cuál conviene: Tienda Nube o WooCommerce?' },
+      {
+        type: 'text',
+        value:
+          'No existe una respuesta universal.\nConviene Tienda Nube si buscás simplicidad, velocidad de implementación y baja complejidad técnica.\nConviene WooCommerce si buscás escalabilidad, control, personalización profunda, estrategia SEO sólida e integraciones avanzadas.\nLa decisión no debería basarse solo en precio, sino en visión de crecimiento.',
+      },
+      { type: 'subtitle', value: 'Conclusión' },
+      {
+        type: 'text',
+        value:
+          'Tienda Nube es una excelente solución para comenzar rápido y vender sin fricción técnica.\nWooCommerce es una infraestructura más robusta para negocios que proyectan escalar y construir un ecosistema digital completo.\nLa pregunta no es cuál es mejor. La pregunta es cuál se alinea con tu modelo de negocio y tu estrategia de crecimiento.',
+      },
+      { type: 'subtitle', value: '¿Tienda Nube o WooCommerce para tu negocio?' },
+      {
+        type: 'text',
+        value:
+          'Elegir la plataforma equivocada puede limitar tu crecimiento o generarte costos innecesarios en el futuro.\nSi no tenés claro cuál es la mejor opción para tu ecommerce, podemos ayudarte a definirlo.\nReservá una reunión de relevamiento totalmente gratuita y sin compromiso y analizaremos:\n- Tu modelo de negocio.\n- Tu volumen actual y proyección.\n- Tus necesidades técnicas.\n- Qué plataforma te permitirá crecer con mayor solidez.\n\nHacé clic en el botón del sitio y agendá tu sesión.',
+      },
+    ],
+  },
   {
     slug: 'landing-page-vs-sitio-web',
     translationSlug: 'landing-page-vs-website',
