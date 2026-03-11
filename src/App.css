@@ -3668,6 +3668,10 @@ body.soluciones-page .site-header .language-selector {
     font-size: 12px;
     padding: 4px 8px;
   }
+  .nav-links .contact-btn {
+    margin-top: 1rem;
+    width: 200px;
+  }
   .footer-links {
     flex-direction: column;
     gap: 0.5rem;
