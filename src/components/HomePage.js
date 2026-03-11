@@ -676,11 +676,11 @@ const HomePage = () => {
             <i className="fas fa-exclamation-triangle"></i>
           </div>
           <div className="not-suitable-content">
-            <h3>No somos la mejor opción si:</h3>
+            <h3>{t('notSuitable.title')}</h3>
             <ul>
-              <li>Estás en etapa de idea sin validación</li>
-              <li>Solo buscas una página básica sin enfoque estratégico</li>
-              <li>No existe intención de crecimiento o mejora estructural</li>
+              <li>{t('notSuitable.item1')}</li>
+              <li>{t('notSuitable.item2')}</li>
+              <li>{t('notSuitable.item3')}</li>
             </ul>
           </div>
         </motion.div>
