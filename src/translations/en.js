@@ -493,4 +493,10 @@ export const en = {
   'reviews.title': 'Did you like our work?',
   'reviews.subtitle': 'Share your experience and help others learn about our service',
   'reviews.fallback': 'Leave us a review on DesignRush',
+
+  // Not Suitable Section
+  'notSuitable.title': "We're not the best option if:",
+  'notSuitable.item1': "You're in the idea stage without validation",
+  'notSuitable.item2': 'You only want a basic page without strategic focus',
+  'notSuitable.item3': 'There is no intention of growth or structural improvement',
 };
