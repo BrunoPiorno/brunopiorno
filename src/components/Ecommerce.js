@@ -2,6 +2,11 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import Chatbot from './Chatbot';
+import ecommerceImage from '../images/imagenecommerce.png';
+import gretaImage from '../images/greta.png';
+import alauxImage from '../images/alaux.png';
+import gangafanImage from '../images/gangafan-page.png';
+import megamayoristaImage from '../images/megamayorista.png';
 import './Ecommerce.css';
 
 const Ecommerce = () => {
@@ -140,6 +145,49 @@ const Ecommerce = () => {
         cta: 'Talk about your project',
         duration: 'Online 20-minute call'
       };
+
+  const woocommerceProjects = [
+    {
+      title: 'Greta Kids Atelier',
+      description: locale === 'es' 
+        ? 'Tienda de ropa infantil con catálogo de productos variables y sistema de gestión de inventario.'
+        : 'Children\'s clothing store with variable product catalog and inventory management system.',
+      image: gretaImage,
+      url: 'https://gretakidsatelier.com.ar',
+      icon: 'woo',
+      tone: 'rose'
+    },
+    {
+      title: 'Alaux Neumáticos',
+      description: locale === 'es'
+        ? 'Ecommerce de neumáticos con buscador por vehículo y configuración de envíos regionales.'
+        : 'Tire ecommerce with vehicle search and regional shipping configuration.',
+      image: alauxImage,
+      url: 'https://tiendaalaux.com.ar',
+      icon: 'woo',
+      tone: 'teal'
+    },
+    {
+      title: 'GangaFan',
+      description: locale === 'es'
+        ? 'Plataforma de ventas de productos de merchandising con gestión de promociones y descuentos.'
+        : 'Merchandise product sales platform with promotion and discount management.',
+      image: gangafanImage,
+      url: 'https://gangafan.com',
+      icon: 'woo',
+      tone: 'violet'
+    },
+    {
+      title: 'Megamayorista',
+      description: locale === 'es'
+        ? 'Tienda mayorista con catálogo extenso y configuración de precios por volumen de compra.'
+        : 'Wholesale store with extensive catalog and volume-based pricing configuration.',
+      image: megamayoristaImage,
+      url: 'https://megamayorista.com',
+      icon: 'woo',
+      tone: 'amber'
+    }
+  ];
 
   const problemIntro = locale === 'es'
     ? 'Muchos negocios lanzan su tienda online y se encuentran con:'
@@ -444,21 +492,21 @@ const Ecommerce = () => {
           tone: 'rose',
           title: 'Google Ads',
           highlight: 'Intención directa',
-          description: 'Capta usuarios listos para comprar, mide ROAS y escala según resultados reales.'
+          description: 'Capta usuarios que buscan activamente tus productos, optimizamos campañas por palabra clave y medimos el retorno de inversión para escalar solo lo que funciona de verdad.'
         },
         {
           icon: 'repeat',
           tone: 'violet',
           title: 'Meta Ads',
           highlight: 'Demanda y remarketing',
-          description: 'Genera visibilidad, muestra catálogo y recupera carritos con audiencias dinámicas.'
+          description: 'Creamos campañas de awareness para descubrir nuevos clientes y secuencias de remarketing inteligentes para recuperar carritos abandonados y aumentar la conversión.'
         },
         {
           icon: 'steps',
           tone: 'teal',
           title: 'Email Marketing',
           highlight: 'Recurrencia automatizada',
-          description: 'Secuencias para carritos, post venta y fidelización que mantienen la relación.'
+          description: 'Diseñamos flujos de nutrición para guiar desde el primer contacto, secuencias de carrito abandonado y campañas post-venta para fidelizar clientes.'
         }
       ]
     : [
@@ -467,21 +515,21 @@ const Ecommerce = () => {
           tone: 'rose',
           title: 'Google Ads',
           highlight: 'Direct intent',
-          description: 'Capture ready-to-buy users, track ROAS and scale based on tangible results.'
+          description: 'Capture users actively searching for your products, we optimize campaigns by keyword and measure return on investment to scale only what truly works.'
         },
         {
           icon: 'repeat',
           tone: 'violet',
           title: 'Meta Ads',
           highlight: 'Demand & remarketing',
-          description: 'Generate visibility, showcase catalog and recover carts with dynamic audiences.'
+          description: 'We create awareness campaigns to discover new customers and intelligent remarketing sequences to recover abandoned carts and increase conversion rates.'
         },
         {
           icon: 'steps',
           tone: 'teal',
           title: 'Email Marketing',
           highlight: 'Automated recurrence',
-          description: 'Sequences for carts, post-purchase and loyalty that sustain relationships.'
+          description: 'We design nurturing flows to guide from first contact, abandoned cart sequences and post-purchase campaigns to build customer loyalty.'
         }
       ];
 
@@ -537,25 +585,25 @@ const Ecommerce = () => {
           icon: 'cart',
           tone: 'amber',
           title: 'Querés vender profesionalmente',
-          description: 'Necesitás que la tienda represente al negocio y genere ventas consistentes.'
+          description: 'Necesitás que la tienda represente al negocio y genere ventas consistentes. Buscás una solución confiable que proyecte imagen de marca y convierta visitantes en clientes leales.'
         },
         {
           icon: 'funnel',
           tone: 'teal',
           title: 'Tu tienda actual no convierte',
-          description: 'La experiencia es confusa o difícil de gestionar y querés orden real.'
+          description: 'La experiencia es confusa o difícil de gestionar y querés orden real. El recorrido del usuario no guía hacia la compra y perdés oportunidades por una navegación poco intuitiva.'
         },
         {
           icon: 'plug',
           tone: 'violet',
           title: 'Buscás escalar sin migrar',
-          description: 'Preferís evolucionar módulos y procesos antes que cambiar de plataforma cada año.'
+          description: 'Preferís evolucionar módulos y procesos antes que cambiar de plataforma cada año. Querés crecer sobre una base sólida sin perder datos históricos ni tener que reentrenar a tu equipo.'
         },
         {
           icon: 'logistics',
           tone: 'rose',
           title: 'Necesitás operación integrada',
-          description: 'Ventas, pagos y logística tienen que trabajar como un solo sistema.'
+          description: 'Ventas, pagos y logística tienen que trabajar como un solo sistema. Buscás automatizar procesos manuales y tener visibilidad completa del ciclo comercial en tiempo real.'
         }
       ]
     : [
@@ -563,25 +611,25 @@ const Ecommerce = () => {
           icon: 'cart',
           tone: 'amber',
           title: 'You want professional-grade sales',
-          description: 'Your store must represent the business and deliver consistent revenue.'
+          description: 'Your store must represent the business and deliver consistent revenue. You need a reliable solution that projects brand image and converts visitors into loyal customers.'
         },
         {
           icon: 'funnel',
           tone: 'teal',
           title: 'Your current store underperforms',
-          description: 'Experience is confusing or hard to operate and you need real order.'
+          description: 'Experience is confusing or hard to operate and you need real order. The user journey does not guide toward purchase and you miss opportunities due to unintuitive navigation.'
         },
         {
           icon: 'plug',
           tone: 'violet',
           title: 'You want to scale without migrating',
-          description: 'You prefer evolving modules and processes over switching platforms every year.'
+          description: 'You prefer evolving modules and processes over switching platforms every year. You want to grow on a solid foundation without losing historical data or having to retrain your team.'
         },
         {
           icon: 'logistics',
           tone: 'rose',
           title: 'You need integrated operations',
-          description: 'Sales, payments and logistics must perform as one system.'
+          description: 'Sales, payments and logistics must perform as one system. You seek to automate manual processes and have complete visibility of the business cycle in real time.'
         }
       ];
 
@@ -636,6 +684,11 @@ const Ecommerce = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
+            <img 
+              src={ecommerceImage} 
+              alt="Ecommerce Solutions"
+              className="ecommerce-hero-image"
+            />
             <div className="stats-panel">
               <div>
                 <strong>+42%</strong>
@@ -747,12 +800,14 @@ const Ecommerce = () => {
                   </div>
                 ))}
               </div>
-              <p className="platform-note">
-                {locale === 'es'
-                  ? 'Durante el análisis inicial definimos qué plataforma se adapta mejor a tu negocio.'
-                  : 'During discovery we define which platform truly fits your business.'}
-              </p>
             </div>
+          </div>
+          <div className="platform-note-container">
+            <p className="platform-note">
+              {locale === 'es'
+                ? 'Durante el análisis inicial definimos qué plataforma se adapta mejor a tu negocio.'
+                : 'During discovery we define which platform truly fits your business.'}
+            </p>
           </div>
         </motion.div>
       </section>
@@ -798,12 +853,31 @@ const Ecommerce = () => {
               ? 'Desarrollamos tiendas online para distintos tipos de negocios, siempre con foco en conversión, claridad y operación eficiente.'
               : 'We build online stores for different industries with the same focus: conversion, clarity and operational efficiency.'}
           </p>
-          <div className="projects-grid">
-            {projectHighlights.map((highlight, index) => (
-              <div className="project-card" key={index}>
-                {renderIcon(highlight.icon, highlight.tone)}
-                <p>{highlight.copy}</p>
-              </div>
+          <div className="woocommerce-projects-grid">
+            {woocommerceProjects.map((project, index) => (
+              <motion.a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="woocommerce-project-card"
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ scale: 1.03 }}
+              >
+                <div className="project-image-container">
+                  <img src={project.image} alt={project.title} className="project-image" />
+                </div>
+                <div className="project-content">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <span className="project-link">
+                    {locale === 'es' ? 'Ver tienda' : 'Visit store'}
+                  </span>
+                </div>
+              </motion.a>
             ))}
           </div>
         </motion.div>
@@ -835,6 +909,8 @@ const Ecommerce = () => {
           </p>
         </motion.div>
       </section>
+
+      
 
       <section className="process-section">
         <motion.div
@@ -903,6 +979,22 @@ const Ecommerce = () => {
               {finalCTA.button}
             </motion.button>
             <p className="cta-note">{finalCTA.note}</p>
+            <div className="whatsapp-section">
+              <p className="whatsapp-text">
+                {locale === 'es' 
+                  ? '¿No puedes esperar al día de la reunión? Contáctanos por Whatsapp ahora haciendo click en el siguiente botón' 
+                  : 'Can\'t wait for the meeting day? Contact us on WhatsApp now by clicking the button below'
+                }
+              </p>
+              <motion.button 
+                className="cta-button whatsapp large"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://wa.me/5491122334455', '_blank')}
+              >
+                {locale === 'es' ? 'Contactar por WhatsApp' : 'Contact on WhatsApp'}
+              </motion.button>
+            </div>
           </div>
           <div className="cta-image" style={{
             background: 'url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80") center/cover'
