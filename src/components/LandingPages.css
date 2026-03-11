@@ -7,7 +7,6 @@
 /* Hero Section - Exactamente igual que DesarrolloWeb */
 .landing-pages-page .hero-section {
   position: relative;
-  min-height: 90vh;
   display: flex;
   align-items: center;
   padding: 8rem 2rem 4rem 2rem;
