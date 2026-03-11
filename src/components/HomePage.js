@@ -565,8 +565,8 @@ const HomePage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>¿Con qué tipo de empresas trabajamos?</h2>
-          <p>No trabajamos con todo el mundo. Nos enfocamos en organizaciones que ya están operando y necesitan estructura digital real para crecer, optimizar o escalar.</p>
+          <h2>{t('targetCompanies.title')}</h2>
+          <p>{t('targetCompanies.subtitle')}</p>
         </motion.div>
 
         <div className="target-companies-grid">
@@ -580,11 +580,11 @@ const HomePage = () => {
             <div className="company-icon">
               <i className="fas fa-briefcase"></i>
             </div>
-            <h3>Empresas B2B y servicios profesionales</h3>
-            <p>Organizaciones que venden a otras empresas y necesitan comunicar autoridad, explicar procesos complejos y generar oportunidades comerciales cualificadas.</p>
+            <h3>{t('targetCompanies.b2b.title')}</h3>
+            <p>{t('targetCompanies.b2b.desc')}</p>
             <ul>
-              <li>Consultoras, firmas tecnológicas, estudios profesionales</li>
-              <li>Empresas industriales, compañías con ciclos de venta consultivos</li>
+              <li>{t('targetCompanies.b2b.item1')}</li>
+              <li>{t('targetCompanies.b2b.item2')}</li>
             </ul>
           </motion.div>
 
@@ -598,12 +598,12 @@ const HomePage = () => {
             <div className="company-icon">
               <i className="fas fa-chart-line"></i>
             </div>
-            <h3>Pymes en crecimiento</h3>
-            <p>Negocios que ya validaron su oferta y ahora necesitan profesionalizar su presencia digital y ordenar su operación.</p>
+            <h3>{t('targetCompanies.smes.title')}</h3>
+            <p>{t('targetCompanies.smes.desc')}</p>
             <ul>
-              <li>Empresas con equipo interno</li>
-              <li>Negocios que reciben consultas constantes</li>
-              <li>Compañías que quieren escalar con procesos más claros</li>
+              <li>{t('targetCompanies.smes.item1')}</li>
+              <li>{t('targetCompanies.smes.item2')}</li>
+              <li>{t('targetCompanies.smes.item3')}</li>
             </ul>
           </motion.div>
 
@@ -617,12 +617,12 @@ const HomePage = () => {
             <div className="company-icon">
               <i className="fas fa-shopping-cart"></i>
             </div>
-            <h3>Ecommerce con intención de escalar</h3>
-            <p>Tiendas online que buscan algo más que "estar en línea". Necesitan optimizar conversión, estructura técnica y procesos.</p>
+            <h3>{t('targetCompanies.ecommerce.title')}</h3>
+            <p>{t('targetCompanies.ecommerce.desc')}</p>
             <ul>
-              <li>Marcas con catálogo activo</li>
-              <li>Empresas que invierten en publicidad</li>
-              <li>Negocios que quieren mejorar rendimiento y experiencia de compra</li>
+              <li>{t('targetCompanies.ecommerce.item1')}</li>
+              <li>{t('targetCompanies.ecommerce.item2')}</li>
+              <li>{t('targetCompanies.ecommerce.item3')}</li>
             </ul>
           </motion.div>
 
@@ -636,12 +636,12 @@ const HomePage = () => {
             <div className="company-icon">
               <i className="fas fa-rocket"></i>
             </div>
-            <h3>Startups con inversión o en fase de crecimiento</h3>
-            <p>Equipos que necesitan lanzar rápido, validar producto o estructurar una plataforma sólida para crecer.</p>
+            <h3>{t('targetCompanies.startups.title')}</h3>
+            <p>{t('targetCompanies.startups.desc')}</p>
             <ul>
-              <li>Startups fundadas recientemente</li>
-              <li>Proyectos con inversión inicial</li>
-              <li>Equipos que necesitan desarrollo a medida o evolución tecnológica</li>
+              <li>{t('targetCompanies.startups.item1')}</li>
+              <li>{t('targetCompanies.startups.item2')}</li>
+              <li>{t('targetCompanies.startups.item3')}</li>
             </ul>
           </motion.div>
 
@@ -798,8 +798,8 @@ const HomePage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>¿Por qué trabajar con Alora y no con otra agencia?</h2>
-          <p>No competimos por volumen. No trabajas con un sistema automatizado donde eres un proyecto más en la lista. Trabajas con un equipo que entiende que la tecnología debe adaptarse al negocio, no al revés.</p>
+          <h2>{t('whyAlora.title')}</h2>
+          <p>{t('whyAlora.subtitle')}</p>
         </motion.div>
 
         <div className="why-alora-grid">
@@ -813,13 +813,13 @@ const HomePage = () => {
             <div className="why-alora-icon">
               <i className="fas fa-user-check"></i>
             </div>
-            <h3>Seguimiento personalizado real</h3>
-            <p>Cada proyecto tiene acompañamiento directo y seguimiento continuo.</p>
+            <h3>{t('whyAlora.personalized.title')}</h3>
+            <p>{t('whyAlora.personalized.desc')}</p>
             <ul>
-              <li>No delegamos completamente la relación en cuentas junior ni desaparecemos después de la entrega</li>
-              <li>Entendemos objetivos, cambios y evolución del negocio</li>
-              <li>Nos involucramos más allá del desarrollo inicial</li>
-              <li>No eres un ticket en un sistema. Eres un proyecto con contexto y prioridades reales</li>
+              <li>{t('whyAlora.personalized.item1')}</li>
+              <li>{t('whyAlora.personalized.item2')}</li>
+              <li>{t('whyAlora.personalized.item3')}</li>
+              <li>{t('whyAlora.personalized.item4')}</li>
             </ul>
           </motion.div>
 
@@ -833,12 +833,12 @@ const HomePage = () => {
             <div className="why-alora-icon">
               <i className="fas fa-sync-alt"></i>
             </div>
-            <h3>Flexibilidad y adaptación</h3>
-            <p>Los negocios cambian. Las prioridades cambian. Las decisiones evolucionan.</p>
+            <h3>{t('whyAlora.flexibility.title')}</h3>
+            <p>{t('whyAlora.flexibility.desc')}</p>
             <ul>
-              <li>No trabajamos con procesos rígidos que bloquean ajustes necesarios</li>
-              <li>Adaptamos el desarrollo cuando el proyecto lo requiere, manteniendo claridad y orden</li>
-              <li>La tecnología debe acompañar la evolución del negocio, no limitarla</li>
+              <li>{t('whyAlora.flexibility.item1')}</li>
+              <li>{t('whyAlora.flexibility.item2')}</li>
+              <li>{t('whyAlora.flexibility.item3')}</li>
             </ul>
           </motion.div>
 
@@ -852,13 +852,13 @@ const HomePage = () => {
             <div className="why-alora-icon">
               <i className="fas fa-language"></i>
             </div>
-            <h3>Talento bilingüe (español / inglés)</h3>
-            <p>Trabajamos con equipos y clientes en distintos mercados. Nuestro equipo opera fluidamente en español e inglés.</p>
+            <h3>{t('whyAlora.bilingual.title')}</h3>
+            <p>{t('whyAlora.bilingual.desc')}</p>
             <ul>
-              <li>Colaboración con empresas internacionales</li>
-              <li>Documentación clara</li>
-              <li>Comunicación directa sin intermediarios</li>
-              <li>Especialmente relevante para empresas B2B, startups y proyectos con proyección internacional</li>
+              <li>{t('whyAlora.bilingual.item1')}</li>
+              <li>{t('whyAlora.bilingual.item2')}</li>
+              <li>{t('whyAlora.bilingual.item3')}</li>
+              <li>{t('whyAlora.bilingual.item4')}</li>
             </ul>
           </motion.div>
 
@@ -872,14 +872,14 @@ const HomePage = () => {
             <div className="why-alora-icon">
               <i className="fas fa-chess"></i>
             </div>
-            <h3>Enfoque estratégico, no solo técnico</h3>
-            <p>No empezamos escribiendo código. Empezamos entendiendo:</p>
+            <h3>{t('whyAlora.strategic.title')}</h3>
+            <p>{t('whyAlora.strategic.desc')}</p>
             <ul>
-              <li>Qué quieres lograr</li>
-              <li>Qué problema estás resolviendo</li>
-              <li>Qué debe hacer el usuario</li>
-              <li>Cómo se medirá el éxito</li>
-              <li>Diseñamos con intención. Desarrollamos con propósito</li>
+              <li>{t('whyAlora.strategic.item1')}</li>
+              <li>{t('whyAlora.strategic.item2')}</li>
+              <li>{t('whyAlora.strategic.item3')}</li>
+              <li>{t('whyAlora.strategic.item4')}</li>
+              <li>{t('whyAlora.strategic.item5')}</li>
             </ul>
           </motion.div>
 
