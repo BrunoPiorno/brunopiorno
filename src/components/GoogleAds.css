@@ -1,10 +1,9 @@
 .googleads-page {
   min-height: 100vh;
-  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 60%, #f6f8fb 100%);
 }
 
 .googleads-page section {
-  padding: 6rem 2rem;
+  padding: 8rem 2rem 4rem;
 }
 
 .googleads-hero {
@@ -17,6 +16,7 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 3rem;
   align-items: center;
+  max-width: var(--container-max-width);
 }
 
 .googleads-hero-text .eyebrow {
@@ -310,7 +310,7 @@
 }
 
 .googleads-compare {
-  background: #f6f7fb;
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .compare-grid {
@@ -475,7 +475,7 @@
 }
 
 .googleads-industries {
-  background: #ffffff;
+  background: linear-gradient(0deg, rgb(113 172 179 / 10%));
 }
 
 .industries-list {
@@ -533,29 +533,66 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5rem;
+  max-width: 600px;
 }
 
 .cta-content h2 {
-  text-align: left;
-  font-size: 2.5rem;
-  color: var(--heading-color);
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-family: var(--font-family-headline);
+  line-height: 1.2;
+  text-align: center;
 }
 
 .cta-content p {
-  text-align: left;
-  font-size: 1.1rem;
-  color: #475569;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 .cta-note {
   font-size: 0.95rem;
   color: #475569;
+  margin-top: 1.5rem;
 }
 
 .cta-image {
   min-height: 100%;
-  border-radius: 0;
+  border-radius: 20px;
+  position: relative;
+}
+
+.cta-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(66, 167, 181, 0.8) 0%, rgba(45, 138, 133, 0.6) 100%);
+  z-index: 1;
+  border-radius: 20px;
+}
+
+.cta-button.whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
@@ -586,5 +623,75 @@
   .cta-content h2,
   .cta-content p {
     text-align: center;
+  }
+}
+
+/* WhatsApp Divider Styles */
+.whatsapp-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.3), transparent);
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* WhatsApp Section Styles */
+.whatsapp-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* WhatsApp Title Styles */
+.googleads-final-cta .whatsapp-title {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  position: relative;
+  text-align: center;
+}
+
+.googleads-final-cta .whatsapp-title::before,
+.googleads-final-cta .whatsapp-title::after {
+  content: '"';
+  font-size: 1.5rem;
+  color: rgba(37, 211, 102, 0.5);
+  font-family: var(--font-family-body);
+  position: absolute;
+}
+
+.googleads-final-cta .whatsapp-title::before {
+  left: -1.5rem;
+  top: -0.2rem;
+}
+
+.googleads-final-cta .whatsapp-title::after {
+  right: -1.5rem;
+  bottom: -0.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .googleads-final-cta .cta-content-wrapper {
+    grid-template-columns: 1fr;
+    min-height: 300px;
+  }
+
+  .googleads-final-cta .cta-content {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .googleads-final-cta .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .googleads-final-cta .cta-content p {
+    font-size: 1.1rem;
+  }
+
+  .googleads-final-cta .cta-image {
+    min-height: 300px;
   }
 }

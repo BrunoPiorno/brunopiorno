@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import Chatbot from './Chatbot';
 import './GoogleAds.css';
+import googleAdsHeroImage from '../images/google-ads-hero.jpeg';
 
 const GoogleAds = () => {
   const { locale } = useLanguage();
@@ -157,7 +158,7 @@ const GoogleAds = () => {
     ? {
         title: 'Gestión de Google Ads para generar clientes a partir de búsquedas con intención',
         lead: 'Diseñamos, gestionamos y optimizamos campañas de Google Ads para negocios que quieren convertir demanda existente en leads o ventas reales.',
-        support: 'Google Ads funciona cuando hay personas buscando activamente lo que ofrecés. Nuestro trabajo es estructurar campañas, anuncios y páginas de destino para aparecer en ese momento y convertir esa intención en resultados medibles.',
+        support: 'Google Ads funciona cuando hay personas buscando activamente lo que ofreces. Nuestro trabajo es estructurar campañas, anuncios y páginas de destino para aparecer en ese momento y convertir esa intención en resultados medibles.',
         cta: 'Reservar una llamada de 20 minutos',
       }
     : {
@@ -330,16 +331,16 @@ const GoogleAds = () => {
   const fitLists = locale === 'es'
     ? {
         yes: [
-          'Tenés una oferta clara y bien definida.',
-          'Ofrecés productos o servicios con demanda activa.',
-          'Podés atender y cerrar los leads que llegan.',
+          'Tienes una oferta clara y bien definida.',
+          'Ofreces productos o servicios con demanda activa.',
+          'Puedes atender y cerrar los leads que llegan.',
           'Tu ecommerce tiene margen y estructura para escalar.'
         ],
         no: [
           'Todavía no definiste propuesta o modelo.',
           'No existe capacidad comercial para atender leads.',
-          'Buscás resultados con presupuestos mínimos sin margen.',
-          'Querés “probar con 50 €” sin datos ni estructura.'
+          'Buscas resultados con presupuestos mínimos sin margen.',
+          'Quieres "probar con 50 €" sin datos ni estructura.'
         ],
         stance: 'Preferimos decir que no antes que gestionar campañas que no pueden funcionar.'
       }
@@ -364,36 +365,60 @@ const GoogleAds = () => {
         {
           channel: 'Google Ads',
           focus: 'Intención activa',
-          description: 'El usuario ya busca una solución. Mensajes directos y resultados esperables: leads o ventas con alta intención.',
+          description: 'Las personas ya están buscando lo que ofreces. Apareces justo en el momento que te necesitan.',
           icon: 'target',
           tone: 'teal',
-          bullets: ['Demanda existente, no interrupción.', 'Pipeline atribuible con CAC controlado.']
+          bullets: [
+            'Capturas clientes que ya están listos para comprar',
+            'Sabes exactamente cuánto te cuesta cada cliente',
+            'Más conversiones porque la gente ya te busca',
+            'Resultados rápidos que puedes medir fácilmente',
+            'Perfecto cuando necesitas ventas ahora'
+          ]
         },
         {
           channel: 'Meta Ads',
           focus: 'Descubrimiento',
-          description: 'Interrumpe para generar interés. Mensajes creativos y objetivos de reconocimiento o demanda incipiente.',
+          description: 'Llegas a nuevas personas que todavía no te conocen pero podrían interesarse en tus productos.',
           icon: 'spark',
           tone: 'rose',
-          bullets: ['Genera consideración desde cero.', 'Creatividad y storytelling para educar.']
+          bullets: [
+            'Creas interés donde antes no existía',
+            'Conectas con gente a través de historias creativas',
+            'Llegas a miles de personas nuevas cada día',
+            'Ideal para que te conozcan más gente',
+            'Construyes tu marca poco a poco'
+          ]
         }
       ]
     : [
         {
           channel: 'Google Ads',
           focus: 'Active intent',
-          description: 'People are already searching. Direct messaging that expects high-intent leads or sales.',
+          description: 'People are already searching for what you offer. You show up right when they need you.',
           icon: 'target',
           tone: 'teal',
-          bullets: ['Captures demand already in-market.', 'Attributable pipeline with predictable CAC.']
+          bullets: [
+            'Capture customers who are ready to buy',
+            'Know exactly how much each customer costs',
+            'More conversions because people already look for you',
+            'Fast results you can easily measure',
+            'Perfect when you need sales now'
+          ]
         },
         {
           channel: 'Meta Ads',
           focus: 'Discovery',
-          description: 'Interrupts the feed to spark interest. Creative/educational messaging for awareness or early demand.',
+          description: 'You reach new people who don\'t know you yet but might be interested in your products.',
           icon: 'spark',
           tone: 'rose',
-          bullets: ['Creates demand from scratch.', 'Storytelling and education at scale.']
+          bullets: [
+            'Create interest where it didn\'t exist before',
+            'Connect with people through creative stories',
+            'Reach thousands of new people every day',
+            'Ideal for more people to get to know you',
+            'Build your brand little by little'
+          ]
         }
       ];
 
@@ -548,6 +573,15 @@ const GoogleAds = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
+            <img 
+              src={googleAdsHeroImage} 
+              alt="Google Ads Hero" 
+              style={{
+                width: '100%',
+                borderRadius: '16px',
+                marginBottom: '1.5rem'
+              }}
+            />
             <div className="hero-highlight-card">
               <strong>84%</strong>
               <span>{locale === 'es' ? 'de las conversiones gestionadas provienen de búsquedas con intención clara' : 'of managed conversions come from high-intent searches'}</span>
@@ -561,32 +595,6 @@ const GoogleAds = () => {
               <span>{locale === 'es' ? 'Seguimos acciones, no métricas vanidosas' : 'We track actions, not vanity metrics'}</span>
             </div>
           </motion.div>
-        </motion.div>
-      </section>
-
-      <section className="googleads-operating">
-        <motion.div
-          className="section-content"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2>{locale === 'es' ? 'Operamos Google Ads como un equipo in-house' : 'We operate Google Ads like an embedded team'}</h2>
-          <p className="section-lead">
-            {locale === 'es'
-              ? 'Nos integramos a tu stack SaaS/B2B para que Google Ads tenga impacto directo en pipeline y revenue.'
-              : 'We plug into your SaaS/B2B stack so Google Ads drives real pipeline and revenue.'}
-          </p>
-          <div className="operating-grid">
-            {operatingPillars.map(pillar => (
-              <div className="operating-card" key={pillar.title}>
-                <span className="operating-tag">{pillar.tag}</span>
-                <h3>{pillar.title}</h3>
-                <p>{pillar.description}</p>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </section>
 
@@ -781,22 +789,64 @@ const GoogleAds = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="cta-content">
-            <h2>{finalCTA.title}</h2>
-            <p>{finalCTA.description}</p>
+            <h2>
+              {locale === 'es'
+                ? '¿Hablamos de Google Ads?'
+                : 'Shall we talk about Google Ads?'}
+            </h2>
+            <p>
+              {locale === 'es'
+                ? 'Si estás evaluando Google Ads para tu negocio, coordinemos una llamada breve para revisar si tiene sentido avanzar.'
+                : 'If you are considering Google Ads for your business, let\'s schedule a brief call to review if it makes sense to move forward.'}
+            </p>
             <motion.button
               className="cta-button primary large"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
+              onClick={() =>
+                window.open(
+                  locale === 'es'
+                    ? 'https://tidycal.com/alora/20-minutos-reunion'
+                    : 'https://tidycal.com/alora/20-minutes',
+                  '_blank',
+                )
+              }
             >
-              {finalCTA.button}
+              {locale === 'es'
+                ? 'Agendar una llamada de 20 minutos'
+                : 'Schedule a 20-minute call'}
             </motion.button>
-            <p className="cta-note">{finalCTA.note}</p>
+            <p className="cta-note">
+              {locale === 'es'
+                ? 'Evaluamos tu proyecto y te decimos si podemos ayudarte.'
+                : 'We evaluate your project and tell you if we can help you.'}
+            </p>
+            <div className="whatsapp-divider"></div>
+            <div className="whatsapp-section">
+              <h3 className="whatsapp-title">
+                {locale === 'es'
+                  ? 'No puedes esperar a la reunión para hablar con nosotros? Escríbenos por Whatsapp haciendo click en el siguiente botón'
+                  : 'And if you can\'t wait and want to talk to us right now, contact us on whatsapp'}
+              </h3>
+              <motion.button
+                className="cta-button whatsapp"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() =>
+                  window.open('https://wa.me/5491112345678', '_blank')
+                }
+              >
+                {locale === 'es'
+                  ? '¡Contáctanos por Whatsapp ahora!'
+                  : 'Contact us on WhatsApp now!'}
+              </motion.button>
+            </div>
           </div>
           <div
             className="cta-image"
             style={{
-              background: 'url("https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?auto=format&fit=crop&w=1000&q=80") center/cover'
+              background:
+                'url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80") center/cover',
             }}
           ></div>
         </motion.div>
