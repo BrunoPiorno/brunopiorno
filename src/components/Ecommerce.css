@@ -131,8 +131,13 @@
 
 .problem-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, minmax(340px, 1fr));
   gap: 1.5rem;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .problem-card {
@@ -193,6 +198,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .solution-block {
@@ -258,6 +264,8 @@
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 2.5rem;
   align-items: stretch;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .woo-summary {
@@ -276,7 +284,8 @@
 .woo-benefits {
   display: grid;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .woo-benefit {
@@ -348,7 +357,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-  margin-top: 3rem !important;
+  margin-top: 4rem !important;
   margin-bottom: 3rem !important;
   max-width: 1200px;
   margin-left: auto;
@@ -446,6 +455,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .project-card {
@@ -463,6 +474,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.75rem;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .related-card {
@@ -495,6 +508,8 @@
 .process-flow {
   position: relative;
   max-width: 960px;
+  margin-top: 4rem !important;
+  margin-bottom: 3rem !important;
   margin: 0 auto;
   padding-left: 1.5rem;
   display: flex;
@@ -611,7 +626,8 @@
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 4rem;;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .ideal-item {
@@ -700,11 +716,33 @@
 }
 
 .whatsapp-text {
-  font-size: 1rem;
-  color: #475569;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  position: relative;
   text-align: center;
+}
+
+.whatsapp-text::before,
+.whatsapp-text::after {
+  content: '"';
+  font-size: 1.5rem;
+  color: rgba(37, 211, 102, 0.5);
+  position: absolute;
+  font-family: var(--font-family-body);
+}
+
+.whatsapp-text::before {
+  left: -1rem;
+  top: -0.2rem;
+}
+
+.whatsapp-text::after {
+  right: -1rem;
+  bottom: -0.5rem;
 }
 
 .cta-button.whatsapp {
@@ -750,7 +788,7 @@
   border-radius: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .ecommerce-hero-text h1 {
     font-size: 2.3rem;
   }
@@ -760,7 +798,7 @@
   }
 
   .problem-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(340px, 1fr));
   }
 
   .solution-grid,
@@ -819,6 +857,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .platform-note-container {
   margin-top: 2rem;
   text-align: center;
@@ -849,6 +893,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .woocommerce-project-card {
