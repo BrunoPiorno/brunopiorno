@@ -541,17 +541,15 @@
   font-weight: 500;
   color: #f59e0b;
   font-style: italic;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.05));
   padding: 0.8rem 1.2rem;
-  border-radius: 12px;
-  border: 1px solid #f59e0b;
+  border-radius: 5px;
+  border-left: 2px solid #f59e0b;
   margin: 0;
   position: absolute;
   bottom: 1.5rem;
   left: 2.5rem;
   right: 2.5rem;
   font-size: 0.85rem;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.1);
 }
 
 .problem-avoided-card .conclusion {
@@ -575,7 +573,7 @@
 
 .problems-conclusion p {
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-color);
   font-style: italic;
   line-height: 1.6;
@@ -699,7 +697,6 @@
   background: linear-gradient(135deg, rgba(66, 167, 181, 0.08), rgba(45, 138, 133, 0.04));
   padding: 2rem;
   border-radius: 12px;
-  border-left: 3px solid var(--primary-color);
 }
 
 .process-conclusions-container {
@@ -722,13 +719,42 @@
 }
 
 .complementary-item {
-  background: white;
-  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.8) 100%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
-  border: 1px solid rgba(15, 23, 42, 0.07);
+  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15),
+              0 6px 20px rgba(66, 167, 181, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.9),
+              inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   text-align: left;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.complementary-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent);
+  border-radius: 20px 20px 0 0;
+}
+
+.complementary-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.6));
+  border-radius: 20px 20px 0 0;
 }
 
 .complementary-item:hover {
@@ -739,8 +765,9 @@
 .complementary-item h3 {
   font-size: 1.2rem;
   font-weight: 700;
+  min-height: 40px;
   color: var(--heading-color);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-family: var(--font-family-headline);
 }
 
