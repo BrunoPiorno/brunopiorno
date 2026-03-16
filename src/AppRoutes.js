@@ -18,6 +18,7 @@ const LandingPages = lazy(() => import('./components/LandingPages'));
 const AplicacionesWeb = lazy(() => import('./components/AplicacionesWeb'));
 const Ecommerce = lazy(() => import('./components/Ecommerce'));
 const GoogleAds = lazy(() => import('./components/GoogleAds'));
+const AtencionAlClienteConIA = lazy(() => import('./components/AtencionAlClienteConIA'));
 const MatenimientoWeb = lazy(() => import('./components/MatenimientoWeb'));
 const ProposalLanding = lazy(() => import('./components/proposals/ProposalLanding'));
 const PresentationPage = lazy(() => import('./components/PresentationPage'));
@@ -34,6 +35,7 @@ const AppRoutes = () => (
       <Route path="/soluciones/ecommerce" element={<Ecommerce />} />
       <Route path="/soluciones/mantenimiento-web" element={<MatenimientoWeb />} />
       <Route path="/soluciones/google-ads" element={<GoogleAds />} />
+      <Route path="/soluciones/atencion-cliente-ia" element={<AtencionAlClienteConIA />}/>
       <Route path="/whatsapp-generator" element={<WhatsAppGenerator />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
