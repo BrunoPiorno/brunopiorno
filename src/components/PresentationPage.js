@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import './PresentationPage.css';
 
@@ -98,7 +98,40 @@ const values = [
   },
 ];
 
+const faqs = [
+  {
+    question: '¿Qué necesitan antes de enviar un presupuesto?',
+    answer:
+      'Siempre hacemos workshops con los decisores para entender objetivos, restricciones y dependencias técnicas. Sin ese contexto, preferimos no cotizar.',
+  },
+  {
+    question: '¿Trabajan con equipo propio o aliados externos?',
+    answer:
+      'Tenemos un núcleo senior en estrategia, diseño y tecnología, y sumamos especialistas de confianza (data, contenidos, performance) según el desafío.',
+  },
+  {
+    question: '¿Cómo se componen los honorarios?',
+    answer:
+      'Definimos milestones con entregables concretos. Cada etapa incluye research, ejecución y QA. No cobramos por horas sueltas sino por valor entregado.',
+  },
+  {
+    question: '¿Qué pasa después del go-live?',
+    answer:
+      'Acompañamos el lanzamiento con métricas claras, training para el equipo interno y plan de evolución. Podemos seguir como partner o transferir todo.',
+  },
+];
+
 const PresentationPage = () => {
+  const [activeFaqIndex, setActiveFaqIndex] = useState(0);
+
+  const handleNextFaq = () => {
+    setActiveFaqIndex((prev) => (prev + 1) % faqs.length);
+  };
+
+  const handlePrevFaq = () => {
+    setActiveFaqIndex((prev) => (prev - 1 + faqs.length) % faqs.length);
+  };
+
   return (
     <div className="presentation-page">
       <Helmet>
@@ -255,6 +288,51 @@ const PresentationPage = () => {
                 <h3>{value.title}</h3>
                 <p>{value.description}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faqs" className="presentation-section faqs-section">
+        <div className="presentation-container">
+          <div className="section-heading">
+            <p className="eyebrow">FAQs</p>
+            <h2>Preguntas frecuentes antes de avanzar</h2>
+            <p>Resumen de las dudas que solemos responder antes de compartir una propuesta formal.</p>
+          </div>
+          <div className="faq-slider" aria-live="polite">
+            <button className="faq-nav" onClick={handlePrevFaq} aria-label="Pregunta anterior">
+              ←
+            </button>
+            <div className="faq-slider-window">
+              <div
+                className="faq-slider-track"
+                style={{ transform: `translateX(-${activeFaqIndex * 100}%)` }}
+              >
+                {faqs.map((faq, index) => (
+                  <article
+                    key={`faq-slide-${faq.question}`}
+                    className={`faq-card ${index === activeFaqIndex ? 'active' : ''}`}
+                  >
+                    <p className="faq-index">{index + 1} / {faqs.length}</p>
+                    <h3>{faq.question}</h3>
+                    <p>{faq.answer}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <button className="faq-nav" onClick={handleNextFaq} aria-label="Siguiente pregunta">
+              →
+            </button>
+          </div>
+          <div className="faq-dots">
+            {faqs.map((_, index) => (
+              <button
+                key={`faq-dot-${index}`}
+                className={`faq-dot ${index === activeFaqIndex ? 'active' : ''}`}
+                onClick={() => setActiveFaqIndex(index)}
+                aria-label={`Ir a la pregunta ${index + 1}`}
+              />
             ))}
           </div>
         </div>

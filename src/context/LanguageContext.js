@@ -1,31 +1,21 @@
 import React, { createContext, useContext } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+// import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { translations, defaultLocale } from '../translations';
 
 const LanguageContext = createContext();
 
-export const LanguageProvider = ({ children }) => {
-  const params = useParams();
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  // Derivamos el idioma de la URL, con 'es' como fallback
-  const locale = params.lang && ['en', 'es'].includes(params.lang) ? params.lang : defaultLocale;
+export const LanguageProvider = ({ children, initialLocale }) => {
+  // Temporarily simplified to avoid circular dependency
+  const locale = initialLocale || defaultLocale;
 
   const t = (key) => {
     return (translations[locale] && translations[locale][key]) || translations[defaultLocale][key] || key;
   };
 
   const toggleLanguage = () => {
+    // Simplified toggle - just switch between es/en
     const newLocale = locale === 'en' ? 'es' : 'en';
-    const currentPath = location.pathname;
-    
-    // Reemplazamos el prefijo de idioma actual por el nuevo
-    const newPath = currentPath.startsWith(`/${locale}`) 
-      ? currentPath.replace(`/${locale}`, `/${newLocale}`) 
-      : `/${newLocale}${currentPath}`;
-
-    navigate(newPath);
+    window.location.href = `/${newLocale}${window.location.pathname.replace(/^\/(es|en)/, '')}`;
   };
 
   return (
