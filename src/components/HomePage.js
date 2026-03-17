@@ -775,7 +775,17 @@ const HomePage = () => {
           ))}
         </div>
 
-
+        <motion.div 
+          className="services-cta-container"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <a href={`/${locale === 'es' ? 'es/soluciones' : 'en/soluciones'}`} className="cta-button primary large">
+            {locale === 'es' ? 'Ver Servicios' : 'View Services'}
+          </a>
+        </motion.div>
 
         <motion.div 
           className="gdpr-compliance-block"
