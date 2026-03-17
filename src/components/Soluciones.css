@@ -908,6 +908,7 @@
 .combination-description ul {
   margin: 0.75rem 0 1rem 0;
   padding-left: 1.25rem;
+  list-style: none;
 }
 
 .combination-description li {
@@ -1851,7 +1852,7 @@
   .soluciones-page .hero-content {
     grid-template-columns: 1fr;
     gap: 2rem;
-    text-align: center;
+    text-align: left;
   }
 
   .soluciones-page .hero-image {
@@ -1868,9 +1869,8 @@
 
   .soluciones-page .hero-text p {
     font-size: 1.1rem;
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 30px;
+    text-align: left;
+    margin: 0 0 30px 0;
   }
 
   .soluciones-page .service-card:last-child {
@@ -2215,7 +2215,6 @@
   .cta-button.large.primary {
     padding: 1.2rem 2.5rem;
     font-size: 1.1rem;
-    margin: 0 auto;
     display: block;
   }
 }
