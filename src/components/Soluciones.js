@@ -298,14 +298,14 @@ const Soluciones = () => {
                       <p>{service.purpose}</p>
                     </div>
                     <div className="service-actions">
-                      <motion.button 
+                      <motion.a 
                         className="cta-button"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => window.location.href = `/${locale === 'es' ? 'es/soluciones' : 'en/soluciones'}/${service.id}`}
+                        href={`/${locale === 'es' ? 'es/soluciones' : 'en/soluciones'}/${service.id}`}
                       >
                         {locale === 'es' ? 'Descubrir cómo funciona' : 'Discover how it works'}
-                      </motion.button>
+                      </motion.a>
                     </div>
                   </div>
                 </>
@@ -318,14 +318,14 @@ const Soluciones = () => {
                   <div className="service-content">
                     <h3>{service.title}</h3>
                     <p>{service.purpose}</p>
-                    <motion.button 
+                    <motion.a 
                       className="cta-button"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => window.location.href = `/${locale === 'es' ? 'es' : 'en'}/soluciones/${service.id}`}
+                      href={`/${locale === 'es' ? 'es' : 'en'}/soluciones/${service.id}`}
                     >
                       {locale === 'es' ? 'Ver detalle' : 'See details'}
-                    </motion.button>
+                    </motion.a>
                   </div>
                 </>
               )}
