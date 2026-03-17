@@ -990,6 +990,7 @@
 
   .desarrollo-web-page .hero-text h1 {
     font-size: 2.2rem;
+    text-align: left;
   }
 
   .desarrollo-web-page .hero-subtitle {
@@ -1074,6 +1075,7 @@
 
   .desarrollo-web-page .hero-text h1 {
     font-size: 2.8rem;
+    text-align: left;
   }
 
   .solution-section {
@@ -1125,6 +1127,7 @@
 
   .desarrollo-web-page .hero-text h1 {
     font-size: 2.2rem;
+    text-align: left;
   }
 
   .desarrollo-web-page .hero-subtitle {
@@ -1292,6 +1295,7 @@
 @media (max-width: 480px) {
   .desarrollo-web-page .hero-text h1 {
     font-size: 2rem;
+    text-align: left;
   }
 
   .desarrollo-web-page .hero-subtitle {
