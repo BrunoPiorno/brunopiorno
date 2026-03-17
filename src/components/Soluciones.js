@@ -171,7 +171,7 @@ const Soluciones = () => {
       ideal: locale === 'es'
         ? 'Recibís muchas consultas y perdés oportunidades por falta de tiempo.'
         : 'You receive many inquiries and lose opportunities due to lack of time.',
-      id: 'ia-atencion'
+      id: 'atencion-cliente-ia'
     }
   ];
 
@@ -302,6 +302,7 @@ const Soluciones = () => {
                         className="cta-button"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={() => window.location.href = `/${locale === 'es' ? 'es/soluciones' : 'en/soluciones'}/${service.id}`}
                       >
                         {locale === 'es' ? 'Descubrir cómo funciona' : 'Discover how it works'}
                       </motion.button>
@@ -321,6 +322,7 @@ const Soluciones = () => {
                       className="cta-button"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      onClick={() => window.location.href = `/${locale === 'es' ? 'es' : 'en'}/soluciones/${service.id}`}
                     >
                       {locale === 'es' ? 'Ver detalle' : 'See details'}
                     </motion.button>
@@ -365,8 +367,8 @@ const Soluciones = () => {
             <div className="combination-header">
               <div className="combination-icon">🚀</div>
               <div className="combination-title">
-                <h3>Landing Page + Google Ads</h3>
-                <p className="combination-tagline">Campañas de conversión rápidas y medibles</p>
+                <h3>{locale === 'es' ? 'Landing Page + Google Ads' : 'Landing Page + Google Ads'}</h3>
+                <p className="combination-tagline">{locale === 'es' ? 'Campañas de conversión rápidas y medibles' : 'Fast and measurable conversion campaigns'}</p>
               </div>
             </div>
             <div className="combination-description">
@@ -399,8 +401,8 @@ const Soluciones = () => {
             <div className="combination-header">
               <div className="combination-icon">🏢</div>
               <div className="combination-title">
-                <h3>Web corporativa + mantenimiento</h3>
-                <p className="combination-tagline">Presencia profesional estable a largo plazo</p>
+                <h3>{locale === 'es' ? 'Web corporativa + mantenimiento' : 'Corporate website + maintenance'}</h3>
+                <p className="combination-tagline">{locale === 'es' ? 'Presencia profesional estable a largo plazo' : 'Stable professional long-term presence'}</p>
               </div>
             </div>
             <div className="combination-description">
@@ -433,8 +435,8 @@ const Soluciones = () => {
             <div className="combination-header">
               <div className="combination-icon">🛍️</div>
               <div className="combination-title">
-                <h3>Ecommerce + Google Ads + Meta Ads + Email Marketing</h3>
-                <p className="combination-tagline">Sistema completo de ventas online y recurrencia</p>
+                <h3>{locale === 'es' ? 'Ecommerce + Google Ads + Meta Ads + Email Marketing' : 'Ecommerce + Google Ads + Meta Ads + Email Marketing'}</h3>
+                <p className="combination-tagline">{locale === 'es' ? 'Sistema completo de ventas online y recurrencia' : 'Complete online sales and recurrence system'}</p>
               </div>
             </div>
             <div className="combination-description">
@@ -468,8 +470,8 @@ const Soluciones = () => {
             <div className="combination-header">
               <div className="combination-icon">🤖</div>
               <div className="combination-title">
-                <h3>Web + IA para atención al cliente</h3>
-                <p className="combination-tagline">Atención automática 24/7 sin aumentar el equipo</p>
+                <h3>{locale === 'es' ? 'Web + IA para atención al cliente' : 'Website + AI for customer service'}</h3>
+                <p className="combination-tagline">{locale === 'es' ? 'Atención automática 24/7 sin aumentar el equipo' : 'Automatic 24/7 attention without increasing the team'}</p>
               </div>
             </div>
             <div className="combination-description">
@@ -545,24 +547,29 @@ const Soluciones = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="process-label">
-              <span className="label-text">alineación</span>
+              <span className="label-text">{locale === 'es' ? 'alineación' : 'alignment'}</span>
             </div>
             <div className="process-icon">
               <span>🎯</span>
             </div>
             <div className="process-content">
-              <h3>Descubrimiento estratégico</h3>
+              <h3>{locale === 'es' ? 'Descubrimiento estratégico' : 'Strategic Discovery'}</h3>
               <p className="process-description">
-                No hacemos una llamada, hacemos una inmersión. Analizamos tu negocio, competencia, 
-                objetivos reales y restricciones. Aquí definimos si el proyecto tiene sentido.
+                {locale === 'es'
+                  ? 'No hacemos una llamada, hacemos una inmersión. Analizamos tu negocio, competencia, objetivos reales y restricciones. Aquí definimos si el proyecto tiene sentido.'
+                  : 'We don\'t make a call, we make an immersion. We analyze your business, competition, real objectives and constraints. Here we define if the project makes sense.'}
               </p>
               <div className="process-highlight">
-                <span className="highlight-label">Lo importante aquí:</span>
-                <p>Validamos la viabilidad antes de escribir una línea de código. Ahorramos tiempo y dinero.</p>
+                <span className="highlight-label">{locale === 'es' ? 'Lo importante aquí:' : 'What\'s important here:'}</span>
+                <p>{locale === 'es'
+                  ? 'Validamos la viabilidad antes de escribir una línea de código. Ahorramos tiempo y dinero.'
+                  : 'We validate viability before writing a single line of code. We save time and money.'}</p>
               </div>
               <div className="client-benefit">
                 <span className="benefit-icon">✓</span>
-                <span className="benefit-text">Ganas: Claridad total sobre qué funciona y qué no en tu caso específico</span>
+                <span className="benefit-text">{locale === 'es'
+                  ? 'Ganas: Claridad total sobre qué funciona y qué no en tu caso específico'
+                  : 'You gain: Total clarity on what works and what doesn\'t in your specific case'}</span>
               </div>
             </div>
           </motion.div>
@@ -575,24 +582,29 @@ const Soluciones = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="process-label">
-              <span className="label-text">decisión</span>
+              <span className="label-text">{locale === 'es' ? 'decisión' : 'decision'}</span>
             </div>
             <div className="process-icon">
               <span>📋</span>
             </div>
             <div className="process-content">
-              <h3>Propuesta sin sorpresas</h3>
+              <h3>{locale === 'es' ? 'Propuesta sin sorpresas' : 'Surprise-free Proposal'}</h3>
               <p className="process-description">
-                Entregamos un documento detallado con alcance exacto, tecnología recomendada, 
-                tiempos realistas y costos transparentes. No hay "depende" ni "después vemos".
+                {locale === 'es'
+                  ? 'Entregamos un documento detallado con alcance exacto, tecnología recomendada, tiempos realistas y costos transparentes. No hay "depende" ni "después vemos".'
+                  : 'We deliver a detailed document with exact scope, recommended technology, realistic timelines and transparent costs. No "it depends" or "we\'ll see later".'}
               </p>
               <div className="process-highlight">
-                <span className="highlight-label">Lo importante aquí:</span>
-                <p>Definimos el éxito del proyecto con métricas concretas, no con promesas vagas.</p>
+                <span className="highlight-label">{locale === 'es' ? 'Lo importante aquí:' : 'What\'s important here:'}</span>
+                <p>{locale === 'es'
+                  ? 'Definimos el éxito del proyecto con métricas concretas, no con promesas vagas.'
+                  : 'We define project success with concrete metrics, not vague promises.'}</p>
               </div>
               <div className="client-benefit">
                 <span className="benefit-icon">✓</span>
-                <span className="benefit-text">Ganas: Seguridad presupuestaria y claridad sobre el resultado esperado</span>
+                <span className="benefit-text">{locale === 'es'
+                  ? 'Ganas: Seguridad presupuestaria y claridad sobre el resultado esperado'
+                  : 'You gain: Budget security and clarity on expected results'}</span>
               </div>
             </div>
           </motion.div>
@@ -605,24 +617,29 @@ const Soluciones = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <div className="process-label">
-              <span className="label-text">ejecución</span>
+              <span className="label-text">{locale === 'es' ? 'ejecución' : 'execution'}</span>
             </div>
             <div className="process-icon">
               <span>⚡</span>
             </div>
             <div className="process-content">
-              <h3>Desarrollo enfocado</h3>
+              <h3>{locale === 'es' ? 'Desarrollo enfocado' : 'Focused Development'}</h3>
               <p className="process-description">
-                Construimos lo que acordamos, nada más y nada menos. Cada semana tienes visibilidad 
-                real del avance, con acceso al código y pruebas funcionales. No hay cajas negras.
+                {locale === 'es'
+                  ? 'Construimos lo que acordamos, nada más y nada menos. Cada semana tienes visibilidad real del avance, con acceso al código y pruebas funcionales. No hay cajas negras.'
+                  : 'We build what we agreed on, nothing more and nothing less. Every week you have real visibility of progress, with access to code and functional tests. No black boxes.'}
               </p>
               <div className="process-highlight">
-                <span className="highlight-label">Lo importante aquí:</span>
-                <p>Entregas incrementales cada 7 días. Si algo no funciona, lo corregimos en el momento.</p>
+                <span className="highlight-label">{locale === 'es' ? 'Lo importante aquí:' : 'What\'s important here:'}</span>
+                <p>{locale === 'es'
+                  ? 'Entregas incrementales cada 7 días. Si algo no funciona, lo corregimos en el momento.'
+                  : 'Incremental deliveries every 7 days. If something doesn\'t work, we fix it on the spot.'}</p>
               </div>
               <div className="client-benefit">
                 <span className="benefit-icon">✓</span>
-                <span className="benefit-text">Ganas: Control total sobre el proyecto y sin sorpresas al final</span>
+                <span className="benefit-text">{locale === 'es'
+                  ? 'Ganas: Control total sobre el proyecto y sin sorpresas al final'
+                  : 'You gain: Total control over the project and no surprises at the end'}</span>
               </div>
             </div>
           </motion.div>
@@ -635,24 +652,29 @@ const Soluciones = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div className="process-label">
-              <span className="label-text">mejora continua</span>
+              <span className="label-text">{locale === 'es' ? 'mejora continua' : 'continuous improvement'}</span>
             </div>
             <div className="process-icon">
               <span>📈</span>
             </div>
             <div className="process-content">
-              <h3>Optimización real</h3>
+              <h3>{locale === 'es' ? 'Optimización real' : 'Real Optimization'}</h3>
               <p className="process-description">
-                El lanzamiento no es el fin, es el inicio. Monitoreamos performance, 
-                analizamos datos y ajustamos basados en comportamiento real de usuarios.
+                {locale === 'es'
+                  ? 'El lanzamiento no es el fin, es el inicio. Monitoreamos performance, analizamos datos y ajustamos basados en comportamiento real de usuarios.'
+                  : 'The launch is not the end, it\'s the beginning. We monitor performance, analyze data and adjust based on real user behavior.'}
               </p>
               <div className="process-highlight">
-                <span className="highlight-label">Lo importante aquí:</span>
-                <p>Medimos lo que importa: conversión, velocidad, usabilidad. No métricas de vanidad.</p>
+                <span className="highlight-label">{locale === 'es' ? 'Lo importante aquí:' : 'What\'s important here:'}</span>
+                <p>{locale === 'es'
+                  ? 'Medimos lo que importa: conversión, velocidad, usabilidad. No métricas de vanidad.'
+                  : 'We measure what matters: conversion, speed, usability. Not vanity metrics.'}</p>
               </div>
               <div className="client-benefit">
                 <span className="benefit-icon">✓</span>
-                <span className="benefit-text">Ganas: Tu proyecto mejora con el tiempo, no se queda obsoleto</span>
+                <span className="benefit-text">{locale === 'es'
+                  ? 'Ganas: Tu proyecto mejora con el tiempo, no se queda obsoleto'
+                  : 'You gain: Your project improves over time, it doesn\'t become obsolete'}</span>
               </div>
             </div>
           </motion.div>
@@ -681,6 +703,7 @@ const Soluciones = () => {
             className="process-cta"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => window.open(locale === 'es' ? 'https://wa.me/+5491124629452' : 'https://wa.me/+5491124629452', '_blank')}
           >
             {locale === 'es' ? 'Iniciar conversación' : 'Start conversation'}
           </motion.button>
@@ -714,7 +737,7 @@ const Soluciones = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <div className="target-section-header">
-                <h3>Trabajamos mejor con proyectos que...</h3>
+                <h3>{locale === 'es' ? 'Trabajamos mejor con proyectos que...' : 'We work best with projects that...'}</h3>
                 <div className="target-line"></div>
               </div>
               
@@ -722,32 +745,40 @@ const Soluciones = () => {
                 <div className="target-point">
                   <div className="point-number">01</div>
                   <div className="point-content">
-                    <h4>Tienen un desafío real que resolver</h4>
-                    <p>No buscan "tener una web" por tenerla. Necesitan solucionar un problema específico: generar leads, vender online, automatizar procesos, escalar operaciones.</p>
+                    <h4>{locale === 'es' ? 'Tienen un desafío real que resolver' : 'They have a real challenge to solve'}</h4>
+                    <p>{locale === 'es'
+                        ? 'No buscan "tener una web" por tenerla. Necesitan solucionar un problema específico: generar leads, vender online, automatizar procesos, escalar operaciones.'
+                        : 'They are not looking to "have a website" just for the sake of it. They need to solve a specific problem: generate leads, sell online, automate processes, scale operations.'}</p>
                   </div>
                 </div>
 
                 <div className="target-point">
                   <div className="point-number">02</div>
                   <div className="point-content">
-                    <h4>Entienden que el buen trabajo toma tiempo</h4>
-                    <p>Saben que los resultados no aparecen mágicamente. Valoran el proceso, la planificación y están dispuestos a invertir en calidad técnica y estratégica.</p>
+                    <h4>{locale === 'es' ? 'Entienden que el buen trabajo toma tiempo' : 'They understand that good work takes time'}</h4>
+                    <p>{locale === 'es'
+                        ? 'Saben que los resultados no aparecen mágicamente. Valoran el proceso, la planificación y están dispuestos a invertir en calidad técnica y estratégica.'
+                        : 'They know that results don\'t appear magically. They value the process, planning and are willing to invest in technical and strategic quality.'}</p>
                   </div>
                 </div>
 
                 <div className="target-point">
                   <div className="point-number">03</div>
                   <div className="point-content">
-                    <h4>Quieren ser parte del proceso</h4>
-                    <p>No delegan y desaparecen. Participan activamente, toman decisiones, dan feedback constructivo. Entienden que son el experto en su negocio, nosotros en tecnología.</p>
+                    <h4>{locale === 'es' ? 'Quieren ser parte del proceso' : 'They want to be part of the process'}</h4>
+                    <p>{locale === 'es'
+                        ? 'No delegan y desaparecen. Participan activamente, toman decisiones, dan feedback constructivo. Entienden que son el experto en su negocio, nosotros en tecnología.'
+                        : 'They don\'t delegate and disappear. They participate actively, make decisions, give constructive feedback. They understand they are the expert in their business, we in technology.'}</p>
                   </div>
                 </div>
 
                 <div className="target-point">
                   <div className="point-number">04</div>
                   <div className="point-content">
-                    <h4>Piensan a largo plazo</h4>
-                    <p>No buscan soluciones rápidas baratas. Invierten en algo que dure, que se pueda optimizar y que crezca con su negocio. Prefieren hacerlo bien una vez.</p>
+                    <h4>{locale === 'es' ? 'Piensan a largo plazo' : 'They think long-term'}</h4>
+                    <p>{locale === 'es'
+                        ? 'No buscan soluciones rápidas baratas. Invierten en algo que dure, que se pueda optimizar y que crezca con su negocio. Prefieren hacerlo bien una vez.'
+                        : 'They are not looking for cheap quick solutions. They invest in something that lasts, that can be optimized and that grows with their business. They prefer to do it right once.'}</p>
                   </div>
                 </div>
               </div>
@@ -763,7 +794,7 @@ const Soluciones = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="target-section-header">
-                <h3>Este no es el lugar adecuado si...</h3>
+                <h3>{locale === 'es' ? 'Este no es el lugar adecuado si...' : 'This is not the right place if...'}</h3>
                 <div className="target-line"></div>
               </div>
               
@@ -771,32 +802,40 @@ const Soluciones = () => {
                 <div className="target-point">
                   <div className="point-number">01</div>
                   <div className="point-content">
-                    <h4>Buscan el precio más bajo</h4>
-                    <p>Entendemos presupuestos ajustados, pero si el único criterio es "el más barato", probablemente no seamos la mejor opción. No competimos con freelancers a $5/hora.</p>
+                    <h4>{locale === 'es' ? 'Buscan el precio más bajo' : 'They look for the lowest price'}</h4>
+                    <p>{locale === 'es'
+                        ? 'Entendemos presupuestos ajustados, pero si el único criterio es "el más barato", probablemente no seamos la mejor opción. No competimos con freelancers a $5/hora.'
+                        : 'We understand tight budgets, but if the only criterion is "the cheapest", we are probably not the best option. We don\'t compete with $5/hour freelancers.'}</p>
                   </div>
                 </div>
 
                 <div className="target-point">
                   <div className="point-number">02</div>
                   <div className="point-content">
-                    <h4>Quieren resultados mañana</h4>
-                    <p>Si esperan vender 10.000 unidades la semana siguiente al lanzar, no somos honestos prometiéndolo. El crecimiento real requiere estrategia, tiempo y optimización.</p>
+                    <h4>{locale === 'es' ? 'Quieren resultados mañana' : 'They want results tomorrow'}</h4>
+                    <p>{locale === 'es'
+                        ? 'Si esperan vender 10.000 unidades la semana siguiente al lanzar, no somos honestos prometiéndolo. El crecimiento real requiere estrategia, tiempo y optimización.'
+                        : 'If they expect to sell 10,000 units the week after launch, we are not honest promising it. Real growth requires strategy, time and optimization.'}</p>
                   </div>
                 </div>
 
                 <div className="target-point">
                   <div className="point-number">03</div>
                   <div className="point-content">
-                    <h4>No quieren participar del proceso</h4>
-                    <p>Si prefieren "encargar y olvidarse", probablemente no funcione. Los proyectos exitosos requieren colaboración, decisiones y feedback del cliente.</p>
+                    <h4>{locale === 'es' ? 'No quieren participar del proceso' : 'They don\'t want to participate in the process'}</h4>
+                    <p>{locale === 'es'
+                        ? 'Si prefieren "encargar y olvidarse", probablemente no funcione. Los proyectos exitosos requieren colaboración, decisiones y feedback del cliente.'
+                        : 'If they prefer to "order and forget", it probably won\'t work. Successful projects require collaboration, decisions and client feedback.'}</p>
                   </div>
                 </div>
 
                 <div className="target-point">
                   <div className="point-number">04</div>
                   <div className="point-content">
-                    <h4>Necesitan algo "rápido y fácil"</h4>
-                    <p>Lo simple rara vez es efectivo. Si buscan plantillas prefabricadas o soluciones mágicas, hay otras opciones más adecuadas para ese enfoque.</p>
+                    <h4>{locale === 'es' ? 'Necesitan algo "rápido y fácil"' : 'They need something "quick and easy"'}</h4>
+                    <p>{locale === 'es'
+                        ? 'Lo simple rara vez es efectivo. Si buscan plantillas prefabricadas o soluciones mágicas, hay otras opciones más adecuadas para ese enfoque.'
+                        : 'Simple is rarely effective. If they are looking for prefabricated templates or magic solutions, there are other more suitable options for that approach.'}</p>
                   </div>
                 </div>
               </div>
