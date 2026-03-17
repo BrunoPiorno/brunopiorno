@@ -71,11 +71,12 @@
 }
 
 .mantenimiento-web-page .hero-highlight {
-  font-size: 1.3rem;
+  font-size: 1.05rem !important;
+  color: #0f172a;
   font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 2.5rem;
-  font-style: italic;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin-bottom: 2rem;
 }
 
 .mantenimiento-web-page .hero-text p {
@@ -987,8 +988,13 @@
     padding: 6rem 1rem 3rem;
   }
 
+  .mantenimiento-web-page .hero-text {
+    text-align: left;
+  }
+
   .mantenimiento-web-page .hero-text h1 {
     font-size: 2.2rem;
+    text-align: left;
   }
 
   .mantenimiento-web-page .hero-subtitle {
@@ -1028,6 +1034,72 @@
   .complementary-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  /* Fix for "Para quién es este servicio" section */
+  .ideal-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .ideal-card {
+    padding: 1.5rem;
+  }
+
+  .ideal-card h3 {
+    font-size: 1.3rem;
+  }
+
+  /* Fix for "Qué problemas evitamos" section */
+  .problems-avoided-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .problem-avoided-card {
+    padding: 1.5rem;
+  }
+
+  .problem-avoided-card .consequence {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin-top: 1rem;
+    min-height: auto;
+    font-size: 0.9rem;
+  }
+
+  /* Fix for "Cómo trabajamos" section */
+  .process-timeline {
+    padding-left: 1rem;
+  }
+
+  .process-step {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .process-number {
+    font-size: 1.2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 1rem auto;
+  }
+
+  .process-step h3 {
+    font-size: 1.2rem;
+  }
+
+  .process-step p {
+    font-size: 0.95rem;
+  }
+
+  .process-conclusions-container {
+    padding-left: 0;
   }
 
   .process-timeline {
