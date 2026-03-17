@@ -52,6 +52,18 @@
   line-height: 1.7;
 }
 
+.googleads-page .hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.googleads-page .cta-button.primary .duration {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-left: 0.5rem;
+}
+
 .googleads-hero-panel {
   background: white;
   border-radius: 24px;
@@ -501,13 +513,24 @@
 }
 
 .industry-icon-wrapper {
-  width: 7rem;
+  width: 3rem;
   height: 3rem;
+  min-width: 3rem;
+  min-height: 3rem;
+  max-width: 3rem;
+  max-height: 3rem;
   border-radius: 1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  flex-shrink: 0;
+}
+
+.industry-icon-wrapper .googleads-icon-svg {
+  width: 1.8rem;
+  height: 1.8rem;
+  flex-shrink: 0;
 }
 
 .industries-list li p {

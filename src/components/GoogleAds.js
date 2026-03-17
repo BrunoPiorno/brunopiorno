@@ -557,15 +557,23 @@ const GoogleAds = () => {
             <h1>{heroCopy.title}</h1>
             <p className="hero-lead">{heroCopy.lead}</p>
             <p className="hero-support">{heroCopy.support}</p>
-            <motion.button
-              className="cta-button primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
-            >
-              {heroCopy.cta}
-              <span className="duration">{heroCopy.duration}</span>
-            </motion.button>
+            <div className="hero-buttons">
+              <motion.button
+                className="cta-button primary"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
+              >
+                {locale === 'es'
+                  ? 'Hablamos sobre tu proyecto'
+                  : 'Let\'s talk about your project'}
+                <span className="duration">
+                  {locale === 'es'
+                    ? 'Llamada online de 20 minutos'
+                    : 'Online 20-minute call'}
+                </span>
+              </motion.button>
+            </div>
           </div>
           <motion.div
             className="googleads-hero-panel"
