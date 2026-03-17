@@ -467,13 +467,6 @@ const DesarrolloWeb = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {locale === 'es' ? 'Sitios web profesionales orientados a resultados' : 'Professional results-oriented websites'}
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
               {locale === 'es'
                 ? 'Diseñamos y desarrollamos sitios web pensados para representar correctamente tu negocio, comunicar con claridad y generar oportunidades reales.'
                 : 'We design and develop websites designed to correctly represent your business, communicate clearly and generate real opportunities.'}
@@ -482,7 +475,7 @@ const DesarrolloWeb = () => {
               className="hero-highlight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
               {locale === 'es'
                 ? 'Un sitio web no es solo diseño. Es estructura, mensaje, experiencia y objetivo.'
@@ -926,19 +919,23 @@ const DesarrolloWeb = () => {
                 ? 'Evaluamos tu proyecto y te decimos si podemos ayudarte.'
                 : 'We evaluate your project and tell you if we can help you.'}
             </p>
-            <div className="cta-whatsapp">
-              <p>
+            <div className="whatsapp-divider"></div>
+            <div className="whatsapp-section">
+              <h3 className="whatsapp-title">
                 {locale === 'es'
-                  ? '¿No podés contener tu ansiedad y querés chatearnos ahora?'
-                  : "Can't contain your excitement and want to chat now?"}
-              </p>
-              <a
-                href="https://wa.me/5491124629452?text=Hola%20equipo%20Alora,%20quiero%20hablar%20ahora%20sobre%20mi%20sitio."
-                target="_blank"
-                rel="noopener noreferrer"
+                  ? 'Y si no puedes con tu ansiedad y quieres hablar con nosotros ahora mismo, contáctanos por whatsapp'
+                  : 'And if you can\'t wait and want to talk to us right now, contact us on whatsapp'}
+              </h3>
+              <motion.button
+                className="cta-button whatsapp"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open("https://wa.me/5491124629452", "_blank")}
               >
-                {locale === 'es' ? 'Escribinos por WhatsApp' : 'Message us on WhatsApp'}
-              </a>
+                {locale === 'es'
+                  ? '¡Contáctanos por Whatsapp ahora!'
+                  : 'Contact us on WhatsApp now!'}
+              </motion.button>
             </div>
           </div>
           <div className="cta-image" style={{

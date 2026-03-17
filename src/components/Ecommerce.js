@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import Chatbot from './Chatbot';
-import ecommerceImage from '../images/imagenecommerce.png';
+import ecommerceImage from '../images/ecommerce-hero.png';
 import gretaImage from '../images/greta.png';
 import alauxImage from '../images/alaux.png';
 import gangafanImage from '../images/gangafan-page.png';

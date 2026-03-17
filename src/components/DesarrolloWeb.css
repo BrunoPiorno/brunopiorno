@@ -64,18 +64,19 @@
 }
 
 .desarrollo-web-page .hero-subtitle {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  color: #475569 !important;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
 }
 
 .desarrollo-web-page .hero-highlight {
-  font-size: 1.3rem;
+  font-size: 1.05rem !important;
+  color: #0f172a;
   font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 2.5rem;
-  font-style: italic;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin-bottom: 2rem;
 }
 
 .desarrollo-web-page .hero-text p {
@@ -513,9 +514,10 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin: 3rem auto;
+  max-width: 1000px;
 }
 
 .project-card {
@@ -597,9 +599,12 @@
 
 .complementary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.75rem;
-  margin: 3rem auto;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
   align-items: stretch;
 }
 
@@ -825,8 +830,10 @@
 
 .ideal-for-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .ideal-for-item {
@@ -872,10 +879,12 @@
   line-height: 1.65;
 }
 
-/* Final CTA Section - Igual que Soluciones */
+/* Final CTA Section - CON IMAGEN */
 .final-cta-section {
   padding: 0;
   background: white;
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-content-wrapper {
@@ -891,16 +900,127 @@
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
-  gap: 1.5rem;
 }
 
 .cta-content h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
+  color: var(--primary-color);
   font-family: var(--font-family-headline);
-  color: var(--heading-color);
   line-height: 1.2;
+  text-align: center;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cta-note {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: 2rem;
+}
+
+.whatsapp-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.3), transparent);
+  margin: 0.5rem 0 1rem 0;
+}
+
+.whatsapp-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.whatsapp-title {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  position: relative;
+}
+
+.whatsapp-title::before,
+.whatsapp-title::after {
+  content: '"';
+  font-size: 1.5rem;
+  color: rgba(37, 211, 102, 0.5);
+  position: absolute;
+  font-family: var(--font-family-body);
+}
+
+.whatsapp-title::before {
+  left: -1rem;
+  top: -0.2rem;
+}
+
+.whatsapp-title::after {
+  right: -1rem;
+  bottom: -0.5rem;
+}
+
+.cta-button.whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .desarrollo-web-page .hero-section {
+    padding: 6rem 1rem 3rem;
+  }
+
+  .desarrollo-web-page .hero-content {
+    text-align: left;
+  }
+
+  .desarrollo-web-page .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .desarrollo-web-page .hero-subtitle {
+    font-size: 1.4rem;
+  }
+
+  .desarrollo-web-page .hero-highlight {
+    font-size: 1.1rem;
+  }
+
+  .desarrollo-web-page .hero-text p {
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 0 0 2.5rem 0;
+  }
+
+  .complementary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ideal-for-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-content-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cta-content p {
@@ -921,37 +1041,6 @@
   position: relative;
   min-height: 100%;
   border-radius: 20px;
-}
-
-.cta-whatsapp {
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(5, 150, 105, 0.3);
-  border-radius: 16px;
-  padding: 1.15rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.cta-whatsapp p {
-  margin: 0;
-  color: #047857;
-  font-weight: 600;
-}
-
-.cta-whatsapp a {
-  align-self: flex-start;
-  background: #10b981;
-  color: white;
-  font-weight: 600;
-  padding: 0.55rem 1.2rem;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: background 0.2s ease;
-}
-
-.cta-whatsapp a:hover {
-  background: #059669;
 }
 
 .cta-image::before {

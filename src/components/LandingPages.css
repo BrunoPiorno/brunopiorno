@@ -64,18 +64,19 @@
 }
 
 .landing-pages-page .hero-subtitle {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  color: #475569 !important;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
 }
 
 .landing-pages-page .hero-highlight {
-  font-size: 1.3rem;
+  font-size: 1.05rem !important;
+  color: #0f172a;
   font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 2.5rem;
-  font-style: italic;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin-bottom: 2rem;
 }
 
 .landing-pages-page .hero-text p {
@@ -1175,6 +1176,15 @@
     padding: 6rem 1rem 3rem;
   }
 
+  .landing-pages-page .hero-content {
+    text-align: left;
+  }
+
+  .landing-pages-page .hero-image {
+    min-height: 250px;
+    max-height: 300px;
+  }
+
   .landing-pages-page .hero-text h1 {
     font-size: 2.2rem;
   }
@@ -1189,6 +1199,8 @@
 
   .landing-pages-page .hero-text p {
     font-size: 1.1rem;
+    text-align: left;
+    margin: 0 0 2.5rem 0;
   }
 
   .landing-pages-page section {
