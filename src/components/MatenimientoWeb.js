@@ -303,9 +303,8 @@ const MatenimientoWeb = () => {
   const finalCTA = locale === 'es'
     ? {
         title: 'Si tu web cumple un rol en la captación, ventas o posicionamiento de tu negocio, debería estar bien gestionada.',
-        description: 'Esta llamada no es soporte técnico. No es una intervención puntual. No es una venta automática.',
         points: [
-          'Es una conversación breve para evaluar: el estado actual de tu sitio, los riesgos existentes, si tiene sentido implementar un mantenimiento profesional'
+          'Llamada breve para evaluar: el estado actual de tu sitio, los riesgos existentes, si tiene sentido implementar un mantenimiento profesional'
         ],
         conclusion: 'Si tu web es una herramienta activa del negocio, debería tratarse como tal.',
         button: 'Reservar una llamada de 20 minutos',
@@ -314,7 +313,6 @@ const MatenimientoWeb = () => {
       }
     : {
         title: 'If your website plays a role in your business\'s lead generation, sales or positioning, it should be properly managed.',
-        description: 'This call is not technical support. It\'s not a one-time intervention. It\'s not an automatic sale.',
         points: [
           'It\'s a brief conversation to evaluate: the current state of your site, existing risks, whether it makes sense to implement professional maintenance'
         ],
@@ -363,15 +361,7 @@ const MatenimientoWeb = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              {hero.highlight}
-            </motion.p>
-            <motion.p
-              className="hero-highlight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              {hero.highlight2}
+              {hero.highlight} {hero.highlight2}
             </motion.p>
             <motion.div
               className="hero-buttons"
@@ -385,7 +375,14 @@ const MatenimientoWeb = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.open(locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call', '_blank')}
               >
-                {hero.cta}
+                {locale === 'es'
+                  ? 'Hablamos sobre tu proyecto'
+                  : 'Let\'s talk about your project'}
+                <span className="duration">
+                  {locale === 'es'
+                    ? 'Llamada online de 20 minutos'
+                    : 'Online 20-minute call'}
+                </span>
               </motion.button>
             </motion.div>
           </div>
@@ -618,7 +615,6 @@ const MatenimientoWeb = () => {
         <div className="cta-content-wrapper">
           <div className="cta-content">
             <h2>{finalCTA.title}</h2>
-            <p>{finalCTA.description}</p>
             <div className="cta-points">
               {finalCTA.points.map((point, index) => (
                 <p key={index}>{point}</p>
