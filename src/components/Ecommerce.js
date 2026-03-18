@@ -990,7 +990,7 @@ const Ecommerce = () => {
                 className="cta-button whatsapp large"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://wa.me/5491122334455', '_blank')}
+                onClick={() => window.open('https://wa.me/5491124629452', '_blank')}
               >
                 {locale === 'es' ? 'Contactar por WhatsApp' : 'Contact on WhatsApp'}
               </motion.button>

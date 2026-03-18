@@ -841,7 +841,7 @@ const GoogleAds = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() =>
-                  window.open('https://wa.me/5491112345678', '_blank')
+                  window.open('https://wa.me/5491124629452', '_blank')
                 }
               >
                 {locale === 'es'

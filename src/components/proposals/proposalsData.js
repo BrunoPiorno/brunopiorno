@@ -108,7 +108,7 @@ const proposals = {
       download: { label: 'Descargar PDF', url: '#descargar' },
       questions: { label: 'Tengo dudas', url: 'mailto:hola@globalalora.com?subject=Consulta%20Propuesta%20Distri-Sal' },
       meeting: { label: 'Coordinar reunión', url: 'https://tidycal.com/alora/reunion' },
-      whatsapp: { label: 'Consulta por WhatsApp', url: 'https://wa.me/5491112345678' },
+      whatsapp: { label: 'Consulta por WhatsApp', url: 'https://wa.me/5491124629452' },
     },
   },
   depay: {
@@ -533,7 +533,7 @@ const proposals = {
       download: { label: 'Descargar PDF', url: '#descargar' },
       questions: { label: 'Tengo dudas', url: 'mailto:hola@globalalora.com?subject=Consulta%20Propuesta%20DEPAY' },
       meeting: { label: 'Coordinar reunión', url: 'https://tidycal.com/alora/reunion' },
-      whatsapp: { label: 'Consulta por WhatsApp', url: 'https://wa.me/5491112345678' },
+      whatsapp: { label: 'Consulta por WhatsApp', url: 'https://wa.me/5491124629452' },
     },
   },
 };
