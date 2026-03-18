@@ -13,6 +13,7 @@ const SiteHeader = ({ hideMenu = false }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [solutionsTimeout, setSolutionsTimeout] = useState(null);
+  const [isSolutionsOpenedByClick, setIsSolutionsOpenedByClick] = useState(false);
   
 
   useEffect(() => {
@@ -80,7 +81,11 @@ const SiteHeader = ({ hideMenu = false }) => {
   ];
 
   const handleSolutionsToggle = () => {
-    setIsSolutionsOpen(prev => !prev);
+    setIsSolutionsOpen(prev => {
+      const newState = !prev;
+      setIsSolutionsOpenedByClick(newState);
+      return newState;
+    });
   };
 
   const handleSolutionsHover = (open) => {
@@ -93,7 +98,11 @@ const SiteHeader = ({ hideMenu = false }) => {
       
       if (open) {
         setIsSolutionsOpen(true);
+        setIsSolutionsOpenedByClick(false);
       } else {
+        // Si se abrió por click, no cerrar con hover
+        if (isSolutionsOpenedByClick) return;
+        
         // Agregar un delay de 300ms antes de cerrar
         const timeout = setTimeout(() => {
           setIsSolutionsOpen(false);
