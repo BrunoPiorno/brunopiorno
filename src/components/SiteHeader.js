@@ -12,6 +12,7 @@ const SiteHeader = ({ hideMenu = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [solutionsTimeout, setSolutionsTimeout] = useState(null);
   
 
   useEffect(() => {
@@ -58,12 +59,23 @@ const SiteHeader = ({ hideMenu = false }) => {
   const navLinksBeforeDropdown = [
     { href: `/${locale}/#about`, label: t('header.about'), isRouterLink: false },
     { href: `/${locale}/#proyectos`, label: t('header.projects'), isRouterLink: false },
+    { href: `/${locale}/#clientes`, label: t('header.clients'), isRouterLink: false },
   ];
 
+  const solutionsServices = [
+    { href: `/${locale}/soluciones/desarrollo-web`, label: locale === 'es' ? 'Desarrollo Web' : 'Web Development' },
+    { href: `/${locale}/soluciones/landing-pages`, label: 'Landing Pages' },
+    { href: `/${locale}/soluciones/aplicaciones-web`, label: locale === 'es' ? 'Aplicaciones Web' : 'Web Applications' },
+    { href: `/${locale}/soluciones/ecommerce`, label: 'Ecommerce' },
+    { href: `/${locale}/soluciones/google-ads`, label: 'Google Ads' },
+    { href: `/${locale}/soluciones/mantenimiento-web`, label: locale === 'es' ? 'Mantenimiento Web' : 'Web Maintenance' },
+    { href: `/${locale}/soluciones/atencion-cliente-ia`, label: locale === 'es' ? 'IA para Atención al Cliente' : 'AI for Customer Service' },
+  ];
+
+  const solutionsBase = `/${locale}/soluciones`;
+
   const navLinksAfterDropdown = [
-    { href: `/${locale}/#clientes`, label: t('header.clients'), isRouterLink: false },
     { href: `/${locale}/#testimonios`, label: t('header.testimonials') || 'Testimonios', isRouterLink: false },
-    { href: `/${locale}/#tecnologias`, label: t('header.technologies'), isRouterLink: false },
     { href: `/${locale}/blog`, label: t('header.blog'), isRouterLink: true },
   ];
 
@@ -73,7 +85,22 @@ const SiteHeader = ({ hideMenu = false }) => {
 
   const handleSolutionsHover = (open) => {
     if (window.innerWidth >= 992) {
-      setIsSolutionsOpen(open);
+      // Limpiar cualquier timeout existente
+      if (solutionsTimeout) {
+        clearTimeout(solutionsTimeout);
+        setSolutionsTimeout(null);
+      }
+      
+      if (open) {
+        setIsSolutionsOpen(true);
+      } else {
+        // Agregar un delay de 300ms antes de cerrar
+        const timeout = setTimeout(() => {
+          setIsSolutionsOpen(false);
+          setSolutionsTimeout(null);
+        }, 300);
+        setSolutionsTimeout(timeout);
+      }
     }
   };
 
@@ -132,6 +159,55 @@ const SiteHeader = ({ hideMenu = false }) => {
                 <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.label}</a>
               )
             ))}
+            
+            {/* Solutions Dropdown */}
+            <div 
+              className="solutions-dropdown"
+              onMouseEnter={() => handleSolutionsHover(true)}
+              onMouseLeave={() => handleSolutionsHover(false)}
+            >
+              <button 
+                className="solutions-toggle"
+                onClick={handleSolutionsToggle}
+              >
+                {t('header.solutions')}
+                <span className={`dropdown-arrow ${isSolutionsOpen ? 'open' : ''}`}>▼</span>
+              </button>
+              {isSolutionsOpen && (
+                <motion.div 
+                  className="solutions-menu"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="solutions-menu-content">
+                    <div className="solutions-main">
+                      <Link 
+                        to={solutionsBase} 
+                        className="solutions-main-link"
+                        onClick={handleSolutionClick}
+                      >
+                        {locale === 'es' ? 'Ver todas las soluciones' : 'See all solutions'}
+                      </Link>
+                    </div>
+                    <div className="solutions-divider"></div>
+                    <div className="solutions-list">
+                      {solutionsServices.map((service, index) => (
+                        <Link 
+                          key={index}
+                          to={service.href}
+                          className="solutions-item"
+                          onClick={handleSolutionClick}
+                        >
+                          {service.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+            
             {navLinksAfterDropdown.map(link => (
               link.isRouterLink ? (
                 <Link key={link.href} to={link.href} onClick={closeMobileMenu}>{link.label}</Link>
@@ -139,6 +215,7 @@ const SiteHeader = ({ hideMenu = false }) => {
                 <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.label}</a>
               )
             ))}
+            
             <LanguageToggle />
             <a href={`/${locale}/#contacto`} className="contact-btn" onClick={(e) => handleNavClick(e, `/${locale}/#contacto`)}>{t('header.contact')}</a>
           </motion.div>
@@ -157,6 +234,7 @@ const SiteHeader = ({ hideMenu = false }) => {
                 <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.label}</a>
               )
             ))}
+            
             {navLinksAfterDropdown.map(link => (
               link.isRouterLink ? (
                 <Link key={link.href} to={link.href} onClick={closeMobileMenu}>{link.label}</Link>
@@ -164,6 +242,44 @@ const SiteHeader = ({ hideMenu = false }) => {
                 <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)}>{link.label}</a>
               )
             ))}
+            
+            {/* Mobile Solutions Dropdown */}
+            <div className="mobile-solutions-dropdown">
+              <button 
+                className="mobile-solutions-toggle"
+                onClick={handleSolutionsToggle}
+              >
+                {t('header.solutions')}
+                <span className={`dropdown-arrow ${isSolutionsOpen ? 'open' : ''}`}>▼</span>
+              </button>
+              {isSolutionsOpen && (
+                <motion.div 
+                  className="mobile-solutions-menu"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Link 
+                    to={solutionsBase} 
+                    className="mobile-solutions-main-link"
+                    onClick={handleSolutionClick}
+                  >
+                    {locale === 'es' ? 'Ver todas las soluciones' : 'See all solutions'}
+                  </Link>
+                  {solutionsServices.map((service, index) => (
+                    <Link 
+                      key={index}
+                      to={service.href}
+                      className="mobile-solutions-item"
+                      onClick={handleSolutionClick}
+                    >
+                      {service.label}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </div>
+            
             <LanguageToggle />
             <a href={`/${locale}/#contacto`} className="contact-btn" onClick={(e) => handleNavClick(e, `/${locale}/#contacto`)}>{t('header.contact')}</a>
           </motion.div>
