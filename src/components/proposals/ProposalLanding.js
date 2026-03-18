@@ -351,7 +351,7 @@ const ProposalLanding = ({ slug: slugProp }) => {
         </div>
         <div className="cta-grid">
           <a 
-            href={`https://wa.me/5491112345678?text=${encodeURIComponent(`¡Hola! Acepto la propuesta para ${client.name}. Me gustaría coordinar los próximos pasos.`)}`}
+            href={`https://wa.me/5491124629452?text=${encodeURIComponent(`¡Hola! Acepto la propuesta para ${client.name}. Me gustaría coordinar los próximos pasos.`)}`}
             className="cta-button cta-primary"
             target="_blank"
             rel="noopener noreferrer"
@@ -359,7 +359,7 @@ const ProposalLanding = ({ slug: slugProp }) => {
             Acepto la propuesta
           </a>
           <a 
-            href={`https://wa.me/5491112345678?text=${encodeURIComponent(`Hola, tengo una consulta sobre mi propuesta para ${client.name}.`)}`}
+            href={`https://wa.me/5491124629452?text=${encodeURIComponent(`Hola, tengo una consulta sobre mi propuesta para ${client.name}.`)}`}
             className="cta-button cta-secondary"
             target="_blank"
             rel="noopener noreferrer"

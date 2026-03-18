@@ -1059,7 +1059,7 @@ const AtencionAlClienteConIA = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() =>
-                  window.open("https://wa.me/5491138164980", "_blank")
+                  window.open("https://wa.me/5491124629452", "_blank")
                 }
               >
                 {finalCTA.whatsappButton}

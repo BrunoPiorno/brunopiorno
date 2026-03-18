@@ -633,7 +633,7 @@ const MatenimientoWeb = () => {
               <div className="whatsapp-divider"></div>
               <p className="whatsapp-title">{finalCTA.whatsapp}</p>
               <motion.a 
-                href="https://wa.me/5491138164980"
+                href="https://wa.me/5491124629452"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-button whatsapp"

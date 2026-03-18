@@ -1149,7 +1149,7 @@ const AplicacionesWeb = () => {
                 className="cta-button whatsapp"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://wa.me/5491134567890?text=Hola%20Alora,%20quiero%20hablar%20sobre%20una%20aplicación%20web', '_blank')}
+                onClick={() => window.open('https://wa.me/5491124629452?text=Hola%20Alora,%20quiero%20hablar%20sobre%20una%20aplicación%20web', '_blank')}
               >
                 {locale === 'es' ? 'Enviar mensaje por WhatsApp' : 'Send WhatsApp message'}
               </motion.button>
