@@ -2649,8 +2649,6 @@ body.soluciones-page .site-header .language-selector {
 .solutions-dropdown {
   position: relative;
   display: inline-block;
-  padding-bottom: 0.25rem;
-  margin-bottom: -0.25rem;
 }
 
 .solutions-toggle {
@@ -3832,7 +3830,6 @@ body.reviews-active .solutions-toggle::after {
 
   .nav-links {
     flex-direction: column;
-    gap: 1rem;
   }
 
   .projects-grid {
@@ -3889,7 +3886,6 @@ body.reviews-active .solutions-toggle::after {
     transition: 0.3s ease-in-out;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    gap: 1rem;
     align-items: center;
   }
 
@@ -4019,9 +4015,12 @@ body.reviews-active .solutions-toggle::after {
 }
 
 @media (max-width: 470px) {
+    .nav-links {
+      gap:0px;
+    }
     .nav-links a {
         font-size: 0.90rem;
-        padding: 10px !important;
+        padding: 6px;
         width: 100%;
         text-align: center;
         display: block;
