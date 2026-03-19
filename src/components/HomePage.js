@@ -663,12 +663,12 @@ const HomePage = () => {
             <div className="company-icon">
               <i className="fas fa-cogs"></i>
             </div>
-            <h3>Empresas que requieren sistemas a medida</h3>
-            <p>Organizaciones donde una web tradicional ya no es suficiente y necesitan automatización, integración o plataformas internas.</p>
+            <h3>{t('targetCompanies.custom.title')}</h3>
+            <p>{t('targetCompanies.custom.desc')}</p>
             <ul>
-              <li>Empresas con procesos manuales repetitivos</li>
-              <li>Equipos que trabajan con datos dispersos</li>
-              <li>Compañías que quieren eficiencia operativa</li>
+              <li>{t('targetCompanies.custom.item1')}</li>
+              <li>{t('targetCompanies.custom.item2')}</li>
+              <li>{t('targetCompanies.custom.item3')}</li>
             </ul>
           </motion.div>
         </div>
@@ -911,11 +911,11 @@ const HomePage = () => {
             <div className="why-alora-icon">
               <i className="fas fa-layer-group"></i>
             </div>
-            <h3>Experiencia en distintos niveles de complejidad</h3>
-            <p>Desde sitios corporativos hasta plataformas con usuarios, suscripciones y automatizaciones.</p>
+            <h3>{t('whyAlora.complexity.title')}</h3>
+            <p>{t('whyAlora.complexity.desc')}</p>
             <ul>
-              <li>No improvisamos arquitectura</li>
-              <li>Diseñamos soluciones pensando en estabilidad, escalabilidad y mantenimiento futuro</li>
+              <li>{t('whyAlora.complexity.item1')}</li>
+              <li>{t('whyAlora.complexity.item2')}</li>
             </ul>
           </motion.div>
 
@@ -929,12 +929,12 @@ const HomePage = () => {
             <div className="why-alora-icon">
               <i className="fas fa-eye"></i>
             </div>
-            <h3>Transparencia en proceso y comunicación</h3>
-            <p>Planificación clara. Seguimiento organizado. Expectativas definidas.</p>
+            <h3>{t('whyAlora.transparency.title')}</h3>
+            <p>{t('whyAlora.transparency.desc')}</p>
             <ul>
-              <li>Sabes qué se está haciendo, en qué etapa está el proyecto y qué viene después</li>
-              <li>Sin promesas vagas</li>
-              <li>Sin procesos opacos</li>
+              <li>{t('whyAlora.transparency.item1')}</li>
+              <li>{t('whyAlora.transparency.item2')}</li>
+              <li>{t('whyAlora.transparency.item3')}</li>
             </ul>
           </motion.div>
 
@@ -948,13 +948,13 @@ const HomePage = () => {
             <div className="why-alora-icon">
               <i className="fas fa-rocket"></i>
             </div>
-            <h3>Tecnología alineada con crecimiento</h3>
-            <p>No desarrollamos solo para publicar. Desarrollamos para que el sistema pueda evolucionar.</p>
+            <h3>{t('whyAlora.technology.title')}</h3>
+            <p>{t('whyAlora.technology.desc')}</p>
             <ul>
-              <li>SEO técnico correcto</li>
-              <li>Rendimiento optimizado</li>
-              <li>Base preparada para integraciones futuras</li>
-              <li>Porque crecer no debería implicar reconstruir todo desde cero</li>
+              <li>{t('whyAlora.technology.item1')}</li>
+              <li>{t('whyAlora.technology.item2')}</li>
+              <li>{t('whyAlora.technology.item3')}</li>
+              <li>{t('whyAlora.technology.item4')}</li>
             </ul>
           </motion.div>
         </div>

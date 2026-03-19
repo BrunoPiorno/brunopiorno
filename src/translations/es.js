@@ -339,6 +339,11 @@ export const es = {
   'targetCompanies.startups.item1': 'Startups fundadas recientemente',
   'targetCompanies.startups.item2': 'Proyectos con inversión inicial',
   'targetCompanies.startups.item3': 'Equipos que necesitan desarrollo a medida o evolución tecnológica',
+  'targetCompanies.custom.title': 'Empresas que requieren sistemas a medida',
+  'targetCompanies.custom.desc': 'Organizaciones donde una web tradicional ya no es suficiente y necesitan automatización, integración o plataformas internas.',
+  'targetCompanies.custom.item1': 'Empresas con procesos manuales repetitivos',
+  'targetCompanies.custom.item2': 'Equipos que trabajan con datos dispersos',
+  'targetCompanies.custom.item3': 'Compañías que quieren eficiencia operativa',
 
   // Why Alora Section
   'whyAlora.title': '¿Por qué trabajar con Alora y no con otra agencia?',
@@ -367,6 +372,21 @@ export const es = {
   'whyAlora.strategic.item3': 'Qué debe hacer el usuario',
   'whyAlora.strategic.item4': 'Cómo se medirá el éxito',
   'whyAlora.strategic.item5': 'Diseñamos con intención. Desarrollamos con propósito',
+  'whyAlora.complexity.title': 'Experiencia en distintos niveles de complejidad',
+  'whyAlora.complexity.desc': 'Desde sitios corporativos hasta plataformas con usuarios, suscripciones y automatizaciones.',
+  'whyAlora.complexity.item1': 'No improvisamos arquitectura',
+  'whyAlora.complexity.item2': 'Diseñamos soluciones pensando en estabilidad, escalabilidad y mantenimiento futuro',
+  'whyAlora.transparency.title': 'Transparencia en proceso y comunicación',
+  'whyAlora.transparency.desc': 'Planificación clara. Seguimiento organizado. Expectativas definidas.',
+  'whyAlora.transparency.item1': 'Sabes qué se está haciendo, en qué etapa está el proyecto y qué viene después',
+  'whyAlora.transparency.item2': 'Sin promesas vagas',
+  'whyAlora.transparency.item3': 'Sin procesos opacos',
+  'whyAlora.technology.title': 'Tecnología alineada con crecimiento',
+  'whyAlora.technology.desc': 'No desarrollamos solo para publicar. Desarrollamos para que el sistema pueda evolucionar.',
+  'whyAlora.technology.item1': 'SEO técnico correcto',
+  'whyAlora.technology.item2': 'Rendimiento optimizado',
+  'whyAlora.technology.item3': 'Base preparada para integraciones futuras',
+  'whyAlora.technology.item4': 'Porque crecer no debería implicar reconstruir todo desde cero',
 
   // CTA Section
   'cta.title': 'Quieres que trabajemos juntos?',
