@@ -6,6 +6,7 @@ import starleyImage from "../images/starleyweb.png";
 import josejoseImage from "../images/josejose.png";
 import protorneosImage from "../images/protorneo.png";
 import tenisDeMesaImage from "../images/tenisdemesatrenque.com.ar_.png";
+import dialogarImage from "../images/dialogar.png";
 import "./LandingPages.css";
 
 const LandingPages = () => {
@@ -57,6 +58,15 @@ const LandingPages = () => {
           : "We developed a modern and dynamic informative website for the Table Tennis club in Trenque Lauquen. The project was built with React, guaranteeing a fast, fluid and adaptable experience on any device.",
       image: tenisDeMesaImage,
       url: "https://www.tenisdemesatrenque.com",
+    },
+    {
+      title: "Asesoría Dialogar",
+      description:
+        locale === "es"
+          ? "Landing page profesional desarrollada con WordPress para servicios de asesoría contable y financiera. Diseño optimizado para generar confianza y conversiones, con formulario de contacto integrado, sección de servicios detallados y testimonios de clientes. Estructura SEO-friendly con enfoque en la generación de leads y posicionamiento local."
+          : "Professional landing page developed with WordPress for accounting and financial advisory services. Conversion-optimized design focused on building trust, with integrated contact form, detailed services section, and client testimonials. SEO-friendly structure with emphasis on lead generation and local positioning.",
+      image: dialogarImage,
+      url: "https://asesoriadialogar.com.ar/",
     },
   ];
 

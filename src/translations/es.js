@@ -211,6 +211,8 @@ export const es = {
   'projects.tenis.desc': 'Desarrollamos un sitio web informativo moderno y dinámico para el club de Tenis de Mesa en Trenque Lauquen. El proyecto fue realizado en React, lo que garantiza una experiencia rápida, fluida y adaptable en cualquier dispositivo.',
   'projects.protorneo.title': 'Protorneos',
   'projects.protorneo.desc': 'Sitio web liviano y estático desarrollado con HTML5, CSS3 y JavaScript puro. Diseño responsive, estructura optimizada para velocidad de carga y fácil mantenimiento, ideal para mostrar información institucional y deportiva sin depender de CMS.',
+  'projects.dialogar.title': 'Asesoría Dialogar',
+  'projects.dialogar.desc': 'Landing page profesional desarrollada con WordPress para servicios de asesoría contable y financiera. Diseño optimizado para generar confianza y conversiones, con formulario de contacto integrado, sección de servicios detallados y testimonios de clientes. Estructura SEO-friendly con enfoque en la generación de leads y posicionamiento local.',
 
   // Testimonials
   'testimonials.title': 'Lo que dicen nuestros clientes',
