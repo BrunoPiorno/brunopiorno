@@ -357,6 +357,11 @@ export const en = {
   'targetCompanies.startups.item1': 'Recently founded startups',
   'targetCompanies.startups.item2': 'Projects with initial funding',
   'targetCompanies.startups.item3': 'Teams that need custom development or technological evolution',
+  'targetCompanies.custom.title': 'Companies requiring custom systems',
+  'targetCompanies.custom.desc': 'Organizations where a traditional website is no longer sufficient and need automation, integration, or internal platforms.',
+  'targetCompanies.custom.item1': 'Companies with repetitive manual processes',
+  'targetCompanies.custom.item2': 'Teams working with scattered data',
+  'targetCompanies.custom.item3': 'Companies seeking operational efficiency',
 
   // Why Alora Section
   'whyAlora.title': 'Why work with Alora and not another agency?',
@@ -385,6 +390,21 @@ export const en = {
   'whyAlora.strategic.item3': 'What the user should do',
   'whyAlora.strategic.item4': 'How success will be measured',
   'whyAlora.strategic.item5': 'We design with intention. We develop with purpose',
+  'whyAlora.complexity.title': 'Experience in different complexity levels',
+  'whyAlora.complexity.desc': 'From corporate websites to platforms with users, subscriptions, and automations.',
+  'whyAlora.complexity.item1': 'We don\'t improvise architecture',
+  'whyAlora.complexity.item2': 'We design solutions thinking about stability, scalability, and future maintenance',
+  'whyAlora.transparency.title': 'Transparency in process and communication',
+  'whyAlora.transparency.desc': 'Clear planning. Organized follow-up. Defined expectations.',
+  'whyAlora.transparency.item1': 'You know what\'s being done, what stage the project is in, and what comes next',
+  'whyAlora.transparency.item2': 'No vague promises',
+  'whyAlora.transparency.item3': 'No opaque processes',
+  'whyAlora.technology.title': 'Technology aligned with growth',
+  'whyAlora.technology.desc': 'We don\'t develop just to publish. We develop so the system can evolve.',
+  'whyAlora.technology.item1': 'Correct technical SEO',
+  'whyAlora.technology.item2': 'Optimized performance',
+  'whyAlora.technology.item3': 'Foundation prepared for future integrations',
+  'whyAlora.technology.item4': 'Because growing shouldn\'t mean rebuilding everything from scratch',
 
   // CTA Section
   'cta.title': 'Want to work together?',
