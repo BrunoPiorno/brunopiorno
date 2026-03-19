@@ -2740,7 +2740,6 @@ body.soluciones-page .site-header .language-selector {
   pointer-events: none;
 }
 
-.solutions-dropdown:hover .solutions-menu,
 .solutions-dropdown:focus-within .solutions-menu {
   opacity: 1;
   visibility: visible;

@@ -12,8 +12,6 @@ const SiteHeader = ({ hideMenu = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
-  const [solutionsTimeout, setSolutionsTimeout] = useState(null);
-  const [isSolutionsOpenedByClick, setIsSolutionsOpenedByClick] = useState(false);
   
 
   useEffect(() => {
@@ -23,6 +21,17 @@ const SiteHeader = ({ hideMenu = false }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isSolutionsOpen && !event.target.closest('.solutions-dropdown')) {
+        setIsSolutionsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isSolutionsOpen]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -81,37 +90,9 @@ const SiteHeader = ({ hideMenu = false }) => {
   ];
 
   const handleSolutionsToggle = () => {
-    setIsSolutionsOpen(prev => {
-      const newState = !prev;
-      setIsSolutionsOpenedByClick(newState);
-      return newState;
-    });
+    setIsSolutionsOpen(prev => !prev);
   };
 
-  const handleSolutionsHover = (open) => {
-    if (window.innerWidth >= 992) {
-      // Limpiar cualquier timeout existente
-      if (solutionsTimeout) {
-        clearTimeout(solutionsTimeout);
-        setSolutionsTimeout(null);
-      }
-      
-      if (open) {
-        setIsSolutionsOpen(true);
-        setIsSolutionsOpenedByClick(false);
-      } else {
-        // Si se abrió por click, no cerrar con hover
-        if (isSolutionsOpenedByClick) return;
-        
-        // Agregar un delay de 300ms antes de cerrar
-        const timeout = setTimeout(() => {
-          setIsSolutionsOpen(false);
-          setSolutionsTimeout(null);
-        }, 300);
-        setSolutionsTimeout(timeout);
-      }
-    }
-  };
 
   const handleSolutionClick = () => {
     closeMobileMenu();
@@ -172,8 +153,6 @@ const SiteHeader = ({ hideMenu = false }) => {
             {/* Solutions Dropdown */}
             <div 
               className="solutions-dropdown"
-              onMouseEnter={() => handleSolutionsHover(true)}
-              onMouseLeave={() => handleSolutionsHover(false)}
             >
               <button 
                 className="solutions-toggle"
