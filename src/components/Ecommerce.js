@@ -668,15 +668,17 @@ const Ecommerce = () => {
             <h1>{hero.subtitle}</h1>
             <p className="hero-lead">{hero.lead}</p>
             <p className="hero-highlight">{hero.highlight}</p>
-            <motion.button
+            <motion.a
+              href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-button primary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
             >
               {hero.cta}
               <span className="duration">{hero.duration}</span>
-            </motion.button>
+            </motion.a>
           </div>
           <motion.div
             className="ecommerce-hero-visual"
@@ -970,14 +972,16 @@ const Ecommerce = () => {
           <div className="cta-content">
             <h2>{finalCTA.title}</h2>
             <p>{finalCTA.description}</p>
-            <motion.button 
+            <motion.a 
+              href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-button primary large"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
             >
               {finalCTA.button}
-            </motion.button>
+            </motion.a>
             <p className="cta-note">{finalCTA.note}</p>
             <div className="whatsapp-section">
               <p className="whatsapp-text">
@@ -986,14 +990,16 @@ const Ecommerce = () => {
                   : 'Can\'t wait for the meeting day? Contact us on WhatsApp now by clicking the button below'
                 }
               </p>
-              <motion.button 
+              <motion.a 
+                href="https://wa.me/+541124629452"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button whatsapp large"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://wa.me/5491124629452', '_blank')}
               >
                 {locale === 'es' ? 'Contactar por WhatsApp' : 'Contact on WhatsApp'}
-              </motion.button>
+              </motion.a>
             </div>
           </div>
           <div className="cta-image" style={{

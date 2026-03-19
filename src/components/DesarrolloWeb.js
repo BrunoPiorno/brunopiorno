@@ -487,17 +487,19 @@ const DesarrolloWeb = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <motion.button 
+              <motion.a
+                href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button primary large"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open(locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call', '_blank')}
               >
                 {locale === 'es' ? 'Hablar sobre tu proyecto' : 'Talk about your project'}
                 <span className="duration">
                   {locale === 'es' ? 'Llamada online de 20 minutos' : '20-minute online call'}
                 </span>
-              </motion.button>
+              </motion.a>
             </motion.div>
           </div>
           <motion.div 
@@ -906,14 +908,16 @@ const DesarrolloWeb = () => {
                 ? 'Si necesitas un sitio web profesional que represente correctamente tu negocio y esté preparado para crecer, coordinamos una llamada breve para analizar tu caso.'
                 : 'If you need a professional website that correctly represents your business and is ready to grow, we schedule a brief call to analyze your case.'}
             </p>
-            <motion.button 
+            <motion.a 
+              href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-button primary large"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open(locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call', '_blank')}
             >
               {locale === 'es' ? 'Agendar una llamada de 20 minutos' : 'Schedule a 20-minute call'}
-            </motion.button>
+            </motion.a>
             <p className="cta-note">
               {locale === 'es'
                 ? 'Evaluamos tu proyecto y te decimos si podemos ayudarte.'
@@ -926,16 +930,18 @@ const DesarrolloWeb = () => {
                   ? 'Y si no puedes con tu ansiedad y quieres hablar con nosotros ahora mismo, contáctanos por whatsapp'
                   : 'And if you can\'t wait and want to talk to us right now, contact us on whatsapp'}
               </h3>
-              <motion.button
+              <motion.a
+                href="https://wa.me/+541124629452"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button whatsapp"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open("https://wa.me/5491124629452", "_blank")}
               >
                 {locale === 'es'
                   ? '¡Contáctanos por Whatsapp ahora!'
                   : 'Contact us on WhatsApp now!'}
-              </motion.button>
+              </motion.a>
             </div>
           </div>
           <div className="cta-image" style={{

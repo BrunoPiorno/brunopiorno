@@ -1,3 +1,8 @@
+/* Scroll suave para enlaces ancla */
+html {
+  scroll-behavior: smooth;
+}
+
 .emphasis-subtitle {
   font-size: 2.4rem;
   color: #0f172a;
@@ -759,6 +764,27 @@ body.soluciones-page .site-header .language-selector {
   margin-bottom: 10px;
 }
 
+.service-detail-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+  border: 2px solid transparent;
+  width: 140px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .services-cta {
   text-align: center;
   margin-top: 3rem;
@@ -771,25 +797,24 @@ body.soluciones-page .site-header .language-selector {
 }
 
 .services-cta-container .cta-button.primary.large {
-  background: linear-gradient(
-    135deg,
-    var(--primary-color) 0%,
-    var(--primary-dark) 100%
-  ) !important;
+  background: linear-gradient(135deg, #42a8b5, #2d8a85) !important;
   color: white !important;
-  padding: 1.5rem 3rem !important;
-  font-size: 1.2rem !important;
-  font-weight: 600 !important;
-  border-radius: 50px !important;
-  text-decoration: none !important;
-  display: inline-block !important;
-  position: relative !important;
-  overflow: hidden !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 8px 30px rgba(66, 167, 181, 0.4) !important;
-  letter-spacing: 1px !important;
   border: none !important;
+  padding: 1.5rem 2.5rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  border-radius: 50px !important;
+  box-shadow: 0 8px 25px rgba(66, 167, 181, 0.3) !important;
   cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  position: relative !important;
+  z-index: 10 !important;
+  min-width: 200px !important;
+  text-align: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .services-cta-container .cta-button.primary.large::before {

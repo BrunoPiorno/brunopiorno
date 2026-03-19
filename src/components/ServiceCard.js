@@ -1,8 +1,11 @@
-import React, { memo } from 'react';
-import { motion } from 'framer-motion';
+import React, { memo } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useLanguage } from '../context/LanguageContext';
 
 const ServiceCard = memo(({ service, index }) => {
-  const cardClassName = `service-card${service.highlight ? ' featured-service' : ''}`;
+  const { t } = useLanguage();
+  const cardClassName = `service-card${service.highlight ? " featured-service" : ""}`;
 
   return (
     <motion.div
@@ -17,6 +20,11 @@ const ServiceCard = memo(({ service, index }) => {
       <i className={service.icon}></i>
       <h3>{service.title}</h3>
       <p>{service.description}</p>
+      {service.url && (
+        <Link to={service.url} className="service-detail-btn">
+          {t('services.viewDetail')}
+        </Link>
+      )}
     </motion.div>
   );
 });

@@ -241,38 +241,45 @@ const HomePage = () => {
     {
       title: t('services.webdev.title'),
       description: t('services.webdev.desc'),
-      icon: 'devicon-html5-plain'
+      icon: 'devicon-html5-plain',
+      url: `/${locale}/soluciones/desarrollo-web`
     },
     {
       title: t('services.landing.title'),
       description: t('services.landing.desc'),
-      icon: 'devicon-bootstrap-plain'
+      icon: 'devicon-bootstrap-plain',
+      url: `/${locale}/soluciones/landing-pages`
     },
     {
       title: t('services.webapp.title'),
       description: t('services.webapp.desc'),
-      icon: 'devicon-nodejs-plain'
+      icon: 'devicon-nodejs-plain',
+      url: `/${locale}/soluciones/aplicaciones-web`
     },
     {
       title: t('services.ecommerce.title'),
       description: t('services.ecommerce.desc'),
-      icon: 'fa-solid fa-cart-shopping'
+      icon: 'fa-solid fa-cart-shopping',
+      url: `/${locale}/soluciones/ecommerce`
     },
     {
       title: t('services.googleads.title'),
       description: t('services.googleads.desc'),
-      icon: 'devicon-google-plain'
+      icon: 'devicon-google-plain',
+      url: `/${locale}/soluciones/google-ads`
     },
     {
       title: t('services.maintenance.title'),
       description: t('services.maintenance.desc'),
-      icon: 'devicon-github-original'
+      icon: 'devicon-github-original',
+      url: `/${locale}/soluciones/mantenimiento-web`
     },
     {
       title: t('services.aisupport.title'),
       description: t('services.aisupport.desc'),
       icon: 'fa-solid fa-robot',
-      highlight: true
+      highlight: true,
+      url: `/${locale}/soluciones/atencion-cliente-ia`
     }
   ];
 

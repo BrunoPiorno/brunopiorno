@@ -369,11 +369,13 @@ const MatenimientoWeb = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <motion.button 
+              <motion.a 
+                href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button primary large"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open(locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call', '_blank')}
               >
                 {locale === 'es'
                   ? 'Hablamos sobre tu proyecto'
@@ -383,7 +385,7 @@ const MatenimientoWeb = () => {
                     ? 'Llamada online de 20 minutos'
                     : 'Online 20-minute call'}
                 </span>
-              </motion.button>
+              </motion.a>
             </motion.div>
           </div>
           <motion.div 
@@ -621,19 +623,21 @@ const MatenimientoWeb = () => {
               ))}
             </div>
             <p className="cta-conclusion">{finalCTA.conclusion}</p>
-            <motion.button 
+            <motion.a 
+              href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-button primary large"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open(locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call', '_blank')}
             >
               {finalCTA.button}
-            </motion.button>
+            </motion.a>
             <div className="whatsapp-section">
               <div className="whatsapp-divider"></div>
               <p className="whatsapp-title">{finalCTA.whatsapp}</p>
               <motion.a 
-                href="https://wa.me/5491124629452"
+                href="https://wa.me/+541124629452"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-button whatsapp"

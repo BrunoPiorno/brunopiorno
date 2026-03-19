@@ -789,17 +789,19 @@ const AplicacionesWeb = () => {
                 : 'A web application is not a “bigger” website. It’s a work tool.'}
             </p>
             <div className="hero-buttons">
-              <motion.button 
+              <motion.a 
+                href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
               >
                 {locale === 'es' ? 'Hablamos sobre tu proyecto' : 'Let\'s talk about your project'}
                 <span className="duration">
                   {locale === 'es' ? 'Llamada online de 20 minutos' : 'Online 20-minute call'}
                 </span>
-              </motion.button>
+              </motion.a>
             </div>
           </div>
           <motion.div 
@@ -1125,14 +1127,16 @@ const AplicacionesWeb = () => {
                 ? 'Si estás evaluando desarrollar una aplicación web a medida para tu negocio, coordinamos una llamada breve y analizamos tu caso.'
                 : 'If you\'re considering developing a custom web application for your business, we schedule a brief call and analyze your case.'}
             </p>
-            <motion.button 
+            <motion.a 
+              href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-button primary large"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
             >
               {locale === 'es' ? 'Agendar una llamada de 20 minutos' : 'Schedule a 20-minute call'}
-            </motion.button>
+            </motion.a>
             <p className="cta-note">
               {locale === 'es'
                 ? 'Evaluamos tu proyecto y te decimos si podemos ayudarte.'
@@ -1145,14 +1149,16 @@ const AplicacionesWeb = () => {
                   ? 'Si te supera la ansiedad y quieres hablar con nosotros ahora mismo, haz click en el siguiente botón y envíanos un mensaje por whatsapp.' 
                   : 'If anxiety is overwhelming and you want to talk to us right now, click the button below and send us a WhatsApp message.'}
               </p>
-              <motion.button 
+              <motion.a 
+                href="https://wa.me/+541124629452"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button whatsapp"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://wa.me/5491124629452?text=Hola%20Alora,%20quiero%20hablar%20sobre%20una%20aplicación%20web', '_blank')}
               >
                 {locale === 'es' ? 'Enviar mensaje por WhatsApp' : 'Send WhatsApp message'}
-              </motion.button>
+              </motion.a>
             </div>
           </div>
           <div className="cta-image" style={{
