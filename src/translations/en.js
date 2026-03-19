@@ -284,6 +284,8 @@ export const en = {
   'projects.tenis.desc': 'Informative website developed in React.',
   'projects.protorneo.title': 'Protorneos',
   'projects.protorneo.desc': 'Lightweight and static website built with pure HTML5, CSS3, and JavaScript. Fully responsive, optimized for fast loading and easy maintenance, ideal for showcasing sports or institutional information without a CMS.',
+  'projects.dialogar.title': 'Asesoría Dialogar',
+  'projects.dialogar.desc': 'Professional landing page developed with WordPress for accounting and financial advisory services. Conversion-optimized design focused on building trust, with integrated contact form, detailed services section, and client testimonials. SEO-friendly structure with emphasis on lead generation and local positioning.',
 
   // Latest news section in home
   'latestPosts': {

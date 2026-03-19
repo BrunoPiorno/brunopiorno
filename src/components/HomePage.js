@@ -426,6 +426,14 @@ const HomePage = () => {
       category: 'landing'
     },
     {
+      title: t('projects.dialogar.title'),
+      description: t('projects.dialogar.desc'),
+      image: require('../images/dialogar.png'),
+      url: 'https://asesoriadialogar.com.ar/',
+      contribution: 'contribution.full',
+      category: 'landing'
+    },
+    {
       title: t('projects.ranking.title'),
       description: t('projects.ranking.desc'),
       image: require('../images/tenisDeMesaImageRank.png'),
