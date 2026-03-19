@@ -84,10 +84,12 @@
 }
 
 .aplicaciones-web-page .hero-highlight {
-  font-size: 1.25rem;
-  font-weight: 650;
-  color: #0f172a;
-  margin-bottom: 2.25rem;
+  font-size: 1.05rem !important;
+  color: #0f172a !important;
+  font-weight: 600;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin-bottom: 2rem;
 }
 
 .aplicaciones-web-page .hero-text p {

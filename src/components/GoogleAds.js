@@ -558,11 +558,13 @@ const GoogleAds = () => {
             <p className="hero-lead">{heroCopy.lead}</p>
             <p className="hero-support">{heroCopy.support}</p>
             <div className="hero-buttons">
-              <motion.button
+              <motion.a
+                href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
               >
                 {locale === 'es'
                   ? 'Hablamos sobre tu proyecto'
@@ -572,7 +574,7 @@ const GoogleAds = () => {
                     ? 'Llamada online de 20 minutos'
                     : 'Online 20-minute call'}
                 </span>
-              </motion.button>
+              </motion.a>
             </div>
           </div>
           <motion.div
@@ -807,23 +809,18 @@ const GoogleAds = () => {
                 ? 'Si estás evaluando Google Ads para tu negocio, coordinemos una llamada breve para revisar si tiene sentido avanzar.'
                 : 'If you are considering Google Ads for your business, let\'s schedule a brief call to review if it makes sense to move forward.'}
             </p>
-            <motion.button
+            <motion.a
+              href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-button primary large"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() =>
-                window.open(
-                  locale === 'es'
-                    ? 'https://tidycal.com/alora/20-minutos-reunion'
-                    : 'https://tidycal.com/alora/20-minutes',
-                  '_blank',
-                )
-              }
             >
               {locale === 'es'
                 ? 'Agendar una llamada de 20 minutos'
                 : 'Schedule a 20-minute call'}
-            </motion.button>
+            </motion.a>
             <p className="cta-note">
               {locale === 'es'
                 ? 'Evaluamos tu proyecto y te decimos si podemos ayudarte.'
@@ -836,18 +833,18 @@ const GoogleAds = () => {
                   ? 'No puedes esperar a la reunión para hablar con nosotros? Escríbenos por Whatsapp haciendo click en el siguiente botón'
                   : 'And if you can\'t wait and want to talk to us right now, contact us on whatsapp'}
               </h3>
-              <motion.button
+              <motion.a
+                href="https://wa.me/+541124629452"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button whatsapp"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() =>
-                  window.open('https://wa.me/5491124629452', '_blank')
-                }
               >
                 {locale === 'es'
                   ? '¡Contáctanos por Whatsapp ahora!'
                   : 'Contact us on WhatsApp now!'}
-              </motion.button>
+              </motion.a>
             </div>
           </div>
           <div

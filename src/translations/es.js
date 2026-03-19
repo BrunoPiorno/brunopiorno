@@ -306,6 +306,7 @@ export const es = {
   // Services Section
   'services.title': 'Servicios',
   'services.subtitle': 'Soluciones digitales adaptadas a tus necesidades',
+  'services.viewDetail': 'Ver Detalle',
   'services.gdprCompliance': 'Todos nuestros desarrollos cumplen con las normativas GDPR para garantizar la privacidad y seguridad de los datos.',
 
   // Projects Section

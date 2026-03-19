@@ -1790,18 +1790,13 @@ const LandingPages = () => {
                 : "A landing page is not a reduced website. It is a strategic tool designed for immediate action."}
             </p>
             <div className="hero-buttons">
-              <motion.button
+              <motion.a
+                href={locale === "es" ? "https://www.globalalora.com/es/llamada-de-relevamiento" : "https://www.globalalora.com/en/discovery-call"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() =>
-                  window.open(
-                    locale === "es"
-                      ? "https://tidycal.com/alora/20-minutos-reunion"
-                      : "https://tidycal.com/alora/20-minutes",
-                    "_blank",
-                  )
-                }
               >
                 {locale === "es"
                   ? "Hablamos sobre tu proyecto"
@@ -1811,7 +1806,7 @@ const LandingPages = () => {
                     ? "Llamada online de 20 minutos"
                     : "Online 20-minute call"}
                 </span>
-              </motion.button>
+              </motion.a>
             </div>
           </div>
           <motion.div
@@ -2260,23 +2255,18 @@ const LandingPages = () => {
                 ? "Si necesitas una landing page diseñada para convertir y alineada a tu objetivo de negocio, coordinamos una llamada breve y lo analizamos juntos."
                 : "If you need a landing page designed to convert and aligned with your business objective, we schedule a brief call and analyze it together."}
             </p>
-            <motion.button
+            <motion.a
+              href={locale === "es" ? "https://www.globalalora.com/es/llamada-de-relevamiento" : "https://www.globalalora.com/en/discovery-call"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-button primary large"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() =>
-                window.open(
-                  locale === "es"
-                    ? "https://tidycal.com/alora/20-minutos-reunion"
-                    : "https://tidycal.com/alora/20-minutes",
-                  "_blank",
-                )
-              }
             >
               {locale === "es"
                 ? "Agendar una llamada de 20 minutos"
                 : "Schedule a 20-minute call"}
-            </motion.button>
+            </motion.a>
             <p className="cta-note">
               {locale === "es"
                 ? "Evaluamos tu proyecto y te decimos si podemos ayudarte."
@@ -2289,18 +2279,18 @@ const LandingPages = () => {
                   ? "Y si no puedes con tu ansiedad y quieres hablar con nosotros ahora mismo, contáctanos por whatsapp"
                   : "And if you can't wait and want to talk to us right now, contact us on whatsapp"}
               </h3>
-              <motion.button
+              <motion.a
+                href="https://wa.me/+541124629452"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-button whatsapp"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() =>
-                  window.open("https://wa.me/5491124629452", "_blank")
-                }
               >
                 {locale === "es"
                   ? "¡Contáctanos por Whatsapp ahora!"
                   : "Contact us on WhatsApp now!"}
-              </motion.button>
+              </motion.a>
             </div>
           </div>
           <div

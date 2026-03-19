@@ -323,6 +323,7 @@ export const en = {
   // Services Section
   'services.title': 'Services',
   'services.subtitle': 'Digital solutions tailored to your needs',
+  'services.viewDetail': 'View Details',
   'services.gdprCompliance': 'We comply with all data protection and GDPR regulations to ensure the security and privacy of your information.',
   'services.viewAll': 'View all services',
 

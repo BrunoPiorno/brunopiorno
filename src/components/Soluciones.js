@@ -239,19 +239,14 @@ const Soluciones = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <motion.button 
+              <motion.a 
+                href="#servicios"
                 className="cta-button primary large"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  const servicesSection = document.querySelector('.soluciones-services');
-                  if (servicesSection) {
-                    servicesSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
               >
                 {locale === 'es' ? 'Ver todos los servicios' : 'See all services'}
-              </motion.button>
+              </motion.a>
             </motion.div>
           </div>
           <motion.div 
@@ -264,7 +259,7 @@ const Soluciones = () => {
       </section>
 
       {/* Services Section */}
-      <section className="soluciones-services">
+      <section className="soluciones-services" id="servicios">
         <motion.div 
           className="section-header"
           initial={{ opacity: 0, y: 20 }}
@@ -879,10 +874,12 @@ const Soluciones = () => {
                 : 'We evaluate your case and honestly tell you if we can help you achieve your objectives.'}
             </p>
             <motion.a 
+              href={locale === 'es' ? 'https://www.globalalora.com/es/llamada-de-relevamiento' : 'https://www.globalalora.com/en/discovery-call'}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-button large primary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open(locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes', '_blank')}
             >
               {locale === 'es' ? 'Agendar una llamada de 20 minutos' : 'Schedule a 20-minute call'}
             </motion.a>
