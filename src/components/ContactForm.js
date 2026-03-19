@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import emailjs from '@emailjs/browser';
 import { useLanguage } from '../context/LanguageContext';
 
 const ContactForm = () => {
@@ -19,7 +18,6 @@ const ContactForm = () => {
     }
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isError, setIsError] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [errorDetails, setErrorDetails] = useState('');
 
@@ -49,7 +47,15 @@ const ContactForm = () => {
         maxMessage: 'La consulta no puede exceder 2000 caracteres',
         privacyRequired: 'Debes aceptar la política de privacidad',
         invalidPhone: 'Por favor ingresa un teléfono válido'
-      }
+      },
+      placeholders: {
+        name: 'Juan Pérez',
+        email: 'tu@email.com',
+        country: '- Selecciona tu país -',
+        phone: '+54 9 11 1234-5678',
+        message: 'Cuéntanos tu consulta o proyecto...'
+      },
+      charCountLabel: 'caracteres'
     },
     en: {
       name: 'Name',
@@ -75,7 +81,15 @@ const ContactForm = () => {
         maxMessage: 'The message cannot exceed 2000 characters',
         privacyRequired: 'You must accept the privacy policy',
         invalidPhone: 'Please enter a valid phone'
-      }
+      },
+      placeholders: {
+        name: 'John Smith',
+        email: 'you@example.com',
+        country: '- Select your country -',
+        phone: '+1 415 555 0000',
+        message: 'Tell us about your project...'
+      },
+      charCountLabel: 'characters'
     }
   };
 
@@ -83,192 +97,57 @@ const ContactForm = () => {
   const lang = translations[locale] || translations.es;
 
   const onSubmit = async (data) => {
-    // For English version, use EmailJS
-    if (locale === 'en') {
-      // Honeypot check
-      if (data.honeypot) {
-        console.log('Bot submission detected');
-        return;
-      }
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    setErrorDetails('');
 
-      setIsSubmitting(true);
-      setIsError(false);
+    try {
+      const formPayload = new URLSearchParams({
+        'fields[name]': data.name,
+        'fields[email]': data.email,
+        'fields[country]': data.country || '',
+        'fields[phone]': data.phone || '',
+        'fields[consulta]': data.message,
+        'ml-submit': '1'
+      });
 
-      // IMPORTANT: Replace with your EmailJS credentials
-      const serviceID = 'service_6r3ee9k';
-      const templateID = 'template_obd8zn6';
-      const publicKey = 'CwpWaIXVC5Pdb4Kae';
+      const endpoint = locale === 'en'
+        ? 'https://assets.mailerlite.com/jsonp/2070356/forms/178060668159657324/subscribe'
+        : 'https://assets.mailerlite.com/jsonp/2070356/forms/177855257628378295/subscribe';
 
-      emailjs.send(serviceID, templateID, data, publicKey)
-        .then((response) => {
-          console.log('SUCCESS!', response.status, response.text);
-          setIsSubmitting(false);
-          reset();
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formPayload.toString(),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        reset();
+        
+        setTimeout(() => {
           navigate(`/${locale}/thank-you`);
-        }, (err) => {
-          console.log('FAILED...', err);
-          setIsSubmitting(false);
-          setIsError(true);
-        });
-    } else {
-      // For Spanish version, use MailerLite
-      setIsSubmitting(true);
-      setSubmitStatus(null);
-      setErrorDetails('');
-
-      try {
-        const formPayload = new URLSearchParams({
-          'fields[name]': data.name,
-          'fields[email]': data.email,
-          'fields[country]': data.country || '',
-          'fields[phone]': data.phone || '',
-          'fields[consulta]': data.message,
-          'ml-submit': '1'
-        });
-
-        const response = await fetch(
-          'https://assets.mailerlite.com/jsonp/2070356/forms/177855257628378295/subscribe',
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: formPayload.toString(),
-          }
-        );
-
-        if (response.ok) {
-          setSubmitStatus('success');
-          reset();
-          
-          setTimeout(() => {
-            navigate(`/${locale}/thank-you`);
-          }, 1500);
-        } else {
-          throw new Error(`HTTP Error: ${response.status}`);
-        }
-      } catch (error) {
-        console.error('Error al enviar formulario:', error);
-        setSubmitStatus('error');
-        setErrorDetails(error.message || lang.errorMessage);
-        setIsSubmitting(false);
+        }, 1500);
+      } else {
+        throw new Error(`HTTP Error: ${response.status}`);
       }
+    } catch (error) {
+      console.error('Error al enviar formulario:', error);
+      setSubmitStatus('error');
+      setErrorDetails(error.message || lang.errorMessage);
+      setIsSubmitting(false);
     }
   };
 
-  // Show EmailJS form for English version
-  if (locale === 'en') {
-    return (
-      <form onSubmit={handleSubmit(onSubmit)} className="contact-form" noValidate>
-        {/* Honeypot field for spam protection */}
-        <input type="text" name="honeypot" style={{ display: 'none' }} {...register('honeypot')} />
-
-        <div className="form-group">
-          <label htmlFor="name">{t('contact.form.name')}</label>
-          <input 
-            type="text" 
-            id="name" 
-            {...register('name', { required: t('contact.form.validation.required') })}
-          />
-          {errors.name && <span className="error-message">{errors.name.message}</span>}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email">{t('contact.form.email')}</label>
-          <input 
-            type="email" 
-            id="email" 
-            {...register('email', { 
-              required: t('contact.form.validation.required'), 
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                message: t('contact.form.validation.invalidEmail')
-              }
-            })}
-          />
-          {errors.email && <span className="error-message">{errors.email.message}</span>}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="country">{t('contact.form.country')}</label>
-          <select 
-            id="country" 
-            {...register('country', { required: t('contact.form.validation.required') })}
-          >
-            <option value="">- Select your country -</option>
-            <optgroup label="Americas">
-              <option value="Argentina">Argentina</option>
-              <option value="Bolivia">Bolivia</option>
-              <option value="Brazil">Brazil</option>
-              <option value="Chile">Chile</option>
-              <option value="Colombia">Colombia</option>
-              <option value="Costa Rica">Costa Rica</option>
-              <option value="Ecuador">Ecuador</option>
-              <option value="El Salvador">El Salvador</option>
-              <option value="Guatemala">Guatemala</option>
-              <option value="Honduras">Honduras</option>
-              <option value="Mexico">Mexico</option>
-              <option value="Nicaragua">Nicaragua</option>
-              <option value="Panama">Panama</option>
-              <option value="Paraguay">Paraguay</option>
-              <option value="Peru">Peru</option>
-              <option value="Uruguay">Uruguay</option>
-              <option value="Venezuela">Venezuela</option>
-              <option value="United States">United States</option>
-              <option value="Canada">Canada</option>
-            </optgroup>
-            <optgroup label="Europe">
-              <option value="Spain">Spain</option>
-              <option value="Portugal">Portugal</option>
-            </optgroup>
-            <option value="Other">Other</option>
-          </select>
-          {errors.country && <span className="error-message">{errors.country.message}</span>}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="phone">{t('contact.form.phone')}</label>
-          <input 
-            type="tel" 
-            id="phone" 
-            {...register('phone', { 
-              required: t('contact.form.validation.required'),
-              pattern: {
-                value: /^[\d\s\-\+\(\)]*$/,
-                message: t('contact.form.validation.invalidPhone')
-              }
-            })}
-          />
-          {errors.phone && <span className="error-message">{errors.phone.message}</span>}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="message">{t('contact.form.message')}</label>
-          <textarea 
-            id="message" 
-            rows="4" 
-            {...register('message', { required: t('contact.form.validation.required') })}
-          ></textarea>
-          {errors.message && <span className="error-message">{errors.message.message}</span>}
-        </div>
-
-        <button type="submit" className="submit-btn" disabled={isSubmitting}>
-          {isSubmitting ? t('contact.form.sending') : t('contact.form.submit')}
-        </button>
-
-        {isError && <div className="form-error-message">{t('contact.form.error')}</div>}
-      </form>
-    );
-  }
-
-  // Show MailerLite form for Spanish version
   return (
     <div className="contact-form-wrapper">
       <form 
         onSubmit={handleSubmit(onSubmit)} 
         className="contact-form" 
         noValidate
-        aria-label="Formulario de contacto"
+        aria-label={locale === 'en' ? 'Contact form' : 'Formulario de contacto'}
       >
         {/* Mensaje de éxito */}
         {submitStatus === 'success' && (
@@ -303,7 +182,7 @@ const ContactForm = () => {
             <input 
               type="text" 
               id="name" 
-              placeholder="Juan Pérez"
+              placeholder={lang.placeholders.name}
               {...register('name', { 
                 required: lang.validation.required,
                 minLength: {
@@ -330,7 +209,7 @@ const ContactForm = () => {
             <input 
               type="email" 
               id="email" 
-              placeholder="tu@email.com"
+              placeholder={lang.placeholders.email}
               {...register('email', { 
                 required: lang.validation.required,
                 pattern: {
@@ -365,7 +244,7 @@ const ContactForm = () => {
               disabled={isSubmitting}
               aria-invalid={errors.country ? 'true' : 'false'}
             >
-              <option value="">- Selecciona tu país -</option>
+              <option value="">{lang.placeholders.country}</option>
               <optgroup label="Latinoamérica">
                 <option value="Argentina">Argentina</option>
                 <option value="Bolivia">Bolivia</option>
@@ -409,7 +288,7 @@ const ContactForm = () => {
             <input 
               type="tel" 
               id="phone" 
-              placeholder="+54 9 11 1234-5678"
+              placeholder={lang.placeholders.phone}
               {...register('phone', { 
                 required: lang.validation.required,
                 pattern: {
@@ -437,7 +316,7 @@ const ContactForm = () => {
           <textarea 
             id="message" 
             rows="5" 
-            placeholder="Cuéntanos tu consulta o proyecto..."
+            placeholder={lang.placeholders.message}
             {...register('message', { 
               required: lang.validation.required,
               minLength: {
@@ -458,7 +337,7 @@ const ContactForm = () => {
             </span>
           )}
           <span className="character-count">
-            {watch('message')?.length || 0} / 2000 caracteres
+            {watch('message')?.length || 0} / 2000 {lang.charCountLabel}
           </span>
         </div>
 
