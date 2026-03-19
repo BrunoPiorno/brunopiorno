@@ -205,7 +205,7 @@ const SiteHeader = ({ hideMenu = false }) => {
             ))}
             
             <LanguageToggle />
-            <a href={`/${locale}/#contacto`} className="contact-btn" onClick={(e) => handleNavClick(e, `/${locale}/#contacto`)}>{t('header.contact')}</a>
+            <a href={`/${locale}/contacto`} className="contact-btn">{t('header.contact')}</a>
           </motion.div>
         )}
         {isMobileMenuOpen && !hideMenu && (
@@ -269,7 +269,7 @@ const SiteHeader = ({ hideMenu = false }) => {
             </div>
             
             <LanguageToggle />
-            <a href={`/${locale}/#contacto`} className="contact-btn" onClick={(e) => handleNavClick(e, `/${locale}/#contacto`)}>{t('header.contact')}</a>
+            <a href={`/${locale}/contacto`} className="contact-btn">{t('header.contact')}</a>
           </motion.div>
         )}
       </div>
