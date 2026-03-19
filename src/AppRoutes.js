@@ -23,6 +23,7 @@ const MatenimientoWeb = lazy(() => import('./components/MatenimientoWeb'));
 const ProposalLanding = lazy(() => import('./components/proposals/ProposalLanding'));
 const PresentationPage = lazy(() => import('./components/PresentationPage'));
 const LlamadaRelevamiento = lazy(() => import('./components/LlamadaRelevamiento'));
+const ContactPage = lazy(() => import('./components/ContactPage'));
 
 const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
@@ -47,6 +48,8 @@ const AppRoutes = () => (
       <Route path="/reseñas" element={<ReviewsPage />} />
       <Route path="/llamada-de-relevamiento" element={<LlamadaRelevamiento />} />
       <Route path="/discovery-call" element={<LlamadaRelevamiento />} />
+      <Route path="/contacto" element={<ContactPage />} />
+      <Route path="/contact" element={<ContactPage />} />
       <Route path="/propuesta/:slug" element={<ProposalLanding />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
