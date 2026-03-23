@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 
 const ThankYouPage = () => {
@@ -27,7 +28,10 @@ const ThankYouPage = () => {
 
   return (
     <div className="thank-you-page">
-      <motion.div 
+      <Helmet>
+        <title>{t('meta.thankYouTitle')}</title>
+      </Helmet>
+      <motion.div
         className="thank-you-content"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
