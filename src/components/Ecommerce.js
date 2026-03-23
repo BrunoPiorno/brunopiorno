@@ -11,7 +11,7 @@ import megamayoristaImage from '../images/megamayorista.png';
 import './Ecommerce.css';
 
 const Ecommerce = () => {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
 
   useEffect(() => {
     document.body.classList.add('ecommerce-page');
