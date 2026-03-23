@@ -301,6 +301,9 @@ export const en = {
   'meta.description': 'We are Alora, web developers experts in WordPress, WooCommerce, and technologies like PHP, MySQL, and more. Contact us to enhance your digital presence.',
   'meta.webExpressTitle': 'EN | Alora | Web Express - Web Design that Sells',
   'meta.thankYouTitle': 'EN | Alora | Message Sent!',
+  'meta.aplicacionesWebTitle': 'EN | Alora | Web Applications',
+  'meta.desarrolloWebTitle': 'EN | Alora | Web Development',
+  'meta.mantenimientoWebTitle': 'EN | Alora | Website Maintenance',
   
   // Navigation
   'nav.services': 'Services',

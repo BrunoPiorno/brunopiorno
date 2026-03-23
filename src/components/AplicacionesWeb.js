@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 import Chatbot from './Chatbot';
 import './AplicacionesWeb.css';
@@ -749,6 +750,9 @@ const AplicacionesWeb = () => {
 
   return (
     <div className="aplicaciones-web-page">
+      <Helmet>
+        <title>{t('meta.aplicacionesWebTitle')}</title>
+      </Helmet>
       {/* Hero Section - Igual que otras páginas */}
       <section className="hero-section">
         <motion.div 
