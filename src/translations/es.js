@@ -288,6 +288,13 @@ export const es = {
   'meta.aplicacionesWebTitle': 'Alora | Aplicaciones Web',
   'meta.desarrolloWebTitle': 'Alora | Desarrollo Web',
   'meta.mantenimientoWebTitle': 'Alora | Mantenimiento Web',
+  'meta.landingPagesTitle': 'Alora | Landing Pages',
+  'meta.ecommerceTitle': 'Alora | Ecommerce',
+  'meta.googleAdsTitle': 'Alora | Google Ads',
+  'meta.atencionClienteIATitle': 'Alora | Atención al Cliente con IA',
+  'meta.solucionesTitle': 'Alora | Soluciones',
+  'meta.contactTitle': 'Alora | Contacto',
+  'meta.notFoundTitle': 'Alora | Página no encontrada',
   
   // Navigation
   'nav.services': 'Servicios',

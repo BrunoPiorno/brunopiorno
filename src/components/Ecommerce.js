@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 import Chatbot from './Chatbot';
 import ecommerceImage from '../images/ecommerce-hero.png';
@@ -657,6 +658,9 @@ const Ecommerce = () => {
 
   return (
     <div className="ecommerce-page">
+      <Helmet>
+        <title>{t('meta.ecommerceTitle')}</title>
+      </Helmet>
       <section className="ecommerce-hero">
         <motion.div
           className="ecommerce-hero-content"

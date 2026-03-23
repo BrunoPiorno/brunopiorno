@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 import notFoundImage from '../images/404.png';
 import '../App.css';
@@ -34,13 +35,17 @@ const NotFoundPage = () => {
   };
 
   return (
-    <motion.div
-      className="not-found-page"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-    >
+    <>
+      <Helmet>
+        <title>{t('meta.notFoundTitle')}</title>
+      </Helmet>
+      <motion.div
+        className="not-found-page"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+      >
       <motion.img
         src={notFoundImage}
         alt="404 Not Found"
@@ -54,7 +59,8 @@ const NotFoundPage = () => {
           {t('notFound.button')}
         </button>
       </motion.div>
-    </motion.div>
+      </motion.div>
+    </>
   );
 };
 

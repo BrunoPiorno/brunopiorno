@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 import Chatbot from './Chatbot';
 import './GoogleAds.css';
 import googleAdsHeroImage from '../images/google-ads-hero.jpeg';
 
 const GoogleAds = () => {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
 
   useEffect(() => {
     document.body.classList.add('googleads-page');
@@ -546,6 +547,9 @@ const GoogleAds = () => {
 
   return (
     <div className="googleads-page">
+      <Helmet>
+        <title>{t('meta.googleAdsTitle')}</title>
+      </Helmet>
       <section className="googleads-hero">
         <motion.div
           className="googleads-hero-content"

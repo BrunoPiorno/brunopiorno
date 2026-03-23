@@ -304,6 +304,13 @@ export const en = {
   'meta.aplicacionesWebTitle': 'EN | Alora | Web Applications',
   'meta.desarrolloWebTitle': 'EN | Alora | Web Development',
   'meta.mantenimientoWebTitle': 'EN | Alora | Website Maintenance',
+  'meta.landingPagesTitle': 'EN | Alora | Landing Pages',
+  'meta.ecommerceTitle': 'EN | Alora | Ecommerce',
+  'meta.googleAdsTitle': 'EN | Alora | Google Ads',
+  'meta.atencionClienteIATitle': 'EN | Alora | AI Customer Service',
+  'meta.solucionesTitle': 'EN | Alora | Solutions',
+  'meta.contactTitle': 'EN | Alora | Contact',
+  'meta.notFoundTitle': 'EN | Alora | Page Not Found',
   
   // Navigation
   'nav.services': 'Services',

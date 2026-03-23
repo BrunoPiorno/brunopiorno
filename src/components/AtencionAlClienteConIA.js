@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from "../context/LanguageContext";
 import Chatbot from "./Chatbot";
 import "./AtencionAlClienteConIA.css";
 import aiCustomerServiceImage from "../images/atencionalclienteconia.jpg";
 
 const AtencionAlClienteConIA = () => {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
 
   useEffect(() => {
     document.body.classList.add("atencion-cliente-ia-page");
@@ -768,6 +769,9 @@ const AtencionAlClienteConIA = () => {
 
   return (
     <div className="atencion-cliente-ia-page">
+      <Helmet>
+        <title>{t('meta.atencionClienteIATitle')}</title>
+      </Helmet>
       <section className="atencion-cliente-ia-hero">
         <motion.div
           className="atencion-cliente-ia-hero-content"

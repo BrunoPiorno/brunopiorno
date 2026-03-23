@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 import Chatbot from './Chatbot';
 import './Soluciones.css';
@@ -208,6 +209,9 @@ const Soluciones = () => {
 
   return (
     <div className="soluciones-page">
+      <Helmet>
+        <title>{t('meta.solucionesTitle')}</title>
+      </Helmet>
       {/* Hero Section */}
       <section className="hero-section" id="hero">
         <motion.div 
