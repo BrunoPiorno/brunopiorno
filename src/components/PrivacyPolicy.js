@@ -1,12 +1,16 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const PrivacyPolicy = () => {
   const { t } = useLanguage();
 
   return (
     <div className="blog-post" style={{ marginTop: '120px', marginBottom: '4rem' }}>
+      <Helmet>
+        <title>{`${t('privacy.title')} - Alora`}</title>
+      </Helmet>
       <div className="blog-post-header">
         <h1 className="headline">{t('privacy.title')}</h1>
       </div>

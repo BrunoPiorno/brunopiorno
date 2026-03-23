@@ -139,8 +139,10 @@ export const en = {
   },
 
   // Meta data
-  'meta.title': 'Alora | Web Services',
+  'meta.title': 'EN | Alora | Home',
   'meta.description': 'We are Alora, web developers experts in WordPress, WooCommerce, and technologies like PHP, MySQL, and more. Contact us to enhance your digital presence.',
+  'meta.webExpressTitle': 'EN | Alora | Web Express - Web Design that Sells',
+  'meta.thankYouTitle': 'EN | Alora | Message Sent!',
   
   // Navigation
   'nav.services': 'Services',

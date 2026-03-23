@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { FaRocket, FaWhatsapp, FaChartLine, FaTools, FaMobileAlt, FaLightbulb } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import FloatingIcons from './FloatingIcons';
 import { Autoplay, FreeMode } from 'swiper/modules';
@@ -54,6 +55,7 @@ const clients = [
 ];
 
 const WebExpress = () => {
+  const { t } = useLanguage();
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formMessage, setFormMessage] = useState('');
@@ -75,7 +77,7 @@ const WebExpress = () => {
   return (
     <>
       <Helmet>
-        <title>Diseño Web que Vende | Transformamos tu Presencia Online</title>
+        <title>{t('meta.webExpressTitle')}</title>
         <meta name="description" content="¿Tu web no genera clientes? Creamos páginas web rápidas, profesionales y optimizadas para convertir visitantes en ventas. ¡Pedí tu plan de acción gratis!" />
       </Helmet>
       <div className="web-express-page-express">
