@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from "../context/LanguageContext";
 import ContactForm from "./ContactForm";
 import ContactSection from "./ContactSection";
@@ -12,6 +13,9 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page">
+      <Helmet>
+        <title>{t('meta.contactTitle')}</title>
+      </Helmet>
       {/* Hero Section - Nueva sección creativa */}
       <section className="contact-hero">
         <div className="contact-hero-container">

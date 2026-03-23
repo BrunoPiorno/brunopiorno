@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from "../context/LanguageContext";
 import Chatbot from "./Chatbot";
 import starleyImage from "../images/starleyweb.png";
@@ -1775,6 +1776,9 @@ const LandingPages = () => {
 
   return (
     <div className="landing-pages-page">
+      <Helmet>
+        <title>{t('meta.landingPagesTitle')}</title>
+      </Helmet>
       {/* Hero Section - Mismo que DesarrolloWeb */}
       <section className="hero-section">
         <motion.div
