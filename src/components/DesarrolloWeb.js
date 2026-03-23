@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 import Chatbot from './Chatbot';
 import fpnnImage from '../images/fpnn.png';
@@ -445,6 +446,9 @@ const DesarrolloWeb = () => {
 
   return (
     <div className="desarrollo-web-page">
+      <Helmet>
+        <title>{t('meta.desarrolloWebTitle')}</title>
+      </Helmet>
       {/* Hero Section - Igual que el resto del sitio */}
       <section className="hero-section" id="hero">
         <motion.div 

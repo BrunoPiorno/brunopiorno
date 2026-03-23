@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 import Chatbot from './Chatbot';
 import mantenimientoImage from '../images/mantenimiento-web.png';
 import './MatenimientoWeb.css';
 
 const MatenimientoWeb = () => {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
 
   useEffect(() => {
     document.body.classList.add('mantenimiento-web-page');
@@ -324,6 +325,9 @@ const MatenimientoWeb = () => {
 
   return (
     <div className="mantenimiento-web-page">
+      <Helmet>
+        <title>{t('meta.mantenimientoWebTitle')}</title>
+      </Helmet>
       {/* Hero Section */}
       <section className="hero-section" id="hero">
         <motion.div 
