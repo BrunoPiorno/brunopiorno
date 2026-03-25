@@ -332,6 +332,107 @@ const posts = [
       { type: 'text', value: 'Global Alora ofrece análisis, redacción, implementación y validación de archivos llms.txt. Nuestro enfoque se basa en entender tu modelo de negocio para definir el contexto preciso que las IAs necesitan.' },
       { type: 'text', value: 'Contactanos para evaluar tu caso específico y determinar cómo llms.txt puede integrarse en tu estrategia digital.' }
     ]
+  },
+  {
+    slug: '5-automatizaciones-email-marketing-ecommerce',
+    translationSlug: '5-automatizaciones-email-marketing-ecommerce-en',
+    title: 'Las 5 automatizaciones de email marketing que toda tienda online debería tener',
+    description: 'Una tienda online que solo envía newsletters está desaprovechando el verdadero poder del email marketing. Descubre las automatizaciones fundamentales para escalar tu ecommerce.',
+    date: '2026-03-25',
+    cover: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=1600&q=80',
+    content: [
+      { type: 'subtitle', value: 'Resumen breve' },
+      {
+        type: 'text',
+        value: 'Una tienda online que solo envía newsletters está desaprovechando el verdadero poder del email marketing.\nLas automatizaciones no son correos aislados. Son sistemas que se activan según el comportamiento del usuario y trabajan de forma constante para aumentar ventas, fidelización y rentabilidad.',
+        highlight: true
+      },
+      {
+        type: 'text',
+        value: 'Estas son las cinco automatizaciones fundamentales que cualquier ecommerce debería tener implementadas:',
+        isList: true
+      },
+      {
+        type: 'list',
+        items: [
+          'Secuencia de bienvenida',
+          'Recuperación de carrito abandonado', 
+          'Post-compra y fidelización',
+          'Recompra o reposición',
+          'Reactivación de clientes inactivos'
+        ]
+      },
+      {
+        type: 'emphasis',
+        value: 'No son opcionales si el objetivo es escalar.',
+        emphasisType: 'warning'
+      },
+      { type: 'subtitle', value: 'Qué es realmente una automatización en ecommerce' },
+      {
+        type: 'text',
+        value: 'Antes de entrar en cada tipo, es importante aclarar algo.\n\nUna automatización no es "programar un correo".\nEs un flujo inteligente que se activa cuando ocurre una acción específica:\n\n- Alguien se registra.\n- Alguien agrega un producto al carrito.\n- Alguien compra.\n- Alguien deja de comprar.\n- Alguien no interactúa durante cierto tiempo.\n\nEs comportamiento → respuesta automática.\nMientras tu tienda duerme, las automatizaciones siguen trabajando.',
+      },
+      { 
+        type: 'subtitle', 
+        value: '1. Automatización de bienvenida',
+        dataNumber: '1'
+      },
+      {
+        type: 'text',
+        value: 'Esta se activa cuando alguien entra a tu base de datos.\nPuede ser por suscripción, creación de cuenta o descarga de un incentivo.\n\n¿Para qué existe?\nPara transformar un simple visitante en un potencial cliente real.\n\nLa mayoría de las tiendas captura el correo y no hace nada relevante después.\nEso es desperdiciar intención.\n\nUna automatización de bienvenida tiene un objetivo claro: presentar la marca, explicar el diferencial y preparar el terreno para la primera compra.\n\nEs el momento de mayor atención del usuario.\nSi no estructuras esa primera interacción, el contacto se enfría rápidamente.',
+      },
+      { 
+        type: 'subtitle', 
+        value: '2. Automatización de recuperación de carrito abandonado',
+        dataNumber: '2'
+      },
+      {
+        type: 'text',
+        value: 'En ecommerce, el abandono de carrito es normal.\nLo que no debería ser normal es no hacer nada al respecto.\n\nEsta automatización se activa cuando alguien inicia el proceso de compra pero no lo finaliza.\n\nNo es solo un recordatorio.\nEs un sistema diseñado para:\n\n- Detectar intención alta.\n- Eliminar objeciones.\n- Reducir fricción.\n- Recuperar ingresos que ya estaban casi cerrados.\n\nEs, probablemente, una de las automatizaciones más rentables de cualquier tienda online.\nNo implementarla es aceptar perder ventas todos los días.',
+      },
+      { 
+        type: 'subtitle', 
+        value: '3. Automatización post-compra y fidelización',
+        dataNumber: '3'
+      },
+      {
+        type: 'text',
+        value: 'Aquí es donde muchas tiendas cometen el error más costoso: vender y desaparecer.\n\nUna automatización post-compra no se limita a enviar una confirmación.\nEs un flujo estratégico que se activa después de la compra para cumplir tres funciones clave:\n\n- Reforzar la decisión.\n- Reducir la ansiedad natural posterior.\n- Construir relación a largo plazo.\n\nDespués de comprar, el cliente atraviesa un momento sensible.\nPuede aparecer duda, impaciencia o inseguridad.\nSi la marca no acompaña ese momento, la experiencia se vuelve fría.\n\nEsta automatización existe para convertir una transacción en vínculo.\n\nAdemás, es el punto donde se puede:\n\n- Preparar futuras compras.\n- Introducir productos complementarios.\n- Fomentar reseñas.\n- Generar comunidad.\n\nUn cliente que ya compró es mucho más valioso que uno nuevo.\nLa automatización post-compra es la base de la rentabilidad sostenida.',
+      },
+      { 
+        type: 'subtitle', 
+        value: '4. Automatización de recompra o reposición',
+        dataNumber: '4'
+      },
+      {
+        type: 'text',
+        value: 'No todos los productos se compran una sola vez.\nMuchos ecommerce venden artículos con ciclo natural de reposición: cosmética, suplementos, alimentos, productos de uso recurrente.\n\nSin una automatización de recompra, dependes de que el cliente recuerde volver.\n\nCon ella, el sistema detecta el momento adecuado según:\n\n- Historial de compra.\n- Frecuencia estimada.\n- Tipo de producto.\n\nEsta automatización no busca vender agresivamente.\nBusca anticiparse a la necesidad.\n\nEs una de las formas más efectivas de aumentar el valor de vida del cliente sin invertir en nueva adquisición.',
+      },
+      { 
+        type: 'subtitle', 
+        value: '5. Automatización de reactivación de clientes inactivos',
+        dataNumber: '5'
+      },
+      {
+        type: 'text',
+        value: 'Con el tiempo, parte de tu base dejará de interactuar.\nEso no significa que estén perdidos.\n\nUna automatización de reactivación se activa cuando:\n\n- Un cliente no compra durante un periodo determinado.\n- No abre correos.\n- No interactúa con la marca.\n\nSu objetivo no es insistir, sino recuperar atención.\nPuede servir para:\n\n- Recordar la propuesta de valor.\n- Presentar novedades.\n- Detectar razones de abandono.\n- Reactivar relación.\n\nRecuperar un cliente antiguo suele ser más económico que adquirir uno nuevo.',
+      },
+      { type: 'subtitle', value: 'El problema real: tener solo una de estas automatizaciones' },
+      {
+        type: 'text',
+        value: 'Muchas tiendas implementan solo la recuperación de carrito y creen que ya hacen email marketing.\nEso no es un sistema.\n\nUn ecommerce rentable necesita un ecosistema automatizado que cubra todo el ciclo:\n\nCaptación → Conversión → Experiencia → Recompra → Reactivación.\n\nCuando estas cinco automatizaciones trabajan juntas, el negocio deja de depender exclusivamente del tráfico pagado.',
+      },
+      { type: 'subtitle', value: 'Conclusión' },
+      {
+        type: 'text',
+        value: 'El email marketing en ecommerce no es enviar campañas ocasionales.\nEs construir flujos automáticos que trabajen según el comportamiento del cliente.\n\nLas cinco automatizaciones esenciales son:\n\n- Bienvenida\n- Carrito abandonado\n- Post-compra\n- Recompra\n- Reactivación\n\nSin ellas, tu tienda está operando por debajo de su potencial.\nCon ellas, comienzas a construir un sistema que convierte ventas aisladas en ingresos recurrentes.',
+      },
+      { type: 'subtitle', value: '¿Tu tienda online ya tiene estas automatizaciones activas?' },
+      {
+        type: 'text',
+        value: 'Muchos ecommerce creen que tienen email marketing porque envían newsletters esporádicas.\nPero automatizar implica diseñar un sistema que trabaje en segundo plano aumentando conversión y fidelización.\n\nSi quieres analizar qué está faltando en tu tienda y cómo implementar automatizaciones estratégicas que realmente impacten en tus ventas, podemos ayudarte.\n\nReserva una reunión de relevamiento totalmente gratuita y sin compromiso con nosotros y evaluaremos:\n\n- Tu nivel actual de automatización.\n- Qué oportunidades de recuperación estás perdiendo.\n- Qué flujos necesitas para escalar.\n\nHaz clic en el siguiente botón y agenda tu sesión.',
+      }
+    ]
   }
 ];
 

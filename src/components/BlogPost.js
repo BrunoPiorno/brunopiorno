@@ -264,6 +264,50 @@ const BlogPost = () => {
                       </motion.div>
                     );
                   }
+                  if (block.type === 'highlight') {
+                    return (
+                      <motion.div
+                        key={idx}
+                        className="highlight-box"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay }}
+                      >
+                        {block.value}
+                      </motion.div>
+                    );
+                  }
+                  if (block.type === 'list' && Array.isArray(block.items)) {
+                    return (
+                      <motion.ul
+                        key={idx}
+                        className="blog-rich-list"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay }}
+                      >
+                        {block.items.map((item, itemIdx) => (
+                          <li key={`${idx}-${itemIdx}`}>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    );
+                  }
+                  if (block.type === 'emphasis') {
+                    const className = block.emphasisType === 'warning' ? 'highlight-box' : 'emphasis-block';
+                    return (
+                      <motion.div
+                        key={idx}
+                        className={className}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay }}
+                      >
+                        {block.value}
+                      </motion.div>
+                    );
+                  }
                   if (block.type === 'subtitle') {
                     const className = block.value === emphasisSubtitle ? 'emphasis-subtitle' : undefined;
                     return (
