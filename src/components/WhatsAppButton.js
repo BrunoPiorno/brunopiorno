@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 const WhatsAppButton = () => {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   
-  const phoneNumber = '+5491124629452'; 
-  const message = encodeURIComponent('Hola! Me gustaría obtener más información sobre sus servicios.');
-  
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  const whatsappUrl = useMemo(() => {
+    const phoneNumber = '+5491124629452'; 
+    const messageText = locale === "es" 
+      ? "Hola! Me gustaría obtener más información sobre sus servicios." 
+      : "Hello! I would like to get more information about your services.";
+    
+    console.log('WhatsAppButton Debug - Locale:', locale, 'MessageText:', messageText);
+    
+    const message = encodeURIComponent(messageText);
+    const url = `https://api.whatsapp.com/send/?phone=${encodeURIComponent(phoneNumber)}&text=${message}&type=phone_number&app_absent=0`;
+    
+    console.log('WhatsAppButton Debug - Full URL:', url);
+    
+    return url;
+  }, [locale]);
   
   return (
     <a
@@ -15,8 +26,8 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float"
-      aria-label="Contactar por WhatsApp"
-      title="Contactar por WhatsApp"
+      aria-label={locale === "es" ? "Contactar por WhatsApp" : "Contact on WhatsApp"}
+      title={locale === "es" ? "Contactar por WhatsApp" : "Contact on WhatsApp"}
     >
       <svg
         width="24"

@@ -355,7 +355,11 @@ const PresentationPage = () => {
                 Solicitar reunión
               </a>
               <a
-                href="https://wa.me/5491124629452?text=Hola%20Alora,%20quiero%20coordinar%20la%20presentaci%C3%B3n%20previa%20al%20presupuesto."
+                href={`https://api.whatsapp.com/send/?phone=${encodeURIComponent("5491124629452")}&text=${encodeURIComponent(
+              locale === "es" 
+                ? "Hola Alora, quiero coordinar la presentación previa al presupuesto." 
+                : "Hello Alora, I want to coordinate the pre-budget presentation."
+            )}&type=phone_number&app_absent=0`}
                 className="cta-button secondary"
                 target="_blank"
                 rel="noopener noreferrer"
