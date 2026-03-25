@@ -323,6 +323,107 @@ const posts = [
       { type: 'subtitle', value: 'Conclusion: Technology at Your Service' },
       { type: 'text', value: 'You don\'t need to be a coding expert; you need an ally who masters these tools so you can focus on closing sales. Is your website ready for 2026?' }
     ]
+  },
+  {
+    slug: '5-automatizaciones-email-marketing-ecommerce-en',
+    translationSlug: '5-automatizaciones-email-marketing-ecommerce',
+    title: '5 Email Marketing Automations Every Online Store Should Have',
+    description: 'An online store that only sends newsletters is missing out on the true power of email marketing. Discover the fundamental automations to scale your ecommerce.',
+    date: '2026-03-25',
+    cover: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=1600&q=80',
+    content: [
+      { type: 'subtitle', value: 'Brief Summary' },
+      {
+        type: 'text',
+        value: 'An online store that only sends newsletters is missing out on the true power of email marketing.\nAutomations are not isolated emails. They are systems that activate based on user behavior and work constantly to increase sales, loyalty, and profitability.',
+        highlight: true
+      },
+      {
+        type: 'text',
+        value: 'These are the five fundamental automations that any ecommerce should have implemented:',
+        isList: true
+      },
+      {
+        type: 'list',
+        items: [
+          'Welcome sequence',
+          'Cart abandonment recovery',
+          'Post-purchase and loyalty',
+          'Repurchase or replenishment',
+          'Inactive customer reactivation'
+        ]
+      },
+      {
+        type: 'emphasis',
+        value: 'They are not optional if the goal is to scale.',
+        emphasisType: 'warning'
+      },
+      { type: 'subtitle', value: 'What is a real automation in ecommerce' },
+      {
+        type: 'text',
+        value: 'Before diving into each type, it\'s important to clarify something.\n\nAn automation is not "scheduling an email".\nIt\'s an intelligent flow that activates when a specific action occurs:\n\n- Someone registers.\n- Someone adds a product to cart.\n- Someone purchases.\n- Someone stops buying.\n- Someone doesn\'t interact for a certain time.\n\nIt\'s behavior → automatic response.\nWhile your store sleeps, automations keep working.',
+      },
+      { 
+        type: 'subtitle', 
+        value: '1. Welcome Automation',
+        dataNumber: '1'
+      },
+      {
+        type: 'text',
+        value: 'This activates when someone enters your database.\nIt could be through subscription, account creation, or downloading an incentive.\n\nWhy does it exist?\nTo transform a simple visitor into a real potential customer.\n\nMost stores capture the email and do nothing relevant afterward.\nThat\'s wasting intent.\n\nA welcome automation has a clear objective: present the brand, explain the differential, and prepare the ground for the first purchase.\n\nIt\'s the moment of highest user attention.\nIf you don\'t structure that first interaction, the contact quickly cools down.',
+      },
+      { 
+        type: 'subtitle', 
+        value: '2. Cart Abandonment Recovery Automation',
+        dataNumber: '2'
+      },
+      {
+        type: 'text',
+        value: 'In ecommerce, cart abandonment is normal.\nWhat shouldn\'t be normal is doing nothing about it.\n\nThis automation activates when someone starts the purchase process but doesn\'t complete it.\n\nIt\'s not just a reminder.\nIt\'s a system designed to:\n\n- Detect high intent.\n- Eliminate objections.\n- Reduce friction.\n- Recover revenue that was almost closed.\n\nIt\'s probably one of the most profitable automations for any online store.\nNot implementing it means accepting to lose sales every day.',
+      },
+      { 
+        type: 'subtitle', 
+        value: '3. Post-Purchase and Loyalty Automation',
+        dataNumber: '3'
+      },
+      {
+        type: 'text',
+        value: 'This is where many stores make the most costly mistake: selling and disappearing.\n\nA post-purchase automation is not limited to sending a confirmation.\nIt\'s a strategic flow that activates after the purchase to fulfill three key functions:\n\n- Reinforce the decision.\n- Reduce natural post-purchase anxiety.\n- Build long-term relationship.\n\nAfter purchasing, the client goes through a sensitive moment.\nDoubt, impatience, or insecurity may appear.\nIf the brand doesn\'t accompany that moment, the experience becomes cold.\n\nThis automation exists to convert a transaction into a bond.\n\nAdditionally, it\'s the point where you can:\n\n- Prepare future purchases.\n- Introduce complementary products.\n- Encourage reviews.\n- Generate community.\n\nA customer who has already purchased is much more valuable than a new one.\nPost-purchase automation is the foundation of sustainable profitability.',
+      },
+      { 
+        type: 'subtitle', 
+        value: '4. Repurchase or Replenishment Automation',
+        dataNumber: '4'
+      },
+      {
+        type: 'text',
+        value: 'Not all products are bought only once.\nMany ecommerce sell items with a natural replacement cycle: cosmetics, supplements, food, recurring use products.\n\nWithout a repurchase automation, you depend on the customer remembering to return.\n\nWith it, the system detects the right moment based on:\n\n- Purchase history.\n- Estimated frequency.\n- Product type.\n\nThis automation doesn\'t seek to sell aggressively.\nIt seeks to anticipate the need.\n\nIt\'s one of the most effective ways to increase customer lifetime value without investing in new acquisition.',
+      },
+      { 
+        type: 'subtitle', 
+        value: '5. Inactive Customer Reactivation Automation',
+        dataNumber: '5'
+      },
+      {
+        type: 'text',
+        value: 'Over time, part of your base will stop interacting.\nThat doesn\'t mean they\'re lost.\n\nA reactivation automation activates when:\n\n- A customer doesn\'t purchase for a certain period.\n- Doesn\'t open emails.\n- Doesn\'t interact with the brand.\n\nIts objective is not to insist, but to recover attention.\nIt can serve to:\n\n- Remind the value proposition.\n- Present news.\n- Detect abandonment reasons.\n- Reactivate relationship.\n\nRecovering an old customer is usually more economical than acquiring a new one.',
+      },
+      { type: 'subtitle', value: 'The real problem: having only one of these automations' },
+      {
+        type: 'text',
+        value: 'Many stores implement only cart recovery and think they already do email marketing.\nThat\'s not a system.\n\nA profitable ecommerce needs an automated ecosystem that covers the entire cycle:\n\nAcquisition → Conversion → Experience → Repurchase → Reactivation.\n\nWhen these five automations work together, the business stops depending exclusively on paid traffic.',
+      },
+      { type: 'subtitle', value: 'Conclusion' },
+      {
+        type: 'text',
+        value: 'Email marketing in ecommerce is not sending occasional campaigns.\nIt\'s building automatic flows that work based on customer behavior.\n\nThe five essential automations are:\n\n- Welcome\n- Cart abandonment\n- Post-purchase\n- Repurchase\n- Reactivation\n\nWithout them, your store is operating below its potential.\nWith them, you begin to build a system that converts isolated sales into recurring revenue.',
+      },
+      { type: 'subtitle', value: 'Does your online store already have these automations active?' },
+      {
+        type: 'text',
+        value: 'Many ecommerce believe they have email marketing because they send sporadic newsletters.\nBut automating means designing a system that works in the background increasing conversion and loyalty.\n\nIf you want to analyze what\'s missing in your store and how to implement strategic automations that really impact your sales, we can help you.\n\nBook a totally free and commitment-free discovery call with us and we will evaluate:\n\n- Your current automation level.\n- What recovery opportunities you\'re missing.\n- What flows you need to scale.\n\nClick the button below and schedule your session.',
+      }
+    ]
   }
 ];
 
