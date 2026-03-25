@@ -64,7 +64,7 @@ const HomePage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState('woocommerce');
+  const [selectedFilter, setSelectedFilter] = useState('sistema-web');
 
   const projects = useMemo(() => {
     const featuredProjects = t('projects.featured');
@@ -465,9 +465,9 @@ const HomePage = () => {
   const filteredProjects = allProjects.filter(project => project.category === selectedFilter);
 
   const categories = [
+    { id: 'sistema-web', name: locale === 'es' ? 'Sistema Web' : 'Web System' },
     { id: 'woocommerce', name: 'WooCommerce' },
     { id: 'landing', name: locale === 'es' ? 'Landing' : 'Landing' },
-    { id: 'sistema-web', name: locale === 'es' ? 'Sistema Web' : 'Web System' },
     { id: 'web-informativa', name: locale === 'es' ? 'Web Informativa' : 'Informational Web' },
     { id: 'mejoras-web', name: locale === 'es' ? 'Mejoras Web' : 'Web Improvements' }
   ];
