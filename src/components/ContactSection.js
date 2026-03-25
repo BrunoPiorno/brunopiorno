@@ -18,7 +18,11 @@ const ContactSection = () => {
         <p>{t('contact.subtitle')}</p>
         <div className="contact-buttons">
           <motion.a
-            href={locale === 'en' ? "https://wa.me/+541124629452" : "https://wa.me/+541124629452"}
+            href={`https://api.whatsapp.com/send/?phone=${encodeURIComponent("+541124629452")}&text=${encodeURIComponent(
+              locale === "es" 
+                ? "Hola! Me gustaría obtener más información sobre sus servicios." 
+                : "Hello! I would like to get more information about your services."
+            )}&type=phone_number&app_absent=0`}
             target="_blank"
             rel="noopener noreferrer"
             className="contact-button whatsapp"

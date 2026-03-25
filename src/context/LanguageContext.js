@@ -5,8 +5,13 @@ import { translations, defaultLocale } from '../translations';
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children, initialLocale }) => {
-  // Temporarily simplified to avoid circular dependency
-  const locale = initialLocale || defaultLocale;
+  // Get locale from current URL path dynamically
+  const getCurrentLocale = () => {
+    const pathLocale = window.location.pathname.match(/^\/([a-z]{2})/);
+    return pathLocale ? pathLocale[1] : (initialLocale || defaultLocale);
+  };
+  
+  const locale = getCurrentLocale();
 
   const t = (key) => {
     return (translations[locale] && translations[locale][key]) || translations[defaultLocale][key] || key;

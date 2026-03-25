@@ -2294,7 +2294,11 @@ const LandingPages = () => {
                   : "And if you can't wait and want to talk to us right now, contact us on whatsapp"}
               </h3>
               <motion.a
-                href="https://wa.me/+541124629452"
+                href={`https://api.whatsapp.com/send/?phone=${encodeURIComponent("+5491124629452")}&text=${encodeURIComponent(
+              locale === "es" 
+                ? "Hola! Me gustaría obtener más información sobre sus servicios." 
+                : "Hello! I would like to get more information about your services."
+            )}&type=phone_number&app_absent=0`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-button whatsapp"

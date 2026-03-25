@@ -1154,7 +1154,11 @@ const AplicacionesWeb = () => {
                   : 'If anxiety is overwhelming and you want to talk to us right now, click the button below and send us a WhatsApp message.'}
               </p>
               <motion.a 
-                href="https://wa.me/+541124629452"
+                href={`https://api.whatsapp.com/send/?phone=${encodeURIComponent("+5491124629452")}&text=${encodeURIComponent(
+              locale === "es" 
+                ? "Hola! Me gustaría obtener más información sobre sus servicios." 
+                : "Hello! I would like to get more information about your services."
+            )}&type=phone_number&app_absent=0`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-button whatsapp"

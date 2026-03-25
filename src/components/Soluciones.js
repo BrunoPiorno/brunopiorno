@@ -702,7 +702,11 @@ const Soluciones = () => {
             className="process-cta"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => window.open(locale === 'es' ? 'https://wa.me/+5491124629452' : 'https://wa.me/+5491124629452', '_blank')}
+            onClick={() => window.open(`https://api.whatsapp.com/send/?phone=${encodeURIComponent("+5491124629452")}&text=${encodeURIComponent(
+              locale === "es" 
+                ? "Hola! Me gustaría obtener más información sobre sus servicios." 
+                : "Hello! I would like to get more information about your services."
+            )}&type=phone_number&app_absent=0`, '_blank')}
           >
             {locale === 'es' ? 'Iniciar conversación' : 'Start conversation'}
           </motion.button>

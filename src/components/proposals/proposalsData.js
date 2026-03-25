@@ -108,7 +108,7 @@ const proposals = {
       download: { label: 'Descargar PDF', url: '#descargar' },
       questions: { label: 'Tengo dudas', url: 'mailto:hola@globalalora.com?subject=Consulta%20Propuesta%20Distri-Sal' },
       meeting: { label: 'Coordinar reunión', url: 'https://tidycal.com/alora/reunion' },
-      whatsapp: { label: 'Consulta por WhatsApp', url: 'https://wa.me/5491124629452' },
+      whatsapp: { label: 'Consulta por WhatsApp', url: 'https://api.whatsapp.com/send/?phone=5491124629452&text=' + encodeURIComponent(locale === "es" ? "Hola! Me gustaría obtener más información sobre sus servicios." : "Hello! I would like to get more information about your services.") + '&type=phone_number&app_absent=0' },
     },
   },
   depay: {
@@ -533,7 +533,7 @@ const proposals = {
       download: { label: 'Descargar PDF', url: '#descargar' },
       questions: { label: 'Tengo dudas', url: 'mailto:hola@globalalora.com?subject=Consulta%20Propuesta%20DEPAY' },
       meeting: { label: 'Coordinar reunión', url: 'https://tidycal.com/alora/reunion' },
-      whatsapp: { label: 'Consulta por WhatsApp', url: 'https://wa.me/5491124629452' },
+      whatsapp: { label: 'Consulta por WhatsApp', url: 'https://api.whatsapp.com/send/?phone=5491124629452&text=' + encodeURIComponent(locale === "es" ? "Hola! Me gustaría obtener más información sobre sus servicios." : "Hello! I would like to get more information about your services.") + '&type=phone_number&app_absent=0' },
     },
   },
 };
