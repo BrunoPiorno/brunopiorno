@@ -78,6 +78,12 @@ export const es = {
       image: '/images/talleres.png',
       url: '#'
     },
+    {
+      title: 'Lidia Superadmin',
+      description: 'El único sistema de gestión con WhatsApp integrado. Calendario, pacientes, equipo, sucursales y pagos — sin salir del chat.',
+      image: '/images/superadmin.png',
+      url: 'https://soylidia.com/superadmin'
+    },
   ],
 
   // Stats items
@@ -203,6 +209,10 @@ export const es = {
   'projects.josejose.desc': 'Desarrollado a medida con WordPress como CMS, utilizando PHP, MySQL, HTML5, SCSS y JavaScript. Tema completamente personalizado sin uso de plantillas preexistentes, optimizado para rendimiento, SEO y móvil.',
   'projects.ranking.title': 'Ranking Profesional',
   'projects.ranking.desc': 'Desarrollamos un sistema completo de gestión de ranking para Tenis de Mesa, La plataforma permite a jugadores y administradores gestionar perfiles, estadísticas y clasificaciones de manera eficiente.',
+  'projects.lidiasuperadmin.title': 'Lidia Superadmin',
+  'projects.lidiasuperadmin.desc': 'El único sistema de gestión con WhatsApp integrado. Sistema completo para profesionales de la salud y la estética — calendario, pacientes, equipo, sucursales y pagos — con WhatsApp integrado para que los pacientes agenden, cancelen, reagenden y paguen sin salir del chat.',
+  'projects.soylidia.title': 'Soy Lidia',
+  'projects.soylidia.desc': 'Sitio web informativo de Lidia, el sistema de gestión para profesionales de la salud y la estética con WhatsApp integrado. Sin apps, sin links. Solo WhatsApp.',
   'projects.cichic.title': 'Cichic',
   'projects.cichic.desc': 'Sitio web corporativo desarrollado con WordPress',
   'projects.fapcdms.title': 'Federacion de automovilismo de la Prov. de santa fe',

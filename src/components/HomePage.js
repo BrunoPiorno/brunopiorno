@@ -29,6 +29,7 @@ import heroImage from '../images/team.png';
 import alauxImage from '../images/alaux.png';
 import gretaImage from '../images/greta.png';
 import talleresImage from '../images/talleres.png';
+import superadminImage from '../images/superadmin.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -71,6 +72,7 @@ const HomePage = () => {
       EntradaFan: entradafanLogo,
       'Fundación Por Nuestros Niños': fpnnLogo,
       'Talleres Unidos': talleresImage,
+      'Lidia Superadmin': superadminImage,
     };
 
     return featuredProjects.map(project => ({
@@ -440,6 +442,22 @@ const HomePage = () => {
       url: 'https://trenquetdmranking.com.ar/',
       contribution: 'contribution.full',
       category: 'sistema-web'
+    },
+    {
+      title: t('projects.lidiasuperadmin.title'),
+      description: t('projects.lidiasuperadmin.desc'),
+      image: require('../images/superadmin.png'),
+      url: 'https://soylidia.com/superadmin',
+      contribution: 'contribution.full',
+      category: 'sistema-web'
+    },
+    {
+      title: t('projects.soylidia.title'),
+      description: t('projects.soylidia.desc'),
+      image: require('../images/soylidia.png'),
+      url: 'https://soylidia.com',
+      contribution: 'contribution.full',
+      category: 'web-informativa'
     }
   ];
 

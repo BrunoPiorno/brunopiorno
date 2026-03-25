@@ -95,6 +95,12 @@ export const en = {
       description: 'Web system with user login, subscriber workflow, and monthly creative challenges (writing, reading, story library) built with Elementor plus custom code.',
       image: '/images/talleres.png',
       url: '#'
+    },
+    {
+      title: 'Lidia Superadmin',
+      description: 'The only management system with integrated WhatsApp. Calendar, patients, team, branches and payments — without leaving the chat.',
+      image: '/images/superadmin.png',
+      url: 'https://soylidia.com/superadmin'
     }
   ],
 
@@ -276,6 +282,10 @@ export const en = {
   'projects.josejose.desc': 'Custom-designed website using WordPress as CMS, developed with PHP, MySQL, HTML5, CSS3, and JavaScript. Fully personalized theme with no prebuilt templates, optimized for performance, SEO, and mobile compatibility.',
   'projects.ranking.title': 'Ranking Profesional',
   'projects.ranking.desc': 'Professional ranking system with profile and statistics management.',
+  'projects.lidiasuperadmin.title': 'Lidia Superadmin',
+  'projects.lidiasuperadmin.desc': 'The only management system with integrated WhatsApp. Complete system for health and aesthetics professionals — calendar, patients, team, branches and payments — with WhatsApp integrated so patients can book, cancel, reschedule and pay without leaving the chat.',
+  'projects.soylidia.title': 'Soy Lidia',
+  'projects.soylidia.desc': 'Informational website for Lidia, the management system for health and aesthetics professionals with integrated WhatsApp. No apps, no links. Just WhatsApp.',
   'projects.cichic.title': 'Cichic',
   'projects.cichic.desc': 'Corporate website developed with WordPress.',
   'projects.fapcdms.title': 'Federacion de automovilismo de la Prov. de santa fe',
