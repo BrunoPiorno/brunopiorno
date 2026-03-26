@@ -125,8 +125,9 @@ const ContactForm = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
+        setIsSubmitting(false);
         reset();
-        
+
         setTimeout(() => {
           navigate(`/${locale}/thank-you`);
         }, 1500);

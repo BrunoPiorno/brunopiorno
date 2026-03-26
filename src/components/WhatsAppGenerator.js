@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FaWhatsapp, 
-  FaLink, 
-  FaCopy, 
-  FaPhone, 
-  FaRegSmile, 
-  FaBold, 
-  FaItalic, 
-  FaStrikethrough, 
+import {
+  FaWhatsapp,
+  FaLink,
+  FaCopy,
+  FaPhone,
+  FaRegSmile,
+  FaBold,
+  FaItalic,
+  FaStrikethrough,
   FaCode,
   FaArrowRight
 } from 'react-icons/fa';
@@ -178,6 +179,10 @@ const WhatsAppGenerator = () => {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>Alora | Generador de Link de WhatsApp</title>
+    </Helmet>
     <div className="wa-generator-container">
       <div className="wa-generator-card">
         {/* Left Side: Form */}
@@ -320,6 +325,7 @@ const WhatsAppGenerator = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
