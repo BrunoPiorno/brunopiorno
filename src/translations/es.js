@@ -76,7 +76,7 @@ export const es = {
       title: 'Talleres Unidos',
       description: 'Sistema web con login de usuarios, suscripción y desafíos mensuales de escritura y lectura. Construido con Elementor y desarrollo personalizado para gestionar comunidades creativas.',
       image: '/images/talleres.png',
-      url: '#'
+      url: 'https://club.rulodeviaje.com'
     },
     {
       title: 'Lidia Superadmin',
