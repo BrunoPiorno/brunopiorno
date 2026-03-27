@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLanguage } from '../context/LanguageContext';
 import './PresentationPage.css';
 
 const stats = [
@@ -122,6 +123,7 @@ const faqs = [
 ];
 
 const PresentationPage = () => {
+  const { locale } = useLanguage();
   const [activeFaqIndex, setActiveFaqIndex] = useState(0);
 
   const handleNextFaq = () => {
