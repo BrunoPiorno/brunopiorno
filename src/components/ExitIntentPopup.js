@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { useLanguage } from '../context/LanguageContext';
 import './ExitIntentPopup.css';
 
@@ -61,15 +62,29 @@ const ExitIntentPopup = () => {
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     if (!email) return;
-    // Track in GA4 if available
+
+    const templateParams = {
+      lead_email: email,
+      lead_source: 'Exit Intent Popup',
+      lead_page: window.location.href,
+      date: new Date().toLocaleString('es-AR'),
+      to_email: 'somosglobalalora@gmail.com',
+    };
+
+    emailjs.send(
+      'service_6r3ee9k',
+      'template_exit_popup',
+      templateParams,
+      'CwpWaIXVC5Pdb4Kae'
+    ).catch((err) => console.error('EmailJS error:', err));
+
     if (window.gtag) {
-      window.gtag('event', 'exit_popup_email', { email });
+      window.gtag('event', 'exit_popup_email_submit', { email });
     }
+
     setSubmitted(true);
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
-    setTimeout(() => {
-      setIsVisible(false);
-    }, 2500);
+    setTimeout(() => setIsVisible(false), 2500);
   };
 
   const copy = {
