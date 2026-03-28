@@ -315,7 +315,7 @@ export const es = {
   'nav.contact': 'Contacto',
 
   // Hero Section
-  'hero.title': 'Tecnología a medida para empresas que quieren vender más y operar mejor',
+  'hero.title': 'Soluciones digitales a medida para empresas que quieren crecer.',
   'hero.subtitle': 'Diseñamos y desarrollamos sitios web, ecommerce y sistemas personalizados para compañías que necesitan convertir su presencia digital en una herramienta real de crecimiento y eficiencia operativa.',
   'hero.microcopy': 'Desde webs corporativas hasta plataformas y automatizaciones con IA, trabajamos donde el negocio y la tecnología se cruzan.',
   'hero.cta': 'Hablar con un experto',
