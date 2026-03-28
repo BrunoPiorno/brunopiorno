@@ -12,7 +12,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  background: var(--surface-color, #111);
+  background: #1a1f2e;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 2.5rem 2rem;
@@ -36,7 +36,7 @@
 }
 
 .eip-close:hover {
-  color: var(--text-primary, #fff);
+  color: #fff;
 }
 
 .eip-eyebrow {
@@ -51,7 +51,7 @@
 .eip-title {
   font-size: 1.6rem;
   font-weight: 800;
-  color: var(--text-primary, #fff);
+  color: #fff;
   margin-bottom: 0.75rem;
   line-height: 1.2;
 }
@@ -75,8 +75,8 @@
   padding: 0.85rem 1rem;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-primary, #fff);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s;
@@ -169,7 +169,7 @@
 .eip-success h3 {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text-primary, #fff);
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
