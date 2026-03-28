@@ -594,139 +594,91 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Target Companies Section */}
-      <section id="empresas" className="target-companies-section">
-        <motion.div 
+      {/* Clients Section */}
+      <section id="clientes" className="clients-section">
+        <motion.div
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>{t('targetCompanies.title')}</h2>
-          <p>{t('targetCompanies.subtitle')}</p>
+          <h2>{t('clients.title')}</h2>
+          <p>{t('clients.subtitle')}</p>
         </motion.div>
 
-        <div className="target-companies-grid">
-          <motion.div 
-            className="company-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+        <div className="clients-slider-container">
+          <Swiper
+            modules={[Autoplay, FreeMode]}
+            loop={true}
+            freeMode={true}
+            autoplay={{
+              delay: 1,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            speed={4000}
+            breakpoints={{
+              320: { slidesPerView: 2, spaceBetween: 20 },
+              480: { slidesPerView: 3, spaceBetween: 30 },
+              640: { slidesPerView: 4, spaceBetween: 40 },
+              1024: { slidesPerView: 5, spaceBetween: 50 },
+            }}
+            className="clients-swiper"
           >
-            <div className="company-icon">
-              <i className="fas fa-briefcase"></i>
-            </div>
-            <h3>{t('targetCompanies.b2b.title')}</h3>
-            <p>{t('targetCompanies.b2b.desc')}</p>
-            <ul>
-              <li>{t('targetCompanies.b2b.item1')}</li>
-              <li>{t('targetCompanies.b2b.item2')}</li>
-            </ul>
-          </motion.div>
-
-          <motion.div 
-            className="company-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="company-icon">
-              <i className="fas fa-chart-line"></i>
-            </div>
-            <h3>{t('targetCompanies.smes.title')}</h3>
-            <p>{t('targetCompanies.smes.desc')}</p>
-            <ul>
-              <li>{t('targetCompanies.smes.item1')}</li>
-              <li>{t('targetCompanies.smes.item2')}</li>
-              <li>{t('targetCompanies.smes.item3')}</li>
-            </ul>
-          </motion.div>
-
-          <motion.div 
-            className="company-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <div className="company-icon">
-              <i className="fas fa-shopping-cart"></i>
-            </div>
-            <h3>{t('targetCompanies.ecommerce.title')}</h3>
-            <p>{t('targetCompanies.ecommerce.desc')}</p>
-            <ul>
-              <li>{t('targetCompanies.ecommerce.item1')}</li>
-              <li>{t('targetCompanies.ecommerce.item2')}</li>
-              <li>{t('targetCompanies.ecommerce.item3')}</li>
-            </ul>
-          </motion.div>
-
-          <motion.div 
-            className="company-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <div className="company-icon">
-              <i className="fas fa-rocket"></i>
-            </div>
-            <h3>{t('targetCompanies.startups.title')}</h3>
-            <p>{t('targetCompanies.startups.desc')}</p>
-            <ul>
-              <li>{t('targetCompanies.startups.item1')}</li>
-              <li>{t('targetCompanies.startups.item2')}</li>
-              <li>{t('targetCompanies.startups.item3')}</li>
-            </ul>
-          </motion.div>
-
-          <motion.div 
-            className="company-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <div className="company-icon">
-              <i className="fas fa-cogs"></i>
-            </div>
-            <h3>{t('targetCompanies.custom.title')}</h3>
-            <p>{t('targetCompanies.custom.desc')}</p>
-            <ul>
-              <li>{t('targetCompanies.custom.item1')}</li>
-              <li>{t('targetCompanies.custom.item2')}</li>
-              <li>{t('targetCompanies.custom.item3')}</li>
-            </ul>
-          </motion.div>
+            {[...clients, ...clients].map((client, index) => (
+              <SwiperSlide key={index}>
+                <ClientCard client={client} index={index} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
+      </section>
 
-        <motion.div 
-          className="not-suitable-section"
+      {/* Services Section */}
+      <section id="servicios" className="services-section">
+        <motion.div
+          className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.6 }}
         >
-          <div className="not-suitable-icon">
-            <i className="fas fa-exclamation-triangle"></i>
-          </div>
-          <div className="not-suitable-content">
-            <h3>{t('notSuitable.title')}</h3>
-            <ul>
-              <li>{t('notSuitable.item1')}</li>
-              <li>{t('notSuitable.item2')}</li>
-              <li>{t('notSuitable.item3')}</li>
-            </ul>
-          </div>
+          <h2>{t('services.title')}</h2>
+          <p>{t('services.subtitle')}</p>
+        </motion.div>
+
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <ServiceCard key={index} service={service} index={index} />
+          ))}
+        </div>
+
+        <motion.div
+          className="services-cta-container"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <a href={`/${locale === 'es' ? 'es/soluciones' : 'en/soluciones'}`} className="cta-button primary large">
+            {locale === 'es' ? 'Ver Servicios' : 'View Services'}
+          </a>
+        </motion.div>
+
+        <motion.div
+          className="gdpr-compliance-block"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          <p>{t('services.gdprCompliance')}</p>
         </motion.div>
       </section>
 
-      <AboutSection />
       <section id="proyectos" className="projects-section">
-        <motion.div 
+        <motion.div
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -738,7 +690,7 @@ const HomePage = () => {
         </motion.div>
 
         {/* Filtros de proyectos */}
-        <motion.div 
+        <motion.div
           className="projects-filters"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -793,53 +745,67 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="servicios" className="services-section">
-        <motion.div 
+      {/* Testimonials Section */}
+      <section id="testimonios" className="testimonials-section">
+        <motion.div
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>{t('services.title')}</h2>
-          <p>{t('services.subtitle')}</p>
+          <h2>{t('testimonials.title')}</h2>
+          <p>{t('testimonials.subtitle')}</p>
         </motion.div>
 
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
-          ))}
+        <div className="testimonials-panel">
+          <div className="testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard key={`testimonial-${index}`} testimonial={testimonial} index={index} />
+            ))}
+          </div>
         </div>
 
-        <motion.div 
-          className="services-cta-container"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <a href={`/${locale === 'es' ? 'es/soluciones' : 'en/soluciones'}`} className="cta-button primary large">
-            {locale === 'es' ? 'Ver Servicios' : 'View Services'}
-          </a>
-        </motion.div>
+      </section>
 
-        <motion.div 
-          className="gdpr-compliance-block"
+      {/* Intermediate CTA */}
+      <section className="cta-section intermediate-cta">
+        <motion.div
+          className="cta-content"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
-          <p>{t('services.gdprCompliance')}</p>
+          <h2>{locale === 'es' ? '¿Tenés un proyecto en mente?' : 'Have a project in mind?'}</h2>
+          <p>{locale === 'es' ? 'Contanos qué necesitás y te respondemos en menos de 24hs con una propuesta clara.' : 'Tell us what you need and we\'ll reply within 24 hours with a clear proposal.'}</p>
+          <div className="cta-buttons">
+            <a
+              href={`https://api.whatsapp.com/send/?phone=${encodeURIComponent("+5491124629452")}&text=${encodeURIComponent(
+                locale === "es"
+                  ? "Hola! Me gustaría obtener más información sobre sus servicios."
+                  : "Hello! I would like to get more information about your services."
+              )}&type=phone_number&app_absent=0`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-button"
+            >
+              <i className="fab fa-whatsapp"></i> {locale === 'es' ? 'Hablar por WhatsApp' : 'Chat on WhatsApp'}
+            </a>
+            <a
+              href="#contacto"
+              onClick={(e) => scrollToSection(e, 'contacto')}
+              className="cta-button secondary"
+            >
+              {locale === 'es' ? 'Completar formulario' : 'Fill out the form'}
+            </a>
+          </div>
         </motion.div>
       </section>
 
-      
-
       {/* Why Work with Alora Section */}
       <section id="por-que-alora" className="why-alora-section">
-        <motion.div 
+        <motion.div
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -851,7 +817,7 @@ const HomePage = () => {
         </motion.div>
 
         <div className="why-alora-grid">
-          <motion.div 
+          <motion.div
             className="why-alora-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -871,7 +837,7 @@ const HomePage = () => {
             </ul>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="why-alora-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -890,7 +856,7 @@ const HomePage = () => {
             </ul>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="why-alora-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -910,7 +876,7 @@ const HomePage = () => {
             </ul>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="why-alora-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -931,7 +897,7 @@ const HomePage = () => {
             </ul>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="why-alora-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -949,7 +915,7 @@ const HomePage = () => {
             </ul>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="why-alora-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -968,7 +934,7 @@ const HomePage = () => {
             </ul>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="why-alora-card highlight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -990,73 +956,139 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Clients Section */}
-      <section id="clientes" className="clients-section">
-        <motion.div 
+      {/* Target Companies Section */}
+      <section id="empresas" className="target-companies-section">
+        <motion.div
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>{t('clients.title')}</h2>
-          <p>{t('clients.subtitle')}</p>
+          <h2>{t('targetCompanies.title')}</h2>
+          <p>{t('targetCompanies.subtitle')}</p>
         </motion.div>
 
-        <div className="clients-slider-container">
-          <Swiper
-            modules={[Autoplay, FreeMode]}
-            loop={true}
-            freeMode={true}
-            autoplay={{
-              delay: 1,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            speed={4000}
-            breakpoints={{
-              320: { slidesPerView: 2, spaceBetween: 20 },
-              480: { slidesPerView: 3, spaceBetween: 30 },
-              640: { slidesPerView: 4, spaceBetween: 40 },
-              1024: { slidesPerView: 5, spaceBetween: 50 },
-            }}
-            className="clients-swiper"
+        <div className="target-companies-grid">
+          <motion.div
+            className="company-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
-            {[...clients, ...clients].map((client, index) => (
-              <SwiperSlide key={index}>
-                <ClientCard client={client} index={index} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
+            <div className="company-icon">
+              <i className="fas fa-briefcase"></i>
+            </div>
+            <h3>{t('targetCompanies.b2b.title')}</h3>
+            <p>{t('targetCompanies.b2b.desc')}</p>
+            <ul>
+              <li>{t('targetCompanies.b2b.item1')}</li>
+              <li>{t('targetCompanies.b2b.item2')}</li>
+            </ul>
+          </motion.div>
 
-      {/* Testimonials Section */}
-      <section id="testimonios" className="testimonials-section">
-        <motion.div 
-          className="section-title"
+          <motion.div
+            className="company-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="company-icon">
+              <i className="fas fa-chart-line"></i>
+            </div>
+            <h3>{t('targetCompanies.smes.title')}</h3>
+            <p>{t('targetCompanies.smes.desc')}</p>
+            <ul>
+              <li>{t('targetCompanies.smes.item1')}</li>
+              <li>{t('targetCompanies.smes.item2')}</li>
+              <li>{t('targetCompanies.smes.item3')}</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="company-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <div className="company-icon">
+              <i className="fas fa-shopping-cart"></i>
+            </div>
+            <h3>{t('targetCompanies.ecommerce.title')}</h3>
+            <p>{t('targetCompanies.ecommerce.desc')}</p>
+            <ul>
+              <li>{t('targetCompanies.ecommerce.item1')}</li>
+              <li>{t('targetCompanies.ecommerce.item2')}</li>
+              <li>{t('targetCompanies.ecommerce.item3')}</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="company-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="company-icon">
+              <i className="fas fa-rocket"></i>
+            </div>
+            <h3>{t('targetCompanies.startups.title')}</h3>
+            <p>{t('targetCompanies.startups.desc')}</p>
+            <ul>
+              <li>{t('targetCompanies.startups.item1')}</li>
+              <li>{t('targetCompanies.startups.item2')}</li>
+              <li>{t('targetCompanies.startups.item3')}</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="company-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <div className="company-icon">
+              <i className="fas fa-cogs"></i>
+            </div>
+            <h3>{t('targetCompanies.custom.title')}</h3>
+            <p>{t('targetCompanies.custom.desc')}</p>
+            <ul>
+              <li>{t('targetCompanies.custom.item1')}</li>
+              <li>{t('targetCompanies.custom.item2')}</li>
+              <li>{t('targetCompanies.custom.item3')}</li>
+            </ul>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="not-suitable-section"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <h2>{t('testimonials.title')}</h2>
-          <p>{t('testimonials.subtitle')}</p>
-        </motion.div>
-
-        <div className="testimonials-panel">
-          <div className="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={`testimonial-${index}`} testimonial={testimonial} index={index} />
-            ))}
+          <div className="not-suitable-icon">
+            <i className="fas fa-exclamation-triangle"></i>
           </div>
-        </div>
-
+          <div className="not-suitable-content">
+            <h3>{t('notSuitable.title')}</h3>
+            <ul>
+              <li>{t('notSuitable.item1')}</li>
+              <li>{t('notSuitable.item2')}</li>
+              <li>{t('notSuitable.item3')}</li>
+            </ul>
+          </div>
+        </motion.div>
       </section>
 
       {/* Recognition Section */}
       <section id="reconocimientos" className="recognition-section">
-        <motion.div 
+        <motion.div
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1068,7 +1100,7 @@ const HomePage = () => {
         </motion.div>
 
         <div className="recognition-content">
-          <motion.div 
+          <motion.div
             className="recognition-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1080,7 +1112,7 @@ const HomePage = () => {
             </div>
             <h3>{t('recognition.designrush.title')}</h3>
             <p>{t('recognition.designrush.desc')}</p>
-            <a 
+            <a
               href="https://www.designrush.com/agency/web-development-companies/trends/ai-debugging-tools"
               target="_blank"
               rel="noopener noreferrer"
@@ -1089,8 +1121,8 @@ const HomePage = () => {
               {t('recognition.designrush.link')} <i className="fas fa-external-link-alt"></i>
             </a>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="recognition-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1103,9 +1135,9 @@ const HomePage = () => {
             <h3>{t('recognition.techbehemoths.title')}</h3>
             <p>{t('recognition.techbehemoths.desc')}</p>
             <p>{t('recognition.techbehemoths.desc2')}</p>
-            <a 
-              href="/certificate.pdf" 
-              target="_blank" 
+            <a
+              href="/certificate.pdf"
+              target="_blank"
               rel="noopener noreferrer"
               className="recognition-link"
             >
@@ -1115,9 +1147,14 @@ const HomePage = () => {
         </div>
       </section>
 
+      <AboutSection />
+
+      {/* Latest Posts Section */}
+      <LatestPosts />
+
       {/* CTA Section */}
       <section className="cta-section">
-        <motion.div 
+        <motion.div
           className="cta-content"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1127,13 +1164,13 @@ const HomePage = () => {
           <h2>{t('cta.title')}</h2>
           <p>{t('cta.subtitle')}</p>
           <div className="cta-buttons">
-            <a 
+            <a
               href={`https://api.whatsapp.com/send/?phone=${encodeURIComponent("+5491124629452")}&text=${encodeURIComponent(
-              locale === "es" 
-                ? "Hola! Me gustaría obtener más información sobre sus servicios." 
+              locale === "es"
+                ? "Hola! Me gustaría obtener más información sobre sus servicios."
                 : "Hello! I would like to get more information about your services."
-            )}&type=phone_number&app_absent=0`} 
-              target="_blank" 
+            )}&type=phone_number&app_absent=0`}
+              target="_blank"
               rel="noopener noreferrer"
               className="whatsapp-button"
             >
@@ -1142,53 +1179,6 @@ const HomePage = () => {
           </div>
         </motion.div>
       </section>
-
-      {/* Tools Section */}
-      <section id="tecnologias" className="tools-section">
-        <motion.div 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2>{t('tech.title')}</h2>
-          <p>{t('tech.subtitle')}</p>
-        </motion.div>
-
-        <div className="tools-slider-container">
-          <Swiper
-            modules={[Autoplay, FreeMode]}
-            loop={true}
-            freeMode={true}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            speed={5000}
-            breakpoints={{
-              320: { slidesPerView: 3, spaceBetween: 20 },
-              480: { slidesPerView: 4, spaceBetween: 30 },
-              640: { slidesPerView: 5, spaceBetween: 40 },
-              1024: { slidesPerView: 7, spaceBetween: 50 },
-            }}
-            className="tools-swiper"
-          >
-            {[...tools, ...tools].map((tool, index) => (
-              <SwiperSlide key={index}>
-                <div className="tool-card">
-                  <i className={tool.icon}></i>
-                  <span>{tool.name}</span>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
-
-      {/* Latest Posts Section */}
-      <LatestPosts />
 
       {/* Contact Section */}
       <section id="contacto" className="contact-section">

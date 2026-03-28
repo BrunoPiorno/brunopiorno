@@ -334,7 +334,7 @@ export const en = {
   'hero.subtitle': 'We design and build websites, ecommerce experiences and custom systems for companies that need to turn their digital presence into a real driver for growth and operational efficiency.',
   'hero.microcopy': 'From corporate sites to platforms and AI-powered automations, we work where business and technology meet.',
   'hero.cta': 'Talk to an expert',
-  'hero.cta2': 'View projects',
+  'hero.cta2': 'See results',
 
   // Stats Section
   'stats.title': 'Our Impact in Numbers',
@@ -346,7 +346,7 @@ export const en = {
 
   // Services Section
   'services.title': 'Services',
-  'services.subtitle': 'Digital solutions tailored to your needs',
+  'services.subtitle': 'Each service is designed to solve a specific business problem',
   'services.viewDetail': 'View Details',
   'services.gdprCompliance': 'We comply with all data protection and GDPR regulations to ensure the security and privacy of your information.',
   'services.viewAll': 'View all services',
@@ -431,19 +431,19 @@ export const en = {
   'whyAlora.technology.item4': 'Because growing shouldn\'t mean rebuilding everything from scratch',
 
   // CTA Section
-  'cta.title': 'Want to work together?',
-  'cta.subtitle': 'Contact me now to turn your ideas into reality',
+  'cta.title': 'Ready to grow your business?',
+  'cta.subtitle': 'Let\'s talk about your project. We\'ll respond within 24 hours.',
   'cta.whatsapp': 'WhatsApp',
   'cta.contact': 'Contact Form',
 
 
   // Technologies Section
   'tech.title': 'Technologies',
-  'tech.subtitle': 'Tools I use to create amazing solutions',
+  'tech.subtitle': 'Tools we use to build high-performance solutions',
 
   // Contact Section
-  'contact.title': 'Ready to get started?',
-  'contact.subtitle': 'Let\'s talk about your next project',
+  'contact.title': 'Ready to take the next step?',
+  'contact.subtitle': 'Leave us your details and we\'ll get back to you within 24 hours with a personalized proposal.',
   'contact.whatsapp': 'WhatsApp',
   'contact.email': 'Email',
   'contact.linkedin': 'Connect on LinkedIn',
@@ -458,7 +458,7 @@ export const en = {
   'contact.form.message': 'Message',
   'contact.form.submit': 'Send Message',
   'contact.form.sending': 'Sending...',
-  'contact.form.success': 'Message sent successfully! We will get back to you soon.',
+  'contact.form.success': 'Message sent successfully! We\'ll reply within 24 hours with a personalized proposal.',
   'contact.form.error': 'An error occurred. Please try again later.',
   'contact.form.validation.required': 'This field is required',
   'contact.form.validation.invalidEmail': 'Please enter a valid email address',

@@ -319,7 +319,7 @@ export const es = {
   'hero.subtitle': 'Diseñamos y desarrollamos sitios web, ecommerce y sistemas personalizados para compañías que necesitan convertir su presencia digital en una herramienta real de crecimiento y eficiencia operativa.',
   'hero.microcopy': 'Desde webs corporativas hasta plataformas y automatizaciones con IA, trabajamos donde el negocio y la tecnología se cruzan.',
   'hero.cta': 'Hablar con un experto',
-  'hero.cta2': 'Ver proyectos',
+  'hero.cta2': 'Ver resultados',
 
   // Stats Section
   'stats.title': 'Nuestro Impacto en Números',
@@ -331,7 +331,7 @@ export const es = {
 
   // Services Section
   'services.title': 'Servicios',
-  'services.subtitle': 'Soluciones digitales adaptadas a tus necesidades',
+  'services.subtitle': 'Cada servicio está diseñado para resolver un problema concreto de tu negocio',
   'services.viewDetail': 'Ver Detalle',
   'services.gdprCompliance': 'Todos nuestros desarrollos cumplen con las normativas GDPR para garantizar la privacidad y seguridad de los datos.',
 
@@ -415,19 +415,19 @@ export const es = {
   'whyAlora.technology.item4': 'Porque crecer no debería implicar reconstruir todo desde cero',
 
   // CTA Section
-  'cta.title': 'Quieres que trabajemos juntos?',
-  'cta.subtitle': 'Contactame ahora para convertir tus ideas en realidad',
+  'cta.title': '¿Listo para impulsar tu negocio?',
+  'cta.subtitle': 'Hablemos de tu proyecto. Te respondemos en menos de 24 horas.',
   'cta.whatsapp': 'WhatsApp',
   'cta.contact': 'Formulario de Contacto',
 
 
   // Technologies Section
   'tech.title': 'Tecnologías',
-  'tech.subtitle': 'Herramientas que uso para crear soluciones increíbles',
+  'tech.subtitle': 'Herramientas que usamos para crear soluciones de alto rendimiento',
 
   // Contact Section
-  'contact.title': '¿Listo para empezar?',
-  'contact.subtitle': 'Conversemos sobre tu próximo proyecto',
+  'contact.title': '¿Listo para dar el siguiente paso?',
+  'contact.subtitle': 'Dejanos tus datos y te contactamos en menos de 24 horas con una propuesta personalizada.',
   'contact.whatsapp': 'WhatsApp',
   'contact.email': 'Email',
   'contact.linkedin': 'Conectar en LinkedIn',
@@ -455,7 +455,7 @@ export const es = {
   'contact.form.message': 'Mensaje',
   'contact.form.submit': 'Enviar Mensaje',
   'contact.form.sending': 'Enviando...',
-  'contact.form.success': '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.',
+  'contact.form.success': '¡Mensaje enviado con éxito! Te responderemos en menos de 24 horas con una propuesta personalizada.',
   'contact.form.error': 'Ocurrió un error. Por favor, inténtalo de nuevo más tarde.',
   'contact.form.validation.required': 'Este campo es obligatorio',
   'contact.form.validation.invalidEmail': 'Por favor, introduce un email válido',

@@ -44,6 +44,17 @@ const ContactPage = () => {
                 : "At GlobalAlora, we create intelligent digital systems that drive growth, optimize operations, and connect with your customers in a meaningful and profitable way."}
             </p>
 
+            <motion.p
+              className="hero-urgency"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              {locale === "es"
+                ? "📅 Agenda tu consulta gratuita — cupos limitados este mes"
+                : "📅 Book your free consultation — limited spots this month"}
+            </motion.p>
+
             {/* CTA Fuerte */}
             <motion.div
               className="hero-cta"
@@ -112,6 +123,11 @@ const ContactPage = () => {
               <h2>
                 {locale === "es" ? "¿Listo para empezar?" : "Ready to start?"}
               </h2>
+              <p className="form-response-promise">
+                {locale === "es"
+                  ? "⚡ Te respondemos en menos de 24 horas"
+                  : "⚡ We respond within 24 hours"}
+              </p>
               <ContactForm />
             </motion.div>
           </div>
