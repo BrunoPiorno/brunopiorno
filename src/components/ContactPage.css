@@ -334,3 +334,25 @@
     padding: 1rem;
   }
 }
+
+/* Urgency line in hero */
+.hero-urgency {
+  color: #e8b830;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* Response time promise above form */
+.form-response-promise {
+  display: inline-block;
+  background: rgba(232, 184, 48, 0.12);
+  color: #e8b830;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.01em;
+}
