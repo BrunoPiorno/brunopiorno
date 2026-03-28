@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
@@ -660,6 +661,28 @@ const Ecommerce = () => {
     <div className="ecommerce-page">
       <Helmet>
         <title>{t('meta.ecommerceTitle')}</title>
+        <meta name="description" content={locale === 'es' ? 'Creamos tiendas online con WooCommerce optimizadas para vender y escalar. Sistema completo: catálogo, pagos, logística y gestión. Alora.' : 'We build WooCommerce online stores optimized to sell and scale. Complete system: catalog, payments, logistics and management. Alora.'} />
+        <meta name="keywords" content={locale === 'es' ? 'ecommerce, tienda online, WooCommerce, vender online, tienda virtual, Argentina' : 'ecommerce, online store, WooCommerce, sell online, virtual store'} />
+        <link rel="canonical" href={`https://globalalora.com/${locale}/soluciones/ecommerce`} />
+        <meta property="og:title" content={locale === 'es' ? 'Alora | Ecommerce y Tiendas Online con WooCommerce' : 'Alora | Ecommerce & Online Stores with WooCommerce'} />
+        <meta property="og:description" content={locale === 'es' ? 'Tiendas online pensadas para vender y escalar. WooCommerce + estrategia + soporte.' : 'Online stores built to sell and scale. WooCommerce + strategy + support.'} />
+        <meta property="og:image" content="https://globalalora.com/aloralogo.png" />
+        <meta property="og:url" content={`https://globalalora.com/${locale}/soluciones/ecommerce`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={locale === 'es' ? 'Alora | Ecommerce y Tiendas Online' : 'Alora | Ecommerce & Online Stores'} />
+        <meta name="twitter:description" content={locale === 'es' ? 'Tiendas online con WooCommerce optimizadas para vender y escalar.' : 'WooCommerce online stores optimized to sell and scale.'} />
+        <meta name="twitter:image" content="https://globalalora.com/aloralogo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Ecommerce y Tiendas Online — Alora",
+  "provider": { "@type": "Organization", "name": "Alora", "url": "https://globalalora.com" },
+  "description": "Creamos tiendas online con WooCommerce optimizadas para vender y escalar. Sistema completo de catálogo, pagos, logística y gestión.",
+  "serviceType": "Ecommerce Development",
+  "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
+  "url": "https://globalalora.com/es/soluciones/ecommerce"
+})}</script>
       </Helmet>
       <section className="ecommerce-hero">
         <motion.div
@@ -965,8 +988,29 @@ const Ecommerce = () => {
         </motion.div>
       </section>
 
+      {/* Related Services */}
+      <section className="related-services-section">
+        <div className="related-services-container">
+          <h2>{locale === 'es' ? 'Servicios que se complementan' : 'Services that complement each other'}</h2>
+          <div className="related-services-grid">
+            <Link to={`/${locale}/soluciones/landing-pages`} className="related-service-card">
+              <i className="fas fa-bullseye"></i>
+              <span>Landing Pages</span>
+            </Link>
+            <Link to={`/${locale}/soluciones/google-ads`} className="related-service-card">
+              <i className="fab fa-google"></i>
+              <span>Google Ads</span>
+            </Link>
+            <Link to={`/${locale}/soluciones/atencion-cliente-ia`} className="related-service-card">
+              <i className="fas fa-robot"></i>
+              <span>{locale === 'es' ? 'Atención con IA' : 'AI Support'}</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="final-cta-section">
-        <motion.div 
+        <motion.div
           className="cta-content-wrapper"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
@@ -549,6 +550,28 @@ const GoogleAds = () => {
     <div className="googleads-page">
       <Helmet>
         <title>{t('meta.googleAdsTitle')}</title>
+        <meta name="description" content={locale === 'es' ? 'Gestión profesional de campañas Google Ads para generar leads y ventas con intención real de compra. Alora optimiza keywords, anuncios y presupuesto.' : 'Professional Google Ads campaign management to generate leads and sales with real purchase intent. Alora optimizes keywords, ads and budget.'} />
+        <meta name="keywords" content={locale === 'es' ? 'google ads, sem, campañas google, publicidad google, google adwords, leads, Argentina' : 'google ads, sem, google campaigns, google advertising, leads, ppc'} />
+        <link rel="canonical" href={`https://globalalora.com/${locale}/soluciones/google-ads`} />
+        <meta property="og:title" content={locale === 'es' ? 'Alora | Gestión de Google Ads para Generar Leads' : 'Alora | Google Ads Management to Generate Leads'} />
+        <meta property="og:description" content={locale === 'es' ? 'Campañas Google Ads optimizadas para captar clientes con intención de compra.' : 'Google Ads campaigns optimized to capture customers with purchase intent.'} />
+        <meta property="og:image" content="https://globalalora.com/aloralogo.png" />
+        <meta property="og:url" content={`https://globalalora.com/${locale}/soluciones/google-ads`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={locale === 'es' ? 'Alora | Google Ads' : 'Alora | Google Ads'} />
+        <meta name="twitter:description" content={locale === 'es' ? 'Campañas Google Ads para captar leads con intención real de compra.' : 'Google Ads campaigns to capture leads with real purchase intent.'} />
+        <meta name="twitter:image" content="https://globalalora.com/aloralogo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Gestión de Google Ads — Alora",
+  "provider": { "@type": "Organization", "name": "Alora", "url": "https://globalalora.com" },
+  "description": "Gestión profesional de campañas Google Ads para captar clientes con intención real de compra. Optimización de keywords, anuncios y presupuesto.",
+  "serviceType": "Google Ads Management",
+  "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
+  "url": "https://globalalora.com/es/soluciones/google-ads"
+})}</script>
       </Helmet>
       <section className="googleads-hero">
         <motion.div
@@ -792,6 +815,27 @@ const GoogleAds = () => {
             ))}
           </ul>
         </motion.div>
+      </section>
+
+      {/* Related Services */}
+      <section className="related-services-section">
+        <div className="related-services-container">
+          <h2>{locale === 'es' ? 'Servicios que se complementan' : 'Services that complement each other'}</h2>
+          <div className="related-services-grid">
+            <Link to={`/${locale}/soluciones/landing-pages`} className="related-service-card">
+              <i className="fas fa-bullseye"></i>
+              <span>Landing Pages</span>
+            </Link>
+            <Link to={`/${locale}/soluciones/ecommerce`} className="related-service-card">
+              <i className="fas fa-shopping-cart"></i>
+              <span>Ecommerce</span>
+            </Link>
+            <Link to={`/${locale}/soluciones/atencion-cliente-ia`} className="related-service-card">
+              <i className="fas fa-robot"></i>
+              <span>{locale === 'es' ? 'Atención con IA' : 'AI Support'}</span>
+            </Link>
+          </div>
+        </div>
       </section>
 
       <section className="googleads-final-cta">

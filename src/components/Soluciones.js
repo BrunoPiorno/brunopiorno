@@ -211,6 +211,42 @@ const Soluciones = () => {
     <div className="soluciones-page">
       <Helmet>
         <title>{t('meta.solucionesTitle')}</title>
+        <meta name="description" content={locale === 'es' ? 'Servicios digitales de Alora: desarrollo web, landing pages, ecommerce, Google Ads, aplicaciones web y atención al cliente con IA. Soluciones a medida para empresas.' : 'Alora digital services: web development, landing pages, ecommerce, Google Ads, web applications and AI customer service. Custom solutions for businesses.'} />
+        <meta name="keywords" content={locale === 'es' ? 'servicios web, desarrollo web, landing pages, ecommerce, google ads, aplicaciones web, IA, agencia digital, Argentina' : 'web services, web development, landing pages, ecommerce, google ads, web applications, AI, digital agency'} />
+        <link rel="canonical" href={`https://globalalora.com/${locale}/soluciones`} />
+        <meta property="og:title" content={locale === 'es' ? 'Alora | Soluciones Digitales para tu Empresa' : 'Alora | Digital Solutions for your Business'} />
+        <meta property="og:description" content={locale === 'es' ? 'Desarrollo web, ecommerce, landing pages, Google Ads y sistemas con IA. Soluciones digitales a medida.' : 'Web development, ecommerce, landing pages, Google Ads and AI systems. Custom digital solutions.'} />
+        <meta property="og:image" content="https://globalalora.com/aloralogo.png" />
+        <meta property="og:url" content={`https://globalalora.com/${locale}/soluciones`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={locale === 'es' ? 'Alora | Soluciones Digitales' : 'Alora | Digital Solutions'} />
+        <meta name="twitter:description" content={locale === 'es' ? 'Desarrollo web, ecommerce, landing pages, Google Ads y sistemas con IA.' : 'Web development, ecommerce, landing pages, Google Ads and AI systems.'} />
+        <meta name="twitter:image" content="https://globalalora.com/aloralogo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Servicios Digitales — Alora",
+  "provider": {
+    "@type": "Organization",
+    "name": "Alora",
+    "url": "https://globalalora.com"
+  },
+  "description": "Desarrollo web, landing pages, ecommerce, Google Ads, aplicaciones web y atención al cliente con IA.",
+  "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios Digitales",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo Web" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Pages" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecommerce / WooCommerce" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aplicaciones Web" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Atención al Cliente con IA" } }
+    ]
+  }
+})}</script>
       </Helmet>
       {/* Hero Section */}
       <section className="hero-section" id="hero">
@@ -271,7 +307,7 @@ const Soluciones = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2>{locale === 'es' ? 'Nuestros Servicios' : 'Our Services'}</h2>
+          <h1>{locale === 'es' ? 'Nuestros Servicios' : 'Our Services'}</h1>
         </motion.div>
 
         <div className="services-grid">

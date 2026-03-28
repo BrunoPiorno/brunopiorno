@@ -532,6 +532,44 @@ const HomePage = () => {
         <meta name="twitter:title" content={t('meta.title')} />
         <meta name="twitter:description" content={t('meta.description')} />
         <meta name="twitter:image" content="https://globalalora.com/aloralogo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué servicios ofrece Alora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alora ofrece desarrollo web, landing pages, ecommerce con WooCommerce, gestión de Google Ads, aplicaciones web a medida y atención al cliente con IA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Con qué tipo de empresas trabaja Alora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trabajamos con pymes en crecimiento, empresas B2B, ecommerce que quieren escalar, startups con inversión y organizaciones que necesitan sistemas a medida."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo tarda un proyecto web con Alora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del alcance: una landing page puede estar lista en 1-2 semanas, un sitio corporativo en 3-4 semanas, y un ecommerce completo en 4-8 semanas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Alora trabaja con clientes fuera de Argentina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, trabajamos con clientes en Argentina, España, México, Chile y Colombia. Nuestro equipo es bilingüe (español/inglés)."
+      }
+    }
+  ]
+})}</script>
       </Helmet>
 
       {/* Hero Section */}
