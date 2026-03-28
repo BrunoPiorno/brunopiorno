@@ -1274,6 +1274,19 @@ body.soluciones-page .site-header .language-selector {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.client-text-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary, #aaa);
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.client-card:hover .client-text-logo {
+  color: var(--text-primary, #fff);
+}
+
 .client-card h3 {
   font-family: var(--font-family-headline);
   font-size: 1.5rem;

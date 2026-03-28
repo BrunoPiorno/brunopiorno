@@ -20,12 +20,18 @@ const ClientCard = memo(({ client, index }) => {
   return (
     <MotionComponent {...componentProps}>
       <div className="client-logo">
-        <img 
-          src={client.logo} 
-          alt={`${client.name} logo`}
-          className={client.filter ? 'filter' : ''}
-          loading="lazy"
-        />
+        {client.textLogo ? (
+          <span className="client-text-logo" style={{ fontFamily: client.fontFamily || 'inherit' }}>
+            {client.textLogo}
+          </span>
+        ) : (
+          <img
+            src={client.logo}
+            alt={`${client.name} logo`}
+            className={client.filter ? 'filter' : ''}
+            loading="lazy"
+          />
+        )}
       </div>
     </MotionComponent>
   );

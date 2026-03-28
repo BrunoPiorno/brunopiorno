@@ -150,6 +150,12 @@ const HomePage = () => {
       logo: require('../images/mimikidslogo.png'),
       url: 'https://mimikids.com.ar'
     },
+    {
+      name: 'Lidia',
+      textLogo: 'LIDIA',
+      fontFamily: "'Inter', sans-serif",
+      url: 'https://soylidia.com'
+    },
   ];
 
   const testimonials = useMemo(() => ([
