@@ -45,12 +45,15 @@ const ExitIntentPopup = () => {
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
   };
 
+  const ctaUrl = locale === 'en'
+    ? 'https://www.globalalora.com/en/discovery-call'
+    : 'https://www.globalalora.com/es/llamada-de-relevamiento';
+
   const handleCTA = () => {
     if (window.gtag) {
       window.gtag('event', 'exit_popup_cta_click', { locale });
     }
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
-    window.location.href = 'https://www.globalalora.com/es/llamada-de-relevamiento';
   };
 
   const handleWhatsApp = () => {
@@ -107,10 +110,14 @@ const ExitIntentPopup = () => {
                 : 'Book a free 20-minute session and get a quote within 24 hours. No commitment.'}
             </p>
 
-            <button className="eip-btn-primary" onClick={handleCTA}>
+            <a
+              href={ctaUrl}
+              className="eip-btn-primary"
+              onClick={handleCTA}
+            >
               <i className="fas fa-calendar-alt"></i>
               {locale === 'es' ? 'Reservar sesión gratuita' : 'Book free session'}
-            </button>
+            </a>
 
             <p className="eip-or">
               {locale === 'es' ? 'o escribinos directo' : 'or message us directly'}
