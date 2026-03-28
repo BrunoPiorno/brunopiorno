@@ -4,13 +4,11 @@ import { useLanguage } from '../context/LanguageContext';
 import './ExitIntentPopup.css';
 
 const STORAGE_KEY = 'alora_exit_popup_shown';
-const COOLDOWN_DAYS = 7;
+const COOLDOWN_DAYS = 3;
 
 const ExitIntentPopup = () => {
   const { locale } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
 
   const shouldShow = useCallback(() => {
     const last = localStorage.getItem(STORAGE_KEY);
@@ -23,21 +21,19 @@ const ExitIntentPopup = () => {
     let triggered = false;
 
     const handleMouseLeave = (e) => {
-      if (e.clientY <= 10 && !triggered && shouldShow()) {
+      if (e.clientY <= 5 && !triggered && shouldShow()) {
         triggered = true;
-        // Small delay so it feels natural
-        setTimeout(() => setIsVisible(true), 300);
+        setTimeout(() => setIsVisible(true), 200);
       }
     };
 
-    // Only on desktop (no exit intent on mobile, use scroll instead)
     if (window.innerWidth >= 768) {
       document.addEventListener('mouseleave', handleMouseLeave);
     } else {
-      // On mobile: show after 60s of being on page
+      // Mobile: show after 45s
       const timer = setTimeout(() => {
         if (shouldShow()) setIsVisible(true);
-      }, 60000);
+      }, 45000);
       return () => clearTimeout(timer);
     }
 
@@ -49,82 +45,29 @@ const ExitIntentPopup = () => {
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
   };
 
+  const handleCTA = () => {
+    if (window.gtag) {
+      window.gtag('event', 'exit_popup_cta_click', { locale });
+    }
+    localStorage.setItem(STORAGE_KEY, Date.now().toString());
+    window.location.href = 'https://www.globalalora.com/es/llamada-de-relevamiento';
+  };
+
   const handleWhatsApp = () => {
     const msg = locale === 'es'
-      ? 'Hola! Estaba viendo su web y me gustaría saber cuánto cuesta mi proyecto.'
-      : 'Hi! I was browsing your site and would like to know how much my project costs.';
-    const url = `https://api.whatsapp.com/send/?phone=${encodeURIComponent('+5491124629452')}&text=${encodeURIComponent(msg)}&type=phone_number&app_absent=0`;
-    window.open(url, '_blank');
+      ? 'Hola! Estaba viendo su web y quiero saber cuánto cuesta mi proyecto.'
+      : 'Hi! I was on your site and want to know how much my project costs.';
+    window.open(
+      `https://api.whatsapp.com/send/?phone=${encodeURIComponent('+5491124629452')}&text=${encodeURIComponent(msg)}&type=phone_number&app_absent=0`,
+      '_blank'
+    );
     handleClose();
   };
-
-  const handleEmailSubmit = async (e) => {
-    e.preventDefault();
-    if (!email) return;
-
-    // Subscribe to MailerLite (same service as the contact form)
-    try {
-      const endpoint = locale === 'en'
-        ? 'https://assets.mailerlite.com/jsonp/2070356/forms/178060668159657324/subscribe'
-        : 'https://assets.mailerlite.com/jsonp/2070356/forms/177855257628378295/subscribe';
-
-      const formPayload = new URLSearchParams();
-      formPayload.append('fields[email]', email);
-      formPayload.append('fields[consulta]', 'Lead desde Exit Intent Popup — ' + window.location.href);
-      formPayload.append('ml-submit', '1');
-
-      await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formPayload.toString(),
-      });
-    } catch (err) {
-      console.error('MailerLite error:', err);
-    }
-
-    if (window.gtag) {
-      window.gtag('event', 'exit_popup_email_submit', { email });
-    }
-
-    setSubmitted(true);
-    localStorage.setItem(STORAGE_KEY, Date.now().toString());
-    setTimeout(() => setIsVisible(false), 2500);
-  };
-
-  const copy = {
-    es: {
-      eyebrow: '¡Espera! Antes de irte...',
-      title: '¿Sabés cuánto cuesta tu proyecto?',
-      subtitle: 'Dejanos tu email y te enviamos una estimación gratuita en menos de 24 horas. Sin compromisos.',
-      placeholder: 'tu@email.com',
-      btn: 'Quiero mi estimación gratis',
-      or: 'o si preferís una respuesta inmediata',
-      whatsapp: 'Hablar por WhatsApp ahora',
-      successTitle: '¡Perfecto! 🎉',
-      successMsg: 'Te escribimos en menos de 24 horas.',
-      close: 'No gracias, me la pierdo',
-    },
-    en: {
-      eyebrow: 'Wait! Before you go...',
-      title: 'Do you know how much your project costs?',
-      subtitle: 'Leave your email and we\'ll send you a free estimate within 24 hours. No commitment.',
-      placeholder: 'your@email.com',
-      btn: 'Get my free estimate',
-      or: 'or if you prefer an instant answer',
-      whatsapp: 'Chat on WhatsApp now',
-      successTitle: 'Perfect! 🎉',
-      successMsg: 'We\'ll write to you within 24 hours.',
-      close: 'No thanks, I\'ll pass',
-    },
-  };
-
-  const c = copy[locale] || copy.es;
 
   return (
     <AnimatePresence>
       {isVisible && (
         <>
-          {/* Overlay */}
           <motion.div
             className="eip-overlay"
             initial={{ opacity: 0 }}
@@ -133,13 +76,12 @@ const ExitIntentPopup = () => {
             onClick={handleClose}
           />
 
-          {/* Modal */}
           <motion.div
             className="eip-modal"
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.92, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+            exit={{ opacity: 0, scale: 0.92, y: 24 }}
+            transition={{ type: 'spring', damping: 22, stiffness: 320 }}
             role="dialog"
             aria-modal="true"
           >
@@ -147,49 +89,41 @@ const ExitIntentPopup = () => {
               <i className="fas fa-times"></i>
             </button>
 
-            {!submitted ? (
-              <>
-                <p className="eip-eyebrow">{c.eyebrow}</p>
-                <h2 className="eip-title">{c.title}</h2>
-                <p className="eip-subtitle">{c.subtitle}</p>
+            <div className="eip-icon">💡</div>
 
-                <form className="eip-form" onSubmit={handleEmailSubmit}>
-                  <input
-                    type="email"
-                    className="eip-input"
-                    placeholder={c.placeholder}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    autoFocus
-                  />
-                  <button type="submit" className="eip-btn-primary">
-                    {c.btn}
-                  </button>
-                </form>
+            <p className="eip-eyebrow">
+              {locale === 'es' ? '¡Espera! Antes de irte...' : 'Wait! Before you go...'}
+            </p>
 
-                <p className="eip-or">{c.or}</p>
+            <h2 className="eip-title">
+              {locale === 'es'
+                ? '¿Sabés cuánto cuesta tu proyecto?'
+                : 'Do you know how much your project costs?'}
+            </h2>
 
-                <button className="eip-btn-whatsapp" onClick={handleWhatsApp}>
-                  <i className="fab fa-whatsapp"></i>
-                  {c.whatsapp}
-                </button>
+            <p className="eip-subtitle">
+              {locale === 'es'
+                ? 'Reservá una sesión gratuita de 20 minutos y te damos una cotización en menos de 24hs. Sin compromiso.'
+                : 'Book a free 20-minute session and get a quote within 24 hours. No commitment.'}
+            </p>
 
-                <button className="eip-dismiss" onClick={handleClose}>
-                  {c.close}
-                </button>
-              </>
-            ) : (
-              <motion.div
-                className="eip-success"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-              >
-                <div className="eip-success-icon">✅</div>
-                <h3>{c.successTitle}</h3>
-                <p>{c.successMsg}</p>
-              </motion.div>
-            )}
+            <button className="eip-btn-primary" onClick={handleCTA}>
+              <i className="fas fa-calendar-alt"></i>
+              {locale === 'es' ? 'Reservar sesión gratuita' : 'Book free session'}
+            </button>
+
+            <p className="eip-or">
+              {locale === 'es' ? 'o escribinos directo' : 'or message us directly'}
+            </p>
+
+            <button className="eip-btn-whatsapp" onClick={handleWhatsApp}>
+              <i className="fab fa-whatsapp"></i>
+              {locale === 'es' ? 'Hablar por WhatsApp' : 'Chat on WhatsApp'}
+            </button>
+
+            <button className="eip-dismiss" onClick={handleClose}>
+              {locale === 'es' ? 'No gracias, me la pierdo' : 'No thanks, I\'ll pass'}
+            </button>
           </motion.div>
         </>
       )}
