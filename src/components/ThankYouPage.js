@@ -90,7 +90,7 @@ const ThankYouPage = () => {
             : 'Book a free 20-minute call right now and let\'s talk about your project instantly.'}
         </p>
         <a
-          href={locale === 'es' ? 'https://tidycal.com/alora/20-minutos-reunion' : 'https://tidycal.com/alora/20-minutes'}
+          href="https://www.globalalora.com/es/llamada-de-relevamiento"
           target="_blank"
           rel="noopener noreferrer"
           className="ty-btn-primary"
