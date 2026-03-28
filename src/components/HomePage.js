@@ -18,6 +18,7 @@ import FloatingIcons from './FloatingIcons';
 import ContactForm from './ContactForm';
 import ContactSection from './ContactSection';
 import Chatbot from './Chatbot';
+import ExitIntentPopup from './ExitIntentPopup';
 import entradafanLogo from '../images/entradafan.svg';
 import gangafanlogo from '../images/gangafan-logo.svg';
 import fpnnLogo from '../images/fpnn.png';
@@ -1302,6 +1303,7 @@ const HomePage = () => {
 
       {/* Chatbot AI */}
       <Chatbot />
+      <ExitIntentPopup />
     </div>
   );
 };

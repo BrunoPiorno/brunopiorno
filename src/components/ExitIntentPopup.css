@@ -1,0 +1,188 @@
+.eip-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+}
+
+.eip-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: var(--surface-color, #111);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.eip-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary, #888);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  transition: color 0.2s;
+}
+
+.eip-close:hover {
+  color: var(--text-primary, #fff);
+}
+
+.eip-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f59e0b;
+  margin-bottom: 0.75rem;
+}
+
+.eip-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary, #fff);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.eip-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary, #aaa);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.eip-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.eip-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary, #fff);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.eip-input:focus {
+  border-color: #f59e0b;
+}
+
+.eip-input::placeholder {
+  color: #666;
+}
+
+.eip-btn-primary {
+  width: 100%;
+  padding: 0.9rem;
+  background: #f59e0b;
+  color: #000;
+  font-weight: 800;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.eip-btn-primary:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+}
+
+.eip-or {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #666);
+  margin: 1rem 0 0.75rem;
+}
+
+.eip-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin-bottom: 1.5rem;
+}
+
+.eip-btn-whatsapp:hover {
+  background: #1da851;
+  transform: translateY(-2px);
+}
+
+.eip-btn-whatsapp .fab {
+  font-size: 1.1rem;
+}
+
+.eip-dismiss {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary, #666);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.eip-dismiss:hover {
+  color: var(--text-secondary, #999);
+}
+
+.eip-success {
+  padding: 1rem 0;
+}
+
+.eip-success-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.eip-success h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary, #fff);
+  margin-bottom: 0.5rem;
+}
+
+.eip-success p {
+  color: var(--text-secondary, #aaa);
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .eip-modal {
+    padding: 2rem 1.5rem;
+  }
+  .eip-title {
+    font-size: 1.3rem;
+  }
+}
