@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { useLanguage } from '../context/LanguageContext';
 import './ExitIntentPopup.css';
 
@@ -59,24 +58,29 @@ const ExitIntentPopup = () => {
     handleClose();
   };
 
-  const handleEmailSubmit = (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
 
-    const templateParams = {
-      lead_email: email,
-      lead_source: 'Exit Intent Popup',
-      lead_page: window.location.href,
-      date: new Date().toLocaleString('es-AR'),
-      to_email: 'somosglobalalora@gmail.com',
-    };
+    // Subscribe to MailerLite (same service as the contact form)
+    try {
+      const endpoint = locale === 'en'
+        ? 'https://assets.mailerlite.com/jsonp/2070356/forms/178060668159657324/subscribe'
+        : 'https://assets.mailerlite.com/jsonp/2070356/forms/177855257628378295/subscribe';
 
-    emailjs.send(
-      'service_6r3ee9k',
-      'template_exit_popup',
-      templateParams,
-      'CwpWaIXVC5Pdb4Kae'
-    ).catch((err) => console.error('EmailJS error:', err));
+      const formPayload = new URLSearchParams();
+      formPayload.append('fields[email]', email);
+      formPayload.append('fields[consulta]', 'Lead desde Exit Intent Popup — ' + window.location.href);
+      formPayload.append('ml-submit', '1');
+
+      await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formPayload.toString(),
+      });
+    } catch (err) {
+      console.error('MailerLite error:', err);
+    }
 
     if (window.gtag) {
       window.gtag('event', 'exit_popup_email_submit', { email });
