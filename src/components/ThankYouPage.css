@@ -1,0 +1,209 @@
+.thank-you-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 1.5rem 4rem;
+  gap: 3rem;
+  background: var(--background-color, #0a0a0a);
+}
+
+/* Hero */
+.ty-hero {
+  text-align: center;
+  max-width: 600px;
+}
+
+.ty-check {
+  font-size: 4rem;
+  color: #2dbd7f;
+  margin-bottom: 1rem;
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.ty-hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--text-primary, #fff);
+}
+
+.ty-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary, #aaa);
+  line-height: 1.6;
+}
+
+/* Steps */
+.ty-steps {
+  width: 100%;
+  max-width: 860px;
+  text-align: center;
+}
+
+.ty-steps h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-primary, #fff);
+}
+
+.ty-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.ty-step {
+  background: var(--surface-color, #111);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+
+.ty-step-number {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2dbd7f;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ty-step-icon {
+  font-size: 1.8rem;
+  color: #2dbd7f;
+  margin-bottom: 0.75rem;
+}
+
+.ty-step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary, #fff);
+}
+
+.ty-step p {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #aaa);
+  line-height: 1.5;
+}
+
+/* CTA */
+.ty-cta {
+  text-align: center;
+  max-width: 520px;
+}
+
+.ty-cta h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary, #fff);
+}
+
+.ty-cta p {
+  font-size: 1rem;
+  color: var(--text-secondary, #aaa);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.ty-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #2dbd7f;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.ty-btn-primary:hover {
+  background: #25a56e;
+  transform: translateY(-2px);
+}
+
+/* Social */
+.ty-social {
+  text-align: center;
+}
+
+.ty-social-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #888);
+  margin-bottom: 1rem;
+}
+
+.ty-social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ty-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text-secondary, #aaa);
+  font-size: 0.9rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ty-social-btn:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--text-primary, #fff);
+}
+
+/* Back */
+.ty-back {
+  margin-top: 1rem;
+}
+
+.ty-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary, #888);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ty-btn-secondary:hover {
+  color: var(--text-primary, #fff);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .ty-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ty-hero h1 {
+    font-size: 1.8rem;
+  }
+}
