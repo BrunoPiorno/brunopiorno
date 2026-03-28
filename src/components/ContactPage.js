@@ -15,6 +15,18 @@ const ContactPage = () => {
     <div className="contact-page">
       <Helmet>
         <title>{t('meta.contactTitle')}</title>
+        <meta name="description" content={locale === 'es' ? 'Contactá a Alora para hablar de tu proyecto digital. Respondemos en menos de 24 horas con una propuesta personalizada.' : 'Contact Alora to talk about your digital project. We respond within 24 hours with a personalized proposal.'} />
+        <meta name="keywords" content={locale === 'es' ? 'contacto agencia web, presupuesto web, contratar desarrollador, agencia digital Argentina' : 'contact web agency, web quote, hire developer, digital agency'} />
+        <link rel="canonical" href={`https://globalalora.com/${locale}/contacto`} />
+        <meta property="og:title" content={locale === 'es' ? 'Alora | Contacto — Hablemos de tu Proyecto' : "Alora | Contact — Let's Talk About Your Project"} />
+        <meta property="og:description" content={locale === 'es' ? 'Contactá a Alora. Te respondemos en menos de 24 horas con una propuesta personalizada.' : 'Contact Alora. We respond within 24 hours with a personalized proposal.'} />
+        <meta property="og:image" content="https://globalalora.com/aloralogo.png" />
+        <meta property="og:url" content={`https://globalalora.com/${locale}/contacto`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={locale === 'es' ? 'Alora | Contacto' : 'Alora | Contact'} />
+        <meta name="twitter:description" content={locale === 'es' ? 'Hablemos de tu proyecto. Respondemos en menos de 24 horas.' : "Let's talk about your project. We respond within 24 hours."} />
+        <meta name="twitter:image" content="https://globalalora.com/aloralogo.png" />
       </Helmet>
       {/* Hero Section - Nueva sección creativa */}
       <section className="contact-hero">

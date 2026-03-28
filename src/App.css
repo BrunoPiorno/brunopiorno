@@ -5919,3 +5919,73 @@ body.proposal-page-active .mobile-controls .language-toggle {
     font-size: 0.9rem;
   }
 }
+
+/* ─── Related Services Cross-linking ─────────────────────────────────────── */
+
+.related-services-section {
+  padding: 4rem 1.5rem;
+  background: #f8fafc;
+}
+
+.related-services-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.related-services-container h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2rem;
+}
+
+.related-services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.related-service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem 1.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #1e293b;
+  font-size: 0.95rem;
+  font-weight: 600;
+  min-width: 140px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.related-service-card i {
+  font-size: 1.4rem;
+  color: #6366f1;
+}
+
+.related-service-card:hover {
+  border-color: #6366f1;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+  color: #6366f1;
+}
+
+@media (max-width: 600px) {
+  .related-services-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .related-service-card {
+    width: 100%;
+    max-width: 280px;
+    flex-direction: row;
+    justify-content: center;
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from "../context/LanguageContext";
@@ -1778,6 +1779,28 @@ const LandingPages = () => {
     <div className="landing-pages-page">
       <Helmet>
         <title>{t('meta.landingPagesTitle')}</title>
+        <meta name="description" content={locale === 'es' ? 'Diseñamos landing pages de alta conversión para captar leads y ventas. Páginas optimizadas con formularios, A/B testing y métricas precisas. Alora.' : 'We design high-converting landing pages to capture leads and sales. Optimized pages with forms, A/B testing and precise metrics. Alora.'} />
+        <meta name="keywords" content={locale === 'es' ? 'landing pages, páginas de aterrizaje, captación de leads, conversión, diseño web, Argentina' : 'landing pages, lead generation, conversion, web design, digital marketing'} />
+        <link rel="canonical" href={`https://globalalora.com/${locale}/soluciones/landing-pages`} />
+        <meta property="og:title" content={locale === 'es' ? 'Alora | Landing Pages de Alta Conversión' : 'Alora | High-Converting Landing Pages'} />
+        <meta property="og:description" content={locale === 'es' ? 'Páginas de aterrizaje optimizadas para captar leads y generar ventas. Diseño + estrategia + métricas.' : 'Optimized landing pages to capture leads and generate sales. Design + strategy + metrics.'} />
+        <meta property="og:image" content="https://globalalora.com/aloralogo.png" />
+        <meta property="og:url" content={`https://globalalora.com/${locale}/soluciones/landing-pages`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={locale === 'es' ? 'Alora | Landing Pages de Alta Conversión' : 'Alora | High-Converting Landing Pages'} />
+        <meta name="twitter:description" content={locale === 'es' ? 'Landing pages optimizadas para captar leads y ventas.' : 'Landing pages optimized to capture leads and sales.'} />
+        <meta name="twitter:image" content="https://globalalora.com/aloralogo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Landing Pages de Alta Conversión — Alora",
+  "provider": { "@type": "Organization", "name": "Alora", "url": "https://globalalora.com" },
+  "description": "Diseñamos landing pages optimizadas para captar leads y generar ventas con formularios, A/B testing y métricas precisas.",
+  "serviceType": "Landing Page Design",
+  "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
+  "url": "https://globalalora.com/es/soluciones/landing-pages"
+})}</script>
       </Helmet>
       {/* Hero Section - Mismo que DesarrolloWeb */}
       <section className="hero-section">
@@ -2247,6 +2270,27 @@ const LandingPages = () => {
             ))}
           </div>
         </motion.div>
+      </section>
+
+      {/* Related Services */}
+      <section className="related-services-section">
+        <div className="related-services-container">
+          <h2>{locale === 'es' ? 'Servicios que se complementan' : 'Services that complement each other'}</h2>
+          <div className="related-services-grid">
+            <Link to={`/${locale}/soluciones/ecommerce`} className="related-service-card">
+              <i className="fas fa-shopping-cart"></i>
+              <span>Ecommerce</span>
+            </Link>
+            <Link to={`/${locale}/soluciones/google-ads`} className="related-service-card">
+              <i className="fab fa-google"></i>
+              <span>Google Ads</span>
+            </Link>
+            <Link to={`/${locale}/soluciones/atencion-cliente-ia`} className="related-service-card">
+              <i className="fas fa-robot"></i>
+              <span>{locale === 'es' ? 'Atención con IA' : 'AI Support'}</span>
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Final CTA Section - Exactamente igual que DesarrolloWeb */}

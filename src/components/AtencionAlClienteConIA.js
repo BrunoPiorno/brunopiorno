@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from "../context/LanguageContext";
@@ -771,6 +772,28 @@ const AtencionAlClienteConIA = () => {
     <div className="atencion-cliente-ia-page">
       <Helmet>
         <title>{t('meta.atencionClienteIATitle')}</title>
+        <meta name="description" content={locale === 'es' ? 'Automatizá la atención al cliente con agentes de IA que responden en minutos. Chatbots integrados con WhatsApp, email y calendario. Alora.' : 'Automate customer service with AI agents that respond in minutes. Chatbots integrated with WhatsApp, email and calendar. Alora.'} />
+        <meta name="keywords" content={locale === 'es' ? 'atención al cliente IA, chatbot, inteligencia artificial, automatización, WhatsApp bot, Argentina' : 'AI customer service, chatbot, artificial intelligence, automation, WhatsApp bot'} />
+        <link rel="canonical" href={`https://globalalora.com/${locale}/soluciones/atencion-cliente-ia`} />
+        <meta property="og:title" content={locale === 'es' ? 'Alora | Atención al Cliente con IA 24/7' : 'Alora | AI Customer Service 24/7'} />
+        <meta property="og:description" content={locale === 'es' ? 'Agentes de IA que atienden, califican leads y agendan reuniones automáticamente.' : 'AI agents that attend, qualify leads and schedule meetings automatically.'} />
+        <meta property="og:image" content="https://globalalora.com/aloralogo.png" />
+        <meta property="og:url" content={`https://globalalora.com/${locale}/soluciones/atencion-cliente-ia`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={locale === 'es' ? 'Alora | Atención al Cliente con IA' : 'Alora | AI Customer Service'} />
+        <meta name="twitter:description" content={locale === 'es' ? 'Chatbots con IA para atender clientes 24/7 y calificar leads automáticamente.' : 'AI chatbots to serve customers 24/7 and qualify leads automatically.'} />
+        <meta name="twitter:image" content="https://globalalora.com/aloralogo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Atención al Cliente con IA — Alora",
+  "provider": { "@type": "Organization", "name": "Alora", "url": "https://globalalora.com" },
+  "description": "Agentes de IA que responden en minutos, califican leads y agendan reuniones. Integración con WhatsApp, email y calendario.",
+  "serviceType": "AI Customer Service Automation",
+  "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
+  "url": "https://globalalora.com/es/soluciones/atencion-cliente-ia"
+})}</script>
       </Helmet>
       <section className="atencion-cliente-ia-hero">
         <motion.div
@@ -1027,6 +1050,27 @@ const AtencionAlClienteConIA = () => {
           </div>
           <p className="process-note">{processNote}</p>
         </motion.div>
+      </section>
+
+      {/* Related Services */}
+      <section className="related-services-section">
+        <div className="related-services-container">
+          <h2>{locale === 'es' ? 'Servicios que se complementan' : 'Services that complement each other'}</h2>
+          <div className="related-services-grid">
+            <Link to={`/${locale}/soluciones/landing-pages`} className="related-service-card">
+              <i className="fas fa-bullseye"></i>
+              <span>Landing Pages</span>
+            </Link>
+            <Link to={`/${locale}/soluciones/ecommerce`} className="related-service-card">
+              <i className="fas fa-shopping-cart"></i>
+              <span>Ecommerce</span>
+            </Link>
+            <Link to={`/${locale}/soluciones/google-ads`} className="related-service-card">
+              <i className="fab fa-google"></i>
+              <span>Google Ads</span>
+            </Link>
+          </div>
+        </div>
       </section>
 
       <section className="final-cta-section">
