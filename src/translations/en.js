@@ -330,7 +330,7 @@ export const en = {
   'nav.contact': 'Contact',
 
   // Hero Section
-  'hero.title': 'Tailored technology for companies that want to sell more and operate better',
+  'hero.title': 'Custom digital solutions for businesses that want to grow.',
   'hero.subtitle': 'We design and build websites, ecommerce experiences and custom systems for companies that need to turn their digital presence into a real driver for growth and operational efficiency.',
   'hero.microcopy': 'From corporate sites to platforms and AI-powered automations, we work where business and technology meet.',
   'hero.cta': 'Talk to an expert',
