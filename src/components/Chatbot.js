@@ -189,8 +189,13 @@ const Chatbot = () => {
         
         if (!isErrorFallback && wantsQuote && !hasOfferedContact) {
           setHasOfferedContact(true);
-          setStep('name');
-          setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].ask_name }]);
+          setTimeout(() => {
+            setMessages(prev => [...prev, {
+              from: 'bot',
+              text: messages_by_lang[locale].offer_contact
+            }]);
+            setStep('pre_contact');
+          }, 1000);
         } else if (!isErrorFallback && messages.length >= 4 && !hasOfferedContact) {
           setHasOfferedContact(true);
           setTimeout(() => {
@@ -222,6 +227,16 @@ const Chatbot = () => {
         setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].continue_chat }]);
       }
     } else if (step === 'name') {
+      const negativeWords = locale === 'en'
+        ? ['no', 'nope', 'nah', 'not', 'nevermind', 'cancel']
+        : ['no', 'nope', 'nel', 'para nada', 'no gracias', 'cancelar'];
+      const isNegative = negativeWords.some(word => inputValue.trim().toLowerCase() === word || inputValue.trim().toLowerCase().startsWith(word + ' '));
+      if (isNegative) {
+        setStep('chat');
+        setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].continue_chat }]);
+        setInputValue('');
+        return;
+      }
       setUserData(prev => ({ ...prev, name: inputValue }));
       setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].ask_email }]);
       setStep('email');
