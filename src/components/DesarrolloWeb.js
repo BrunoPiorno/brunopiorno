@@ -37,7 +37,7 @@ const DesarrolloWeb = () => {
         ? 'Sitio corporativo para grupo empresarial con múltiples divisiones. Desarrollo web complejo con gestión de contenido y estructura multinivel.'
         : 'Corporate site for business group with multiple divisions. Complex web development with content management and multilevel structure.',
       image: terraLauquenImage,
-      url: 'https://www.terralauquen.com'
+      url: 'https://grupoterralauquen.com.ar/'
     },
     {
       title: 'Cichic',
@@ -45,7 +45,7 @@ const DesarrolloWeb = () => {
         ? 'Plataforma e-commerce de moda y accesorios. Desarrollo web completo con catálogo de productos, carrito de compras y pasarela de pago.'
         : 'Fashion and accessories e-commerce platform. Complete web development with product catalog, shopping cart and payment gateway.',
       image: cichicImage,
-      url: 'https://www.cichic.com'
+      url: 'https://chichicwinerelax.com/'
     },
     {
       title: 'Tenis De Mesa Trenque',
@@ -53,7 +53,7 @@ const DesarrolloWeb = () => {
         ? 'Sitio institucional para club deportivo con sistema de gestión de torneos, inscripciones online y resultados en tiempo real.'
         : 'Institutional site for sports club with tournament management system, online registrations and real-time results.',
       image: tenisDeMesaImage,
-      url: 'https://www.tenisdemesatrenque.com'
+      url: 'https://tenisdemesatrenque.com.ar/'
     }
   ];
 
