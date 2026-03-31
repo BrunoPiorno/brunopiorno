@@ -41,7 +41,7 @@ const LandingPages = () => {
           ? "Desarrollado a medida con WordPress como CMS, utilizando PHP, MySQL, HTML5, SCSS y JavaScript. Tema completamente personalizado sin uso de plantillas preexistentes, optimizado para rendimiento, SEO y móvil."
           : "Custom-designed website using WordPress as CMS, developed with PHP, MySQL, HTML5, CSS3, and JavaScript. Fully personalized theme with no prebuilt templates, optimized for performance, SEO, and mobile compatibility.",
       image: josejoseImage,
-      url: "https://josejose.com.ar",
+      url: "https://www.josejoseoficial.com.mx/",
     },
     {
       title: "Protorneos",
@@ -59,7 +59,7 @@ const LandingPages = () => {
           ? "Desarrollamos un sitio web informativo moderno y dinámico para el club de Tenis de Mesa en Trenque Lauquen. El proyecto fue realizado en React, lo que garantiza una experiencia rápida, fluida y adaptable en cualquier dispositivo."
           : "We developed a modern and dynamic informative website for the Table Tennis club in Trenque Lauquen. The project was built with React, guaranteeing a fast, fluid and adaptable experience on any device.",
       image: tenisDeMesaImage,
-      url: "https://www.tenisdemesatrenque.com",
+      url: "https://tenisdemesatrenque.com.ar/",
     },
     {
       title: "Asesoría Dialogar",
