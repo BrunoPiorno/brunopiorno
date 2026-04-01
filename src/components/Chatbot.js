@@ -345,12 +345,13 @@ const Chatbot = () => {
       setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].ask_email }]);
       setStep('email');
     } else if (step === 'email') {
-      if (!validateEmail(inputValue)) {
+      const trimmedEmail = inputValue.trim();
+      if (!validateEmail(trimmedEmail)) {
         setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].invalid_email }]);
         return;
       }
       setAffirmativeStreak(0);
-      setUserData(prev => ({ ...prev, email: inputValue }));
+      setUserData(prev => ({ ...prev, email: trimmedEmail }));
       setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].ask_phone }]);
       setStep('phone');
     } else if (step === 'phone') {
