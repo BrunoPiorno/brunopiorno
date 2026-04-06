@@ -1,7 +1,16 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/static/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -26,6 +35,37 @@
       ],
       "destination": "https://globalalora.com/$1",
       "permanent": true
+    },
+    {
+      "source": "/",
+      "destination": "/es",
+      "permanent": false
+    },
+    {
+      "source": "/blog",
+      "destination": "/es/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/(.*)",
+      "destination": "/es/blog/$1",
+      "permanent": false
+    },
+    {
+      "source": "/contacto",
+      "destination": "/es/contacto",
+      "permanent": false
+    },
+    {
+      "source": "/servicios",
+      "destination": "/es/soluciones",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
