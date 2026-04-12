@@ -39,27 +39,27 @@
     {
       "source": "/",
       "destination": "/es",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/blog",
       "destination": "/es/blog",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/blog/(.*)",
       "destination": "/es/blog/$1",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/contacto",
       "destination": "/es/contacto",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios",
       "destination": "/es/soluciones",
-      "permanent": false
+      "permanent": true
     }
   ],
   "rewrites": [

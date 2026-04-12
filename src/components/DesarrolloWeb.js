@@ -447,7 +447,11 @@ const DesarrolloWeb = () => {
   return (
     <div className="desarrollo-web-page">
       <Helmet>
-        <title>{t('meta.desarrolloWebTitle')}</title>
+        <title>{locale === 'es' ? 'Desarrollo Web a Medida | Alora' : 'Custom Web Development | Alora'}</title>
+        <meta name="description" content={locale === 'es' ? 'Diseñamos y desarrollamos sitios web a medida para empresas que necesitan presencia digital profesional: sitios corporativos, plataformas y soluciones optimizadas para SEO y conversión. Alora.' : 'We design and develop custom websites for businesses that need professional digital presence: corporate sites, platforms and solutions optimized for SEO and conversion. Alora.'} />
+        <meta property="og:title" content={locale === 'es' ? 'Desarrollo Web a Medida | Alora' : 'Custom Web Development | Alora'} />
+        <meta property="og:description" content={locale === 'es' ? 'Diseñamos y desarrollamos sitios web a medida para empresas que necesitan presencia digital profesional.' : 'We design and develop custom websites for businesses that need professional digital presence.'} />
+        <link rel="canonical" href={`https://globalalora.com${locale === 'es' ? '/es' : '/en'}/soluciones/desarrollo-web`} />
       </Helmet>
       {/* Hero Section - Igual que el resto del sitio */}
       <section className="hero-section" id="hero">
