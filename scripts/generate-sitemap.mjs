@@ -24,25 +24,43 @@ const posts_en = importPosts(postsEnPath);
 const BASE_URL = 'https://globalalora.com';
 
 const staticRoutes = [
-  '/',
-  '/blog',
-  '/en',
-  '/en/blog',
-  '/privacy-policy',
-  '/legal-notice',
-  '/cookies-policy',
+  { path: '/', priority: '1.0', changefreq: 'weekly' },
+  { path: '/es', priority: '1.0', changefreq: 'weekly' },
+  { path: '/en', priority: '0.9', changefreq: 'weekly' },
+  { path: '/es/soluciones', priority: '0.9', changefreq: 'monthly' },
+  { path: '/en/soluciones', priority: '0.8', changefreq: 'monthly' },
+  { path: '/es/soluciones/desarrollo-web', priority: '0.9', changefreq: 'monthly' },
+  { path: '/en/soluciones/desarrollo-web', priority: '0.8', changefreq: 'monthly' },
+  { path: '/es/soluciones/landing-pages', priority: '0.9', changefreq: 'monthly' },
+  { path: '/en/soluciones/landing-pages', priority: '0.8', changefreq: 'monthly' },
+  { path: '/es/soluciones/aplicaciones-web', priority: '0.9', changefreq: 'monthly' },
+  { path: '/en/soluciones/aplicaciones-web', priority: '0.8', changefreq: 'monthly' },
+  { path: '/es/soluciones/ecommerce', priority: '0.9', changefreq: 'monthly' },
+  { path: '/en/soluciones/ecommerce', priority: '0.8', changefreq: 'monthly' },
+  { path: '/es/soluciones/mantenimiento-web', priority: '0.8', changefreq: 'monthly' },
+  { path: '/en/soluciones/mantenimiento-web', priority: '0.7', changefreq: 'monthly' },
+  { path: '/es/soluciones/google-ads', priority: '0.9', changefreq: 'monthly' },
+  { path: '/en/soluciones/google-ads', priority: '0.8', changefreq: 'monthly' },
+  { path: '/es/soluciones/atencion-cliente-ia', priority: '0.9', changefreq: 'monthly' },
+  { path: '/en/soluciones/atencion-cliente-ia', priority: '0.8', changefreq: 'monthly' },
+  { path: '/blog', priority: '0.8', changefreq: 'weekly' },
+  { path: '/es/blog', priority: '0.8', changefreq: 'weekly' },
+  { path: '/en/blog', priority: '0.7', changefreq: 'weekly' },
+  { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly' },
+  { path: '/legal-notice', priority: '0.3', changefreq: 'yearly' },
+  { path: '/cookies-policy', priority: '0.3', changefreq: 'yearly' },
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${staticRoutes
-    .map((route) => {
+    .map(({ path, priority, changefreq }) => {
       return `
     <url>
-      <loc>${BASE_URL}${route}</loc>
+      <loc>${BASE_URL}${path}</loc>
       <lastmod>${new Date().toISOString()}</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
+      <changefreq>${changefreq}</changefreq>
+      <priority>${priority}</priority>
     </url>`;
     })
     .join('')}

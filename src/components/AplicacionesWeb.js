@@ -751,7 +751,11 @@ const AplicacionesWeb = () => {
   return (
     <div className="aplicaciones-web-page">
       <Helmet>
-        <title>{t('meta.aplicacionesWebTitle')}</title>
+        <title>{locale === 'es' ? 'Aplicaciones Web a Medida | Alora' : 'Custom Web Applications | Alora'}</title>
+        <meta name="description" content={locale === 'es' ? 'Desarrollamos aplicaciones web personalizadas para automatizar procesos, integrar APIs y dar soporte a equipos internos o clientes. Sistemas escalables hechos a medida. Alora.' : 'We develop custom web applications to automate processes, integrate APIs and support internal teams or clients. Scalable systems built to measure. Alora.'} />
+        <meta property="og:title" content={locale === 'es' ? 'Aplicaciones Web a Medida | Alora' : 'Custom Web Applications | Alora'} />
+        <meta property="og:description" content={locale === 'es' ? 'Desarrollamos aplicaciones web personalizadas para automatizar procesos y escalar operaciones.' : 'We develop custom web applications to automate processes and scale operations.'} />
+        <link rel="canonical" href={`https://globalalora.com${locale === 'es' ? '/es' : '/en'}/soluciones/aplicaciones-web`} />
       </Helmet>
       {/* Hero Section - Igual que otras páginas */}
       <section className="hero-section">

@@ -223,30 +223,51 @@ const Soluciones = () => {
         <meta name="twitter:title" content={locale === 'es' ? 'Alora | Soluciones Digitales' : 'Alora | Digital Solutions'} />
         <meta name="twitter:description" content={locale === 'es' ? 'Desarrollo web, ecommerce, landing pages, Google Ads y sistemas con IA.' : 'Web development, ecommerce, landing pages, Google Ads and AI systems.'} />
         <meta name="twitter:image" content="https://globalalora.com/aloralogo.png" />
-        <script type="application/ld+json">{JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Servicios Digitales — Alora",
-  "provider": {
-    "@type": "Organization",
+        <script type="application/ld+json">{JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
     "name": "Alora",
-    "url": "https://globalalora.com"
-  },
-  "description": "Desarrollo web, landing pages, ecommerce, Google Ads, aplicaciones web y atención al cliente con IA.",
-  "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Servicios Digitales",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo Web" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Pages" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecommerce / WooCommerce" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aplicaciones Web" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Atención al Cliente con IA" } }
+    "url": "https://globalalora.com",
+    "logo": "https://globalalora.com/aloralogo.png",
+    "image": "https://globalalora.com/aloralogo.png",
+    "description": "Agencia de desarrollo web, ecommerce, landing pages, Google Ads, aplicaciones web y atención al cliente con IA para empresas de Argentina y Latinoamérica.",
+    "email": "info@globalalora.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "AR"
+    },
+    "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
+    "sameAs": [
+      "https://www.instagram.com/globalalora",
+      "https://www.linkedin.com/company/globalalora"
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Servicios Digitales — Alora",
+    "provider": {
+      "@type": "Organization",
+      "name": "Alora",
+      "url": "https://globalalora.com"
+    },
+    "description": "Desarrollo web, landing pages, ecommerce, Google Ads, aplicaciones web y atención al cliente con IA.",
+    "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios Digitales",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo Web" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Pages" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecommerce / WooCommerce" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aplicaciones Web" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Atención al Cliente con IA" } }
+      ]
+    }
   }
-})}</script>
+])}</script>
       </Helmet>
       {/* Hero Section */}
       <section className="hero-section" id="hero">

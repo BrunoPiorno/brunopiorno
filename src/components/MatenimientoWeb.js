@@ -326,7 +326,11 @@ const MatenimientoWeb = () => {
   return (
     <div className="mantenimiento-web-page">
       <Helmet>
-        <title>{t('meta.mantenimientoWebTitle')}</title>
+        <title>{locale === 'es' ? 'Mantenimiento Web Profesional | Alora' : 'Professional Website Maintenance | Alora'}</title>
+        <meta name="description" content={locale === 'es' ? 'Plan de mantenimiento web integral: actualizaciones de seguridad, copias de seguridad, monitoreo 24/7 y soporte técnico continuo para que tu sitio nunca falle. Alora.' : 'Comprehensive web maintenance plan: security updates, backups, 24/7 monitoring and continuous technical support so your site never fails. Alora.'} />
+        <meta property="og:title" content={locale === 'es' ? 'Mantenimiento Web Profesional | Alora' : 'Professional Website Maintenance | Alora'} />
+        <meta property="og:description" content={locale === 'es' ? 'Mantenimiento web integral con actualizaciones, seguridad, monitoreo y soporte continuo.' : 'Comprehensive web maintenance with updates, security, monitoring and continuous support.'} />
+        <link rel="canonical" href={`https://globalalora.com${locale === 'es' ? '/es' : '/en'}/soluciones/mantenimiento-web`} />
       </Helmet>
       {/* Hero Section */}
       <section className="hero-section" id="hero">

@@ -292,8 +292,8 @@ export const es = {
   },
 
   // Meta data
-  'meta.title': 'Alora | Home',
-  'meta.description': 'Somos Alora, desarrolladores web expertos en WordPress, WooCommerce y tecnologías como PHP, MySQL, y más. Contáctame para mejorar tu presencia digital.',
+  'meta.title': 'Alora | Desarrollo Web y Soluciones Digitales para Empresas',
+  'meta.description': 'Diseñamos y desarrollamos sitios web, ecommerce y sistemas a medida para empresas que quieren crecer. Desarrollo web profesional, landing pages, Google Ads e IA en Argentina.',
   'meta.webExpressTitle': 'Alora | Web Express - Diseño Web que Vende',
   'meta.thankYouTitle': 'Alora | ¡Mensaje Enviado!',
   'meta.aplicacionesWebTitle': 'Alora | Aplicaciones Web',

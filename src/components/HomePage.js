@@ -526,9 +526,11 @@ const HomePage = () => {
         <meta name="author" content="Alora" />
         <meta property="og:title" content={t('meta.title')} />
         <meta property="og:description" content={t('meta.description')} />
-        <meta property="og:image" content="/aloralogo.png" />
-        <meta property="og:url" content="https://globalalora.com" />
-        <link rel="canonical" href="https://globalalora.com" />
+        <meta property="og:image" content="https://globalalora.com/aloralogo.png" />
+        <meta property="og:url" content={`https://globalalora.com/${locale}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={locale === 'es' ? 'es_AR' : 'en_US'} />
+        <link rel="canonical" href={`https://globalalora.com/${locale}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t('meta.title')} />
         <meta name="twitter:description" content={t('meta.description')} />
