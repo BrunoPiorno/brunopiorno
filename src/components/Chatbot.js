@@ -113,32 +113,44 @@ const MAX_CHAT_RETRIES = 2;
 const renderMessageWithLinks = (text) => {
   if (!text) return text;
   
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const parts = text.split(urlRegex);
+  const urlRegex = /https?:\/\/[^\s]+/g;
+  const matches = text.match(urlRegex);
   
-  if (parts.length <= 1) return text;
+  if (!matches || matches.length === 0) return text;
   
-  const matches = text.match(urlRegex) || [];
-  const result = [];
+  const parts = [];
+  let lastIndex = 0;
   
-  parts.forEach((part, index) => {
-    result.push(<span key={`text-${index}`}>{part}</span>);
-    if (matches[index]) {
-      result.push(
-        <a 
-          key={`link-${index}`}
-          href={matches[index]}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="chatbot-link"
-        >
-          {matches[index]}
-        </a>
-      );
+  // Encontrar todas las URLs y su posición
+  let match;
+  while ((match = urlRegex.exec(text)) !== null) {
+    // Texto antes de la URL
+    if (match.index > lastIndex) {
+      parts.push(<span key={`text-${lastIndex}`}>{text.slice(lastIndex, match.index)}</span>);
     }
-  });
+    
+    // El link
+    parts.push(
+      <a 
+        key={`link-${match.index}`}
+        href={match[0]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="chatbot-link"
+      >
+        {match[0]}
+      </a>
+    );
+    
+    lastIndex = match.index + match[0].length;
+  }
   
-  return <>{result}</>;
+  // Texto después de la última URL
+  if (lastIndex < text.length) {
+    parts.push(<span key={`text-end`}>{text.slice(lastIndex)}</span>);
+  }
+  
+  return <>{parts}</>;
 };
 
 const formatConversationForEmail = (conversationArray = []) =>
