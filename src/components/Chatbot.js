@@ -384,7 +384,15 @@ const Chatbot = () => {
         }
       );
 
-      setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].thank_you }]);
+      const scheduleUrl = locale === 'en'
+        ? 'https://www.globalalora.com/en/discovery-call'
+        : 'https://www.globalalora.com/es/llamada-de-relevamiento';
+      
+      const thankYouMessage = locale === 'en'
+        ? `Thanks ${updatedUserData.name || ''}! An advisor will contact you soon. If you'd like to speed things up, you can schedule a discovery call here: ${scheduleUrl}\n\nIs there anything else I can help you with?`
+        : `¡Gracias ${updatedUserData.name || ''}! Un asesor se pondrá en contacto contigo pronto. Si querés agilizar el proceso, podés agendar una llamada de relevamiento aquí: ${scheduleUrl}\n\n¿Hay algo más en lo que pueda ayudarte?`;
+      
+      setMessages([...newMessages, { from: 'bot', text: thankYouMessage }]);
       setStep('chat');
     }
     setInputValue('');
