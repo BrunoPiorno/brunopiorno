@@ -4300,7 +4300,7 @@ body.proposal-page-active .mobile-controls .language-toggle {
 }
 
 .chatbot-link {
-  color: var(--primary-color);
+  color: #fff;  
   text-decoration: underline;
   word-break: break-all;
   transition: opacity 0.2s ease;
