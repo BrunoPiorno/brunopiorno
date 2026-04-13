@@ -4299,6 +4299,17 @@ body.proposal-page-active .mobile-controls .language-toggle {
   border-bottom-right-radius: 5px;
 }
 
+.chatbot-link {
+  color: var(--primary-color);
+  text-decoration: underline;
+  word-break: break-all;
+  transition: opacity 0.2s ease;
+}
+
+.chatbot-link:hover {
+  opacity: 0.8;
+}
+
 .chatbot-input {
   display: flex;
   padding: 15px;

@@ -109,6 +109,38 @@ const detectSpecialIntent = (text = '') => {
 
 const MAX_CHAT_RETRIES = 2;
 
+// Convertir URLs en enlaces clickeables
+const renderMessageWithLinks = (text) => {
+  if (!text) return text;
+  
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = text.split(urlRegex);
+  
+  if (parts.length <= 1) return text;
+  
+  const matches = text.match(urlRegex) || [];
+  const result = [];
+  
+  parts.forEach((part, index) => {
+    result.push(<span key={`text-${index}`}>{part}</span>);
+    if (matches[index]) {
+      result.push(
+        <a 
+          key={`link-${index}`}
+          href={matches[index]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="chatbot-link"
+        >
+          {matches[index]}
+        </a>
+      );
+    }
+  });
+  
+  return <>{result}</>;
+};
+
 const formatConversationForEmail = (conversationArray = []) =>
   conversationArray
     .map(msg => `${msg.from === 'user' ? 'Cliente' : 'Bot'}: ${msg.text}`)
@@ -482,7 +514,7 @@ const Chatbot = () => {
             <div className="chatbot-messages">
               {messages.map((msg, index) => (
                 <div key={index} className={`message ${msg.from}`}>
-                  {msg.text}
+                  {msg.from === 'bot' ? renderMessageWithLinks(msg.text) : msg.text}
                 </div>
               ))}
               {isTyping && (
