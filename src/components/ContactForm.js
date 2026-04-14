@@ -124,6 +124,20 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
+        // Enviar datos a Clay (fire and forget)
+        fetch('https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-1956ddca-17b9-4362-b085-82b125bb6ad8', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nombre: data.name,
+            email: data.email,
+            pais: data.country || '',
+            telefono: data.phone || '',
+            consulta: data.message,
+            fecha_ingreso: new Date().toISOString(),
+          }),
+        }).catch(() => {});
+
         setSubmitStatus('success');
         setIsSubmitting(false);
         reset();
