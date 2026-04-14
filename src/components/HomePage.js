@@ -21,15 +21,16 @@ import Chatbot from './Chatbot';
 import ExitIntentPopup from './ExitIntentPopup';
 import entradafanLogo from '../images/entradafan.svg';
 import gangafanlogo from '../images/gangafan-logo.svg';
-import fpnnLogo from '../images/fpnn.png';
+import fpnnLogo from '../images/fpnn.webp';
 import nutriacLogo from '../images/nutriac-logo.svg';
-import yampop from '../images/yampop.png';
+import yampop from '../images/yampop.webp';
 import boutique from '../images/logo-boutique.png';
 import zerxio from '../images/zerxio-logo.svg';
-import heroImage from '../images/team.png';
-import alauxImage from '../images/alaux.png';
-import gretaImage from '../images/greta.png';
-import talleresImage from '../images/talleres.png';
+import heroImage from '../images/team.webp';
+import heroImageFallback from '../images/team.png';
+import alauxImage from '../images/alaux.webp';
+import gretaImage from '../images/greta.webp';
+import talleresImage from '../images/talleres.webp';
 import superadminImage from '../images/superadmin.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
@@ -95,7 +96,7 @@ const HomePage = () => {
     },
     {
       name: 'Yampop',
-      logo: require('../images/yampop.png'),
+      logo: require('../images/yampop.webp'),
       url: 'https://yampop.com'
     },
     {
@@ -636,7 +637,17 @@ const HomePage = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <img src={heroImage} alt="Hero" />
+            <picture>
+              <source srcSet={heroImage} type="image/webp" />
+              <img
+                src={heroImageFallback}
+                alt="Equipo Alora — Desarrollo web y soluciones digitales"
+                width={1023}
+                height={886}
+                fetchpriority="high"
+                loading="eager"
+              />
+            </picture>
           </motion.div>
         </div>
       </section>
