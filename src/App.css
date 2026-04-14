@@ -5316,7 +5316,7 @@ body.proposal-page-active .mobile-controls .language-toggle {
   .form-group input,
   .form-group textarea,
   .form-group select {
-    color: #e0e0e0;
+    color: #000;
     border-color: var(--primary-color);
   }
 
