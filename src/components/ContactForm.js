@@ -138,6 +138,19 @@ const ContactForm = () => {
           }),
         }).catch(() => {});
 
+        // Enviar datos a Make para crear borrador en Gmail (fire and forget)
+        fetch('https://hook.us2.make.com/j5ybsgnp5mapyotxu57fsxcfufce8ktc', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nombre: data.name,
+            email: data.email,
+            pais: data.country || '',
+            telefono: data.phone || '',
+            consulta: data.message,
+          }),
+        }).catch(() => {});
+
         setSubmitStatus('success');
         setIsSubmitting(false);
         reset();
