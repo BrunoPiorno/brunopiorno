@@ -80,6 +80,7 @@ const SiteHeader = ({ hideMenu = false }) => {
     { href: `/${locale}/soluciones/google-ads`, label: 'Google Ads' },
     { href: `/${locale}/soluciones/mantenimiento-web`, label: locale === 'es' ? 'Mantenimiento Web' : 'Web Maintenance' },
     { href: `/${locale}/soluciones/atencion-cliente-ia`, label: locale === 'es' ? 'IA para Atención al Cliente' : 'AI for Customer Service' },
+    { href: `/${locale}/soluciones/chatbots`, label: locale === 'es' ? '🤖 Chatbots con IA' : '🤖 AI Chatbots' },
   ];
 
   const solutionsBase = `/${locale}/soluciones`;
