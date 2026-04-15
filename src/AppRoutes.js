@@ -24,6 +24,7 @@ const ProposalLanding = lazy(() => import('./components/proposals/ProposalLandin
 const PresentationPage = lazy(() => import('./components/PresentationPage'));
 const LlamadaRelevamiento = lazy(() => import('./components/LlamadaRelevamiento'));
 const ContactPage = lazy(() => import('./components/ContactPage'));
+const ChatbotsLanding = lazy(() => import('./components/ChatbotsLanding'));
 
 const AppRoutes = () => (
   <Suspense fallback={<Loader />}>
@@ -34,9 +35,10 @@ const AppRoutes = () => (
       <Route path="/soluciones/landing-pages" element={<LandingPages />} />
       <Route path="/soluciones/aplicaciones-web" element={<AplicacionesWeb />} />
       <Route path="/soluciones/ecommerce" element={<Ecommerce />} />
+      <Route path="/soluciones/atencion-cliente-ia" element={<AtencionAlClienteConIA />}/>
+      <Route path="/soluciones/chatbots" element={<ChatbotsLanding />} />
       <Route path="/soluciones/mantenimiento-web" element={<MatenimientoWeb />} />
       <Route path="/soluciones/google-ads" element={<GoogleAds />} />
-      <Route path="/soluciones/atencion-cliente-ia" element={<AtencionAlClienteConIA />}/>
       <Route path="/whatsapp-generator" element={<WhatsAppGenerator />} />
       <Route path="/blog" element={<BlogList />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
