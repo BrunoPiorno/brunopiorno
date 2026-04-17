@@ -13,6 +13,7 @@ const ContactForm = () => {
       email: '',
       country: '',
       phone: '',
+      website: '',
       message: '',
       privacy_accepted: false
     }
@@ -28,10 +29,11 @@ const ContactForm = () => {
       email: 'Email',
       country: 'País',
       phone: 'Teléfono o WhatsApp',
+      website: 'Sitio web',
       message: 'Consulta',
       submit: '¡Quiero que me contacten!',
       sending: 'Enviando...',
-      optional: '(Opcional)',
+      optional: 'Opcional',
       privacyText: 'Acepto recibir información comercial y notificaciones, y he leído la',
       privacyPolicy: 'Política de Privacidad',
       successTitle: '¡Gracias!',
@@ -53,6 +55,7 @@ const ContactForm = () => {
         email: 'tu@email.com',
         country: '- Selecciona tu país -',
         phone: '+54 9 11 1234-5678',
+        website: 'www.tuempresa.com',
         message: 'Cuéntanos tu consulta o proyecto...'
       },
       charCountLabel: 'caracteres'
@@ -62,6 +65,7 @@ const ContactForm = () => {
       email: 'Email',
       country: 'Country',
       phone: 'Phone or WhatsApp',
+      website: 'Website',
       message: 'Message',
       submit: 'Contact me!',
       sending: 'Sending...',
@@ -87,6 +91,7 @@ const ContactForm = () => {
         email: 'you@example.com',
         country: '- Select your country -',
         phone: '+1 415 555 0000',
+        website: 'www.yourcompany.com',
         message: 'Tell us about your project...'
       },
       charCountLabel: 'characters'
@@ -107,6 +112,7 @@ const ContactForm = () => {
         'fields[email]': data.email,
         'fields[country]': data.country || '',
         'fields[phone]': data.phone || '',
+        'fields[website]': data.website || '',
         'fields[consulta]': data.message,
         'ml-submit': '1'
       });
@@ -256,8 +262,34 @@ const ContactForm = () => {
           </div>
         </div>
 
-        {/* SEGUNDA FILA: PAÍS Y TELÉFONO */}
+        {/* SEGUNDA FILA: SITIO WEB, PAÍS Y TELÉFONO */}
         <div className="form-row">
+          {/* SITIO WEB */}
+          <div className="form-group">
+            <label htmlFor="website">
+              {lang.website}
+              <span style={{ color: '#94a3b8', fontSize: '0.875rem', marginLeft: '4px' }}>({lang.optional})</span>
+            </label>
+            <input
+              type="url"
+              id="website"
+              placeholder={lang.placeholders.website}
+              {...register('website', {
+                pattern: {
+                  value: /^https?:\/\/.+|^www\..+|^[a-zA-Z0-9][-a-zA-Z0-9]*[a-zA-Z0-9]*\.[-a-zA-Z0-9.]+$/,
+                  message: locale === 'es' ? 'Ingresa una URL válida' : 'Please enter a valid URL'
+                }
+              })}
+              disabled={isSubmitting}
+              aria-invalid={errors.website ? 'true' : 'false'}
+            />
+            {errors.website && (
+              <span className="error-message" role="alert">
+                {errors.website.message}
+              </span>
+            )}
+          </div>
+
           {/* PAÍS */}
           <div className="form-group">
             <label htmlFor="country">
