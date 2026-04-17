@@ -106,8 +106,8 @@ const ContactForm = () => {
     setSubmitStatus(null);
     setErrorDetails('');
 
-    // Enviar a Clay y Make inmediatamente (fire and forget — independiente de MailerLite)
-    fetch('https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-1956ddca-17b9-4362-b085-82b125bb6ad8', {
+    // Enviar a Clay via proxy (server-side para evitar CORS) y Make inmediatamente
+    fetch('/api/clay-webhook', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
