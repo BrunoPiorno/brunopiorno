@@ -263,7 +263,7 @@ const ContactForm = () => {
         </div>
 
         {/* SEGUNDA FILA: SITIO WEB, PAÍS Y TELÉFONO */}
-        <div className="form-row">
+        <div className="form-row three-cols">
           {/* SITIO WEB */}
           <div className="form-group">
             <label htmlFor="website">
