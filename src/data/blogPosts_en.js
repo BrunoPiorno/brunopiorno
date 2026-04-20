@@ -424,6 +424,59 @@ const posts = [
         value: 'Many ecommerce believe they have email marketing because they send sporadic newsletters.\nBut automating means designing a system that works in the background increasing conversion and loyalty.\n\nIf you want to analyze what\'s missing in your store and how to implement strategic automations that really impact your sales, we can help you.\n\nBook a totally free and commitment-free discovery call with us and we will evaluate:\n\n- Your current automation level.\n- What recovery opportunities you\'re missing.\n- What flows you need to scale.\n\nClick the button below and schedule your session.',
       }
     ]
+  },
+  {
+    slug: 'ai-business-automation',
+    translationSlug: 'ia-automatizacion-negocios',
+    title: 'Your competition is already using AI to sell more. You\'re still using it to write text.',
+    description:
+      'How to use artificial intelligence to automate real business processes: contact forms, customer service, lead follow-up, and more.',
+    date: '2026-04-20',
+    cover: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80',
+    content: [
+      { type: 'subtitle', value: 'Most people are using AI wrong' },
+      {
+        type: 'text',
+        value:
+          'Most businesses that say they "use artificial intelligence" do one thing: they ask ChatGPT to write their Instagram caption or email subject line. That\'s it. That\'s all.\n\nIt\'s not wrong. But it\'s like having a brilliant employee and sending them to make photocopies.\n\nReal AI applied to a business isn\'t a writing tool. It\'s an intelligence layer that works while you sleep, analyzes while you\'re on the phone, and responds while you\'re in a meeting.\n\nIn 2026, the difference between a business that scales and one that stagnates has increasingly to do with this.',
+      },
+      { type: 'subtitle', value: 'The example nobody tells you about: the contact form' },
+      {
+        type: 'text',
+        value:
+          'Think about your contact form. That box where inquiries land every day.\n\nWhat happens today when someone fills out that form? Probably an email arrives in your inbox, you read it when you can, and if you\'re lucky you respond the same day with something generic like "Hi! Thanks for contacting us, we\'ll get back to you soon."\n\nNow think about the same scenario with AI:\n\n1. The form is completed.\nThe client writes: "Hi, I have a children\'s clothing store and I want to start selling online, I don\'t know where to begin."\n\n2. AI analyzes the inquiry in seconds.\nDetects: industry (children\'s clothing), stage (wants to start, no ecommerce yet), main need (initial guidance), tone (informal, somewhat lost).\n\n3. A personalized email is sent automatically.\nNot a generic email. One that says something like:\n\n"Hi, I saw you have a children\'s clothing store and want to make the jump to online. It\'s a perfect time to do it — the sector grew 34% in digital sales this year. Let me tell you exactly how we\'d start with you..."\n\nAnd if the form had a budget field, or if they mentioned they already have Instagram with followers, AI incorporates that too.\n\nThe result: the lead receives a relevant response, in minutes, that seems handwritten. Response rates go up. Perception of professionalism goes up. And you did nothing.',
+      },
+      { type: 'subtitle', value: 'This isn\'t science fiction and doesn\'t cost a fortune' },
+      {
+        type: 'text',
+        value:
+          'Tools like Make (formerly Integromat), n8n, or Zapier connect your web form with the ChatGPT or Claude API in less than an afternoon. You don\'t need to know how to program. You need to understand your business, which you already do.\n\nThe basic flow is:\n\n• Form (Typeform, WordPress form, Google Forms, whatever you use) → captures the data\n• Make / Zapier → acts as connector and triggers the automation\n• AI (ChatGPT / Claude) → analyzes the message and generates the personalized response\n• Email / WhatsApp → sends the response to the lead automatically\n\nOnce you configure it, it runs on its own. Forever.',
+      },
+      { type: 'subtitle', value: 'Other places where AI does the heavy lifting' },
+      {
+        type: 'text',
+        value:
+          'The form is just the clearest example, but not the only one:\n\nCustomer service via chat\nA bot trained with your business information answers 80% of frequent questions: prices, delivery times, warranties, payment methods. Without you having to hire anyone.\n\nAutomatic inquiry classification\nIf you receive many messages per day, AI can read them, classify them by urgency or type, and assign them to the right person on your team. Nothing gets lost, nothing goes unanswered.\n\nQuote follow-up\nYou sent a quote and they didn\'t respond. AI can detect that X days passed without response and send an automatic follow-up with an appropriate tone, without sounding like spam.\n\nReview and comment analysis\nIf you sell on marketplaces or have reviews on Google, AI can read them all, detect patterns (what repeats in complaints, what they always praise), and give you an actionable summary every week.',
+      },
+      { type: 'subtitle', value: 'The question that should be bothering you' },
+      {
+        type: 'text',
+        value:
+          'How much time do you lose per week answering the same queries? How many leads go cold because you took a day to respond? How many opportunities were lost because the follow-up depended on someone remembering?\n\nThat has a solution. And it doesn\'t require a tech team or a huge budget.\n\nIt requires understanding that AI isn\'t for writing texts. It\'s for making your business work better when you\'re not looking.',
+      },
+      { type: 'subtitle', value: 'Where to start this week' },
+      {
+        type: 'text',
+        value:
+          'If you want to implement something concrete and fast, start with this:\n\n1. Identify the most repetitive process in your business — it\'s usually answering the same questions or following up on leads.\n\n2. Document how you would do it — what information you need, what you respond, what tone you use.\n\n3. Build the flow in Make or Zapier — connect your form or inbox with AI that replicates that process.\n\n4. Test it for two weeks and measure how much time it freed up.\n\nYou\'re not looking for perfection. You\'re looking for it to work well enough so you can focus on what really needs your head.',
+      },
+      { type: 'subtitle', value: 'Want us to help you build your first automation flow?' },
+      {
+        type: 'text',
+        value:
+          'At Alora we do these automations with you, step by step. We don\'t sell you complex software: we help you use the tools that already exist so your business runs without friction.\n\nBook a free meeting and we\'ll evaluate which process in your business we can automate first.',
+      }
+    ]
   }
 ];
 
