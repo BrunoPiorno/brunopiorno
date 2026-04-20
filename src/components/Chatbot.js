@@ -404,29 +404,35 @@ const Chatbot = () => {
       setUserData(updatedUserData);
 
       const conversationHistory = formatConversationForEmail(newMessages);
-      
-      // Enviar email con EmailJS
-      const templateParams = {
-        lead_contact: `Nombre: ${updatedUserData.name}\nEmail: ${updatedUserData.email}\nTeléfono: ${updatedUserData.phone}`,
-        lead_type: 'Formulario Completo',
-        conversation: conversationHistory,
-        user_message: inputValue,
-        date: new Date().toLocaleString('es-AR')
-      };
-      
-      emailjs.send(
-        'service_6r3ee9k',
-        'template_chatbot_lead',
-        templateParams,
-        'CwpWaIXVC5Pdb4Kae'
-      ).then(
-        (response) => {
-          console.log('Lead enviado exitosamente', response.status);
-        },
-        (error) => {
-          console.error('Error al enviar lead:', error);
-        }
-      );
+
+      // Enviar lead a Clay (via proxy server-side para evitar CORS)
+      fetch('/api/clay-webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: updatedUserData.name,
+          email: updatedUserData.email,
+          telefono: updatedUserData.phone,
+          pais: '',
+          consulta: conversationHistory,
+          fecha_ingreso: new Date().toISOString(),
+          fuente: 'chatbot',
+        }),
+      }).catch(() => {});
+
+      // Enviar lead a Make para crear borrador en Gmail
+      fetch('https://hook.us2.make.com/j5ybsgnp5mapyotxu57fsxcfufce8ktc', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: updatedUserData.name,
+          email: updatedUserData.email,
+          telefono: updatedUserData.phone,
+          pais: '',
+          consulta: conversationHistory,
+          fuente: 'chatbot',
+        }),
+      }).catch(() => {});
 
       const scheduleUrl = locale === 'en'
         ? 'https://www.globalalora.com/en/discovery-call'
