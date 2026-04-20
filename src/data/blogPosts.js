@@ -441,7 +441,7 @@ const posts = [
     description:
       'Cómo usar la inteligencia artificial para automatizar procesos de negocio reales: formularios de contacto, atención al cliente, seguimiento de leads y más.',
     date: '2026-04-20',
-    cover: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80',
+    cover: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80',
     content: [
       { type: 'subtitle', value: 'La mayoría está usando la IA mal' },
       {
