@@ -13,6 +13,7 @@ const MainLayout = () => {
                      location.pathname.includes('/discovery-call') ||
                      location.pathname.includes('/contacto') ||
                      location.pathname.includes('/contact');
+                     
   
   return (
     <>
