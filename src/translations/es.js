@@ -528,13 +528,13 @@ export const es = {
 
   // Not Found Page
   'notFound.title': '¡Oops! Te has perdido en el ciberespacio',
-  'notFound.subtitle': 'Parece que esta página se tomó unas vacaciones. ¿Por qué no volvés al inicio y lo intentamos de nuevo?',
+  'notFound.subtitle': 'Parece que esta página se tomó unas vacaciones. ¿Por qué no vuelves al inicio y lo intentamos de nuevo?',
   'notFound.button': 'Volver a la realidad',
 
   // Reviews Section
   'reviews.title': '¿Te gustó nuestro trabajo?',
-  'reviews.subtitle': 'Compartí tu experiencia y ayudá a otros a conocer nuestro servicio',
-  'reviews.fallback': 'Dejános una reseña en DesignRush',
+  'reviews.subtitle': 'Comparte tu experiencia y ayuda a otros a conocer nuestro servicio',
+  'reviews.fallback': 'Déjanos una reseña en DesignRush',
 
   // Not Suitable Section
   'notSuitable.title': 'No somos la mejor opción si:',

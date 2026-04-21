@@ -437,7 +437,7 @@ const posts = [
   {
     slug: 'ia-automatizacion-negocios',
     translationSlug: 'ai-business-automation',
-    title: 'Tu competencia ya usa IA para vender más. Vos todavía la usás para escribir textos.',
+    title: 'Tu competencia ya usa IA para vender más. Tú todavía la usas para escribir textos.',
     description:
       'Cómo usar la inteligencia artificial para automatizar procesos de negocio reales: formularios de contacto, atención al cliente, seguimiento de leads y más.',
     date: '2026-04-20',
@@ -447,43 +447,43 @@ const posts = [
       {
         type: 'text',
         value:
-          'La mayoría de los negocios que dicen "usar inteligencia artificial" hacen una sola cosa: le piden a ChatGPT que les escriba el caption de Instagram o el asunto del email. Y listo. Eso es todo.\n\nNo está mal. Pero es como tener un empleado brillante y mandarlo a hacer fotocopias.\n\nLa IA aplicada de verdad a un negocio no es una herramienta de redacción. Es una capa de inteligencia que trabaja mientras vos dormís, analiza mientras vos atendés el teléfono, y responde mientras vos estás en una reunión.\n\nEn 2026, la diferencia entre un negocio que escala y uno que se estanca tiene cada vez más que ver con esto.',
+          'La mayoría de los negocios que dicen "usar inteligencia artificial" hacen una sola cosa: le piden a ChatGPT que les escriba el caption de Instagram o el asunto del email. Y listo. Eso es todo.\n\nNo está mal. Pero es como tener un empleado brillante y mandarlo a hacer fotocopias.\n\nLa IA aplicada de verdad a un negocio no es una herramienta de redacción. Es una capa de inteligencia que trabaja mientras tú duermes, analiza mientras tú atiendes el teléfono, y responde mientras tú estás en una reunión.\n\nEn 2026, la diferencia entre un negocio que escala y uno que se estanca tiene cada vez más que ver con esto.',
       },
       { type: 'subtitle', value: 'El ejemplo que nadie te cuenta: el formulario de contacto' },
       {
         type: 'text',
         value:
-          'Pensá en tu formulario de contacto. Ese cajón donde caen consultas todos los días.\n\n¿Qué pasa hoy cuando alguien completa ese formulario? Probablemente llega un email a tu casilla, lo leés cuando podés, y si tenés suerte respondés ese mismo día con algo genérico como "¡Hola! Gracias por contactarnos, en breve te respondemos."\n\nAhora pensá en lo mismo con IA:\n\n1. El formulario se completa.\nEl cliente escribe: "Hola, tengo una tienda de ropa infantil y quiero empezar a vender online, no sé por dónde arrancar."\n\n2. La IA analiza la consulta en segundos.\nDetecta: rubro (indumentaria infantil), etapa (quiere empezar, no tiene ecommerce aún), necesidad principal (orientación inicial), tono (informal, algo perdido).\n\n3. Se envía un email personalizado de forma automática.\nNo un email genérico. Uno que dice algo como:\n\n"Hola, vi que tenés una tienda de ropa infantil y querés dar el salto al online. Es un momento perfecto para hacerlo — el sector creció un 34% en ventas digitales este año. Te cuento exactamente cómo arrancaríamos con vos..."\n\nY si el formulario tenía un campo de presupuesto, o si mencionó que ya tiene Instagram con seguidores, la IA lo incorpora también.\n\nEl resultado: el lead recibe una respuesta relevante, en minutos, que parece escrita a mano. La tasa de respuesta sube. La percepción de profesionalismo sube. Y vos no hiciste nada.',
+          'Piensa en tu formulario de contacto. Ese cajón donde caen consultas todos los días.\n\n¿Qué pasa hoy cuando alguien completa ese formulario? Probablemente llega un email a tu casilla, lo lees cuando puedes, y si tienes suerte respondes ese mismo día con algo genérico como "¡Hola! Gracias por contactarnos, en breve te respondemos."\n\nAhora piensa en lo mismo con IA:\n\n1. El formulario se completa.\nEl cliente escribe: "Hola, tengo una tienda de ropa infantil y quiero empezar a vender online, no sé por dónde arrancar."\n\n2. La IA analiza la consulta en segundos.\nDetecta: rubro (indumentaria infantil), etapa (quiere empezar, no tiene ecommerce aún), necesidad principal (orientación inicial), tono (informal, algo perdido).\n\n3. Se envía un email personalizado de forma automática.\nNo un email genérico. Uno que dice algo como:\n\n"Hola, vi que tienes una tienda de ropa infantil y quieres dar el salto al online. Es un momento perfecto para hacerlo — el sector creció un 34% en ventas digitales este año. Te cuento exactamente cómo arrancaríamos contigo..."\n\nY si el formulario tenía un campo de presupuesto, o si mencionó que ya tiene Instagram con seguidores, la IA lo incorpora también.\n\nEl resultado: el lead recibe una respuesta relevante, en minutos, que parece escrita a mano. La tasa de respuesta sube. La percepción de profesionalismo sube. Y tú no hiciste nada.',
       },
       { type: 'subtitle', value: 'Esto no es ciencia ficción ni cuesta una fortuna' },
       {
         type: 'text',
         value:
-          'Herramientas como Make (antes Integromat), n8n o Zapier conectan tu formulario web con la API de ChatGPT o Claude en menos de una tarde. No necesitás saber programar. Necesitás entender tu negocio, que eso ya lo sabés.\n\nEl flujo básico es:\n\n• Formulario (Typeform, formulario de WordPress, Google Forms, el que uses) → captura los datos\n• Make / Zapier → actúa como conector y dispara la automatización\n• IA (ChatGPT / Claude) → analiza el mensaje y genera la respuesta personalizada\n• Email / WhatsApp → envía la respuesta al lead de forma automática\n\nUna vez que lo configurás, funciona solo. Para siempre.',
+          'Herramientas como Make (antes Integromat), n8n o Zapier conectan tu formulario web con la API de ChatGPT o Claude en menos de una tarde. No necesitas saber programar. Necesitas entender tu negocio, que eso ya lo sabes.\n\nEl flujo básico es:\n\n• Formulario (Typeform, formulario de WordPress, Google Forms, el que uses) → captura los datos\n• Make / Zapier → actúa como conector y dispara la automatización\n• IA (ChatGPT / Claude) → analiza el mensaje y genera la respuesta personalizada\n• Email / WhatsApp → envía la respuesta al lead de forma automática\n\nUna vez que lo configuras, funciona solo. Para siempre.',
       },
       { type: 'subtitle', value: 'Otros lugares donde la IA hace el trabajo pesado' },
       {
         type: 'text',
         value:
-          'El formulario es solo el ejemplo más claro, pero no el único:\n\nAtención al cliente por chat\nUn bot entrenado con la información de tu negocio responde el 80% de las preguntas frecuentes: precios, tiempos de entrega, garantías, formas de pago. Sin que tengas que contratar a nadie.\n\nClasificación automática de consultas\nSi recibís muchos mensajes por día, la IA puede leerlos, clasificarlos por urgencia o tipo, y asignarlos a la persona correcta de tu equipo. Nada se pierde, nada queda sin respuesta.\n\nSeguimiento de presupuestos\nEnviaste un presupuesto y no te respondieron. La IA puede detectar que pasaron X días sin respuesta y enviar un seguimiento automático con un tono apropiado, sin que suene a spam.\n\nAnálisis de reseñas y comentarios\nSi vendés en marketplaces o tenés reseñas en Google, la IA puede leerlas todas, detectar patrones (qué se repite en las quejas, qué elogian siempre) y darte un resumen accionable cada semana.',
+          'El formulario es solo el ejemplo más claro, pero no el único:\n\nAtención al cliente por chat\nUn bot entrenado con la información de tu negocio responde el 80% de las preguntas frecuentes: precios, tiempos de entrega, garantías, formas de pago. Sin que tengas que contratar a nadie.\n\nClasificación automática de consultas\nSi recibes muchos mensajes por día, la IA puede leerlos, clasificarlos por urgencia o tipo, y asignarlos a la persona correcta de tu equipo. Nada se pierde, nada queda sin respuesta.\n\nSeguimiento de presupuestos\nEnviaste un presupuesto y no te respondieron. La IA puede detectar que pasaron X días sin respuesta y enviar un seguimiento automático con un tono apropiado, sin que suene a spam.\n\nAnálisis de reseñas y comentarios\nSi vendes en marketplaces o tienes reseñas en Google, la IA puede leerlas todas, detectar patrones (qué se repite en las quejas, qué elogian siempre) y darte un resumen accionable cada semana.',
       },
       { type: 'subtitle', value: 'La pregunta que te debería estar molestando' },
       {
         type: 'text',
         value:
-          '¿Cuánto tiempo perdés por semana respondiendo siempre las mismas consultas? ¿Cuántos leads se enfrían porque tardaste un día en responder? ¿Cuántas oportunidades se perdieron porque el seguimiento dependía de que alguien se acordara?\n\nEso tiene solución. Y no requiere un equipo de tecnología ni un presupuesto enorme.\n\nRequiere entender que la IA no es para escribir textos. Es para hacer que tu negocio funcione mejor cuando vos no estás mirando.',
+          '¿Cuánto tiempo pierdes por semana respondiendo siempre las mismas consultas? ¿Cuántos leads se enfrían porque tardaste un día en responder? ¿Cuántas oportunidades se perdieron porque el seguimiento dependía de que alguien se acordara?\n\nEso tiene solución. Y no requiere un equipo de tecnología ni un presupuesto enorme.\n\nRequiere entender que la IA no es para escribir textos. Es para hacer que tu negocio funcione mejor cuando tú no estás mirando.',
       },
       { type: 'subtitle', value: 'Por dónde empezar esta semana' },
       {
         type: 'text',
         value:
-          'Si querés implementar algo concreto y rápido, arrancá por esto:\n\n1. Identificá el proceso más repetitivo de tu negocio — generalmente es responder siempre las mismas preguntas o hacer seguimiento de leads.\n\n2. Documentá cómo lo harías vos — qué información necesitás, qué respondés, qué tono usás.\n\n3. Armá el flujo en Make o Zapier — conectá tu formulario o bandeja de entrada con una IA que replique ese proceso.\n\n4. Probalo durante dos semanas y medí cuánto tiempo te liberó.\n\nNo buscás la perfección. Buscás que funcione lo suficientemente bien como para que vos puedas enfocarte en lo que realmente necesita tu cabeza.',
+          'Si quieres implementar algo concreto y rápido, empieza por esto:\n\n1. Identifica el proceso más repetitivo de tu negocio — generalmente es responder siempre las mismas preguntas o hacer seguimiento de leads.\n\n2. Documenta cómo lo harías tú — qué información necesitas, qué respondes, qué tono usas.\n\n3. Arma el flujo en Make o Zapier — conecta tu formulario o bandeja de entrada con una IA que replique ese proceso.\n\n4. Pruébalo durante dos semanas y mide cuánto tiempo te liberó.\n\nNo busques la perfección. Buscas que funcione lo suficientemente bien como para que tú puedas enfocarte en lo que realmente necesita tu cabeza.',
       },
       { type: 'subtitle', value: '¿Querés que te ayudemos a armar tu primer flujo?' },
       {
         type: 'text',
         value:
-          'En Alora hacemos estas automatizaciones con vos, paso a paso. No te vendemos software complejo: te ayudamos a usar las herramientas que ya existen para que tu negocio funcione sin fricción.\n\nAgendá una reunión gratuita y evaluamos qué proceso de tu negocio podemos automatizar primero.',
+          'En Alora hacemos estas automatizaciones contigo, paso a paso. No te vendemos software complejo: te ayudamos a usar las herramientas que ya existen para que tu negocio funcione sin fricción.\n\nAgenda una reunión gratuita y evaluaremos qué proceso de tu negocio podemos automatizar primero.',
       }
     ]
   }
