@@ -280,6 +280,53 @@ const Chatbot = () => {
         }
       );
 
+      // Enviar lead a Clay (via proxy server-side para evitar CORS)
+      fetch('/api/clay-webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: updatedUserData.name,
+          email: updatedUserData.email,
+          telefono: updatedUserData.phone,
+          pais: '',
+          consulta: conversationHistory,
+          fecha_ingreso: new Date().toISOString(),
+          fuente: 'chatbot',
+        }),
+      }).catch(() => {});
+
+      // Enviar lead a Make para crear borrador en Gmail
+      fetch('https://hook.us2.make.com/j5ybsgnp5mapyotxu57fsxcfufce8ktc', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: updatedUserData.name,
+          email: updatedUserData.email,
+          telefono: updatedUserData.phone,
+          pais: '',
+          consulta: conversationHistory,
+          fuente: 'chatbot',
+        }),
+      }).catch(() => {});
+
+      // Suscribir a MailerLite
+      const mailerLiteEndpoint = locale === 'en'
+        ? 'https://assets.mailerlite.com/jsonp/2070356/forms/178060668159657324/subscribe'
+        : 'https://assets.mailerlite.com/jsonp/2070356/forms/177855257628378295/subscribe';
+      fetch(mailerLiteEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'fields[name]': updatedUserData.name,
+          'fields[email]': updatedUserData.email,
+          'fields[phone]': updatedUserData.phone,
+          'fields[country]': '',
+          'fields[website]': '',
+          'fields[consulta]': conversationHistory,
+          'ml-submit': '1',
+        }).toString(),
+      }).catch(() => {});
+
       setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].thank_you }]);
       setStep('chat');
     }
