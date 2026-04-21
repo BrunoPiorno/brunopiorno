@@ -123,6 +123,44 @@ const ContactPage = () => {
                 </div>
               </div>
             </motion.div>
+
+            {/* Qué pasa después */}
+            <motion.div
+              className="contact-process"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <p className="contact-process-title">
+                {locale === "es" ? "¿Qué pasa después?" : "What happens next?"}
+              </p>
+              <div className="contact-process-steps">
+                <div className="process-step">
+                  <div className="process-step-num">1</div>
+                  <p className="process-step-text">
+                    {locale === "es"
+                      ? <><strong>Revisamos tu consulta</strong> en menos de 24 horas.</>
+                      : <><strong>We review your message</strong> within 24 hours.</>}
+                  </p>
+                </div>
+                <div className="process-step">
+                  <div className="process-step-num">2</div>
+                  <p className="process-step-text">
+                    {locale === "es"
+                      ? <><strong>Agendamos una llamada</strong> para entender tu proyecto en profundidad.</>
+                      : <><strong>We schedule a call</strong> to understand your project in depth.</>}
+                  </p>
+                </div>
+                <div className="process-step">
+                  <div className="process-step-num">3</div>
+                  <p className="process-step-text">
+                    {locale === "es"
+                      ? <><strong>Recibís una propuesta</strong> personalizada sin compromiso.</>
+                      : <><strong>You receive a custom proposal</strong> with no commitment.</>}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
           {/* Derecha: Formulario de contacto */}
