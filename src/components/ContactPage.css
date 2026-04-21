@@ -10,7 +10,7 @@
 /* ── Hero wrapper ── */
 .contact-hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: stretch;
   padding: 0;
@@ -47,13 +47,14 @@
   margin: 0 auto;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: calc(100vh - 72px);
+  grid-template-columns: 1fr 1.1fr;
+  height: 100vh;
   position: relative;
   z-index: 1;
-  padding: 9rem 4rem 5rem;
-  gap: 5rem;
+  padding: 3rem 4rem 3rem;
+  gap: 4rem;
   align-items: center;
+  overflow: hidden;
 }
 
 /* ── Left: copy ── */
@@ -97,11 +98,11 @@
   background: rgba(99, 214, 183, 0.15);
   border: 1px solid rgba(99, 214, 183, 0.35);
   color: #63d6b7;
-  padding: 0.45rem 1.2rem;
+  padding: 0.35rem 1rem;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 0.85rem;
-  margin-bottom: 1.8rem;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
   box-shadow: none;
   letter-spacing: 0.02em;
 }
@@ -109,21 +110,21 @@
 /* H1 */
 .hero-title {
   font-family: var(--font-family-headline);
-  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 800;
   line-height: 1.15;
   color: #ffffff;
   background: none;
   -webkit-text-fill-color: #ffffff;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0.9rem;
 }
 
 /* Subtitle */
 .hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   max-width: 500px;
 }
 
@@ -177,10 +178,10 @@
 .hero-stats {
   display: flex;
   gap: 0;
-  margin: 2rem 0 0;
+  margin: 1.2rem 0 0;
   flex-wrap: nowrap;
   border-top: 1px solid rgba(99, 214, 183, 0.2);
-  padding-top: 1.8rem;
+  padding-top: 1.2rem;
 }
 
 .stat-item {
@@ -231,8 +232,8 @@
 
 /* ── What happens next ── */
 .contact-process {
-  margin-top: 3rem;
-  padding-top: 2.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
   border-top: 1px solid rgba(99, 214, 183, 0.15);
 }
 
@@ -289,14 +290,15 @@
   flex: unset;
   background: #ffffff;
   border-radius: 24px;
-  padding: 2.5rem 2.2rem 2rem;
+  padding: 2rem 2.2rem 1.5rem;
   box-shadow:
     0 0 0 1px rgba(45, 97, 103, 0.06),
     0 24px 64px rgba(0, 0, 0, 0.1),
     0 4px 16px rgba(0, 0, 0, 0.06);
   position: relative;
-  overflow: hidden;
+  overflow: auto;
   text-align: left;
+  max-height: calc(100vh - 6rem);
 }
 
 /* Green top accent */
