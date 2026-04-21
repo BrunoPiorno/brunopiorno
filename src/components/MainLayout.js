@@ -8,9 +8,12 @@ import AppRoutes from '../AppRoutes';
 const MainLayout = () => {
   const location = useLocation();
   
-  // Ocultar menú en páginas de llamada de relevamiento
-  const isCallPage = location.pathname.includes('/llamada-de-relevamiento') || 
-                     location.pathname.includes('/discovery-call');
+  // Ocultar menú en páginas de llamada de relevamiento y contacto
+  const isCallPage = location.pathname.includes('/llamada-de-relevamiento') ||
+                     location.pathname.includes('/discovery-call') ||
+                     location.pathname.includes('/contacto') ||
+                     location.pathname.includes('/contact');
+                     
   
   return (
     <>
