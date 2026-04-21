@@ -248,7 +248,7 @@ const DesarrolloWeb = () => {
           iconKey: 'business',
           title: 'Negocios en marcha',
           highlight: 'Tu empresa ya opera con clientes y mercado claros.',
-          detail: 'Necesitás que el sitio represente el nivel actual y sostenga el crecimiento.'
+          detail: 'Necesitas que el sitio represente el nivel actual y sostenga el crecimiento.'
         },
         {
           iconKey: 'goals',
