@@ -170,14 +170,6 @@ const ContactPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <h2>
-                {locale === "es" ? "¿Listo para empezar?" : "Ready to start?"}
-              </h2>
-              <p className="form-response-promise">
-                {locale === "es"
-                  ? "⚡ Te respondemos en menos de 24 horas"
-                  : "⚡ We respond within 24 hours"}
-              </p>
               <ContactForm />
             </motion.div>
           </div>

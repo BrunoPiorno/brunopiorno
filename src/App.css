@@ -4805,16 +4805,6 @@ body.proposal-page-active .mobile-controls .language-toggle {
   padding: 20px;
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-}
-
 /* ========================================
    GRUPOS DE FORMULARIO
    ======================================== */
