@@ -394,8 +394,7 @@
 
 @media (max-width: 640px) {
   .contact-hero-container {
-    padding: 1.5rem 1.25rem 2.5rem;
-    gap: 2rem;
+    gap: 0;
   }
 
   .hero-badge {
@@ -664,7 +663,7 @@
 
   .contact-content button[type="submit"] {
     padding: 1.125rem;
-    font-size: 1.05rem;
+    font-size: 0.5rem;
     min-height: 56px;
   }
 
