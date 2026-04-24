@@ -26,6 +26,7 @@ import nutriacLogo from '../images/nutriac-logo.svg';
 import yampop from '../images/yampop.webp';
 import boutique from '../images/logo-boutique.png';
 import zerxio from '../images/zerxio-logo.svg';
+import digitalPro from '../images/digital.jpg';
 import heroImage from '../images/team.webp';
 import heroImageFallback from '../images/team.png';
 import alauxImage from '../images/alaux.webp';
@@ -157,6 +158,11 @@ const HomePage = () => {
       textLogo: 'LIDIA',
       fontFamily: "'Inter', sans-serif",
       url: 'https://soylidia.com'
+    },
+    {
+      name: 'Digital Pro',
+      logo: digitalPro,
+      url: 'https://digitalproescuela.com'
     },
   ];
 
