@@ -25,7 +25,7 @@
       "has": [
         { "type": "host", "value": "brunopiorno.com.ar" }
       ],
-      "destination": "https://globalalora.com/$1",
+      "destination": "https://www.globalalora.com/$1",
       "permanent": true
     },
     {
@@ -33,11 +33,22 @@
       "has": [
         { "type": "host", "value": "www.brunopiorno.com.ar" }
       ],
-      "destination": "https://globalalora.com/$1",
+      "destination": "https://www.globalalora.com/$1",
       "permanent": true
     },
     {
       "source": "/",
+      "has": [
+        { "type": "host", "value": "globalalora.com" }
+      ],
+      "destination": "https://www.globalalora.com/es",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        { "type": "host", "value": "www.globalalora.com" }
+      ],
       "destination": "/es",
       "permanent": true
     },
