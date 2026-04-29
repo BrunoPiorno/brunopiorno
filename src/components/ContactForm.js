@@ -132,6 +132,24 @@ const ContactForm = () => {
       }),
     }).catch(() => {});
 
+    // Alora CRM webhook
+    fetch('https://alora-crm.vercel.app/api/webhooks/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nombre: data.name,
+        email: data.email,
+        website: data.website || '',
+        pais: data.country || '',
+        telefono: data.phone || '',
+        mensaje: data.message,
+        privacidad: data.privacy_accepted,
+        formId: 'contacto',
+        source: window.location.href,
+        timestamp: new Date().toISOString()
+      }),
+    }).catch(() => {});
+
     try {
       const formPayload = new URLSearchParams({
         'fields[name]': data.name,
