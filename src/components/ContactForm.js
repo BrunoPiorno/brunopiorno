@@ -136,6 +136,7 @@ const ContactForm = () => {
     fetch('https://alora-crm.vercel.app/api/embed/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      keepalive: true,  
       body: JSON.stringify({
         nombre: data.name,
         email: data.email,
