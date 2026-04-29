@@ -9,7 +9,7 @@ const CONTACT_INFO = {
   email: 'info@globalalora.com',
 };
 
-const CAREERS_EMAIL = 'info@somosglobalalora.com';
+const CAREERS_EMAIL = 'info@globalalora.com';
 
 const normalizeText = (text = '') =>
   text
