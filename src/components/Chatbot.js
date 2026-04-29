@@ -434,6 +434,22 @@ const Chatbot = () => {
         }),
       }).catch(() => {});
 
+      // Enviar lead a Alora CRM
+      fetch('https://alora-crm.vercel.app/api/embed/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify({
+          nombre: updatedUserData.name,
+          email: updatedUserData.email,
+          website: '',
+          pais: '',
+          telefono: updatedUserData.phone,
+          mensaje: conversationHistory,
+          formId: 'chatbot',
+        }),
+      }).catch(() => {});
+
       const scheduleUrl = locale === 'en'
         ? 'https://www.globalalora.com/en/discovery-call'
         : 'https://www.globalalora.com/es/llamada-de-relevamiento';
