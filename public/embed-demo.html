@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Formulario Embebido Alora</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .demo-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .demo-card h2 {
+            color: #1a3f43;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        .demo-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .code-block {
+            background: #1a1a2e;
+            color: #4ade80;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        .widget-demo {
+            position: relative;
+            min-height: 200px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .widget-demo p {
+            color: #666;
+            font-style: italic;
+        }
+        .inline-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+        }
+        .status {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .status.show {
+            opacity: 1;
+        }
+        .btn-test {
+            background: #2d6167;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        .btn-test:hover {
+            background: #1a3f43;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Formulario Embebido Alora</h1>
+        <p class="subtitle">Demo de integración en sitios de terceros</p>
+
+        <div class="demo-grid">
+            <!-- Demo 1: Inline Form -->
+            <div class="demo-card">
+                <h2>📄 Formulario Inline</h2>
+                <p>Se inserta directamente en cualquier página web.</p>
+                <div class="code-block">&lt;script src="http://localhost:3000/embed.js" data-form-id="default"&gt;&lt;/script&gt;</div>
+                <div class="inline-container">
+                    <!-- El formulario inline se renderizará aquí -->
+                    <div id="inline-placeholder">
+                        <p>(El formulario aparecerá aquí)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo 2: Widget Button -->
+            <div class="demo-card">
+                <h2>💬 Widget Flotante</h2>
+                <p>Botón flotante en la esquina inferior derecha, estilo Intercom.</p>
+                <div class="code-block">&lt;script src="http://localhost:3000/embed.js" data-form-id="default" data-mode="widget" data-color="#2d6167"&gt;&lt;/script&gt;</div>
+                <div class="widget-demo">
+                    <p>El widget flotante aparece en la esquina inferior derecha de toda la página</p>
+                </div>
+                <button class="btn-test" onclick="window.AloraLeadForm && window.AloraLeadForm.open()">Abrir Widget Manualmente</button>
+            </div>
+        </div>
+
+        <!-- Demo 3: API Programática -->
+        <div class="demo-card">
+            <h2>⚡ API Programática</h2>
+            <p>Control total desde JavaScript para integraciones personalizadas.</p>
+            <div class="code-block">// Abrir / cerrar / toggle
+window.AloraLeadForm.open()
+window.AloraLeadForm.close()
+window.AloraLeadForm.toggle()
+
+// Disparar desde cualquier botón
+&lt;button onclick="window.AloraLeadForm.open()"&gt;Contactar&lt;/button&gt;</div>
+            <button class="btn-test" onclick="testAPI()">Probar API</button>
+        </div>
+
+        <!-- Demo 4: Webhook -->
+        <div class="demo-card">
+            <h2>🔌 Endpoint Webhook</h2>
+            <p>Integración con Make, Zapier, n8n u otros servicios.</p>
+            <div class="code-block">POST http://localhost:3000/api/webhooks/lead
+Content-Type: application/json
+
+{
+  "nombre": "Juan Pérez",
+  "email": "juan@empresa.com",
+  "telefono": "+54 11 0000-0000",
+  "mensaje": "Consulta sobre proyecto"
+}</div>
+        </div>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <!-- Formulario Inline -->
+    <script src="http://localhost:3000/embed.js" data-form-id="inline-demo"></script>
+
+    <!-- Widget Flotante -->
+    <script src="http://localhost:3000/embed.js" data-form-id="widget-demo" data-mode="widget" data-color="#2d6167"></script>
+
+    <script>
+        function showStatus(message) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.classList.add('show');
+            setTimeout(() => status.classList.remove('show'), 3000);
+        }
+
+        function testAPI() {
+            if (window.AloraLeadForm) {
+                window.AloraLeadForm.toggle();
+                showStatus('API funcionando: Widget ' + (document.querySelector('.alora-widget-container.active') ? 'cerrado' : 'abierto'));
+            } else {
+                showStatus('API no disponible todavía. Espera a que cargue el script.');
+            }
+        }
+
+        // Verificar estado de la API cada segundo
+        setInterval(() => {
+            if (window.AloraLeadForm) {
+                console.log('✅ AloraLeadForm API disponible');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
