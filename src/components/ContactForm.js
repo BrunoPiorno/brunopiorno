@@ -133,7 +133,7 @@ const ContactForm = () => {
     }).catch(() => {});
 
     // Alora CRM webhook
-    fetch('https://alora-crm.vercel.app/api/webhooks/lead', {
+    fetch('https://alora-crm.vercel.app/api/embed/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -143,10 +143,7 @@ const ContactForm = () => {
         pais: data.country || '',
         telefono: data.phone || '',
         mensaje: data.message,
-        privacidad: data.privacy_accepted,
         formId: 'contacto',
-        source: window.location.href,
-        timestamp: new Date().toISOString()
       }),
     }).catch(() => {});
 
