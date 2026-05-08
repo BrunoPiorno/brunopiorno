@@ -405,20 +405,24 @@ const Chatbot = () => {
 
       const conversationHistory = formatConversationForEmail(newMessages);
 
+      const leadPayload = {
+        nombre: updatedUserData.name,
+        email: updatedUserData.email,
+        telefono: updatedUserData.phone,
+        pais: '',
+        consulta: conversationHistory,
+        fecha_ingreso: new Date().toISOString(),
+        fuente: 'chatbot',
+      };
+
       // Enviar lead a Clay (via proxy server-side para evitar CORS)
       fetch('/api/clay-webhook', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nombre: updatedUserData.name,
-          email: updatedUserData.email,
-          telefono: updatedUserData.phone,
-          pais: '',
-          consulta: conversationHistory,
-          fecha_ingreso: new Date().toISOString(),
-          fuente: 'chatbot',
-        }),
-      }).catch(() => {});
+        body: JSON.stringify(leadPayload),
+      }).then(r => {
+        if (!r.ok) console.error('[Lead] Clay webhook error:', r.status);
+      }).catch(err => console.error('[Lead] Clay fetch error:', err));
 
       // Enviar lead a Make para crear borrador en Gmail
       fetch('https://hook.us2.make.com/j5ybsgnp5mapyotxu57fsxcfufce8ktc', {
@@ -432,7 +436,9 @@ const Chatbot = () => {
           consulta: conversationHistory,
           fuente: 'chatbot',
         }),
-      }).catch(() => {});
+      }).then(r => {
+        if (!r.ok) console.error('[Lead] Make webhook error:', r.status);
+      }).catch(err => console.error('[Lead] Make fetch error:', err));
 
       // Enviar lead a Alora CRM
       fetch('https://alora-crm.vercel.app/api/embed/submit', {
@@ -448,7 +454,9 @@ const Chatbot = () => {
           mensaje: conversationHistory,
           formId: 'chatbot',
         }),
-      }).catch(() => {});
+      }).then(r => {
+        if (!r.ok) console.error('[Lead] CRM submit error:', r.status);
+      }).catch(err => console.error('[Lead] CRM fetch error:', err));
 
       const scheduleUrl = locale === 'en'
         ? 'https://www.globalalora.com/en/discovery-call'

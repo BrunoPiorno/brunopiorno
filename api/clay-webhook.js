@@ -1,6 +1,6 @@
 const CLAY_WEBHOOK_URL = 'https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-1956ddca-17b9-4362-b085-82b125bb6ad8';
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Solo aceptar POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
