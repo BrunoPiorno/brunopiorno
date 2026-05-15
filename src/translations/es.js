@@ -224,6 +224,8 @@ export const es = {
   'projects.protorneo.desc': 'Sitio web liviano y estático desarrollado con HTML5, CSS3 y JavaScript puro. Diseño responsive, estructura optimizada para velocidad de carga y fácil mantenimiento, ideal para mostrar información institucional y deportiva sin depender de CMS.',
   'projects.dialogar.title': 'Asesoría Dialogar',
   'projects.dialogar.desc': 'Landing page profesional desarrollada con WordPress para servicios de asesoría contable y financiera. Diseño optimizado para generar confianza y conversiones, con formulario de contacto integrado, sección de servicios detallados y testimonios de clientes. Estructura SEO-friendly con enfoque en la generación de leads y posicionamiento local.',
+  'projects.castroYeso.title': 'Castro Yeso',
+  'projects.castroYeso.desc': 'Landing page 100% personalizada desarrollada con WordPress sin uso de plantillas preexistentes. Diseño a medida para empresa de yesería y construcción en seco, con galería de trabajos realizados, sección de servicios, formulario de contacto directo y llamadas a la acción estratégicas. Estructura optimizada para SEO local y conversión de visitas en consultas.',
 
   // Testimonials
   'testimonials.title': 'Lo que dicen nuestros clientes',
