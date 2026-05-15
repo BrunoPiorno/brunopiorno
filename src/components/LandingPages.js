@@ -9,6 +9,7 @@ import josejoseImage from "../images/josejose.png";
 import protorneosImage from "../images/protorneo.png";
 import tenisDeMesaImage from "../images/tenisdemesatrenque.com.ar_.png";
 import dialogarImage from "../images/dialogar.png";
+import castroweb from "../images/castroweb.png"
 import "./LandingPages.css";
 
 const LandingPages = () => {
@@ -25,6 +26,24 @@ const LandingPages = () => {
   }, []);
 
   const projects = [
+     {
+      title: "Castro Yeso",
+      description:
+        locale === "es"
+          ? "Landing page 100% personalizada desarrollada con WordPress sin uso de plantillas preexistentes. Diseño a medida para empresa de yesería y construcción en seco, con galería de trabajos realizados, sección de servicios, formulario de contacto directo y llamadas a la acción estratégicas. Estructura optimizada para SEO local y conversión de visitas en consultas."
+          : "100% custom WordPress landing page built without pre-made templates. Tailored design for a plastering and drywall services company, featuring a completed works gallery, services breakdown, direct contact form, and strategic calls to action. Optimized for local SEO and converting visitors into inquiries.",
+      image: castroweb,
+      url: "https://castro-yeso.com",
+    },
+     {
+      title: "Asesoría Dialogar",
+      description:
+        locale === "es"
+          ? "Landing page profesional desarrollada con WordPress para servicios de asesoría contable y financiera. Diseño optimizado para generar confianza y conversiones, con formulario de contacto integrado, sección de servicios detallados y testimonios de clientes. Estructura SEO-friendly con enfoque en la generación de leads y posicionamiento local."
+          : "Professional landing page developed with WordPress for accounting and financial advisory services. Conversion-optimized design focused on building trust, with integrated contact form, detailed services section, and client testimonials. SEO-friendly structure with emphasis on lead generation and local positioning.",
+      image: dialogarImage,
+      url: "https://asesoriadialogar.com.ar/",
+    },
     {
       title: "Starley",
       description:
@@ -61,15 +80,7 @@ const LandingPages = () => {
       image: tenisDeMesaImage,
       url: "https://tenisdemesatrenque.com.ar/",
     },
-    {
-      title: "Asesoría Dialogar",
-      description:
-        locale === "es"
-          ? "Landing page profesional desarrollada con WordPress para servicios de asesoría contable y financiera. Diseño optimizado para generar confianza y conversiones, con formulario de contacto integrado, sección de servicios detallados y testimonios de clientes. Estructura SEO-friendly con enfoque en la generación de leads y posicionamiento local."
-          : "Professional landing page developed with WordPress for accounting and financial advisory services. Conversion-optimized design focused on building trust, with integrated contact form, detailed services section, and client testimonials. SEO-friendly structure with emphasis on lead generation and local positioning.",
-      image: dialogarImage,
-      url: "https://asesoriadialogar.com.ar/",
-    },
+   
   ];
 
   const iconPalette = {

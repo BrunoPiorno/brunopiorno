@@ -67,7 +67,7 @@ const HomePage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState('sistema-web');
+  const [selectedFilter, setSelectedFilter] = useState('landing');
 
   const projects = useMemo(() => {
     const featuredProjects = t('projects.featured');
@@ -361,6 +361,22 @@ const HomePage = () => {
       category: 'mejoras-web'
     },
     {
+      title: t('projects.castroYeso.title'),
+      description: t('projects.castroYeso.desc'),
+      image: require('../images/castroweb.png'),
+      url: 'https://castro-yeso.com',
+      contribution: 'contribution.full',
+      category: 'landing'
+    },
+    {
+      title: t('projects.dialogar.title'),
+      description: t('projects.dialogar.desc'),
+      image: require('../images/dialogar.png'),
+      url: 'https://asesoriadialogar.com.ar/',
+      contribution: 'contribution.full',
+      category: 'landing'
+    },
+    {
       title: t('projects.starleyweb.title'),
       description: t('projects.starleyweb.desc'),
       image: require('../images/starleyweb.png'),
@@ -438,14 +454,6 @@ const HomePage = () => {
       description: t('projects.tenis.desc'),
       image: require('../images/tenisdemesatrenque.com.ar_.png'),
       url: 'https://tenisdemesatrenque.com.ar',
-      contribution: 'contribution.full',
-      category: 'landing'
-    },
-    {
-      title: t('projects.dialogar.title'),
-      description: t('projects.dialogar.desc'),
-      image: require('../images/dialogar.png'),
-      url: 'https://asesoriadialogar.com.ar/',
       contribution: 'contribution.full',
       category: 'landing'
     },
