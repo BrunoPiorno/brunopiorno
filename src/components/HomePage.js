@@ -33,6 +33,7 @@ import alauxImage from '../images/alaux.webp';
 import gretaImage from '../images/greta.webp';
 import talleresImage from '../images/talleres.webp';
 import superadminImage from '../images/superadmin.png';
+import castrologo from '../images/castrologo.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -94,6 +95,11 @@ const HomePage = () => {
       name: 'EntradaFan',
       logo: entradafanLogo,
       url: 'https://www.entradafan.com.ar'
+    },
+    {
+      name: 'Castro Yeso',
+      logo: castrologo,
+      url: 'https://castro-yeso.com'
     },
     {
       name: 'Yampop',
