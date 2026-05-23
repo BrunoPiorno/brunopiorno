@@ -23,6 +23,7 @@ import entradafanLogo from '../images/entradafan.svg';
 import gangafanlogo from '../images/gangafan-logo.svg';
 import fpnnLogo from '../images/fpnn.webp';
 import nutriacLogo from '../images/nutriac-logo.svg';
+import nutriacImage from '../images/nutriac.png';
 import yampop from '../images/yampop.webp';
 import boutique from '../images/logo-boutique.png';
 import zerxio from '../images/zerxio-logo.svg';
@@ -343,22 +344,6 @@ const HomePage = () => {
       category: 'web-informativa'
     },
     {
-      title: t('projects.greta.title'),
-      description: t('projects.greta.desc'),
-      image: gretaImage,
-      url: 'https://gretakidsatelier.com.ar',
-      contribution: 'contribution.full',
-      category: 'woocommerce'
-    },
-    {
-      title: t('projects.alaux.title'),
-      description: t('projects.alaux.desc'),
-      image: alauxImage,
-      url: 'https://tiendaalaux.com.ar',
-      contribution: 'contribution.full',
-      category: 'woocommerce'
-    },
-        {
       title: t('projects.yumkax.title'),
       description: t('projects.yumkax.desc'),
       image: require('../images/yumkax.png'),
@@ -400,6 +385,14 @@ const HomePage = () => {
       category: 'mejoras-web'
     },
     {
+      title: t('projects.nutriac.title'),
+      description: t('projects.nutriac.desc'),
+      image: nutriacImage,
+      url: 'https://nutriac.com.ar',
+      contribution: 'contribution.full',
+      category: 'woocommerce'
+    },
+    {
       title: t('projects.gangafan.title'),
       description: t('projects.gangafan.desc'),
       image: require('../images/gangafan-page.png'),
@@ -436,6 +429,22 @@ const HomePage = () => {
       description: t('projects.megamayorista.desc'),
       image: require('../images/megamayorista.png'),
       url: 'https://megamayorista.com',
+      contribution: 'contribution.full',
+      category: 'woocommerce'
+    },
+    {
+      title: t('projects.greta.title'),
+      description: t('projects.greta.desc'),
+      image: gretaImage,
+      url: 'https://gretakidsatelier.com.ar',
+      contribution: 'contribution.full',
+      category: 'woocommerce'
+    },
+    {
+      title: t('projects.alaux.title'),
+      description: t('projects.alaux.desc'),
+      image: alauxImage,
+      url: 'https://tiendaalaux.com.ar',
       contribution: 'contribution.full',
       category: 'woocommerce'
     },
@@ -788,9 +797,34 @@ const HomePage = () => {
 
         <div className="projects-grid">
           {/* Grid para desktop */}
-          <div className="projects-grid-desktop">
+          <div className="home-woo-grid">
             {filteredProjects.map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} />
+              <motion.a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="home-woo-card"
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.07 }}
+              >
+                <div className="project-image-container">
+                  <img src={project.image} alt={project.title} className="project-image" loading="lazy" />
+                </div>
+                <div className="project-content">
+                  <h3>
+                    {project.title}
+                    {project.location && <span className="project-location">{project.location}</span>}
+                  </h3>
+                  <p>{project.description}</p>
+                  <span className="project-link-woo">
+                    {t('projects.viewSite')}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </div>
+              </motion.a>
             ))}
           </div>
 
@@ -815,7 +849,27 @@ const HomePage = () => {
             >
               {filteredProjects.map((project, index) => (
                 <SwiperSlide key={index}>
-                  <ProjectCard project={project} index={index} />
+                  <motion.a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="home-woo-card"
+                  >
+                    <div className="project-image-container">
+                      <img src={project.image} alt={project.title} className="project-image" loading="lazy" />
+                    </div>
+                    <div className="project-content">
+                      <h3>
+                        {project.title}
+                        {project.location && <span className="project-location">{project.location}</span>}
+                      </h3>
+                      <p>{project.description}</p>
+                      <span className="project-link-woo">
+                        {t('projects.viewSite')}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </span>
+                    </div>
+                  </motion.a>
                 </SwiperSlide>
               ))}
             </Swiper>

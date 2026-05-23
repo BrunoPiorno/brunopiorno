@@ -887,6 +887,107 @@ body.soluciones-page .site-header .language-selector {
   display: none;
 }
 
+/* WooCommerce cards — home projects section */
+.home-woo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 3rem auto 0;
+}
+
+.home-woo-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.home-woo-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.home-woo-card .project-image-container {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.home-woo-card .project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.home-woo-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.home-woo-card .project-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-woo-card .project-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.home-woo-card .project-content p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.home-woo-card .project-link-woo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.1rem;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-top: auto;
+  transition: background 0.2s ease, gap 0.2s ease;
+}
+
+.home-woo-card:hover .project-link-woo {
+  background: #235257;
+  gap: 0.65rem;
+}
+
+@media (max-width: 768px) {
+  .home-woo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .home-woo-card .project-image-container {
+    height: 200px;
+  }
+}
+
 .projects-swiper {
   padding: 0 0 50px;
 }
