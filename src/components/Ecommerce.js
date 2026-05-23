@@ -9,6 +9,7 @@ import gretaImage from '../images/greta.png';
 import alauxImage from '../images/alaux.png';
 import gangafanImage from '../images/gangafan-page.png';
 import megamayoristaImage from '../images/megamayorista.png';
+import nutriacImage from '../images/nutriac.png';
 import './Ecommerce.css';
 
 const Ecommerce = () => {
@@ -188,6 +189,16 @@ const Ecommerce = () => {
       url: 'https://megamayorista.com',
       icon: 'woo',
       tone: 'amber'
+    },
+    {
+      title: 'Nutriac',
+      description: locale === 'es'
+        ? 'Ecommerce WooCommerce 100% custom en PHP y SCSS integrado al sistema PICASSO. Solo acepta compras de clientes registrados.'
+        : '100% custom WooCommerce ecommerce in PHP and SCSS integrated with the PICASSO system. Only registered clients can place orders.',
+      image: nutriacImage,
+      url: 'https://nutriac.com.ar',
+      icon: 'woo',
+      tone: 'emerald'
     }
   ];
 

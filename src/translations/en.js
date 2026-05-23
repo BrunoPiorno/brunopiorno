@@ -276,6 +276,8 @@ export const en = {
   'projects.starleyweb.desc': 'WordPress site with Flatsome theme for product catalog and company information. Development of custom improvements and new functionalities to optimize user experience and product presentation.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',
   'projects.terralauquen.desc': 'Custom-developed corporate website and digital catalog using WordPress as the base framework. Fully personalized with PHP, MySQL, HTML5, CSS3, and JavaScript. Includes a product management system with PDF downloads, responsive design, and optimized performance and SEO.',
+  'projects.nutriac.title': 'Nutriac',
+  'projects.nutriac.desc': '100% custom WooCommerce ecommerce built in PHP and SCSS, integrated with the PICASSO internal system. Only registered clients can place orders.',
   'projects.megamayorista.title': 'Mega Mayorista',
   'projects.megamayorista.desc': 'Built with WordPress and WooCommerce, using a customized commercial premium theme. Includes payment gateway integration, dynamic product catalog, advanced filters, and scalable eCommerce features.',
   'projects.josejose.title': 'José José',

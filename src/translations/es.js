@@ -204,6 +204,8 @@ export const es = {
   'projects.starleyweb.desc': 'Sitio WordPress con tema Flatsome para catálogo de productos e información empresarial. Desarrollo de mejoras personalizadas y nuevas funcionalidades para optimizar la experiencia de usuario y la presentación de productos.',
   'projects.terralauquen.title': 'Grupo Terra Lauquen',
   'projects.terralauquen.desc': 'Sitio web institucional y catálogo digital desarrollado 100% a medida con WordPress como framework base. Programación personalizada en PHP, MySQL, HTML5, SCSS y JS. Incluye sistema de gestión de productos con opción de descarga de fichas técnicas en PDF,  responsive y optimización para carga rápida y SEO.',
+  'projects.nutriac.title': 'Nutriac',
+  'projects.nutriac.desc': 'Ecommerce WooCommerce 100% custom en PHP y SCSS con integración al sistema PICASSO. Solo acepta compras de clientes registrados en el sistema interno.',
   'projects.megamayorista.title': 'Mega Mayorista',
   'projects.megamayorista.desc': 'Desarrollada con WordPress y WooCommerce, utilizando un tema premium comercial personalizado. Integración de pasarela de pagos, catálogo de productos dinámico, filtros avanzados y funcionalidades de eCommerce listas para escalar.',
   'projects.josejose.title': 'José José',
