@@ -1,197 +1,270 @@
-const REQUEST_TIMEOUT_MS = 8500;
-const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
-const GROQ_MODEL = 'llama-3.3-70b-versatile';
+'use strict';
 
-const CONTACT_INFO = {
-  whatsapp: '+541124629452', 
-  email: 'info@globalalora.com',
-  web: 'https://globalalora.com/'
+const REQUEST_TIMEOUT_MS = 10_000;
+const GROQ_ENDPOINT      = 'https://api.groq.com/openai/v1/chat/completions';
+const GROQ_MODEL         = 'llama-3.3-70b-versatile';
+
+const CONTACT = {
+  whatsapp: '+541124629452',
+  email:    'info@globalalora.com',
 };
 
-const SYSTEM_PROMPTS = {
-  es: `Eres Alora, asistente virtual de Alora.
-
-REGLA #0 - COINCIDENCIA DE IDIOMA:
-Si el usuario escribe en inglés, responde en inglés. Si escribe en español, responde en español.
-
-REGLA #1 - BREVEDAD EXTREMA:
-Responde en MÁXIMO 2-3 ORACIONES. Si tu respuesta tiene más de 50 palabras, está mal.
-
-REGLA #2 - PROHIBIDO DAR PRECIOS:
-No menciones montos. Si preguntan por precio/presupuesto, recién ahí ofrecé los datos de contacto.
-
-REGLA #3 - NO LISTAS:
-No uses bullets ni enumeraciones.
-
-SERVICIOS: Desarrollo web, e-commerce, diseño UI/UX, mantenimiento.
-PLATAFORMAS: Especialistas en WordPress y WooCommerce.
-
-CONTACTO:
-Solo compartí WhatsApp/email cuando el usuario pida precio, reunión o cómo contactarnos. Jamás lo hagas en el primer mensaje espontáneamente.
-Si necesitás pedir sus datos, hacelo después de explicar brevemente cómo podemos ayudar.
-
-EJEMPLOS:
-Usuario: "¿Cuánto cuesta un e-commerce?"
-Tú: "Cada proyecto es único. Podemos contarte costos por WhatsApp ${CONTACT_INFO.whatsapp} o al mail ${CONTACT_INFO.email}. ¿Qué productos querés vender?"
-
-Usuario: "Hola" o "¿Qué hacen?"
-Tú: "Hola, soy Alora. Creamos sitios y tiendas a medida. ¿Tenés algún proyecto en mente?"
-
-CRÍTICO: Empieza la charla con empatía; no pidas datos ni ofrezcas contacto hasta que el usuario lo solicite o la conversación avance.`,
-
-  en: `You are Alora, Alora's virtual assistant.
-
-RULE #0 - LANGUAGE MATCHING:
-Reply in the same language as the user.
-
-RULE #1 - EXTREME BREVITY:
-Use max 2-3 sentences (under ~50 words).
-
-RULE #2 - NO PRICES:
-Never mention amounts. Only share contact info when the user asks about pricing, quotes, meetings, or how to reach us.
-
-RULE #3 - NO LISTS:
-No bullets or numbered lists.
-
-SERVICES: Web development, e-commerce, UI/UX, maintenance.
-PLATFORMS: WordPress and WooCommerce experts.
-
-CONTACT POLICY:
-Do NOT offer WhatsApp/email in the first reply. Wait until the user explicitly asks for pricing/contact or the conversation progresses and they request a meeting. When needed, share 📱 ${CONTACT_INFO.whatsapp} and 📧 ${CONTACT_INFO.email}.
-
-EXAMPLES:
-User: "How much does a website cost?"
-You: "It depends on scope. I can walk you through options if we chat via WhatsApp ${CONTACT_INFO.whatsapp} or email ${CONTACT_INFO.email}. What kind of site do you need?"
-
-User: "Hi"
-You: "Hi! I'm Alora. We build custom sites and stores. What project do you have in mind?"
-
-CRITICAL: Keep the conversation helpful first; only request their contact details after they've shown interest in moving forward.`
+// ─── Structured logger ────────────────────────────────────────────────────────
+const log = {
+  info:  (event, ctx = {}) => console.log(JSON.stringify({ level: 'INFO',  event, ...ctx, ts: new Date().toISOString() })),
+  warn:  (event, ctx = {}) => console.warn(JSON.stringify({ level: 'WARN',  event, ...ctx, ts: new Date().toISOString() })),
+  error: (event, ctx = {}) => console.error(JSON.stringify({ level: 'ERROR', event, ...ctx, ts: new Date().toISOString() })),
 };
 
+// ─── Conversation health analysis ─────────────────────────────────────────────
+function jaccardSimilarity(a, b) {
+  const sa = new Set(a.split(/\s+/).filter(Boolean));
+  const sb = new Set(b.split(/\s+/).filter(Boolean));
+  const inter = new Set([...sa].filter(x => sb.has(x)));
+  const union = new Set([...sa, ...sb]);
+  return union.size ? inter.size / union.size : 0;
+}
+
+const FRUSTRATION_SIGNALS = {
+  es: ['leiste', 'leíste', 'no me escuchas', 'no entiendes', 'automática', 'automatica', 'robot', 'pésimo', 'pesimo', 'inútil', 'inutil', 'ridículo', 'ridiculo', 'sin sentido', 'que clase', 'qué clase', 'no sirve', 'mal servicio'],
+  en: ['did you read', 'are you a bot', "don't understand", 'not listening', 'useless', 'ridiculous', 'makes no sense', 'terrible service', 'stupid bot', 'not helpful'],
+};
+
+const EXIT_SIGNALS = {
+  es: ['chau', 'adios', 'adiós', 'hasta luego', 'me voy', 'olvida', 'olvídalo', 'olvidalo', 'déjalo', 'dejalo', 'no gracias'],
+  en: ['bye', 'goodbye', 'forget it', 'never mind', "i'm leaving", 'cya', 'no thanks', 'leave it'],
+};
+
+function analyzeConversation(messages, lang) {
+  const userMsgs = messages.filter(m => m.from === 'user');
+  const botMsgs  = messages.filter(m => m.from === 'bot');
+
+  const lastUserText = (userMsgs.at(-1)?.text ?? '').toLowerCase();
+  const lastBotText  = botMsgs.at(-1)?.text ?? null;
+  const prevBotText  = botMsgs.at(-2)?.text ?? null;
+
+  const frustSignals = FRUSTRATION_SIGNALS[lang] ?? FRUSTRATION_SIGNALS.es;
+  const exitSignals  = EXIT_SIGNALS[lang]         ?? EXIT_SIGNALS.es;
+
+  const isFrustrated = frustSignals.some(s => lastUserText.includes(s));
+  const isExiting    = exitSignals.some(s => lastUserText.includes(s));
+
+  // Loop: last two bot replies are too similar
+  const hasLoop = !!(lastBotText && prevBotText &&
+    jaccardSimilarity(lastBotText.toLowerCase(), prevBotText.toLowerCase()) > 0.55
+  );
+
+  const isAtRisk = isFrustrated || isExiting || hasLoop;
+
+  return { isFrustrated, isExiting, hasLoop, isAtRisk, lastBotText, msgCount: messages.length };
+}
+
+// ─── Prompt builder ───────────────────────────────────────────────────────────
+const BASE_PROMPT = {
+  es: `Sos Alora, asistente virtual de Alora — estudio de desarrollo digital (web, e-commerce, apps).
+
+REGLAS ABSOLUTAS:
+1. IDIOMA: Respondé siempre en el idioma del usuario.
+2. BREVEDAD: Máximo 2-3 oraciones. Más de 60 palabras = muy largo.
+3. SIN PRECIOS: Nunca menciones montos. Si piden precio, derivá a WhatsApp o email.
+4. SIN LISTAS: Sin bullets ni numeraciones.
+5. NO REPETIR: Jamás repitas lo que ya dijiste antes. Cada respuesta debe aportar algo nuevo.
+6. PREGUNTAR ANTES DE ASUMIR: Si un mensaje es ambiguo, preguntá qué necesitan — no asumas nada.
+7. TONO HUMANO: Cálido, directo, curioso, útil. Nunca corporativo ni robótico.
+
+SERVICIOS: Desarrollo web, e-commerce, diseño UI/UX, mantenimiento web.
+PLATAFORMAS: WordPress y WooCommerce (especialistas).
+
+CONTACTO (solo compartirlo cuando el usuario lo pide explícitamente o quiere agendar):
+  📱 WhatsApp: ${CONTACT.whatsapp}
+  📧 Email: ${CONTACT.email}
+
+MANEJO DE CASOS DIFÍCILES:
+- Mensaje con "pedido", "envío", "producto" u otro término de tienda → ANTES de decir que no vendemos, preguntá: "¿Estás buscando soporte de una tienda que desarrollamos, o tenés una consulta de desarrollo?" — puede ser cliente de uno de nuestros clientes.
+- Usuario confundido → Preguntá con curiosidad genuina qué están buscando.
+- Enojo o frustración → Primero reconocé la emoción brevemente ("Entiendo tu frustración"). Pedí disculpas si corresponde. Ofrecé una nueva vía de ayuda.
+- Conversación estancada → Ofrecé conectar con una persona real por WhatsApp.`,
+
+  en: `You are Alora, Alora's virtual assistant — a digital development studio (web, e-commerce, apps).
+
+ABSOLUTE RULES:
+1. LANGUAGE: Always reply in the user's language.
+2. BREVITY: Max 2-3 sentences. Over 60 words = too long.
+3. NO PRICES: Never mention amounts. If asked for pricing, point to contact info.
+4. NO LISTS: No bullets or numbers.
+5. NO REPETITION: Never repeat what you've already said. Every response must add new value.
+6. ASK BEFORE ASSUMING: If a message is ambiguous, ask what they need — don't assume.
+7. HUMAN TONE: Warm, direct, curious, helpful. Never corporate or robotic.
+
+SERVICES: Web development, e-commerce, UI/UX design, web maintenance.
+PLATFORMS: WordPress and WooCommerce specialists.
+
+CONTACT (only share when user explicitly asks or wants to schedule):
+  📱 WhatsApp: ${CONTACT.whatsapp}
+  📧 Email: ${CONTACT.email}
+
+HANDLING DIFFICULT CASES:
+- "Order", "shipping", "product" or retail terms → BEFORE saying we don't sell products, ask: "Are you looking for support on a store we built, or do you have a development question?" — they may be a client's customer.
+- Confused user → Ask with genuine curiosity what they're looking for.
+- Anger or frustration → Briefly acknowledge the emotion ("I understand your frustration"). Apologize if warranted. Offer a new way to help.
+- Stalled conversation → Offer to connect with a real person via WhatsApp.`,
+};
+
+function buildPrompt(lang, state) {
+  const { isFrustrated, isExiting, hasLoop, lastBotText } = state;
+  let prompt = BASE_PROMPT[lang] ?? BASE_PROMPT.es;
+
+  if (hasLoop) {
+    prompt += lang === 'en'
+      ? '\n\n⚠️ ANTI-LOOP (CRITICAL): Your last two replies were nearly identical. Give a completely different response now. Do NOT echo or paraphrase the previous message in any form.'
+      : '\n\n⚠️ ANTI-LOOP (CRÍTICO): Tus últimas dos respuestas fueron casi iguales. Dá una respuesta completamente diferente ahora. NO repitas ni parafrasees el mensaje anterior.';
+  }
+
+  if (isFrustrated) {
+    prompt += lang === 'en'
+      ? '\n\n🔴 FRUSTRATED USER: Acknowledge their frustration first (1 short, genuine sentence). Do NOT repeat previous responses. Ask a real clarifying question. Offer human help if needed.'
+      : '\n\n🔴 USUARIO FRUSTRADO: Reconocé su frustración primero (1 oración corta y genuina). NO repitas respuestas anteriores. Hacé una pregunta de aclaración real. Ofrecé ayuda humana si es necesario.';
+  }
+
+  if (isExiting) {
+    prompt += lang === 'en'
+      ? '\n\n🔴 USER IS LEAVING: Warm recovery — briefly acknowledge any frustration, offer one genuine path forward (WhatsApp or a quick callback). Not desperate, not pushy.'
+      : '\n\n🔴 USUARIO SE VA: Recuperación cálida — reconocé brevemente cualquier frustración y ofrecé un camino genuino (WhatsApp o un callback rápido). Sin desesperación ni insistencia.';
+  }
+
+  if (lastBotText) {
+    const preview = lastBotText.slice(0, 100).replace(/"/g, "'");
+    prompt += lang === 'en'
+      ? `\n\n📝 YOUR LAST RESPONSE STARTED WITH: "${preview}…" — Do NOT repeat or paraphrase this.`
+      : `\n\n📝 TU ÚLTIMA RESPUESTA EMPEZÓ CON: "${preview}…" — NO repitas ni parafrasees esto.`;
+  }
+
+  return prompt;
+}
+
+// ─── Fallback responses ────────────────────────────────────────────────────────
+const FALLBACK = {
+  es: `Disculpá, tuve un problema técnico. Podés contactarnos directamente:\n\n📱 WhatsApp: ${CONTACT.whatsapp}\n📧 Email: ${CONTACT.email}`,
+  en: `Sorry, I ran into a technical issue. You can reach us directly:\n\n📱 WhatsApp: ${CONTACT.whatsapp}\n📧 Email: ${CONTACT.email}`,
+};
+
+// ─── Handler ──────────────────────────────────────────────────────────────────
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST')   return res.status(405).json({ error: 'Method not allowed' });
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  const lang         = req.body?.language === 'en' ? 'en' : 'es';
+  const fallbackText = FALLBACK[lang];
 
-  const selectedLanguage = (req.body && req.body.language === 'en') ? 'en' : 'es';
-  const fallbackPlainText = selectedLanguage === 'en'
-    ? `Sorry, I had a technical issue. You can contact us directly:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}`
-    : `Disculpá, tuve un problema técnico. Contactanos directamente:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}`;
-
-  const writePlainTextResponse = (text) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.setHeader('Transfer-Encoding', 'chunked');
-    res.setHeader('Cache-Control', 'no-cache');
-    res.setHeader('Connection', 'keep-alive');
-    res.write(text);
-    res.end();
+  const writePlain = (text) => {
+    if (res.headersSent) return;
+    res.status(200)
+       .setHeader('Content-Type', 'text/plain; charset=utf-8')
+       .end(text);
   };
 
   try {
-    const { messages } = req.body || {};
+    const { messages, conversationId } = req.body ?? {};
 
-    if (!messages || !Array.isArray(messages)) {
+    if (!Array.isArray(messages)) {
       return res.status(400).json({ error: 'Invalid messages format' });
     }
 
     if (!process.env.GROQ_API_KEY) {
-      console.error('Missing GROQ_API_KEY environment variable');
-      return writePlainTextResponse(fallbackPlainText);
+      log.error('MISSING_API_KEY', { conversationId });
+      return writePlain(fallbackText);
     }
 
-    const conversationMessages = messages
-      .filter(msg => msg.from === 'user' || msg.from === 'bot')
-      .slice(-8);
+    // Analyze conversation health
+    const state = analyzeConversation(messages, lang);
 
-    const reminder = selectedLanguage === 'en'
-      ? 'Answer in max 2 sentences, no lists. If they want a meeting/consultation, ask for their contact.'
-      : 'Respondé en máximo 2 oraciones, sin listas. Si piden reunión/consulta, pedí su contacto.';
+    log.info('CHAT_REQUEST', {
+      conversationId,
+      lang,
+      msgCount:    state.msgCount,
+      isFrustrated: state.isFrustrated,
+      isExiting:   state.isExiting,
+      hasLoop:     state.hasLoop,
+      isAtRisk:    state.isAtRisk,
+    });
 
-    const systemPrompt = `${SYSTEM_PROMPTS[selectedLanguage]}
+    if (state.isFrustrated) {
+      log.warn('FRUSTRATED_USER', {
+        conversationId,
+        lastUserMsg: messages.filter(m => m.from === 'user').at(-1)?.text?.slice(0, 80),
+      });
+    }
+    if (state.hasLoop) {
+      log.warn('LOOP_DETECTED', { conversationId, lastBotText: state.lastBotText?.slice(0, 80) });
+    }
+    if (state.isExiting) {
+      log.warn('USER_EXITING', { conversationId });
+    }
 
-${reminder}`;
+    const systemPrompt = buildPrompt(lang, state);
+    // Higher temperature when recovering: more creative, less deterministic
+    const temperature  = state.isFrustrated || state.isExiting ? 0.78 : 0.55;
 
-    const historyMessages = conversationMessages.map(msg => ({
-      role: msg.from === 'user' ? 'user' : 'assistant',
-      content: msg.text,
-    }));
+    const history = messages
+      .filter(m => m.from === 'user' || m.from === 'bot')
+      .slice(-10)
+      .map(m => ({ role: m.from === 'user' ? 'user' : 'assistant', content: m.text }));
 
-    if (!historyMessages.length) {
-      historyMessages.push({
-        role: 'user',
-        content: selectedLanguage === 'en' ? 'Hi! I need more information about your services.' : 'Hola, necesito más información sobre sus servicios.'
+    if (!history.length) {
+      history.push({
+        role:    'user',
+        content: lang === 'en' ? 'Hi, I need some information.' : 'Hola, necesito información.',
       });
     }
 
-    const groqPayload = {
-      model: GROQ_MODEL,
-      temperature: 0.35,
-      max_tokens: 220,
-      messages: [
-        { role: 'system', content: systemPrompt },
-        ...historyMessages
-      ],
-    };
+    const groqRes = await Promise.race([
+      fetch(GROQ_ENDPOINT, {
+        method:  'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization:  `Bearer ${process.env.GROQ_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model:       GROQ_MODEL,
+          temperature,
+          max_tokens:  200,
+          messages:    [{ role: 'system', content: systemPrompt }, ...history],
+        }),
+      }),
+      new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), REQUEST_TIMEOUT_MS)),
+    ]);
 
-    const sendMessagePromise = fetch(GROQ_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
-      },
-      body: JSON.stringify(groqPayload),
-    });
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => reject(new Error('timeout')), REQUEST_TIMEOUT_MS);
-    });
-
-    const response = await Promise.race([sendMessagePromise, timeoutPromise]);
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Groq response status ${response.status}: ${errorText}`);
+    if (!groqRes.ok) {
+      const errBody = await groqRes.text();
+      throw new Error(`Groq ${groqRes.status}: ${errBody}`);
     }
 
-    const data = await response.json();
-    const responseText = data?.choices?.[0]?.message?.content || '';
-    const trimmedText = (responseText || '').trim();
+    const data = await groqRes.json();
+    const text = (data?.choices?.[0]?.message?.content ?? '').trim();
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.setHeader('Cache-Control', 'no-cache');
-
-    if (!trimmedText || trimmedText.length < 10) {
-      const fallback = selectedLanguage === 'en'
-        ? `To help you better, contact us directly:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}\n\nHow can we help you?`
-        : `Para ayudarte mejor, contactanos directamente:\n\n📱 WhatsApp: ${CONTACT_INFO.whatsapp}\n📧 Email: ${CONTACT_INFO.email}\n\n¿En qué podemos ayudarte?`;
-      res.end(fallback);
-    } else {
-      res.end(trimmedText);
+    if (!text || text.length < 5) {
+      log.warn('EMPTY_RESPONSE', { conversationId });
+      return writePlain(fallbackText);
     }
 
-  } catch (error) {
-    console.error('Error calling Gemini:', error);
-    console.error('Error details:', {
-      message: error.message,
-      status: error?.status,
-      statusText: error?.statusText
+    log.info('CHAT_RESPONSE', {
+      conversationId,
+      len:         text.length,
+      temperature,
+      isAtRisk:    state.isAtRisk,
     });
 
-    if (res.headersSent) {
-      res.write(fallbackPlainText);
-      return res.end();
-    }
+    res.status(200)
+       .setHeader('Content-Type', 'text/plain; charset=utf-8')
+       .setHeader('Cache-Control', 'no-cache')
+       .end(text);
 
-    return writePlainTextResponse(fallbackPlainText);
+  } catch (err) {
+    log.error('CHAT_ERROR', { message: err.message, stack: err.stack?.slice(0, 200) });
+    return writePlain(fallbackText);
   }
 };

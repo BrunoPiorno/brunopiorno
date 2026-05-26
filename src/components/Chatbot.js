@@ -109,6 +109,34 @@ const detectSpecialIntent = (text = '') => {
 
 const MAX_CHAT_RETRIES = 2;
 
+// ─── Conversation health signals (mirrored on backend for double coverage) ───
+const FRUSTRATION_SIGNALS = {
+  es: ['leiste', 'leíste', 'no entiendes', 'no me escuchas', 'automática', 'automatica', 'robot', 'pésimo', 'pesimo', 'inútil', 'inutil', 'ridículo', 'ridiculo', 'sin sentido', 'que clase', 'mal servicio'],
+  en: ['did you read', 'are you a bot', "don't understand", 'not listening', 'useless', 'ridiculous', 'makes no sense', 'terrible', 'stupid'],
+};
+
+const EXIT_SIGNALS = {
+  es: ['chau', 'adios', 'adiós', 'hasta luego', 'me voy', 'olvida', 'olvídalo', 'olvidalo'],
+  en: ['bye', 'goodbye', 'forget it', 'never mind', "i'm leaving", 'cya'],
+};
+
+const detectFrustration = (text, lang) => {
+  const norm = normalizeText(text);
+  return (FRUSTRATION_SIGNALS[lang] ?? FRUSTRATION_SIGNALS.es).some(s => norm.includes(s));
+};
+
+const detectExiting = (text, lang) => {
+  const norm = normalizeText(text);
+  return (EXIT_SIGNALS[lang] ?? EXIT_SIGNALS.es).some(s => norm.includes(s));
+};
+
+const chatLog = (event, data = {}) => {
+  if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line no-console
+    console.info(`[Chat:${event}]`, data);
+  }
+};
+
 // Convertir URLs en enlaces clickeables
 const renderMessageWithLinks = (text) => {
   if (!text) return text;
@@ -171,8 +199,6 @@ const Chatbot = () => {
       ask_phone: '¡Perfecto! Y por último, ¿me podrías dejar tu número de teléfono (mejor si es por whatsapp)? (Prometemos no enviar NADA de SPAM).',
       thank_you: '¡Gracias! Un asesor se pondrá en contacto contigo pronto. ¿Hay algo más en lo que pueda ayudarte?',
       continue_chat: 'Entiendo. ¿Hay algo más en lo que pueda ayudarte?',
-      not_retail:
-        'Somos Alora, un estudio de desarrollo digital. No vendemos productos físicos ni gestionamos pedidos. Te sugerimos contactar al comercio donde realizaste la compra. ¿Podemos ayudarte con algo relacionado a desarrollo o estrategia digital?',
       career_reply:
         `¡Gracias por tu interés en Alora! Gestionamos las postulaciones por email. Enviá tu CV o portfolio a ${CAREERS_EMAIL} con el asunto "Quiero colaborar con Alora" y te responderemos cuando lo revisemos.`,
       error: 'Lo siento, no puedo responder en este momento.'
@@ -186,8 +212,6 @@ const Chatbot = () => {
       ask_phone: 'Perfect! And finally, could you leave your phone number (better if it\'s WhatsApp)? (We promise NO SPAM).',
       thank_you: 'Thank you! An advisor will contact you soon. Is there anything else I can help you with?',
       continue_chat: 'I understand. Is there anything else I can help you with?',
-      not_retail:
-        'We\'re Alora, a digital product development studio. We don\'t sell physical products or manage retail orders. Please reach out to the store or marketplace where you purchased the item. Can I help you with anything related to digital projects instead?',
       career_reply:
         `Thanks for your interest in Alora! We review applications via email. Please send your CV or portfolio to ${CAREERS_EMAIL} with the subject "Join Alora" and we\'ll get back to you soon.`,
       error: 'Sorry, I cannot respond at the moment.'
@@ -214,7 +238,9 @@ const Chatbot = () => {
   const [isSending, setIsSending] = useState(false);
   const [userData, setUserData] = useState({ name: '', email: '', phone: '' });
   const [affirmativeStreak, setAffirmativeStreak] = useState(0);
-  const messagesEndRef = useRef(null);
+  const [showEscalation, setShowEscalation] = useState(false);
+  const messagesEndRef    = useRef(null);
+  const conversationIdRef = useRef(`chat_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`);
 
   useEffect(() => {
     setMessages([{ from: 'bot', text: messages_by_lang[locale].welcome }]);
@@ -302,6 +328,16 @@ const Chatbot = () => {
 
   const runChatConversation = async (newMessagesSnapshot, userText) => {
     detectAndSendLead(userText, newMessagesSnapshot);
+
+    // Track frustration / exit intent before sending
+    const isFrustratedMsg = detectFrustration(userText, locale);
+    const isExitingMsg    = detectExiting(userText, locale);
+
+    if (isFrustratedMsg || isExitingMsg) {
+      setShowEscalation(true);
+      chatLog('RISK_SIGNAL', { cid: conversationIdRef.current, isFrustratedMsg, isExitingMsg, msg: userText.slice(0, 60) });
+    }
+
     setIsSending(true);
     setMessages(newMessagesSnapshot);
     setInputValue('');
@@ -313,11 +349,12 @@ const Chatbot = () => {
       setMessages(prev => [...prev, { from: 'bot', text: botResponse }]);
       handleContactOffer(botResponse, userText, newMessagesSnapshot.length);
     } catch (error) {
-      console.error('Error al contactar la API del chat:', error);
+      chatLog('API_ERROR', { cid: conversationIdRef.current, error: error.message });
       const fallback = locale === 'en'
         ? `Sorry, I had a technical issue. You can reach us via WhatsApp ${CONTACT_INFO.whatsapp} or email ${CONTACT_INFO.email}.`
         : `Tuvimos un problema técnico. Podés escribirnos por WhatsApp ${CONTACT_INFO.whatsapp} o al correo ${CONTACT_INFO.email}.`;
       setMessages(prev => [...prev, { from: 'bot', text: fallback }]);
+      setShowEscalation(true);
       setIsTyping(false);
     } finally {
       setIsSending(false);
@@ -338,17 +375,18 @@ const Chatbot = () => {
     const localeNegatives = NEGATIVE_WORDS[locale];
     const isPureAffirmative = localeAffirmatives.includes(normalizedInput);
 
-    if (specialIntent && (step === 'chat' || step === 'pre_contact')) {
-      const responseKey = specialIntent === 'career' ? 'career_reply' : 'not_retail';
-      setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale][responseKey] }]);
+    // Career: always handle with a specific static reply (redirects to email, no LLM needed)
+    if (specialIntent === 'career' && (step === 'chat' || step === 'pre_contact')) {
+      setMessages([...newMessages, { from: 'bot', text: messages_by_lang[locale].career_reply }]);
       setInputValue('');
       setAffirmativeStreak(0);
       setStep('chat');
-      if (specialIntent === 'career') {
-        setHasOfferedContact(true);
-      }
+      setHasOfferedContact(true);
+      chatLog('CAREER_INTENT', { cid: conversationIdRef.current });
       return;
     }
+    // Retail keywords: do NOT fire a static message — route through LLM so it can
+    // ask a clarifying question first (user might be a client-of-client needing support).
 
     if (step === 'chat') {
       if (isPureAffirmative) {
@@ -488,7 +526,9 @@ const Chatbot = () => {
       setHasOfferedContact(true);
       setStep('name');
       setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].ask_name }]);
-    } else if (conversationLength >= 4) {
+      chatLog('LEAD_INTENT', { cid: conversationIdRef.current, trigger: wantsQuote ? 'quote' : 'meeting' });
+    } else if (conversationLength >= 6) {
+      // Wait until msg 6 before offering contact — give user time to explain their need
       setHasOfferedContact(true);
       setTimeout(() => {
         setMessages(prev => [...prev, { from: 'bot', text: messages_by_lang[locale].offer_contact }]);
@@ -505,8 +545,9 @@ const Chatbot = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          messages: payload.slice(-10),
-          language: locale,
+          messages:       payload.slice(-10),
+          language:       locale,
+          conversationId: conversationIdRef.current,
         }),
       });
 
@@ -568,6 +609,22 @@ const Chatbot = () => {
               )}
               <div ref={messagesEndRef} />
             </div>
+
+            {/* Human escalation: shown when frustration or errors detected */}
+            {showEscalation && (
+              <div className="chatbot-escalation">
+                <span>{locale === 'en' ? 'Prefer to talk to a person?' : '¿Preferís hablar con una persona?'}</span>
+                <a
+                  href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="chatbot-escalation-btn"
+                >
+                  📱 WhatsApp
+                </a>
+              </div>
+            )}
+
             <form className="chatbot-input" onSubmit={handleSendMessage}>
               <input 
                 type="text" 
