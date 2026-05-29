@@ -486,7 +486,559 @@ const posts = [
           'En Alora hacemos estas automatizaciones contigo, paso a paso. No te vendemos software complejo: te ayudamos a usar las herramientas que ya existen para que tu negocio funcione sin fricción.\n\nAgenda una reunión gratuita y evaluaremos qué proceso de tu negocio podemos automatizar primero.',
       }
     ]
-  }
+  },
+  // --- Artículos nuevos: Chatbots, IA y Automatización ---
+  {
+    slug: 'chatbot-whatsapp-para-empresas',
+    translationSlug: 'whatsapp-chatbot-for-business',
+    title: 'Chatbot de WhatsApp para empresas: guía completa para implementarlo en 2026',
+    description:
+      'Qué es un chatbot de WhatsApp, cómo funciona la API oficial de Meta, qué resultados reales puede esperar tu empresa y cómo implementarlo paso a paso sin complicaciones técnicas.',
+    date: '2026-05-15',
+    cover:
+      'https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&w=1600&q=80',
+    content: [
+      { type: 'subtitle', value: '¿Qué es un chatbot de WhatsApp para empresas?' },
+      {
+        type: 'text',
+        value:
+          'Un chatbot de WhatsApp para empresas es un sistema automatizado que responde mensajes, agenda citas y califica leads directamente desde WhatsApp, sin intervención humana en tiempo real.\n\nNo es un bot de "presioná 1 para ventas, 2 para soporte". Los chatbots con IA actuales entienden lenguaje natural, reconocen la intención del usuario y responden correctamente aunque la pregunta esté mal escrita o sea ambigua.\n\nLa diferencia con otras plataformas es estratégica: en Latinoamérica, WhatsApp tiene tasas de apertura que superan el 95%, contra un promedio del 20% en email. Esto lo convierte en el canal con mayor acceso real al cliente.',
+      },
+      {
+        type: 'subtitle',
+        value: 'WhatsApp Business App vs. WhatsApp Business API: la diferencia que cambia todo',
+      },
+      {
+        type: 'text',
+        value:
+          'Antes de implementar cualquier chatbot, hay que entender que existen dos productos completamente distintos bajo el nombre "WhatsApp Business".',
+      },
+      {
+        type: 'comparison',
+        headers: ['Característica', 'WhatsApp Business App', 'WhatsApp Business API'],
+        rows: [
+          { label: 'Precio', landing: 'Gratuita', website: 'De pago (según proveedor)' },
+          { label: 'Automatización', landing: 'Mensajes básicos', website: 'Chatbot completo con IA' },
+          { label: 'Usuarios simultáneos', landing: '1 dispositivo', website: 'Ilimitado / multiagente' },
+          { label: 'CRM / integraciones', landing: 'No', website: 'HubSpot, Salesforce, Google Calendar…' },
+          { label: 'Volumen de mensajes', landing: 'Bajo', website: 'Alto / enterprise' },
+          { label: 'Ideal para', landing: 'Freelancers y negocios pequeños', website: 'PyMEs y empresas en crecimiento' },
+        ],
+      },
+      {
+        type: 'text',
+        value:
+          'Para implementar un chatbot real con IA se necesita la API oficial de WhatsApp Business (WABA). Es la única vía para automatizar conversaciones de forma escalable, cumpliendo las políticas de Meta y sin riesgo de suspensión de cuenta.',
+      },
+      { type: 'subtitle', value: '¿Cómo funciona un chatbot con IA integrado a WhatsApp?' },
+      {
+        type: 'text',
+        value:
+          'El flujo técnico simplificado es este:\n\n1. Un usuario envía un mensaje al número de WhatsApp Business de la empresa.\n2. La API de Meta recibe el mensaje y lo envía al sistema del chatbot vía webhook.\n3. El modelo de IA (GPT-4, Claude, Gemini u otro) procesa el mensaje y genera una respuesta.\n4. La respuesta llega al usuario en segundos.\n\nLo que hace a los chatbots modernos distintos es que la IA puede:\n- Entender preguntas complejas o mal redactadas.\n- Consultar la base de conocimiento del negocio en tiempo real.\n- Tomar decisiones simples: agendar, derivar, responder con precio.\n- Escalar a un humano cuando es necesario.',
+      },
+      { type: 'subtitle', value: '7 casos de uso reales en empresas' },
+      {
+        type: 'list',
+        items: [
+          'Respuesta automática 24/7 a consultas frecuentes (precios, horarios, disponibilidad)',
+          'Agenda de turnos y reservas sin intervención humana',
+          'Calificación de leads: el bot filtra antes de pasar a ventas',
+          'Confirmación y recordatorio automático de citas (reduce ausentismo hasta un 35%)',
+          'Seguimiento post-venta y recolección de reseñas',
+          'Derivación inteligente a agente humano cuando la consulta lo requiere',
+          'Envío de catálogos, cotizaciones y links de pago por WhatsApp',
+        ],
+      },
+      { type: 'subtitle', value: '¿Qué resultados puede esperar tu empresa?' },
+      {
+        type: 'highlight',
+        value:
+          'Las empresas que implementan chatbots de WhatsApp correctamente reportan: reducción del 60-70% en el tiempo de respuesta, incremento del 30-50% en la tasa de conversión de leads, y recuperación de hasta 10 oportunidades semanales que antes se perdían fuera del horario de atención.',
+      },
+      {
+        type: 'text',
+        value:
+          'Los resultados varían según el rubro, el volumen de mensajes y la calidad de la implementación. Un chatbot mal configurado genera frustración. Uno bien configurado actúa como el mejor agente del equipo.\n\nEl factor diferencial no es la tecnología: es qué tan bien se entrena al chatbot con la información real del negocio.',
+      },
+      { type: 'subtitle', value: 'Pasos concretos para implementar un chatbot de WhatsApp' },
+      {
+        type: 'text',
+        value:
+          '1. Verificar que el negocio cumple con las políticas de WhatsApp Business — no todos los rubros están habilitados.\n\n2. Elegir un proveedor con acceso a la API oficial de Meta.\n\n3. Mapear los flujos de conversación clave — qué preguntas responder, qué acciones tomar, cuándo derivar.\n\n4. Entrenar al bot con la información de la empresa: precios, productos, horarios, políticas, FAQs reales.\n\n5. Conectar las integraciones necesarias: CRM, calendario, sistema de pagos o gestor de turnos.\n\n6. Probar en modo real durante 2 semanas antes del lanzamiento completo.\n\n7. Medir y optimizar: abrir las métricas de conversión y ajustar los flujos que fallan.',
+      },
+      { type: 'subtitle', value: 'Lo que no te cuentan los proveedores de chatbots' },
+      {
+        type: 'emphasis',
+        value:
+          'Los chatbots no son "instalar y olvidar". Un chatbot bien implementado necesita revisión mensual para actualizar información, ajustar flujos según las preguntas reales que llegan y adaptarse a cambios del negocio. El mantenimiento es parte del servicio.',
+        emphasisType: 'warning',
+      },
+      {
+        type: 'text',
+        value:
+          'Otro punto clave: los modelos de cobro de WhatsApp. Meta cobra por conversación cada 24 horas. Las conversaciones de servicio (iniciadas por el cliente) son gratuitas o de muy bajo costo en la mayoría de los países de LATAM. Las conversaciones de marketing (iniciadas por la empresa) tienen costo variable por país. Siempre preguntá al proveedor cómo impacta esto en la facturación mensual.',
+      },
+      {
+        type: 'faq',
+        items: [
+          {
+            question: '¿Necesito la API oficial para tener un chatbot en WhatsApp?',
+            answer:
+              'Sí, si querés automatización real y escalable. La WhatsApp Business App solo permite respuestas automáticas básicas y funciona en un solo dispositivo. La API es necesaria para chatbots con IA, múltiples agentes y conexiones a otros sistemas.',
+          },
+          {
+            question: '¿Cuánto tarda en estar activo un chatbot de WhatsApp?',
+            answer:
+              'Depende del proveedor y la complejidad. Una implementación básica puede estar activa en 1-2 semanas. Una integración completa con CRM, agendamiento y flujos avanzados puede tardar entre 3 y 6 semanas.',
+          },
+          {
+            question: '¿El chatbot puede responder cualquier pregunta?',
+            answer:
+              'No. El chatbot responde bien las preguntas para las que fue entrenado. Cuando aparece algo fuera del alcance, debe derivar a un humano. Un buen diseño de flujo incluye siempre esa válvula de escape.',
+          },
+          {
+            question: '¿Se puede usar el mismo número que ya uso en WhatsApp Business?',
+            answer:
+              'Si el número ya está en la app de WhatsApp Business, necesitás migrarlo a la API. Es un proceso de verificación que puede tardar unos días. No podés tener la app y la API activas en el mismo número al mismo tiempo.',
+          },
+          {
+            question: '¿Funciona en todos los países de Latinoamérica?',
+            answer:
+              'Sí. La API de WhatsApp Business funciona en Argentina, México, Colombia, Chile, España y todos los países donde WhatsApp está disponible. Los costos por conversación varían según el país.',
+          },
+        ],
+      },
+      { type: 'subtitle', value: '¿Querés implementar un chatbot de WhatsApp para tu empresa?' },
+      {
+        type: 'text',
+        value:
+          'En Alora implementamos chatbots de WhatsApp con IA para empresas que quieren automatizar su atención sin perder el trato cercano. Diseñamos el flujo completo, entrenamos al bot con la información de tu negocio y lo conectamos a tus sistemas.\n\nAgendá una llamada gratuita de 20 minutos para evaluar si un chatbot de WhatsApp tiene sentido para tu empresa.',
+      },
+    ],
+  },
+  {
+    slug: 'cuanto-cuesta-chatbot-ia',
+    translationSlug: 'how-much-does-an-ai-chatbot-cost',
+    title:
+      '¿Cuánto cuesta un chatbot con IA? Precios reales, qué incluye y cómo comparar opciones en 2026',
+    description:
+      'Análisis honesto de los precios reales de los chatbots con IA en 2026: modelos SaaS, desarrollo a medida, costos ocultos y cómo calcular el ROI antes de invertir.',
+    date: '2026-05-20',
+    cover:
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80',
+    content: [
+      { type: 'subtitle', value: 'Por qué los precios de chatbots varían tanto' },
+      {
+        type: 'text',
+        value:
+          'Buscás "precio chatbot con IA" y encontrás desde "$0/mes" hasta proyectos de $10.000 USD. La diferencia parece absurda hasta que entendés que "chatbot" es un término que hoy cubre productos radicalmente distintos.\n\nUn bot de respuestas simples con menú de opciones fijas no es lo mismo que un agente de IA entrenado con el conocimiento real de la empresa, integrado al CRM y capaz de mantener conversaciones naturales.\n\nEl precio no refleja solo la tecnología: refleja la profundidad de la implementación, la calidad del entrenamiento y el nivel de integración con los sistemas existentes.',
+      },
+      { type: 'subtitle', value: 'Los 3 modelos de negocio que vas a encontrar' },
+      {
+        type: 'text',
+        value:
+          '- Chatbot SaaS: plataforma lista para usar, con plantillas y configuración básica. Pagás una suscripción mensual. Bajo costo inicial, pero personalización limitada.\n\n- Chatbot a medida: un proveedor diseña, entrena e integra el chatbot específicamente para tu empresa. Mayor inversión inicial, pero resultado ajustado a tu operación real.\n\n- Solución híbrida: una plataforma base con capa de personalización y servicio de implementación. Balance entre costo y adaptación.',
+      },
+      { type: 'subtitle', value: '¿Cuánto cuesta un chatbot SaaS?' },
+      {
+        type: 'text',
+        value:
+          'Los rangos reales del mercado en 2026:\n\n- Planes básicos: desde USD 30 a USD 150/mes. Incluyen flujos simples, respuestas predefinidas, y poco o ningún entrenamiento con IA real.\n\n- Planes medios: USD 200 a USD 600/mes. Incluyen integraciones básicas (CRM, calendario), soporte a lenguaje natural con modelos de IA y métricas de conversación.\n\n- Planes enterprise: desde USD 800/mes en adelante. Incluyen multicanal, múltiples agentes, reportes avanzados y soporte prioritario.\n\nEsto no incluye los costos de la API de WhatsApp (si aplica) ni el tiempo de configuración inicial.',
+      },
+      { type: 'subtitle', value: '¿Cuánto cuesta un chatbot a medida?' },
+      {
+        type: 'text',
+        value:
+          'Las implementaciones personalizadas generalmente tienen:\n\n- Inversión inicial de desarrollo: entre USD 1.500 y USD 8.000 dependiendo de la complejidad, integraciones y volumen de entrenamiento.\n\n- Mantenimiento mensual: entre USD 100 y USD 500/mes para actualización de conocimiento, ajustes de flujo y monitoreo.\n\nLo que diferencia una implementación de USD 2.000 de una de USD 7.000 no es el chatbot en sí, sino la calidad del entrenamiento, la cantidad de integraciones y el nivel de soporte incluido.',
+      },
+      { type: 'subtitle', value: 'Los costos que nadie te dice por adelantado' },
+      {
+        type: 'emphasis',
+        value:
+          'Costos adicionales que debés contemplar: mensajes de la API de WhatsApp Business (Meta cobra por conversación), créditos de tokens de la IA (GPT-4, Claude, Gemini), hosting si el sistema es self-hosted, y tiempo interno de tu equipo para proporcionar la información inicial de entrenamiento.',
+        emphasisType: 'warning',
+      },
+      { type: 'subtitle', value: 'Cómo calcular el ROI antes de invertir' },
+      {
+        type: 'text',
+        value:
+          'El cálculo más simple y honesto:\n\nEjemplo: tu empresa pierde 8 leads por semana fuera del horario de atención. Cada lead convertido vale $150 en promedio. Un chatbot captura el 50% de esos leads.\n\n- Leads recuperados por mes: 8 × 4 × 50% = 16 leads/mes\n- Valor mensual recuperado: 16 × $150 = $2.400/mes\n- Costo del chatbot: $300/mes\n- ROI mensual: 8x.\n\nEste cálculo varía según el rubro y el ticket promedio. Pero el ejercicio es siempre el mismo: cuantificá lo que perdés hoy por no responder rápido.',
+      },
+      {
+        type: 'highlight',
+        value:
+          'El costo de no tener un chatbot también tiene precio: cada lead que no recibe respuesta en menos de 5 minutos tiene 21 veces menos probabilidades de convertirse que uno atendido al instante (MIT Lead Response Management Study).',
+      },
+      { type: 'subtitle', value: 'Qué preguntar antes de contratar' },
+      {
+        type: 'list',
+        items: [
+          '¿Usa la API oficial de WhatsApp Business o una solución informal?',
+          '¿El chatbot está entrenado con información de mi negocio o es genérico?',
+          '¿Qué pasa cuando el bot no sabe responder? ¿Hay derivación humana?',
+          '¿Los datos de mis clientes son de mi propiedad o del proveedor?',
+          '¿El contrato incluye mantenimiento y actualizaciones o es un costo extra?',
+          '¿Qué métricas me van a reportar mensualmente?',
+          '¿Puedo cancelar sin penalización si el resultado no es el esperado?',
+        ],
+      },
+      {
+        type: 'faq',
+        items: [
+          {
+            question: '¿Es caro implementar un chatbot con IA?',
+            answer:
+              'Depende del punto de comparación. En comparación con contratar un agente de atención 24/7, casi siempre es más económico. La clave es evaluar el ROI: si el chatbot recupera más valor del que cuesta, la inversión es positiva.',
+          },
+          {
+            question: '¿Los chatbots gratuitos sirven para empresas?',
+            answer:
+              'Para validar una idea, pueden servir. Para operación real, generalmente no: tienen límites de mensajes, poca personalización y suelen usar soluciones no oficiales de WhatsApp que exponen la cuenta a suspensión.',
+          },
+          {
+            question: '¿Cuánto cuesta la API de WhatsApp Business?',
+            answer:
+              'Meta cobra por conversación cada ventana de 24 horas. Las conversaciones de servicio (el cliente escribe primero) son gratuitas o de muy bajo costo en la mayoría de los países de LATAM. Las de marketing (la empresa inicia) tienen costo variable según el país, generalmente entre USD 0.01 y USD 0.06 por conversación.',
+          },
+          {
+            question: '¿Cuánto tiempo tarda en pagarse solo?',
+            answer:
+              'Empresas con alto volumen de consultas o tickets de venta medios/altos suelen recuperar la inversión en 1 a 3 meses. Negocios con bajo volumen pueden tardar 4 a 6 meses.',
+          },
+        ],
+      },
+      { type: 'subtitle', value: '¿Querés un presupuesto real para tu empresa?' },
+      {
+        type: 'text',
+        value:
+          'En Alora hacemos diagnósticos gratuitos antes de cotizar. Analizamos el volumen de consultas, los canales actuales y la operación para darte un número honesto — no un rango de marketing.\n\nAgendá una llamada de 20 minutos y te decimos concretamente qué podemos hacer, qué resultados podés esperar y cuánto cuesta.',
+      },
+    ],
+  },
+  {
+    slug: 'automatizacion-ia-pymes-casos',
+    translationSlug: 'ai-automation-for-small-businesses',
+    title: 'Automatización con IA para PyMEs: 8 casos de uso reales con impacto medible',
+    description:
+      'Casos de uso concretos de automatización con inteligencia artificial para pequeñas y medianas empresas: qué procesos automatizar primero, qué herramientas usar y qué resultados esperar sin ser técnico.',
+    date: '2026-05-22',
+    cover:
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80',
+    content: [
+      { type: 'subtitle', value: 'El problema que frena a las PyMEs para crecer' },
+      {
+        type: 'text',
+        value:
+          'La mayoría de las PyMEs no tienen un problema de demanda. Tienen un problema de capacidad de respuesta.\n\nCuando llega más trabajo, contratan más gente. Cuando baja, recortan. El crecimiento queda atado a la nómina.\n\nLa automatización con IA rompe esa ecuación: permite hacer más sin crecer proporcionalmente en costos. No reemplaza personas — las libera de tareas repetitivas para que se enfoquen en lo que realmente requiere criterio humano.',
+      },
+      { type: 'subtitle', value: '¿Qué se puede automatizar con IA hoy (sin ser técnico)?' },
+      {
+        type: 'text',
+        value:
+          'En 2026, automatizar un proceso ya no requiere programadores. Herramientas como Make.com, n8n y Zapier permiten conectar aplicaciones y construir flujos automáticos con interfaz visual.\n\nLo que sí necesitás:\n- Saber cuál es el proceso que más tiempo consume.\n- Tener claro qué información entra, qué sale y qué decisión se toma.\n- Dedicar 2-3 semanas a configurar, probar y ajustar.\n\nLo que no necesitás: un equipo de IT, saber código ni presupuesto enterprise.',
+      },
+      { type: 'subtitle', value: '8 casos de automatización con resultados medibles' },
+      {
+        type: 'text',
+        value:
+          '1. Calificación automática de leads\nCuando un formulario de contacto se completa, una IA evalúa el mensaje, clasifica al lead (interesado, urgente, no calificado) y lo asigna al comercial correcto. Resultado típico: reducción del 40% en el tiempo de respuesta comercial.\n\n2. Seguimiento automático de presupuestos\nTras enviar una cotización, un flujo automático envía recordatorios por WhatsApp o email en los días 2, 5 y 10. Resultado típico: aumento del 25% en la tasa de cierre por seguimiento oportuno.\n\n3. Respuesta automática a consultas frecuentes\nUn agente de IA entrenado con el conocimiento del negocio responde preguntas de precios, disponibilidad y proceso de compra 24/7. Resultado típico: 60-70% de consultas resueltas sin intervención humana.\n\n4. Confirmación y recordatorio de turnos\nEl sistema agenda automáticamente, envía confirmación inmediata y recuerda la cita 24 horas antes por WhatsApp. Resultado típico: reducción del 30-40% en ausentismo.\n\n5. Extracción de datos de documentos\nFacturas, contratos o presupuestos de proveedores se procesan automáticamente: la IA extrae los datos clave y los carga en el sistema de gestión. Resultado típico: ahorro de 5-10 horas semanales en carga manual.\n\n6. Gestión asistida de redes sociales\nEl sistema monitorea menciones, clasifica comentarios y genera borradores de respuesta para que un humano solo apruebe. Resultado típico: reducción del 50% en el tiempo dedicado a redes.\n\n7. Informes y reportes automáticos\nCada lunes a las 8 AM llega un resumen automático con métricas clave del negocio extraídas de CRM, ventas y atención. Resultado típico: decisiones basadas en datos sin horas de preparación manual.\n\n8. Onboarding automático de nuevos clientes\nCuando un cliente firma o compra, el sistema activa una secuencia automática: bienvenida, documentación necesaria, primer contacto de seguimiento. Resultado típico: experiencia consistente sin depender de que alguien lo recuerde.',
+      },
+      { type: 'subtitle', value: 'Las herramientas que más se usan en PyMEs' },
+      {
+        type: 'text',
+        value:
+          '- Make.com (antes Integromat): la más completa para integraciones complejas y flujos con ramificaciones. Curva de aprendizaje media. Muy usada en Latinoamérica.\n\n- n8n: open-source, se puede instalar en servidor propio. Más control y privacidad. Requiere algo más de conocimiento técnico.\n\n- Zapier: la más simple de las tres. Perfecta para flujos lineales entre aplicaciones conocidas. Más cara a largo plazo.\n\nLas tres se conectan con WhatsApp Business API, Gmail, Google Sheets, HubSpot, Salesforce, Notion, Slack y cientos de otras aplicaciones.',
+      },
+      { type: 'subtitle', value: 'El error más común: automatizar sin documentar primero' },
+      {
+        type: 'emphasis',
+        value:
+          'Antes de automatizar un proceso, documentalo. Si no podés describir exactamente qué decisión se toma en cada paso, ninguna herramienta de IA podrá replicarlo. La IA ejecuta bien — pero necesita instrucciones claras.',
+        emphasisType: 'warning',
+      },
+      {
+        type: 'text',
+        value:
+          'El proceso correcto:\n1. Elegir el proceso más repetitivo y costoso en tiempo.\n2. Documentar el flujo actual: qué entra, qué sale, qué decisiones se toman.\n3. Identificar qué parte requiere criterio humano y qué parte es siempre igual.\n4. Automatizar la parte predecible primero.\n5. Medir resultados durante 30 días.\n6. Expandir a otros procesos.',
+      },
+      {
+        type: 'faq',
+        items: [
+          {
+            question: '¿La automatización con IA reemplaza empleados?',
+            answer:
+              'En la mayoría de los casos en PyMEs, no reemplaza — redistribuye. Los empleados dejan de hacer tareas repetitivas y pueden enfocarse en trabajo de mayor valor: ventas, creatividad, atención personalizada de clientes clave.',
+          },
+          {
+            question: '¿Cuánto tiempo tarda en implementarse una automatización?',
+            answer:
+              'Una automatización básica (seguimiento de leads, respuesta automática) puede configurarse en 1-2 semanas. Un sistema completo con múltiples flujos y entrenamiento de IA lleva 4 a 8 semanas.',
+          },
+          {
+            question: '¿Necesito saber programar?',
+            answer:
+              'No. Herramientas como Make.com y Zapier son visuales y no requieren código. Sin embargo, para implementaciones más complejas o integraciones no estándar, contar con un especialista acelera el proceso y evita errores costosos.',
+          },
+          {
+            question: '¿Qué pasa si un flujo automático falla?',
+            answer:
+              'Siempre hay que tener monitoreo y alertas configuradas. Los flujos bien diseñados incluyen manejo de errores: si algo falla, el sistema notifica al responsable en lugar de perder la información silenciosamente.',
+          },
+        ],
+      },
+      {
+        type: 'subtitle',
+        value: '¿Querés saber qué procesos de tu negocio podés automatizar primero?',
+      },
+      {
+        type: 'text',
+        value:
+          'En Alora hacemos el diagnóstico inicial sin costo. Revisamos tu operación, identificamos los procesos con mayor potencial de automatización y te mostramos exactamente qué se puede hacer, con qué herramientas y en cuánto tiempo.\n\nAgendá una llamada gratuita de 20 minutos.',
+      },
+    ],
+  },
+  {
+    slug: 'chatbot-clinicas-turnos-whatsapp',
+    translationSlug: 'chatbot-for-clinics-whatsapp',
+    title:
+      'Chatbot para clínicas y consultorios: cómo recuperar turnos perdidos con WhatsApp',
+    description:
+      'Cómo implementar un chatbot de WhatsApp para automatizar la gestión de turnos en clínicas, consultorios y centros de estética: reducir ausentismo, recuperar citas perdidas y atender pacientes fuera del horario.',
+    date: '2026-05-25',
+    cover:
+      'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1600&q=80',
+    content: [
+      {
+        type: 'subtitle',
+        value: 'El problema silencioso de las clínicas: los turnos que se pierden fuera del horario',
+      },
+      {
+        type: 'text',
+        value:
+          'Todos los días, clínicas y consultorios pierden pacientes por la misma razón: alguien quiere pedir un turno a las 10 de la noche, no hay nadie para atenderlo, y al día siguiente ya llama a otra clínica.\n\nNo es falta de demanda. Es falta de disponibilidad en el momento en que el paciente decide actuar.\n\nLas clínicas que implementaron chatbots de WhatsApp para gestión de turnos reportan sistemáticamente el mismo resultado: entre 8 y 12 turnos adicionales por semana que antes se perdían fuera del horario de atención.',
+      },
+      {
+        type: 'subtitle',
+        value: 'Por qué WhatsApp es el canal correcto para turnos médicos y estéticos',
+      },
+      {
+        type: 'text',
+        value:
+          'En Latinoamérica, WhatsApp no es solo una app de mensajería — es el medio de comunicación principal. El 95% de los mensajes de WhatsApp se leen en los primeros minutos.\n\nEn el sector salud y estética, los pacientes ya esperan poder:\n- Pedir o confirmar turno por WhatsApp.\n- Recibir recordatorio por WhatsApp antes de la cita.\n- Cancelar o reprogramar sin tener que llamar.\n\nCuando la clínica no ofrece esto, muchos pacientes eligen un competidor que sí lo tiene.',
+      },
+      { type: 'subtitle', value: '¿Qué puede hacer un chatbot para clínicas?' },
+      {
+        type: 'list',
+        items: [
+          'Recibir solicitudes de turno 24/7 y confirmarlos automáticamente',
+          'Mostrar disponibilidad en tiempo real según el profesional y la prestación',
+          'Enviar recordatorio automático 24 horas antes (reduce ausentismo hasta un 35%)',
+          'Gestionar cancelaciones y reprogramaciones sin intervención del equipo',
+          'Responder preguntas frecuentes: precios, coberturas, preparación para estudios',
+          'Derivar a un humano cuando la consulta requiere criterio clínico',
+          'Recolectar datos del paciente antes de la consulta (nombre, obra social, motivo)',
+        ],
+      },
+      {
+        type: 'subtitle',
+        value: 'Caso real: LIDIA y las clínicas que recuperan 8-10 turnos por semana',
+      },
+      {
+        type: 'text',
+        value:
+          'LIDIA es el sistema de gestión de turnos por WhatsApp desarrollado por Alora, pensado específicamente para clínicas de salud y estética.\n\nActualmente, más de 20 clínicas en Argentina lo usan de forma activa. Los resultados documentados son consistentes:\n\n- Recuperación de 8 a 10 turnos semanales que antes se perdían fuera del horario.\n- Reducción del ausentismo entre un 25% y un 35% gracias a los recordatorios automáticos.\n- Liberación de 2 a 3 horas diarias del personal de recepción que antes atendía consultas repetitivas por teléfono.',
+      },
+      {
+        type: 'highlight',
+        value:
+          'Una clínica de estética con 80 turnos semanales implementó LIDIA y en el primer mes recuperó 38 turnos adicionales. Con un ticket promedio de $8.000, el retorno en el primer mes superó los $300.000.',
+      },
+      {
+        type: 'subtitle',
+        value: 'La diferencia entre un chatbot genérico y uno diseñado para salud',
+      },
+      {
+        type: 'text',
+        value:
+          'Los chatbots genéricos funcionan para muchos rubros. En salud hay diferencias importantes que determinan si el sistema suma o resta:\n\n- Tono: los pacientes no son "clientes" y el lenguaje tiene que reflejarlo.\n- Privacidad: los datos de salud requieren tratamiento cuidadoso.\n- Emergencias: el sistema debe reconocer cuándo derivar urgente a un humano o informar una línea de emergencia.\n- Horarios complejos: diferentes profesionales, especialidades, duración de turnos variable.\n- Cancelaciones: el manejo en salud requiere listas de espera y reprogramación activa.',
+      },
+      { type: 'subtitle', value: 'Cómo implementar un chatbot de turnos en tu clínica' },
+      {
+        type: 'text',
+        value:
+          '1. Mapear los flujos actuales de turnos: cómo llegan los pedidos (teléfono, Instagram, WhatsApp manual), quién los atiende, cuánto tiempo tarda.\n\n2. Definir qué prestaciones y profesionales se incluyen en el sistema automático.\n\n3. Conectar con el sistema de agenda existente o implementar una hoja de disponibilidad estructurada.\n\n4. Configurar los mensajes de confirmación, recordatorio y cancelación.\n\n5. Probar durante 2 semanas con un subgrupo de turnos antes del despliegue completo.\n\n6. Capacitar al equipo de recepción en cómo convivir con el sistema: qué maneja el bot, qué maneja el humano.',
+      },
+      {
+        type: 'faq',
+        items: [
+          {
+            question: '¿El chatbot puede manejar turnos con múltiples profesionales?',
+            answer:
+              'Sí. Los sistemas bien implementados manejan agendas independientes por profesional, especialidad y tipo de consulta, y muestran disponibilidad en tiempo real para cada uno.',
+          },
+          {
+            question: '¿Qué pasa si un paciente quiere hablar con una persona?',
+            answer:
+              'El chatbot siempre debe ofrecer la opción de derivar a un humano. Cuando el paciente lo solicita o cuando la consulta supera el alcance del bot, el sistema notifica al equipo y la conversación pasa a atención humana.',
+          },
+          {
+            question: '¿Es compatible con nuestra agenda actual?',
+            answer:
+              'Depende del sistema de agenda que usen. Muchos chatbots para clínicas se integran con Google Calendar, Calendly u otros sistemas. Si usan una agenda propia o específica del sector salud, hay que evaluar la integración caso a caso.',
+          },
+          {
+            question: '¿Puede el chatbot recordar datos del paciente entre consultas?',
+            answer:
+              'Sí, si el sistema tiene memoria persistente. Los chatbots con historial integrado pueden recordar nombre, obra social y turnos previos, haciendo la interacción más personalizada.',
+          },
+          {
+            question: '¿Qué pasa con los turnos que necesitan autorización de obra social?',
+            answer:
+              'Ese paso suele requerir intervención humana. El chatbot puede informar al paciente que necesita autorización y derivar al equipo, pero la verificación con la obra social generalmente no se puede automatizar completamente.',
+          },
+        ],
+      },
+      {
+        type: 'subtitle',
+        value: '¿Querés ver cómo funciona en una clínica como la tuya?',
+      },
+      {
+        type: 'text',
+        value:
+          'Podemos hacer una demo en vivo del sistema con casos reales del sector salud y estética. Agendá una llamada gratuita de 20 minutos y te mostramos exactamente cómo funcionaría en tu clínica.',
+      },
+    ],
+  },
+  {
+    slug: 'agente-ia-atencion-cliente',
+    translationSlug: 'ai-agent-customer-service',
+    title:
+      'Agente de IA para atención al cliente: qué es, cómo funciona y cuándo conviene implementarlo',
+    description:
+      'Diferencia entre chatbot tradicional y agente de IA para atención al cliente, qué puede y no puede hacer, métricas reales de empresas que lo implementaron y cómo entrenarlo con la información de tu negocio.',
+    date: '2026-05-27',
+    cover:
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80',
+    content: [
+      { type: 'subtitle', value: '¿Qué es un agente de IA para atención al cliente?' },
+      {
+        type: 'text',
+        value:
+          'Un agente de IA para atención al cliente es un sistema de inteligencia artificial entrenado con la información real de un negocio que puede atender consultas, resolver problemas y tomar decisiones simples de forma autónoma, sin intervención humana.\n\nA diferencia de un chatbot de árbol de decisiones —que sigue flujos fijos—, un agente de IA entiende lenguaje natural, puede responder preguntas que no estaban pre-programadas y razona para ofrecer la respuesta más adecuada según el contexto.\n\nLa diferencia práctica: un chatbot clásico no sabe qué responder si la pregunta no coincide exactamente con los flujos programados. Un agente de IA puede entender "quiero saber si tienen algo para el problema que tuve la semana pasada" aunque nunca se haya programado esa pregunta exacta.',
+      },
+      { type: 'subtitle', value: 'Chatbot tradicional vs. agente de IA: las diferencias reales' },
+      {
+        type: 'comparison',
+        headers: ['Capacidad', 'Chatbot tradicional', 'Agente de IA'],
+        rows: [
+          { label: 'Comprensión del lenguaje', landing: 'Palabras clave exactas', website: 'Lenguaje natural complejo' },
+          {
+            label: 'Respuestas posibles',
+            landing: 'Solo las pre-programadas',
+            website: 'Cualquier pregunta dentro del dominio',
+          },
+          { label: 'Memoria de conversación', landing: 'Sin contexto', website: 'Mantiene contexto del hilo' },
+          {
+            label: 'Manejo de ambigüedad',
+            landing: 'Deriva a humano o falla',
+            website: 'Solicita aclaración y continúa',
+          },
+          { label: 'Actualización', landing: 'Reprogramación manual', website: 'Actualización de base de conocimiento' },
+          { label: 'Costo de implementación', landing: 'Bajo', website: 'Medio-alto' },
+          {
+            label: 'Ideal para',
+            landing: 'FAQs simples y procesos lineales',
+            website: 'Atención real y consultas complejas',
+          },
+        ],
+      },
+      { type: 'subtitle', value: '¿Qué puede hacer un agente de IA? (y qué no)' },
+      {
+        type: 'text',
+        value:
+          'Lo que sí puede hacer:\n- Responder consultas de productos, precios, políticas y proceso de compra.\n- Clasificar el problema del cliente y derivar al departamento correcto.\n- Gestionar cambios de datos simples (dirección de envío, preferencia de contacto).\n- Recopilar información para agilizar la atención humana posterior.\n- Resolver el 60-80% de las consultas frecuentes sin escalar.\n- Operar en paralelo en múltiples conversaciones sin costo adicional.',
+      },
+      {
+        type: 'text',
+        value:
+          'Lo que no puede hacer (todavía):\n- Tomar decisiones que requieren empatía profunda o criterio humano complejo.\n- Resolver conflictos emocionales con clientes muy molestos (aunque puede contenerlos y derivar).\n- Acceder a sistemas internos sin la integración correcta (CRM, ERP).\n- Garantizar precisión total con información poco documentada.\n- Reemplazar completamente a los agentes humanos en casos de alta complejidad.',
+      },
+      { type: 'subtitle', value: 'Los canales donde funciona un agente de IA' },
+      {
+        type: 'list',
+        items: [
+          'WhatsApp Business API (el más efectivo en Latinoamérica por penetración)',
+          'Chat del sitio web (widget embebido)',
+          'Instagram Direct y Facebook Messenger',
+          'Email (clasificación y respuesta automática)',
+          'Slack o Teams (para atención a clientes internos)',
+        ],
+      },
+      { type: 'subtitle', value: 'Métricas reales de empresas con agentes de IA activos' },
+      {
+        type: 'highlight',
+        value:
+          'Datos de implementaciones reales: tasa de resolución sin escalar al humano: 65-75%. Tiempo promedio de primera respuesta: de 4 horas a 2 minutos. Satisfacción del cliente (CSAT): sin cambio negativo en el 80% de los casos cuando el agente está bien entrenado.',
+      },
+      {
+        type: 'text',
+        value:
+          'El factor que más impacta en el resultado no es el modelo de IA elegido, sino la calidad del entrenamiento. Un agente entrenado con documentación genérica responde genéricamente. Un agente entrenado con los procesos, políticas, catálogo y tono real del negocio responde como si fuera parte del equipo.',
+      },
+      {
+        type: 'subtitle',
+        value: 'Cómo se entrena un agente de IA con la información de tu negocio',
+      },
+      {
+        type: 'text',
+        value:
+          'El proceso de entrenamiento tiene tres fuentes principales:\n\n1. Base de conocimiento estructurada: preguntas frecuentes, precios, políticas, procesos, catálogo de productos y servicios. Cuanto más completa, mejor el agente.\n\n2. Conversaciones históricas: las consultas reales que recibiste en el pasado son el mejor material de entrenamiento. Permiten que el agente aprenda los patrones de lo que realmente preguntan tus clientes.\n\n3. Instrucciones de personalidad y límites: cómo hablar (formal/informal), qué temas puede responder y cuándo derivar. Esto define si el agente se siente como parte de la marca o como un bot genérico.',
+      },
+      {
+        type: 'subtitle',
+        value: '¿Cuándo conviene implementar un agente de IA y cuándo no?',
+      },
+      {
+        type: 'text',
+        value:
+          'Conviene cuando:\n- Recibís más de 50 consultas repetitivas por semana.\n- El tiempo de respuesta actual supera los 30 minutos.\n- El equipo dedica más de 2 horas diarias a responder preguntas básicas.\n- Querés atender fuera del horario laboral sin contratar personal nocturno.\n\nNo conviene (todavía) cuando:\n- El negocio es muy pequeño y las consultas son pocas y muy personalizadas.\n- No hay documentación básica del negocio (sin documentar, no hay nada para entrenar).\n- El proceso de venta requiere una relación humana muy estrecha desde el primer contacto.',
+      },
+      {
+        type: 'faq',
+        items: [
+          {
+            question: '¿Los clientes saben que están hablando con una IA?',
+            answer:
+              'Depende de la política de cada empresa. En la mayoría de los casos, el agente se presenta como el asistente digital de la empresa. Si el cliente pregunta directamente si es un humano o una IA, un sistema bien configurado siempre debe responder honestamente.',
+          },
+          {
+            question: '¿Qué pasa cuando el agente comete un error?',
+            answer:
+              'Los sistemas bien implementados incluyen monitoreo continuo. Cuando se detecta una respuesta incorrecta, se actualiza la base de conocimiento para que no vuelva a ocurrir. Ningún sistema es perfecto al inicio — mejora con el uso.',
+          },
+          {
+            question: '¿El agente de IA puede conectarse con mi CRM?',
+            answer:
+              'Sí, si la integración está configurada. Conectar el agente a un CRM permite personalizar las respuestas con información del cliente (historial de compras, estado del pedido, datos de cuenta), lo que mejora mucho la experiencia.',
+          },
+          {
+            question: '¿Cuánto tiempo tarda en estar operativo?',
+            answer:
+              'Una implementación básica puede estar activa en 2-3 semanas. Una implementación completa con integraciones a CRM y múltiples canales puede llevar 4 a 8 semanas. La diferencia está en el tiempo de recopilación y estructuración del conocimiento del negocio.',
+          },
+        ],
+      },
+      {
+        type: 'subtitle',
+        value: '¿Querés evaluar si un agente de IA tiene sentido para tu empresa?',
+      },
+      {
+        type: 'text',
+        value:
+          'En Alora hacemos una evaluación gratuita antes de cualquier propuesta. Revisamos el volumen de consultas, los canales que usás y qué parte de la atención podría automatizarse sin perder calidad.\n\nAgendá una llamada de 20 minutos y te damos una respuesta honesta.',
+      },
+    ],
+  },
 ];
 
 export default posts;
