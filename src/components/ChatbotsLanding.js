@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from 'react-helmet-async';
@@ -85,7 +85,7 @@ const ChatbotsLanding = () => {
       metaDescription: "Chatbots con IA para responder consultas, agendar citas y captar leads automáticamente. Caso de éxito: LIDIA - gestión de turnos por WhatsApp.",
       heroTitle: "Chatbots que responden, agendan y convierten",
       heroSubtitle: "Automatizá la atención al cliente las 24hs. Tu chatbot responde consultas, agenda citas y captura leads mientras vos te enfocás en lo importante.",
-      ctaPrimary: "Agendar llamada de relevamiento",
+      ctaPrimary: "Hablar con un experto (gratis)",
       ctaSecondary: "Ver casos de éxito",
       problemTitle: "¿Cuántas oportunidades perdés por no responder a tiempo?",
       problemItems: [
@@ -162,15 +162,42 @@ const ChatbotsLanding = () => {
         { icon: "📊", title: "Analytics en tiempo real", desc: "Dashboard con métricas de conversión, engagement y ROI" },
       ],
       finalCtaTitle: "¿Listo para automatizar tu atención al cliente?",
-      finalCtaSubtitle: "Agendá una llamada de relevamiento gratuita y descubrí cómo un chatbot puede transformar tu negocio.",
+      finalCtaSubtitle: "Agendá una llamada gratuita y descubrí cómo un chatbot puede transformar tu negocio.",
       finalCtaButton: "Quiero mi chatbot →",
+      faqTitle: "Preguntas frecuentes sobre chatbots con IA",
+      faqs: [
+        {
+          question: "¿Cuánto cuesta implementar un chatbot con IA?",
+          answer: "El costo varía según la complejidad del sistema, el volumen de consultas y las integraciones necesarias. Trabajamos con planes adaptados a pymes y profesionales. La inversión se recupera típicamente en el primer mes con los turnos o leads que antes se perdían fuera del horario de atención. Podés pedirte una cotización personalizada en la llamada gratuita.",
+        },
+        {
+          question: "¿En cuánto tiempo está activo el chatbot?",
+          answer: "Un sistema de chatbot personalizado puede estar operativo entre 2 y 4 semanas desde el inicio del proyecto, dependiendo de la complejidad del flujo conversacional y las integraciones requeridas (CRM, calendario, WhatsApp Business API, etc.).",
+        },
+        {
+          question: "¿El chatbot funciona con WhatsApp?",
+          answer: "Sí. Utilizamos la WhatsApp Business API oficial de Meta, que permite automatizar conversaciones en el número de WhatsApp de tu empresa. Tus clientes escriben como siempre y el chatbot responde automáticamente, sin que ellos noten diferencia.",
+        },
+        {
+          question: "¿Qué diferencia hay entre un chatbot y un agente de IA?",
+          answer: "Un chatbot clásico sigue flujos de conversación fijos con opciones predefinidas. Un agente de IA usa modelos de lenguaje avanzados (como GPT-4 o Claude) entrenados con la información real de tu negocio, capaz de entender preguntas abiertas y responder con coherencia contextual, como lo haría un empleado que conoce la empresa.",
+        },
+        {
+          question: "¿El chatbot reemplaza a mi equipo de atención?",
+          answer: "No. El chatbot gestiona las consultas repetitivas, responde fuera de horario y filtra los leads. Tu equipo humano se enfoca en conversaciones que realmente requieren intervención: cierres de venta, casos complejos o clientes VIP. La IA organiza el trabajo, no lo reemplaza.",
+        },
+        {
+          question: "¿Puedo controlar qué responde el chatbot?",
+          answer: "Completamente. El sistema se entrena exclusivamente con la información de tu negocio: servicios, precios, procesos, preguntas frecuentes y tono de comunicación. También podés definir cuándo derivar la conversación a una persona real y cómo manejar casos que el bot no puede resolver.",
+        },
+      ],
     },
     en: {
       metaTitle: "AI Chatbots for Customer Support 24/7 | Alora",
       metaDescription: "AI-powered chatbots to answer questions, schedule appointments and capture leads automatically. Success case: LIDIA - appointment management via WhatsApp.",
       heroTitle: "Chatbots that answer, schedule and convert",
       heroSubtitle: "Automate customer support 24/7. Your chatbot answers questions, books appointments and captures leads while you focus on what matters.",
-      ctaPrimary: "Schedule discovery call",
+      ctaPrimary: "Talk to an expert (free)",
       ctaSecondary: "See success stories",
       problemTitle: "How many opportunities do you lose by not responding on time?",
       problemItems: [
@@ -247,20 +274,81 @@ const ChatbotsLanding = () => {
         { icon: "📊", title: "Real-time Analytics", desc: "Dashboard with conversion, engagement and ROI metrics" },
       ],
       finalCtaTitle: "Ready to automate your customer support?",
-      finalCtaSubtitle: "Schedule a free discovery call and find out how a chatbot can transform your business.",
+      finalCtaSubtitle: "Schedule a free call and find out how a chatbot can transform your business.",
       finalCtaButton: "I want my chatbot →",
+      faqTitle: "Frequently asked questions about AI chatbots",
+      faqs: [
+        {
+          question: "How much does it cost to implement an AI chatbot?",
+          answer: "The cost varies depending on the complexity of the system, query volume, and required integrations. We work with plans adapted to SMBs and professionals. The investment is typically recovered in the first month with the appointments or leads that were previously lost outside business hours.",
+        },
+        {
+          question: "How long until the chatbot is live?",
+          answer: "A custom chatbot system can be operational within 2 to 4 weeks from project start, depending on the complexity of the conversational flow and required integrations (CRM, calendar, WhatsApp Business API, etc.).",
+        },
+        {
+          question: "Does the chatbot work with WhatsApp?",
+          answer: "Yes. We use Meta's official WhatsApp Business API, which allows automating conversations on your company's WhatsApp number. Your customers write as usual and the chatbot responds automatically, without them noticing any difference.",
+        },
+        {
+          question: "What's the difference between a chatbot and an AI agent?",
+          answer: "A classic chatbot follows fixed conversation flows with predefined options. An AI agent uses advanced language models (like GPT-4 or Claude) trained with your real business information, capable of understanding open-ended questions and responding with contextual coherence.",
+        },
+        {
+          question: "Does the chatbot replace my customer service team?",
+          answer: "No. The chatbot handles repetitive queries, responds outside business hours, and filters leads. Your human team focuses on conversations that truly require intervention: sales closings, complex cases, or VIP clients. AI organizes the work, it doesn't replace it.",
+        },
+        {
+          question: "Can I control what the chatbot responds?",
+          answer: "Completely. The system is trained exclusively with your business information: services, prices, processes, FAQs, and communication tone. You can also define when to escalate the conversation to a real person and how to handle cases the bot cannot resolve.",
+        },
+      ],
     },
   };
 
   const c = content[locale];
+  const [openFaq, setOpenFaq] = useState(null);
 
   return (
     <>
       <Helmet>
         <title>{c.metaTitle}</title>
         <meta name="description" content={c.metaDescription} />
+        <meta name="keywords" content={locale === 'es' ? 'chatbot IA, chatbot WhatsApp, automatización atención al cliente, chatbot para clínicas, agenda de turnos automática, chatbot Argentina, LIDIA chatbot' : 'AI chatbot, WhatsApp chatbot, customer service automation, clinic chatbot, appointment booking bot, chatbot Argentina'} />
+        <link rel="canonical" href={`https://www.globalalora.com/${locale}/soluciones/chatbots`} />
+        <link rel="alternate" hreflang="es" href="https://www.globalalora.com/es/soluciones/chatbots" />
+        <link rel="alternate" hreflang="en" href="https://www.globalalora.com/en/soluciones/chatbots" />
         <meta property="og:title" content={c.metaTitle} />
         <meta property="og:description" content={c.metaDescription} />
+        <meta property="og:image" content="https://www.globalalora.com/aloralogo.png" />
+        <meta property="og:url" content={`https://www.globalalora.com/${locale}/soluciones/chatbots`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={c.metaTitle} />
+        <meta name="twitter:description" content={c.metaDescription} />
+        <meta name="twitter:image" content="https://www.globalalora.com/aloralogo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": c.faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer,
+            },
+          })),
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": locale === 'es' ? "Chatbots con IA para empresas — Alora" : "AI Chatbots for businesses — Alora",
+          "provider": { "@type": "Organization", "name": "Alora", "url": "https://www.globalalora.com" },
+          "description": c.metaDescription,
+          "serviceType": "AI Chatbot Development",
+          "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
+          "url": `https://www.globalalora.com/${locale}/soluciones/chatbots`,
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -510,6 +598,77 @@ const ChatbotsLanding = () => {
                 <span className="chatbots-tech-icon">{item.icon}</span>
                 <h4>{item.title}</h4>
                 <p>{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="chatbots-related">
+        <div className="chatbots-container">
+          <motion.p
+            className="chatbots-related-label"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            {locale === 'es' ? '¿Buscás algo más amplio?' : 'Looking for something broader?'}
+          </motion.p>
+          <motion.div
+            className="chatbots-related-card"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="chatbots-related-icon" style={{ background: "linear-gradient(135deg, #06b6d4, #14b8a6)" }}>
+              {iconLibrary.bot}
+            </div>
+            <div className="chatbots-related-text">
+              <strong>{locale === 'es' ? 'Atención al cliente con IA' : 'AI Customer Service'}</strong>
+              <span>{locale === 'es' ? 'Sistema completo de atención automatizada: varios canales, clasificación de leads y mejora continua.' : 'Complete automated service system: multiple channels, lead classification and continuous improvement.'}</span>
+            </div>
+            <Link to={`/${locale}/soluciones/atencion-cliente-ia`} className="chatbots-related-link">
+              {locale === 'es' ? 'Ver servicio →' : 'See service →'}
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="chatbots-faq">
+        <div className="chatbots-container">
+          <motion.h2
+            className="chatbots-section-title"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            {c.faqTitle}
+          </motion.h2>
+          <div className="chatbots-faq-list">
+            {c.faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                className={`chatbots-faq-item ${openFaq === index ? 'chatbots-faq-item--open' : ''}`}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <button
+                  className="chatbots-faq-question"
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  aria-expanded={openFaq === index}
+                >
+                  <span>{faq.question}</span>
+                  <span className="chatbots-faq-icon">{openFaq === index ? '−' : '+'}</span>
+                </button>
+                {openFaq === index && (
+                  <div className="chatbots-faq-answer">
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>

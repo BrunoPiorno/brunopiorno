@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from 'react-helmet-async';
@@ -14,6 +14,24 @@ const AtencionAlClienteConIA = () => {
     document.body.classList.add("atencion-cliente-ia-page");
     return () => document.body.classList.remove("atencion-cliente-ia-page");
   }, []);
+
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const faqs = locale === 'es' ? [
+    { question: "¿Qué incluye el servicio de atención al cliente con IA?", answer: "El servicio incluye: auditoría del proceso actual de atención, diseño de flujos conversacionales personalizados, creación del agente de IA entrenado con la información real de tu empresa, integración con WhatsApp, sitio web, CRM u otras herramientas, y soporte de mejora continua una vez activo el sistema." },
+    { question: "¿Funciona para cualquier tipo de empresa?", answer: "Funciona para empresas que reciben un volumen constante de consultas por WhatsApp, formularios web o redes sociales, y donde la atención impacta directamente en ventas u operaciones. No es recomendable si el volumen de consultas es muy bajo o si no hay procesos internos mínimamente definidos." },
+    { question: "¿Cuánto tiempo lleva implementar el sistema?", answer: "El proceso completo, desde la auditoría hasta el agente activo, lleva entre 2 y 4 semanas dependiendo de la complejidad del negocio y las integraciones necesarias. El tiempo incluye el diseño de flujos, entrenamiento del agente, pruebas y ajustes finales." },
+    { question: "¿Qué pasa cuando el agente de IA no sabe responder?", answer: "El sistema está diseñado para detectar cuándo una consulta supera su capacidad y deriva automáticamente al equipo humano, notificando al responsable con el contexto completo de la conversación. Ninguna consulta importante queda sin atención." },
+    { question: "¿La IA puede atender en varios canales al mismo tiempo?", answer: "Sí. El agente puede integrarse con WhatsApp, el chat del sitio web, formularios y otras herramientas donde recibás consultas. Todas las conversaciones quedan centralizadas, organizadas y disponibles para que el equipo humano las revise cuando sea necesario." },
+    { question: "¿Necesito tener procesos definidos antes de empezar?", answer: "No es necesario tenerlos perfectamente documentados, pero sí necesitás tener claridad básica sobre cómo atendés, qué ofrecés y cómo querés responder a tus clientes. Parte del proceso de implementación incluye ayudarte a estructurar esa información junto a vos." },
+  ] : [
+    { question: "What does the AI customer service include?", answer: "The service includes: audit of the current service process, design of personalized conversational flows, creation of the AI agent trained with your company's real information, integration with WhatsApp, website, CRM or other tools, and continuous improvement support once the system is active." },
+    { question: "Does it work for any type of business?", answer: "It works for companies that receive a constant volume of inquiries through WhatsApp, web forms, or social media, where service directly impacts sales or operations. It's not recommended if the query volume is very low or if there are no minimally defined internal processes." },
+    { question: "How long does it take to implement the system?", answer: "The complete process, from audit to active agent, takes between 2 and 4 weeks depending on business complexity and required integrations. The time includes flow design, agent training, testing, and final adjustments." },
+    { question: "What happens when the AI agent doesn't know how to respond?", answer: "The system is designed to detect when a query exceeds its capacity and automatically escalates to the human team, notifying the responsible person with the full conversation context. No important inquiry goes unattended." },
+    { question: "Can the AI attend to multiple channels simultaneously?", answer: "Yes. The agent can integrate with WhatsApp, website chat, forms, and other tools where you receive inquiries. All conversations are centralized, organized, and available for the human team to review when necessary." },
+    { question: "Do I need defined processes before starting?", answer: "You don't need them perfectly documented, but you do need basic clarity about how you serve customers, what you offer, and how you want to respond. Part of the implementation process includes helping you structure that information together." },
+  ];
 
   const iconPalette = {
     teal: "linear-gradient(135deg, #06b6d4, #14b8a6)",
@@ -281,7 +299,7 @@ const AtencionAlClienteConIA = () => {
     locale === "es"
       ? {
           title:
-            " Automatiza tu atención al cliente con agentes de IA que responden en minutos, no en horas",
+            "Automatiza tu atención al cliente con agentes de IA que responden en minutos, no en horas",
           subtitle:
             "Diseñamos e implementamos sistemas de atención automatizada para responder leads, asistir clientes actuales y organizar conversaciones de forma eficiente, incluso fuera del horario comercial.",
           lead: "La atención al cliente ya no depende únicamente del horario ni del equipo disponible. Creamos agentes de IA que responden, clasifican y gestionan conversaciones de manera coherente con tu negocio.",
@@ -774,25 +792,63 @@ const AtencionAlClienteConIA = () => {
         <title>{t('meta.atencionClienteIATitle')}</title>
         <meta name="description" content={locale === 'es' ? 'Automatizá la atención al cliente con agentes de IA que responden en minutos. Chatbots integrados con WhatsApp, email y calendario. Alora.' : 'Automate customer service with AI agents that respond in minutes. Chatbots integrated with WhatsApp, email and calendar. Alora.'} />
         <meta name="keywords" content={locale === 'es' ? 'atención al cliente IA, chatbot, inteligencia artificial, automatización, WhatsApp bot, Argentina' : 'AI customer service, chatbot, artificial intelligence, automation, WhatsApp bot'} />
-        <link rel="canonical" href={`https://globalalora.com/${locale}/soluciones/atencion-cliente-ia`} />
-        <meta property="og:title" content={locale === 'es' ? 'Alora | Atención al Cliente con IA 24/7' : 'Alora | AI Customer Service 24/7'} />
+        <link rel="canonical" href={`https://www.globalalora.com/${locale}/soluciones/atencion-cliente-ia`} />
+        <link rel="alternate" hreflang="es" href="https://www.globalalora.com/es/soluciones/atencion-cliente-ia" />
+        <link rel="alternate" hreflang="en" href="https://www.globalalora.com/en/soluciones/atencion-cliente-ia" />
+        <meta property="og:title" content={locale === 'es' ? 'Atención al Cliente con IA 24/7 | Alora' : 'AI Customer Service 24/7 | Alora'} />
         <meta property="og:description" content={locale === 'es' ? 'Agentes de IA que atienden, califican leads y agendan reuniones automáticamente.' : 'AI agents that attend, qualify leads and schedule meetings automatically.'} />
-        <meta property="og:image" content="https://globalalora.com/aloralogo.png" />
-        <meta property="og:url" content={`https://globalalora.com/${locale}/soluciones/atencion-cliente-ia`} />
+        <meta property="og:image" content="https://www.globalalora.com/aloralogo.png" />
+        <meta property="og:url" content={`https://www.globalalora.com/${locale}/soluciones/atencion-cliente-ia`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={locale === 'es' ? 'Alora | Atención al Cliente con IA' : 'Alora | AI Customer Service'} />
+        <meta name="twitter:title" content={locale === 'es' ? 'Atención al Cliente con IA | Alora' : 'AI Customer Service | Alora'} />
         <meta name="twitter:description" content={locale === 'es' ? 'Chatbots con IA para atender clientes 24/7 y calificar leads automáticamente.' : 'AI chatbots to serve customers 24/7 and qualify leads automatically.'} />
-        <meta name="twitter:image" content="https://globalalora.com/aloralogo.png" />
+        <meta name="twitter:image" content="https://www.globalalora.com/aloralogo.png" />
         <script type="application/ld+json">{JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Atención al Cliente con IA — Alora",
-  "provider": { "@type": "Organization", "name": "Alora", "url": "https://globalalora.com" },
-  "description": "Agentes de IA que responden en minutos, califican leads y agendan reuniones. Integración con WhatsApp, email y calendario.",
+  "name": locale === 'es' ? "Atención al Cliente con IA — Alora" : "AI Customer Service — Alora",
+  "provider": { "@type": "Organization", "name": "Alora", "url": "https://www.globalalora.com" },
+  "description": locale === 'es' ? "Agentes de IA que responden en minutos, califican leads y agendan reuniones. Integración con WhatsApp, email y calendario." : "AI agents that respond in minutes, qualify leads and schedule meetings. Integration with WhatsApp, email and calendar.",
   "serviceType": "AI Customer Service Automation",
   "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
-  "url": "https://globalalora.com/es/soluciones/atencion-cliente-ia"
+  "url": `https://www.globalalora.com/${locale}/soluciones/atencion-cliente-ia`,
+})}</script>
+        <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": locale === 'es' ? "¿Qué incluye el servicio de atención al cliente con IA?" : "What does the AI customer service include?",
+      "acceptedAnswer": { "@type": "Answer", "text": locale === 'es' ? "El servicio incluye: auditoría del proceso actual de atención, diseño de flujos conversacionales personalizados, creación del agente de IA entrenado con la información real de tu empresa, integración con WhatsApp, sitio web, CRM u otras herramientas, y soporte de mejora continua una vez activo el sistema." : "The service includes: audit of the current service process, design of personalized conversational flows, creation of the AI agent trained with your company's real information, integration with WhatsApp, website, CRM or other tools, and continuous improvement support once the system is active." }
+    },
+    {
+      "@type": "Question",
+      "name": locale === 'es' ? "¿Funciona para cualquier tipo de empresa?" : "Does it work for any type of business?",
+      "acceptedAnswer": { "@type": "Answer", "text": locale === 'es' ? "Funciona para empresas que reciben un volumen constante de consultas por WhatsApp, formularios web o redes sociales, y donde la atención impacta directamente en ventas u operaciones. No es recomendable si el volumen de consultas es muy bajo o si no hay procesos internos mínimamente definidos." : "It works for companies that receive a constant volume of inquiries through WhatsApp, web forms, or social media, where service directly impacts sales or operations. It's not recommended if the query volume is very low or if there are no minimally defined internal processes." }
+    },
+    {
+      "@type": "Question",
+      "name": locale === 'es' ? "¿Cuánto tiempo lleva implementar el sistema?" : "How long does it take to implement the system?",
+      "acceptedAnswer": { "@type": "Answer", "text": locale === 'es' ? "El proceso completo, desde la auditoría hasta el agente activo, lleva entre 2 y 4 semanas dependiendo de la complejidad del negocio y las integraciones necesarias. El tiempo incluye el diseño de flujos, entrenamiento del agente, pruebas y ajustes finales." : "The complete process, from audit to active agent, takes between 2 and 4 weeks depending on business complexity and required integrations. The time includes flow design, agent training, testing, and final adjustments." }
+    },
+    {
+      "@type": "Question",
+      "name": locale === 'es' ? "¿Qué pasa cuando el agente de IA no sabe responder?" : "What happens when the AI agent doesn't know how to respond?",
+      "acceptedAnswer": { "@type": "Answer", "text": locale === 'es' ? "El sistema está diseñado para detectar cuándo una consulta supera su capacidad y deriva automáticamente al equipo humano, notificando al responsable con el contexto completo de la conversación. Ninguna consulta importante queda sin atención." : "The system is designed to detect when a query exceeds its capacity and automatically escalates to the human team, notifying the responsible person with the full conversation context. No important inquiry goes unattended." }
+    },
+    {
+      "@type": "Question",
+      "name": locale === 'es' ? "¿La IA puede atender en varios canales al mismo tiempo?" : "Can the AI attend to multiple channels simultaneously?",
+      "acceptedAnswer": { "@type": "Answer", "text": locale === 'es' ? "Sí. El agente puede integrarse con WhatsApp, el chat del sitio web, formularios y otras herramientas donde recibas consultas. Todas las conversaciones quedan centralizadas, organizadas y disponibles para que el equipo humano las revise cuando sea necesario." : "Yes. The agent can integrate with WhatsApp, website chat, forms, and other tools where you receive inquiries. All conversations are centralized, organized, and available for the human team to review when necessary." }
+    },
+    {
+      "@type": "Question",
+      "name": locale === 'es' ? "¿Necesito tener procesos definidos antes de empezar?" : "Do I need defined processes before starting?",
+      "acceptedAnswer": { "@type": "Answer", "text": locale === 'es' ? "No es necesario tenerlos perfectamente documentados, pero sí necesitás tener claridad básica sobre cómo atendés, qué ofrecés y cómo querés responder a tus clientes. Parte del proceso de implementación incluye ayudarte a estructurar esa información junto a vos." : "You don't need them perfectly documented, but you do need basic clarity about how you serve customers, what you offer, and how you want to respond. Part of the implementation process includes helping you structure that information together." }
+    },
+  ],
 })}</script>
       </Helmet>
       <section className="atencion-cliente-ia-hero">
@@ -1057,13 +1113,13 @@ const AtencionAlClienteConIA = () => {
         <div className="related-services-container">
           <h2>{locale === 'es' ? 'Servicios que se complementan' : 'Services that complement each other'}</h2>
           <div className="related-services-grid">
+            <Link to={`/${locale}/soluciones/chatbots`} className="related-service-card">
+              <i className="fas fa-robot"></i>
+              <span>{locale === 'es' ? 'Chatbots para WhatsApp' : 'WhatsApp Chatbots'}</span>
+            </Link>
             <Link to={`/${locale}/soluciones/landing-pages`} className="related-service-card">
               <i className="fas fa-bullseye"></i>
               <span>Landing Pages</span>
-            </Link>
-            <Link to={`/${locale}/soluciones/ecommerce`} className="related-service-card">
-              <i className="fas fa-shopping-cart"></i>
-              <span>Ecommerce</span>
             </Link>
             <Link to={`/${locale}/soluciones/google-ads`} className="related-service-card">
               <i className="fab fa-google"></i>
@@ -1071,6 +1127,41 @@ const AtencionAlClienteConIA = () => {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="atencion-ia-faq-section">
+        <motion.div
+          className="section-content"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>{locale === 'es' ? 'Preguntas frecuentes sobre atención al cliente con IA' : 'Frequently asked questions about AI customer service'}</h2>
+          <div className="atencion-ia-faq-list">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className={`atencion-ia-faq-item ${openFaq === index ? 'atencion-ia-faq-item--open' : ''}`}
+              >
+                <button
+                  className="atencion-ia-faq-question"
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  aria-expanded={openFaq === index}
+                >
+                  <span>{faq.question}</span>
+                  <span className="atencion-ia-faq-icon">{openFaq === index ? '−' : '+'}</span>
+                </button>
+                {openFaq === index && (
+                  <div className="atencion-ia-faq-answer">
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       <section className="final-cta-section">
@@ -1104,7 +1195,15 @@ const AtencionAlClienteConIA = () => {
               </motion.a>
             </div>
           </div>
-          <div className="cta-image"></div>
+          <div className="cta-image">
+            <img
+              src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&q=80"
+              alt="Equipo trabajando con inteligencia artificial en atención al cliente"
+              loading="lazy"
+              width="600"
+              height="400"
+            />
+          </div>
         </div>
       </section>
     </div>
