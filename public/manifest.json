@@ -1,12 +1,18 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Alora",
+  "name": "Alora | Desarrollo Web y Soluciones Digitales",
+  "description": "Agencia de desarrollo web, chatbots con IA y automatización para empresas de Latinoamérica y España.",
   "icons": [
     {
-      "src": "favicon.svg",
-      "sizes": "16x16 32x32 48x48",
-      "type": "image/svg+xml"
-    },    
+      "src": "favicon-16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
     {
       "src": "logo192.png",
       "type": "image/png",
@@ -15,11 +21,13 @@
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/es",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0d0d0d",
+  "background_color": "#0d0d0d",
+  "lang": "es"
 }
