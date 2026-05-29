@@ -1206,6 +1206,7 @@ const AtencionAlClienteConIA = () => {
           </div>
         </div>
       </section>
+      <Chatbot />
     </div>
   );
 };
