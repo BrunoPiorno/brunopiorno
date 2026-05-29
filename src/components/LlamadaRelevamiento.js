@@ -21,22 +21,27 @@ const LlamadaRelevamientoContent = ({ forcedLocale, standalone = false }) => {
   const currentLocale = forcedLocale || detectLocaleFromPath();
 
   useEffect(() => {
-    // Agregar clase al body para esta página
     document.body.classList.add('llamada-relevamiento-page');
-    
-    // Cargar el script de Tidycal
-    const script = document.createElement('script');
-    script.src = 'https://asset-tidycal.b-cdn.net/js/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-    
+
+    // Limpiar cualquier instancia previa de TidyCal para forzar reinicialización
+    const existingScript = document.querySelector('script[src="https://asset-tidycal.b-cdn.net/js/embed.js"]');
+    if (existingScript) existingScript.remove();
+    if (window.TidyCal) delete window.TidyCal;
+
+    // Pequeño delay para garantizar que el div .tidycal-embed ya está en el DOM
+    const timer = setTimeout(() => {
+      const script = document.createElement('script');
+      script.src = 'https://asset-tidycal.b-cdn.net/js/embed.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }, 50);
+
     return () => {
+      clearTimeout(timer);
       document.body.classList.remove('llamada-relevamiento-page');
-      // Limpiar el script si es necesario
-      const existingScript = document.querySelector('script[src="https://asset-tidycal.b-cdn.net/js/embed.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
+      const scriptToRemove = document.querySelector('script[src="https://asset-tidycal.b-cdn.net/js/embed.js"]');
+      if (scriptToRemove) scriptToRemove.remove();
+      if (window.TidyCal) delete window.TidyCal;
     };
   }, []);
 
