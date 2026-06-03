@@ -491,6 +491,7 @@ const Chatbot = () => {
           telefono: updatedUserData.phone,
           mensaje: conversationHistory,
           formId: 'chatbot',
+          fuente: 'chatbot',
         }),
       }).then(r => {
         if (!r.ok) console.error('[Lead] CRM submit error:', r.status);
