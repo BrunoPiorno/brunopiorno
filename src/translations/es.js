@@ -228,6 +228,8 @@ export const es = {
   'projects.dialogar.desc': 'Landing page profesional desarrollada con WordPress para servicios de asesoría contable y financiera. Diseño optimizado para generar confianza y conversiones, con formulario de contacto integrado, sección de servicios detallados y testimonios de clientes. Estructura SEO-friendly con enfoque en la generación de leads y posicionamiento local.',
   'projects.castroYeso.title': 'Castro Yeso',
   'projects.castroYeso.desc': 'Landing page 100% personalizada desarrollada con WordPress sin uso de plantillas preexistentes. Diseño a medida para empresa de yesería y construcción en seco, con galería de trabajos realizados, sección de servicios, formulario de contacto directo y llamadas a la acción estratégicas. Estructura optimizada para SEO local y conversión de visitas en consultas.',
+  'projects.alkemia.title': 'ALKEMIA',
+  'projects.alkemia.desc': 'Diseño y desarrollo de la nueva plataforma digital de ALKEMIA para acompañar su evolución de marca y consolidar su posicionamiento en tecnología, automatización e inteligencia artificial. El proyecto incluyó estrategia digital, UX/UI, copywriting, desarrollo multilenguaje y una experiencia orientada a comunicar capacidades complejas de forma clara, moderna y escalable.',
 
   // Testimonials
   'testimonials.title': 'Lo que dicen nuestros clientes',

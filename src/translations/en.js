@@ -300,6 +300,8 @@ export const en = {
   'projects.dialogar.desc': 'Professional landing page developed with WordPress for accounting and financial advisory services. Conversion-optimized design focused on building trust, with integrated contact form, detailed services section, and client testimonials. SEO-friendly structure with emphasis on lead generation and local positioning.',
   'projects.castroYeso.title': 'Castro Yeso',
   'projects.castroYeso.desc': '100% custom WordPress landing page built without pre-made templates. Tailored design for a plastering and drywall services company, featuring a completed works gallery, services breakdown, direct contact form, and strategic calls to action. Optimized for local SEO and converting visitors into inquiries.',
+  'projects.alkemia.title': 'ALKEMIA',
+  'projects.alkemia.desc': 'Design and development of ALKEMIA\'s new digital platform to accompany their brand evolution and consolidate their positioning in technology, automation, and artificial intelligence. The project included digital strategy, UX/UI, copywriting, multilingual development, and an experience designed to communicate complex capabilities in a clear, modern, and scalable way.',
 
   // Latest news section in home
   'latestPosts': {
