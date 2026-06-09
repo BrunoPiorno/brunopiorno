@@ -35,6 +35,7 @@ import gretaImage from '../images/greta.webp';
 import talleresImage from '../images/talleres.webp';
 import superadminImage from '../images/superadmin.png';
 import castrologo from '../images/castrologo.png';
+import alkemiaImage from '../images/alkemia.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -336,14 +337,6 @@ const HomePage = () => {
       category: 'sistema-web'
     },
     {
-      title: t('projects.fpnn.title'),
-      description: t('projects.fpnn.desc'),
-      image: fpnnLogo,
-      url: 'http://fpnn.org.ar/',
-      contribution: 'contribution.full',
-      category: 'web-informativa'
-    },
-    {
       title: t('projects.yumkax.title'),
       description: t('projects.yumkax.desc'),
       image: require('../images/yumkax.png'),
@@ -401,14 +394,6 @@ const HomePage = () => {
       category: 'woocommerce'
     },
     {
-      title: t('projects.terralauquen.title'),
-      description: t('projects.terralauquen.desc'),
-      image: require('../images/grupoterralauquen.com.ar_.png'),
-      url: 'https://grupoterralauquen.com.ar',
-      contribution: 'contribution.full',
-      category: 'web-informativa'
-    },  
-    {
       title: t('projects.josejose.title'),
       description: t('projects.josejose.desc'),
       image: require('../images/josejose.png'),
@@ -449,14 +434,6 @@ const HomePage = () => {
       category: 'woocommerce'
     },
     {
-      title: t('projects.cichic.title'),
-      description: t('projects.cichic.desc'),
-      image: require('../images/chichicImage.png'),
-      url: 'https://chichicwinerelax.com/',
-      contribution: 'contribution.full',
-      category: 'web-informativa'
-    },
-    {
       title: t('projects.fapcdms.title'),
       description: t('projects.fapcdms.desc'),
       image: require('../images/fapcdms-logo.png'),
@@ -489,10 +466,42 @@ const HomePage = () => {
       category: 'sistema-web'
     },
     {
+      title: t('projects.alkemia.title'),
+      description: t('projects.alkemia.desc'),
+      image: alkemiaImage,
+      url: 'https://goalkemia.com',
+      contribution: 'contribution.full',
+      category: 'web-informativa'
+    },
+    {
       title: t('projects.soylidia.title'),
       description: t('projects.soylidia.desc'),
       image: require('../images/soylidia.png'),
       url: 'https://soylidia.com',
+      contribution: 'contribution.full',
+      category: 'web-informativa'
+    },
+    {
+      title: t('projects.fpnn.title'),
+      description: t('projects.fpnn.desc'),
+      image: fpnnLogo,
+      url: 'http://fpnn.org.ar/',
+      contribution: 'contribution.full',
+      category: 'web-informativa'
+    },
+    {
+      title: t('projects.terralauquen.title'),
+      description: t('projects.terralauquen.desc'),
+      image: require('../images/grupoterralauquen.com.ar_.png'),
+      url: 'https://grupoterralauquen.com.ar',
+      contribution: 'contribution.full',
+      category: 'web-informativa'
+    },
+    {
+      title: t('projects.cichic.title'),
+      description: t('projects.cichic.desc'),
+      image: require('../images/chichicImage.png'),
+      url: 'https://chichicwinerelax.com/',
       contribution: 'contribution.full',
       category: 'web-informativa'
     }

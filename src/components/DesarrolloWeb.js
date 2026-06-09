@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 import Chatbot from './Chatbot';
+import alkemiaImage from '../images/alkemia.png';
 import fpnnImage from '../images/fpnn.png';
 import terraLauquenImage from '../images/grupoterralauquen.com.ar_.png';
 import cichicImage from '../images/chichicImage.png';
@@ -23,6 +24,14 @@ const DesarrolloWeb = () => {
   }, []);
 
   const projects = [
+    {
+      title: 'ALKEMIA',
+      description: locale === 'es'
+        ? 'Diseño y desarrollo de la nueva plataforma digital de ALKEMIA para acompañar su evolución de marca y consolidar su posicionamiento en tecnología, automatización e inteligencia artificial. El proyecto incluyó estrategia digital, UX/UI, copywriting, desarrollo multilenguaje y una experiencia orientada a comunicar capacidades complejas de forma clara, moderna y escalable.'
+        : 'Design and development of ALKEMIA\'s new digital platform to accompany their brand evolution and consolidate their positioning in technology, automation, and artificial intelligence. Included digital strategy, UX/UI, copywriting, multilingual development, and an experience designed to communicate complex capabilities clearly.',
+      image: alkemiaImage,
+      url: 'https://goalkemia.com'
+    },
     {
       title: 'Fundación Por Nuestros Niños',
       description: locale === 'es'
