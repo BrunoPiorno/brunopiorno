@@ -46,9 +46,12 @@ const staticRoutes = [
   { path: '/blog', priority: '0.8', changefreq: 'weekly' },
   { path: '/es/blog', priority: '0.8', changefreq: 'weekly' },
   { path: '/en/blog', priority: '0.7', changefreq: 'weekly' },
-  { path: '/privacy-policy', priority: '0.3', changefreq: 'yearly' },
-  { path: '/legal-notice', priority: '0.3', changefreq: 'yearly' },
-  { path: '/cookies-policy', priority: '0.3', changefreq: 'yearly' },
+  { path: '/es/privacy-policy', priority: '0.3', changefreq: 'yearly' },
+  { path: '/en/privacy-policy', priority: '0.3', changefreq: 'yearly' },
+  { path: '/es/legal-notice', priority: '0.3', changefreq: 'yearly' },
+  { path: '/en/legal-notice', priority: '0.3', changefreq: 'yearly' },
+  { path: '/es/cookies-policy', priority: '0.3', changefreq: 'yearly' },
+  { path: '/en/cookies-policy', priority: '0.3', changefreq: 'yearly' },
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
