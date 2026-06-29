@@ -331,6 +331,18 @@ const MatenimientoWeb = () => {
         <meta property="og:title" content={locale === 'es' ? 'Mantenimiento Web Profesional | Alora' : 'Professional Website Maintenance | Alora'} />
         <meta property="og:description" content={locale === 'es' ? 'Mantenimiento web integral con actualizaciones, seguridad, monitoreo y soporte continuo.' : 'Comprehensive web maintenance with updates, security, monitoring and continuous support.'} />
         <link rel="canonical" href={`https://globalalora.com${locale === 'es' ? '/es' : '/en'}/soluciones/mantenimiento-web`} />
+        <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": locale === 'es' ? "Mantenimiento Web Profesional — Alora" : "Professional Website Maintenance — Alora",
+  "provider": { "@type": "Organization", "name": "Alora", "url": "https://globalalora.com" },
+  "description": locale === 'es'
+    ? "Plan de mantenimiento web integral: actualizaciones de seguridad, copias de seguridad, monitoreo 24/7 y soporte técnico continuo para que tu sitio nunca falle."
+    : "Comprehensive web maintenance plan: security updates, backups, 24/7 monitoring and continuous technical support so your site never fails.",
+  "serviceType": "Website Maintenance",
+  "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
+  "url": `https://globalalora.com${locale === 'es' ? '/es' : '/en'}/soluciones/mantenimiento-web`
+})}</script>
       </Helmet>
       {/* Hero Section */}
       <section className="hero-section" id="hero">

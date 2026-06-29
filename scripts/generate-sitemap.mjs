@@ -27,6 +27,8 @@ const staticRoutes = [
   { path: '/en/soluciones/aplicaciones-web', priority: '0.8', changefreq: 'monthly' },
   { path: '/es/soluciones/ecommerce', priority: '0.9', changefreq: 'monthly' },
   { path: '/en/soluciones/ecommerce', priority: '0.8', changefreq: 'monthly' },
+  { path: '/es/soluciones/chatbots', priority: '0.9', changefreq: 'monthly' },
+  { path: '/en/soluciones/chatbots', priority: '0.8', changefreq: 'monthly' },
   { path: '/es/soluciones/mantenimiento-web', priority: '0.8', changefreq: 'monthly' },
   { path: '/en/soluciones/mantenimiento-web', priority: '0.7', changefreq: 'monthly' },
   { path: '/es/soluciones/google-ads', priority: '0.9', changefreq: 'monthly' },

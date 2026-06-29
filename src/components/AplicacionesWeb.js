@@ -756,6 +756,18 @@ const AplicacionesWeb = () => {
         <meta property="og:title" content={locale === 'es' ? 'Aplicaciones Web a Medida | Alora' : 'Custom Web Applications | Alora'} />
         <meta property="og:description" content={locale === 'es' ? 'Desarrollamos aplicaciones web personalizadas para automatizar procesos y escalar operaciones.' : 'We develop custom web applications to automate processes and scale operations.'} />
         <link rel="canonical" href={`https://globalalora.com${locale === 'es' ? '/es' : '/en'}/soluciones/aplicaciones-web`} />
+        <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": locale === 'es' ? "Aplicaciones Web a Medida — Alora" : "Custom Web Applications — Alora",
+  "provider": { "@type": "Organization", "name": "Alora", "url": "https://globalalora.com" },
+  "description": locale === 'es'
+    ? "Desarrollamos aplicaciones web personalizadas para automatizar procesos, integrar APIs y dar soporte a equipos internos o clientes. Sistemas escalables hechos a medida."
+    : "We develop custom web applications to automate processes, integrate APIs and support internal teams or clients. Scalable systems built to measure.",
+  "serviceType": "Web Application Development",
+  "areaServed": ["Argentina", "España", "México", "Chile", "Colombia"],
+  "url": `https://globalalora.com${locale === 'es' ? '/es' : '/en'}/soluciones/aplicaciones-web`
+})}</script>
       </Helmet>
       {/* Hero Section - Igual que otras páginas */}
       <section className="hero-section">

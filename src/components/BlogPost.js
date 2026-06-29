@@ -415,6 +415,19 @@ const BlogPost = () => {
       <meta property="linkedin:image" content={post.cover} />
       <meta property="article:published_time" content={post.date} />
       <meta property="article:author" content="Alora" />
+      <script type="application/ld+json">{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.title,
+  "description": post.description,
+  "image": post.cover,
+  "datePublished": post.date,
+  "author": { "@type": "Organization", "name": "Alora", "url": "https://globalalora.com" },
+  "publisher": { "@type": "Organization", "name": "Alora", "url": "https://globalalora.com" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": fullPostUrl },
+  "url": fullPostUrl,
+  "inLanguage": locale === 'en' ? 'en-US' : 'es-AR'
+})}</script>
     </Helmet>
     <ContactSection />
     <Chatbot />
