@@ -28,27 +28,21 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && node ./scripts/generate-static-pages.js && node ./scripts/generate-sitemap.mjs",
-    "build:local": "react-scripts build && node ./scripts/generate-static-pages.js",
+    "build": "react-scripts build && node ./scripts/prerender.js && node ./scripts/generate-sitemap.mjs",
+    "build:local": "react-scripts build && node ./scripts/prerender.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "sitemap": "node ./scripts/generate-sitemap.mjs"
   },
   "reactSnap": {
-    "inlineCss": true,
+    "inlineCss": false,
     "skipThirdPartyRequests": false,
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
     ],
-    "include": [
-      "/",
-      "/blog",
-      "/en",
-      "/en/blog"
-    ],
     "crawl": false,
-    "externalRoutes": "src/crawlableRoutes.js",
+    "waitFor": 1000,
     "source": "build",
     "destination": "build",
     "minifyHtml": {

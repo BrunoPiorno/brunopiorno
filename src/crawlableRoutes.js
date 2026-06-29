@@ -1,23 +1,42 @@
-// Este archivo exporta las rutas que react-snap debe prerenderizar
-import posts from './data/blogPosts';
-import posts_en from './data/blogPosts_en';
+// Rutas que react-snap debe prerenderizar como HTML estático.
+// Usa require/module.exports (CommonJS): react-snap carga este archivo
+// directamente con Node, sin pasar por el bundler/babel de CRA.
+const posts = require('./data/blogPosts');
+const posts_en = require('./data/blogPosts_en');
 
-// Generar todas las rutas que deben ser prerenderizadas
-const routes = [
+const staticRoutes = [
   '/',
-  '/blog',
+  '/es',
   '/en',
-  '/en/blog'
+  '/es/soluciones',
+  '/en/soluciones',
+  '/es/soluciones/desarrollo-web',
+  '/en/soluciones/desarrollo-web',
+  '/es/soluciones/landing-pages',
+  '/en/soluciones/landing-pages',
+  '/es/soluciones/aplicaciones-web',
+  '/en/soluciones/aplicaciones-web',
+  '/es/soluciones/ecommerce',
+  '/en/soluciones/ecommerce',
+  '/es/soluciones/chatbots',
+  '/en/soluciones/chatbots',
+  '/es/soluciones/mantenimiento-web',
+  '/en/soluciones/mantenimiento-web',
+  '/es/soluciones/google-ads',
+  '/en/soluciones/google-ads',
+  '/es/soluciones/atencion-cliente-ia',
+  '/en/soluciones/atencion-cliente-ia',
+  '/es/blog',
+  '/en/blog',
+  '/es/privacy-policy',
+  '/en/privacy-policy',
+  '/es/legal-notice',
+  '/en/legal-notice',
+  '/es/cookies-policy',
+  '/en/cookies-policy',
 ];
 
-// Añadir rutas para cada post en español
-posts.forEach(post => {
-  routes.push(`/blog/${post.slug}`);
-});
+const postRoutes = posts.map((post) => `/es/blog/${post.slug}`);
+const postRoutesEn = posts_en.map((post) => `/en/blog/${post.slug}`);
 
-// Añadir rutas para cada post en inglés
-posts_en.forEach(post => {
-  routes.push(`/en/blog/${post.slug}`);
-});
-
-module.exports = routes;
+module.exports = [...staticRoutes, ...postRoutes, ...postRoutesEn];
