@@ -39,11 +39,12 @@ async function launchBrowser() {
     });
   }
 
-  const chromium = require('@sparticuz/chromium');
+  // @sparticuz/chromium ships ESM-only (no "require" export condition), so
+  // it must be loaded with a dynamic import even from this CommonJS script.
+  const { default: chromium } = await import('@sparticuz/chromium');
   return puppeteer.launch({
     executablePath: await chromium.executablePath(),
     args: chromium.args,
-    headless: chromium.headless,
   });
 }
 
