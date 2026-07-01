@@ -111,8 +111,9 @@ const ReviewsPage = () => {
         },
         'CwpWaIXVC5Pdb4Kae'
       );
-    } catch {
-      setStatus({ type: 'error', message: t('reviews.form.error') });
+    } catch (err) {
+      const detail = err?.text || err?.message || JSON.stringify(err);
+      setStatus({ type: 'error', message: `Error: ${detail}` });
       return;
     }
 
