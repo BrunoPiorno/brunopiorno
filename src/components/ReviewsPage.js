@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
@@ -94,13 +95,20 @@ const ReviewsPage = () => {
     setStatus({ type: 'loading', message: '' });
 
     try {
-      const res = await fetch('/api/submit-review', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) throw new Error('server error');
+      await emailjs.send(
+        'service_6r3ee9k',
+        'template_resenas',
+        {
+          from_name: formData.name.trim(),
+          from_email: formData.email.trim() || '(no indicado)',
+          empresa: formData.company.trim() || '(no indicada)',
+          cargo: formData.role.trim() || '(no indicado)',
+          tipo_proyecto: formData.projectType,
+          calificacion: `${formData.rating}/5`,
+          message: formData.message.trim(),
+        },
+        'CwpWaIXVC5Pdb4Kae'
+      );
     } catch {
       setStatus({ type: 'error', message: t('reviews.form.error') });
       return;
