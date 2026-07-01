@@ -100,7 +100,9 @@ const ReviewsPage = () => {
         'template_resenas',
         {
           from_name: formData.name.trim(),
-          from_email: formData.email.trim() || '(no indicado)',
+          name: formData.name.trim(),
+          from_email: formData.email.trim(),
+          email: formData.email.trim(),
           empresa: formData.company.trim() || '(no indicada)',
           cargo: formData.role.trim() || '(no indicado)',
           tipo_proyecto: formData.projectType,
