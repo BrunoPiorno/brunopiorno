@@ -84,9 +84,24 @@ const ReviewsPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!formData.name.trim() || !formData.message.trim()) {
+      setStatus({ type: 'error', message: t('reviews.form.error') });
+      return;
+    }
+
+    setStatus({ type: 'loading', message: '' });
+
+    try {
+      const res = await fetch('/api/submit-review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error('server error');
+    } catch {
       setStatus({ type: 'error', message: t('reviews.form.error') });
       return;
     }
@@ -285,7 +300,7 @@ const ReviewsPage = () => {
             <label className="rating-field">
               {t('reviews.form.ratingLabel')}
               <div className="rating-options">
-                {[5, 4, 3, 2, 1].map((value) => (
+                {[1, 2, 3, 4, 5].map((value) => (
                   <button
                     type="button"
                     key={value}
@@ -297,8 +312,8 @@ const ReviewsPage = () => {
                 ))}
               </div>
             </label>
-            <button type="submit" className="primary-btn">
-              {t('reviews.form.submit')}
+            <button type="submit" className="primary-btn" disabled={status.type === 'loading'}>
+              {status.type === 'loading' ? t('reviews.form.sending') || 'Enviando…' : t('reviews.form.submit')}
             </button>
             {status.type === 'success' && (
               <p className="status-message success">{status.message}</p>

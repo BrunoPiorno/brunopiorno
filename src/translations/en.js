@@ -252,6 +252,7 @@ export const en = {
   'reviews.form.message': 'Your review',
   'reviews.form.ratingLabel': 'Overall rating',
   'reviews.form.submit': 'Submit review',
+  'reviews.form.sending': 'Sending…',
   'reviews.form.success': 'Thanks! We received your review and will publish it shortly.',
   'reviews.form.error': 'We could not save the review. Please try again in a moment.',
   'reviews.list.title': 'Featured reviews',

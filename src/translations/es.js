@@ -281,6 +281,7 @@ export const es = {
   'reviews.form.message': 'Tu reseña',
   'reviews.form.ratingLabel': 'Calificación general',
   'reviews.form.submit': 'Enviar reseña',
+  'reviews.form.sending': 'Enviando…',
   'reviews.form.success': '¡Gracias! Recibimos tu reseña y la revisaremos a la brevedad.',
   'reviews.form.error': 'No pudimos guardar la reseña. Probá de nuevo en unos minutos.',
   'reviews.list.title': 'Reseñas destacadas',
